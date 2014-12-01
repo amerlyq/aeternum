@@ -1,0 +1,2 @@
+all:
+	gcc -g -o func.bin func.c
