@@ -2,10 +2,10 @@ O       := ./build
 DAT     := ./data
 MOD_DIR := ./src
 
-NM      := laby
+NM      := prog
 BIN     := $(O)/$(NM).bin
-MODS    := . laby lessons screen
-SRC_DIR := $(addprefix $(MOD_DIR)/,$(MODS))
+MODS    := . prog lessons screen
+SRC_DIR := $(subst /.,,$(addprefix $(MOD_DIR)/,$(MODS)))
 INC_DIR := $(SRC_DIR)
 INCS    := $(addprefix -I,$(INC_DIR))
 SRC     := $(foreach sdir,$(SRC_DIR),$(wildcard $(sdir)/*.cpp))

@@ -1,10 +1,10 @@
 O   := ./build
 DAT := ./data
 
-NM      := laby
+NM      := prog
 BIN     := $(O)/$(NM).bin
 MOD_DIR := src
-MODS    := . laby lessons screen
+MODS    := . prog lessons screen
 SRC_DIR := $(addprefix $(MOD_DIR)/,$(MODS))
 INC_DIR := $(SRC_DIR)
 INCS    := $(addprefix -I,$(INC_DIR))
