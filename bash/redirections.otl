@@ -1,0 +1,28 @@
+Redirections
+	Connect to socket
+	http://hacktux.com/bash/socket
+		exec 3<>/dev/tcp/localhost/22
+
+	Open-close streams
+		http://www.tldp.org/LDP/abs/html/io-redirection.html
+
+http://wiki.bash-hackers.org/howto/redirection_tutorial
+http://www.catonmat.net/blog/bash-one-liners-explained-part-three/
+| FILENAME           | references a normal, ordinary filename from the filesystem (which can of course be a FIFO, too. Simply everything you can reference in the filesystem)
+| &N                 | references the current target/source of the filedescriptor N ("duplicates" the filedescriptor)
+| &-                 | closes the redirected filedescriptor, useful instead of > /dev/null constructs (> &-)
+| /dev/fd/N          | duplicates the filedescriptor N, if N is a valid integer
+| /dev/stdin         | duplicates filedescriptor 0 (stdin)
+| /dev/stdout        | duplicates filedescriptor 1 (stdout)
+| /dev/stderr        | duplicates filedescriptor 2 (stderr)
+| /dev/tcp/HOST/PORT | assuming HOST is a valid hostname or IP address, and PORT is a valid port number or service name: redirect from/to the corresponding TCP socket
+| /dev/udp/HOST/PORT | assuming HOST is a valid hostname or IP address, and PORT is a valid port number or service name: redirect from/to the corresponding UDP socket
+| $(tty)
+
+{ echo err 1>&2; echo nrm; } 3>&1 1>&2 2>&3 3>&- | cat NO
+
+Access a website through bash
+$ exec 3<>/dev/tcp/www.google.com/80
+$ echo -e "GET / HTTP/1.1\n\n" >&3
+$ cat <&3
+

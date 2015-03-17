@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for line in $(Linux-Or-Unix-Command-Here); do echo $line; done
+for i in 1 2 3 4 5; do echo $i; done
+for i in {1..5}; do echo $i; done     #3.0+
+for i in {0..10..2}; do echo $i; done #4.0+
+for i in "${arrayName[@]}"; do echo $i; done
+

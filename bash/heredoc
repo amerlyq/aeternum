@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# '-' -- last EOT can be indented with hardtabs
+# first 'EOT' in single quotes -- then bash don't expands vars inside heredoc
+
+# As concrete file
+echo "text" | gawk -f <(cat - <<-'EOT'
+    BEGIN{ }
+    { print $0 }
+EOT
+) | grep "ex"
+
+# As stdin input
+sed '/cho/!d' << EOT | grep "ex"
+choosen table exec
+another entry
+EOT
