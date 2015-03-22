@@ -1,0 +1,20 @@
+#!/bin/bash
+
+i3status --config ~/.i3/i3status.conf | while :
+do read line
+    c_track="#FF00FF"
+    TXT="[{
+            \"full_text\": \"$track\",
+            \"color\":\"$c_track\"
+        },
+        {
+            \"full_text\": \"$LG\",
+            \"color\":\"$dat\"
+        },
+        {
+            \"full_text\": \"$mem\",
+            \"color\":\"$c_mem\"
+        },
+        "
+    echo "${line/[/$TXT}" || exit 1
+done
