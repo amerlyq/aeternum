@@ -11,3 +11,5 @@ Tracing bash substitution on/off
 	set -x
 	set +x
 
+printf format
+	http://wiki.bash-hackers.org/commands/builtin/printf
