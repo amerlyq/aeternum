@@ -1,5 +1,5 @@
 Cool man. Very cool
-	http://habrahabr.ru/post/221273/
+	> http://habrahabr.ru/post/221273/
 	http://www.tuxradar.com/content/command-line-tricks-smart-geeks
 
 Often mistakes. @Must read!
@@ -7,9 +7,17 @@ Often mistakes. @Must read!
 	II  http://habrahabr.ru/post/47915/
 	III http://habrahabr.ru/post/48053/
 
+Bash and cli commands list
+	> http://ss64.com/bash/
+
 Tracing bash substitution on/off
 	set -x
 	set +x
 
+Snippets (with description)
+	http://sed.sourceforge.net/grabbag/scripts/#sdeb
+
 printf format
 	http://wiki.bash-hackers.org/commands/builtin/printf
+
+

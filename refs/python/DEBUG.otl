@@ -1,0 +1,19 @@
+General debug / profile
+	https://docs.python.org/2/library/debug.html
+
+vim as IDE
+	http://www.sontek.net/blog/2011/05/07/turning_vim_into_a_modern_python_ide.html
+	http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
+
+Utils
+	> Overview
+		https://zschoche.org/debugging-in-vim/
+	pdb
+		http://habrahabr.ru/post/104086/
+		http://keflavich.github.io/blog/my-python-ipython-vim-debugging-workflow.html
+	Vdebug
+		http://blog.joncairns.com/2012/08/vdebug-a-dbgp-debugger-client-for-vim-supporting-php-python-perl-and-ruby/
+		https://github.com/joonty/vdebug
+	Pyclewn
+		http://pyclewn.sourceforge.net/install.html
+
