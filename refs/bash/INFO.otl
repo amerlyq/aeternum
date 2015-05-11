@@ -14,6 +14,12 @@ Tracing bash substitution on/off
 	set -x
 	set +x
 
+Debug trick -- line by line execution
+	set -x
+	set -o nounset
+	trap read debug
+
+
 Snippets (with description)
 	http://sed.sourceforge.net/grabbag/scripts/#sdeb
 

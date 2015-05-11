@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Where bash is your shell/hashbang, consistently use hash (for commands) or
+# type (to consider built-ins & keywords).
+# When writing a POSIX script, use command -v.
+
+## DON'T ever use it!!! It can exit successfully even if not found.
+# which foo
+
+## Most safest, as it's exit code well defined by POSIX
+command -v foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+
+## Code not defined, but often works as supposed
+type foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+
+## Bad variant, as it can successfully exit if file not found
+hash foo 2>/dev/null || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+OLDIFS="$IFS"
+IFS=$'\n'
+fls=($(find . -name "*.sh" | sort))
+IFS="$OLDIFS"
+
+echo "${#fls[@]}"

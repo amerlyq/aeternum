@@ -1,6 +1,12 @@
 Style / rules
 	https://www.python.org/dev/peps/pep-0008/
 
+> Internals
+	http://asvetlov.blogspot.com/2013/04/pythons-innards.html
+	http://tech.blog.aknin.name/category/my-projects/pythons-innards/
+	http://eli.thegreenplace.net/category/programming/python/python-internals/
+	http://www.youtube.com/watch?v=XGF3Qu4dUqk
+
 General
 	lists
 		http://effbot.org/zone/python-list.htm
@@ -8,6 +14,7 @@ General
 		http://en.wikibooks.org/wiki/Python_Programming/Functions
 	exception
 		http://doughellmann.com/2009/06/19/python-exception-handling-techniques.html
+		> http://asvetlov.blogspot.com/2012/12/exceptions.html
 	with
 		http://effbot.org/zone/python-with-statement.htm
 		http://preshing.com/20110920/the-python-with-statement-by-example/
