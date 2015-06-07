@@ -10,6 +10,10 @@ Style / rules
 General
 	lists
 		http://effbot.org/zone/python-list.htm
+	dict
+		[_] https://github.com/mewwts/addict
+			: Cool dict, create whole structure by itself:
+			:		body.query.filtered.filter.term.created_by = 'Mats'
 	functions
 		http://en.wikibooks.org/wiki/Python_Programming/Functions
 	exception
