@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# SEE: (+++Cool) http://www.artificialworlds.net/blog/2012/10/17/bash-associative-array-examples/
+
 OLDIFS="$IFS"
 IFS=$'\n'
 fls=($(find . -name "*.sh" | sort))
