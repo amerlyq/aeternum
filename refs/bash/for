@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# http://www.cyberciti.biz/faq/bash-for-loop/
+
 for line in $(Linux-Or-Unix-Command-Here); do echo $line; done
 for i in 1 2 3 4 5; do echo $i; done
 for i in {1..5}; do echo $i; done     #3.0+
