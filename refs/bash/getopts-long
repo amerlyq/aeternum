@@ -1,0 +1,47 @@
+#!/bin/bash
+# vim:ts=2:sw=2:sts=2
+
+die() { printf "Err: '"${0##*/}"' %s${1+\n}" "$1"; return 1; }
+args() {
+  local OPTIND=1
+  while getopts 'avf:k-' opt $*; do case "$opt"
+  in v) VERBOSE=1
+  ;; k) KEEP=1
+  ;; f) FILE="$OPTARG"
+  ;; -) eval 'opt=${'$((OPTIND>2? --OPTIND :OPTIND))'#--}'
+    OPTARG="${opt#*=}"; case "${opt%%=*}"
+    in file) FILE="$OPTARG"
+    ;; verbose) VERBOSE=1
+    ;; *) die "invalid long option '--$opt'"
+    esac; OPTIND=1; shift
+  ;; "?") die
+  ;; :) die "needs value for '-$opt'"
+  ;; *) die "has mismatched option '-$opt'"
+  esac; done; shift $((OPTIND-1));
+}
+
+do_keep() { (($KEEP)) && return || echo 'Delete all'; }
+
+check() {
+  unset VERBOSE KEEP FILE
+  printf "Test: %s\n" "$*"
+  args $@ || return
+  do_keep
+  printf "$( (($VERBOSE))&&echo v) $( (($KEEP))&&echo k) => %s\n\n" "$FILE"
+}
+
+check -a
+check -v -k
+check -v
+check -k
+check -vk
+check -f F
+check -vf F
+check -vkf F
+
+check --file=F
+check -k --file=A
+check --file=A -v
+check --keep --file=A
+check --verbose --file=A
+check --file=A --verbose -k
