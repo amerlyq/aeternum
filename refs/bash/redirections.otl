@@ -26,3 +26,12 @@ $ exec 3<>/dev/tcp/www.google.com/80
 $ echo -e "GET / HTTP/1.1\n\n" >&3
 $ cat <&3
 
+Capture both &1 and &2
+	Two different vars
+		. <({ berr=$({ bout=$(banana); } 2>&1; declare -p bout >&2); declare -p berr; } 2>&1)
+	With exit code
+		. <({ berr=$({ bout=$(banana); bret=$?; } 2>&1; declare -p bout bret >&2); declare -p berr; } 2>&1)
+		eval "$({ berr=$({ bout=$(banana); bret=$?; } 2>&1; declare -p bout bret >&2); declare -p berr; } 2>&1)"
+	For arrays
+		. <({ berr=$({ mapfile -t bout < <(banana); } 2>&1; declare -p bout >&2); declare -p berr; } 2>&1)
+		. <({ berr=$({ mapfile -t bout< <(banana; bret=$?; declare -p bret >&3); } 3>&2 2>&1; declare -p bout >&2); declare -p berr; } 2>&1)

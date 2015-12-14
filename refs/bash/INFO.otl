@@ -1,7 +1,8 @@
 Cool man. Very cool
+	>>>> http://www.tldp.org/LDP/abs/html/abs-guide.html
+	>> http://www.iitk.ac.in/LDP/LDP/abs/html/abs-guide.html#ONLINE
 	> http://habrahabr.ru/post/221273/
 	> http://www.davidpashley.com/articles/writing-robust-shell-scripts/
-	>> http://www.iitk.ac.in/LDP/LDP/abs/html/abs-guide.html#ONLINE
 	http://www.tuxradar.com/content/command-line-tricks-smart-geeks
 	REF:
 		http://www.gnu.org/software/bash/manual/bashref.html#Bourne-Shell-Builtins
@@ -29,5 +30,3 @@ Snippets (with description)
 
 printf format
 	http://wiki.bash-hackers.org/commands/builtin/printf
-
-
