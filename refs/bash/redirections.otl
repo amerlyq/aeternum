@@ -6,7 +6,7 @@ Redirections
 	Open-close streams
 		http://www.tldp.org/LDP/abs/html/io-redirection.html
 
-http://wiki.bash-hackers.org/howto/redirection_tutorial
+>http://wiki.bash-hackers.org/howto/redirection_tutorial
 http://www.catonmat.net/blog/bash-one-liners-explained-part-three/
 | FILENAME           | references a normal, ordinary filename from the filesystem (which can of course be a FIFO, too. Simply everything you can reference in the filesystem)
 | &N                 | references the current target/source of the filedescriptor N ("duplicates" the filedescriptor)
@@ -35,3 +35,10 @@ Capture both &1 and &2
 	For arrays
 		. <({ berr=$({ mapfile -t bout < <(banana); } 2>&1; declare -p bout >&2); declare -p berr; } 2>&1)
 		. <({ berr=$({ mapfile -t bout< <(banana; bret=$?; declare -p bret >&3); } 3>&2 2>&1; declare -p bout >&2); declare -p berr; } 2>&1)
+
+Background interactive process
+	Execute commands in a shell through a fifo file
+	: http://www.catonmat.net/blog/bash-one-liners-explained-part-three/
+	: OR: http://serverfault.com/questions/188936/writing-to-stdin-of-background-process
+		mkfifo fifo && exec < fifo
+		exec 3> fifo && echo 'cmdline' >&3
