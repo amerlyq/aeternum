@@ -1,0 +1,29 @@
+LocalStorage problems
+  http://superuser.com/questions/629525/how-to-control-websites-use-of-localstorage-in-firefox
+
+! Seems like onresize is called after each onload
+! Don't use window.onbeforeunload = storePos(), it seems to store 0
+
+> Events
+  window.onload
+    On each refresh of page
+  window.onbeforeunload
+    On refresh page by pressing F5, close tab or browser, enter a new url and <Enter>
+
+Seems like onResize is called only after rotating screen!
+  ```js
+  function onResizePost() { loadPos(); }
+  if (this.resizeTimeout) { clearTimeout(this.resizeTimeout); }
+  storePos();
+  this.resizeTimeout = setTimeout(onResizePost, 500);
+  ```
+
+SEE: google: js keep scroll position
+  http://mantascode.com/javascript-how-to-readwrite-html5-local-storage/
+  http://stackoverflow.com/questions/21394157/update-scroll-position-on-resize-of-window#
+  http://stackoverflow.com/questions/21394157/update-scroll-position-on-resize-of-window#
+  http://jsfiddle.net/JamesKyle/RmNap/
+  > https://developer.mozilla.org/en-US/docs/Writing_JavaScript_for_XHTML
+
+Use nearest span ids:
+  http://stackoverflow.com/questions/6444656/html-javascript-fix-scroll-position-after-screen-rotation
