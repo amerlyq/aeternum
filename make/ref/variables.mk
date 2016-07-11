@@ -12,3 +12,7 @@ cmake/%: | $(CACHE)
 
 $(CACHE):
 	mkdir -p $(CACHE)
+
+.SECONDEXPANSION:
+# ALT:(SECONDEXPANSION) use macro + foreach
+#   http://stackoverflow.com/questions/16267379/variables-in-makefile-prerequisites
