@@ -16,3 +16,8 @@ $(CACHE):
 .SECONDEXPANSION:
 # ALT:(SECONDEXPANSION) use macro + foreach
 #   http://stackoverflow.com/questions/16267379/variables-in-makefile-prerequisites
+
+# Extracting path part
+_cache = $(subst /bin/$*,,$@)/cmake
+$(PLTFS:%=$(O)/%/bin/%): $$(_cache)/Makefile
+	$(MAKE) -C $(_cache)
