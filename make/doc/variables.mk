@@ -21,3 +21,7 @@ $(CACHE):
 _cache = $(subst /bin/$*,,$@)/cmake
 $(PLTFS:%=$(O)/%/bin/%): $$(_cache)/Makefile
 	$(MAKE) -C $(_cache)
+
+
+# BAD: whole makefile -- single-thread (prs list not allowed)
+.NOTPARALLEL:
