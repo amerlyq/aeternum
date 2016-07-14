@@ -1,0 +1,24 @@
+Structure
+  conf-mgmt
+    make
+    cmake
+    *sh
+    win
+      ps2
+      bat
+  mark-up
+    ? nou
+    latex
+  primary
+    cpp
+    python
+    perl
+    lisp
+  auxiliary
+    j
+    scheme
+  web
+    js
+    css
+  ? langs
+    other langs
