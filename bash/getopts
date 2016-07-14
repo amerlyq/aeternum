@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# SEE : http://stackoverflow.com/questions/402377/using-getopts-in-bash-shell-script-to-get-long-and-short-command-line-options/7680682#7680682
+# SEE:
+#   http://stackoverflow.com/questions/402377/using-getopts-in-bash-shell-script-to-get-long-and-short-command-line-options/7680682#7680682
+#   http://www.bahmanm.com/blogs/command-line-options-how-to-parse-in-bash-using-getopt
+#   http://wiki.bash-hackers.org/howto/getopts_tutorial
 
 OPTS_SET=($@)
 if [ $# -eq 0 ]; then OPTS_SET="-adiorsv"; fi
@@ -36,4 +39,3 @@ done
 # To work with list of input files at the end
 shift $((OPTIND-1))
 # now do something with $@ -- there will be left other args, which are not options
-
