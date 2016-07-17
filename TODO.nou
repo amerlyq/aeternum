@@ -2,6 +2,11 @@ Structure
   conf-mgmt
     make
     cmake
+      cross
+      cross-win (only 2 pltf)
+      doc
+      libs  # snippets for external libs
+      kernel    (lkm oriented)
     *sh
     win
       ps2
