@@ -1,3 +1,7 @@
+%%% IDEA
+Keeps reusable templates/structs/patterns for projects.
+Quintessence of decisions for the project management.
+
 Structure
   conf-mgmt
     make
@@ -22,6 +26,12 @@ Structure
   auxiliary
     j
     scheme
+  services
+    github
+      API for release
+      gh-pages
+    travis
+    appvoyer
   web
     js
     css

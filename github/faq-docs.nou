@@ -1,0 +1,20 @@
+Structure
+  !!! READ http://www.epmbook.com/documentation.htm
+
+IDEA
+  * separate orphan branch 'doc'
+    = code and doc commits are related by their date only
+    = each one is subject for rebase by itself
+    + import branch directly/as-submodule for gh-pages generation
+  * submodule of branch doc into ./doc
+    = it's better then two copies of the same repo alongside each other
+    ~ docs version is linked to code by submodule tag
+      CHECK if you can 'gco' anywhere w/o auto-reloading ./doc revision
+        # if not possible -- use ALT@1
+        http://stackoverflow.com/questions/1979167/git-submodule-update/1979194#1979194
+        ! http://stackoverflow.com/questions/933723/what-is-component-driven-development/933735#933735
+      FIND ignore {dirty state / another revision} of submodule
+        http://stackoverflow.com/questions/3240881/git-can-i-suppress-listing-of-modified-content-dirty-submodule-entries-in-sta
+        http://stackoverflow.com/questions/14418352/ignore-new-commits-for-git-submodule
+      ALT@1 use .gitignore on ./doc and directly clone there
+        - BUT then cloning can't be automated and I need scripts

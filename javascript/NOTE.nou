@@ -3,3 +3,6 @@ WTF node.js ALSO short review for js frameworks
 
 REF guide / cheatsheet
   https://github.com/airbnb/javascript
+
+Code splitting
+  https://webpack.github.io/docs/code-splitting.html

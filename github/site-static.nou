@@ -1,0 +1,45 @@
+%%%% Infrastructure
+
+%%% Hostings
+% Github Pages
+  https://pages.github.com/
+    https://help.github.com/categories/github-pages-basics/
+
+% Heroku
+  https://www.heroku.com/
+    https://devcenter.heroku.com/articles/static-sites-ruby
+    http://www.lemiffe.com/how-to-deploy-a-static-page-to-heroku-the-easy-way/
+
+
+%%% Static blog generators
+!_ Thanks to HTML5 our static sites can be more dynamic than ever.
+Custom Javascript, Google Tag Manager, etc., everything you can imagine is possible.
+  https://www.google.com/tagmanager/
+  https://intercom.io/   # customer care snippets
+  https://usersnap.com/  # website feedback
+  https://addthis.com/   # social services -- exit intent
+  analytics (Google Analytics, heap.io)
+  distributing on a CDN (e.g. cache by using AWS Cloudfront)
+
+
+%% Alternatives to Jekyll
+TRY
+  Great plugin-based pipeline to convert contents
+    http://www.metalsmith.io/
+
+  Firebase
+  # mobile platform -- develop high-quality apps, grow your user base, and earn more money
+    https://firebase.google.com/
+
+Rejected
+  Octopress
+    http://octopress.org/docs/
+      https://github.com/octopress/octopress
+  Hugo (GoHugo)
+    http://usersnap.com/blog/hands-on-experience-with-hugo-static-site-generator/
+  Ruhoh
+    http://ruhoh.com/
+
+Review
+  https://www.sitepoint.com/6-static-blog-generators-arent-jekyll/
+  ! https://www.smashingmagazine.com/2015/11/static-website-generators-jekyll-middleman-roots-hugo-review/

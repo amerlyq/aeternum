@@ -1,0 +1,5 @@
+Semantic Versioning  # how to name release
+  http://semver.org/
+
+Release API  # to upload CPack
+  https://developer.github.com/v3/repos/releases/#create-a-release

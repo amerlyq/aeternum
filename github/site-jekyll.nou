@@ -1,0 +1,45 @@
+%%% Jekyll
+https://jekyllrb.com/
+
+% TODO
+  [54%] READ http://jekyllrb.com/docs/configuration/
+  [_] CHECK: if using 'source: src' will interfere with ../src/.. url spec
+  [_] MOVE: /test-site template into its own dir here, with //_site in .gitignore
+  [_] FIND: how to redirect from repo page to github.io
+
+GitHub compiles your site on every update so you don't even have to run any code locally!
+* Support For All Major Blog Comment Engines.
+Installation is as easy as pasting in your account identifier.
+: Disqus Livefyre Intense Debate Facebook
+
+  Examples
+    https://github.com/jekyll/jekyll/wiki/sites
+  Help
+    https://help.github.com/categories/customizing-github-pages/
+  Startup templates
+    http://jekyllbootstrap.com/
+    https://github.com/barryclark/jekyll-now
+  Resources
+    http://jekyllthemes.org/
+    http://jekyllrb.com/docs/extras/
+  SEE
+    ! http://jekyllrb.com/docs/datafiles/
+    https://help.github.com/articles/configuring-jekyll/
+    http://jekyllrb.com/docs/github-pages/#project-page-url-structure
+  Tutorials
+    !! https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/
+
+% Setup
+  https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
+  REF:(ruby)
+    * bundler http://bundler.io/rationale.html
+    * Gemfile.lock http://yehudakatz.com/2010/12/16/clarifying-the-roles-of-the-gemspec-and-gemfile/
+  $ git checkout --orphan gh-pages
+  $ git rm -rf .
+  $ cat Gemfile
+  #  source 'https://rubygems.org'
+  #  gem 'github-pages', group: :jekyll_plugins
+  $ bundle install  # OR bundle update OR bundle update github-pages
+  $ bundle exec jekyll new . --force
+  $ bundle exec jekyll serve
+    $ r.b http://localhost:4000
