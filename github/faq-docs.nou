@@ -1,6 +1,9 @@
 Structure
   !!! READ http://www.epmbook.com/documentation.htm
 
+SEE
+  https://daler.github.io/sphinxdoc-test/includeme.html
+
 IDEA
   * separate orphan branch 'doc'
     = code and doc commits are related by their date only

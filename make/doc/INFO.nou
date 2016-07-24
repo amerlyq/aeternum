@@ -1,0 +1,6 @@
+Tips
+  http://locklessinc.com/articles/makefile_tricks/
+
+Debug
+  http://bashdb.sourceforge.net/remake/  # remake dbg
+  $ make --trace

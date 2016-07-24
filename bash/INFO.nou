@@ -28,6 +28,9 @@ Debug trick -- line by line execution
   set -x
   set -o nounset
   trap read debug
+  SEE:(debuggers)
+    http://bashdb.sourceforge.net/
+    https://github.com/rocky/zshdb/wiki
 
 
 Snippets (with description)
