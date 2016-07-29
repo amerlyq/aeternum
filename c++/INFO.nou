@@ -1,0 +1,10 @@
+%%%% C++11
+  Regex
+    http://en.cppreference.com/w/cpp/regex/ecmascript
+
+
+%%% General
+  +++ Structure padding and alignment (low-level)
+    http://www.catb.org/esr/structure-packing/
+  ++ Placement New, Memory Dumps, and Alignment
+    http://jrruethe.github.io/blog/2015/08/23/placement-new/
