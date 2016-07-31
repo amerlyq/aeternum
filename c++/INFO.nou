@@ -2,6 +2,10 @@
   Regex
     http://en.cppreference.com/w/cpp/regex/ecmascript
 
+%%% GCC
+  GCC6
+    https://gcc.gnu.org/gcc-6/changes.html
+    https://gcc.gnu.org/gcc-6/porting_to.html
 
 %%% General
   +++ Structure padding and alignment (low-level)
