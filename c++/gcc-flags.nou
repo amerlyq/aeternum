@@ -7,6 +7,8 @@ REF
   https://gmplib.org/manual/Build-Options.html
   + http://stackoverflow.com/questions/568668/whats-your-favorite-g-option
   ? http://stackoverflow.com/questions/11783932/how-to-add-linker-or-compile-flag-in-cmake-file
+  gcc6 warnings review:
+    + https://gnu.wildebeest.org/blog/mjw/2016/02/15/looking-forward-to-gcc6-many-new-warnings/
 
 CHECK
   ? -fsanitize=leak
