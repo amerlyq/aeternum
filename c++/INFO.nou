@@ -14,3 +14,13 @@
     http://jrruethe.github.io/blog/2015/08/23/placement-new/
   !! Efficient argument passing in C++11
     http://www.codesynthesis.com/~boris/blog/2012/06/19/efficient-argument-passing-cxx11-part1/
+
+%%% Standart
+  Static (singleton) destruction
+  https://sourcemaking.com/design_patterns/to_kill_a_singleton
+    REF http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2660.htm#Destruction
+    REF http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3338.html
+        http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf
+      # exactly after C++11 (and free)
+    https://www.youtube.com/watch?v=c1gO9aB9nbs&feature=youtu.be&t=18m40s
+    http://en.cppreference.com/w/cpp/utility/program/exit
