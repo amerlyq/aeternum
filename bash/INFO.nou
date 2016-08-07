@@ -5,9 +5,24 @@ Cool man. Very cool
   >> http://www.iitk.ac.in/LDP/LDP/abs/html/abs-guide.html#ONLINE
   > http://habrahabr.ru/post/221273/
   > http://www.davidpashley.com/articles/writing-robust-shell-scripts/
+    BUT: -e doesn't do what expected:
+      !!! http://mywiki.wooledge.org/BashFAQ/105
+      http://webcache.googleusercontent.com/search?q=cache:fCMS7RcQsa4J:http://www.fvue.nl/wiki/Bash:_Error_handling%2Bbash++error+handling+function&hl=en&gbv=2&ct=clnk
+    Error handling
+      http://phaq.phunsites.net/2010/11/22/trap-errors-exit-codes-and-line-numbers-within-a-bash-script/
+      https://www.howtoforge.com/detailed-error-handling-in-bash
   http://www.tuxradar.com/content/command-line-tricks-smart-geeks
   REF:
     http://www.gnu.org/software/bash/manual/bashref.html#Bourne-Shell-Builtins
+
+-_ set -e
+-_ set -o errexit
+"Exit immediately if a simple command (see SHELL GRAMMAR above) exits with a
+non-zero status. The shell does not exit if the command that fails is part of
+the command list immediately following a while or until keyword, part of the
+test in an if statement, part of a && or || list, or if the command's return
+value is being inverted via !. A trap on ERR, if set, is executed before the
+shell exits."
 
 Often mistakes. @Must read!
   I   http://habrahabr.ru/post/47706/
