@@ -1,5 +1,13 @@
+REF
+  Index of Functions, Variables, Directives
+    !!! https://www.gnu.org/software/make/manual/html_node/Name-Index.html
+
 Tips
   http://locklessinc.com/articles/makefile_tricks/
+
+HACK: passing arguments into make recipes
+$ make -- target [<args>]
+  http://stackoverflow.com/questions/2214575/passing-arguments-to-make-run
 
 Debug
   http://bashdb.sourceforge.net/remake/  # remake dbg
