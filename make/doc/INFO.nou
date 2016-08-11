@@ -1,14 +1,48 @@
 REF
   Index of Functions, Variables, Directives
     !!! https://www.gnu.org/software/make/manual/html_node/Name-Index.html
+  Shell commands in make
+    https://blog.melski.net/2010/11/15/shell-commands-in-gnu-make/
+  Gather output of parallel jobs
+    https://www.gnu.org/software/make/manual/html_node/Parallel-Output.html#Parallel-Output
+
+
+SEE
+  http://make.mad-scientist.net/papers/jobserver-implementation/
+
 
 Tips
   http://locklessinc.com/articles/makefile_tricks/
+  ! http://make.mad-scientist.net/papers/rules-of-makefiles
+  Metaprogramming
+    2016-08-11 [X] http://make.mad-scientist.net/posts/
+  Recursion
+    https://www.gnu.org/software/make/manual/html_node/Options_002fRecursion.html#Options_002fRecursion
+  Conditionals in recipes
+    http://blog.yjl.im/2014/07/setting-variable-in-recipe-based-on.html
+  VPATH mistakes
+    !! http://make.mad-scientist.net/papers/how-not-to-use-vpath/
+    !! https://www.cmcrossroads.com/article/basics-vpath-and-vpath
+    ALT: vpath %.h /usr/include
+  Multiarch builds
+    http://make.mad-scientist.net/papers/multi-architecture-builds/
+  Deps gen
+    http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
 
-HACK: passing arguments into make recipes
-$ make -- target [<args>]
-  http://stackoverflow.com/questions/2214575/passing-arguments-to-make-run
 
-Debug
+HACK
+  passing arguments into make recipes
+    http://stackoverflow.com/questions/2214575/passing-arguments-to-make-run
+    $ make -- target [<args>]
+  load average -- limit jobs
+  # Don't launch new concurrent job when system is overloaded (be single-threaded)
+    https://www.gnu.org/software/make/manual/html_node/Parallel.html
+    $ make -l 2.5
+
+
+DEBUG
   http://bashdb.sourceforge.net/remake/  # remake dbg
   $ make --trace
+  $ make -n target $ dry-run -- print commands to execute
+  eval -> info
+    http://make.mad-scientist.net/the-eval-function/

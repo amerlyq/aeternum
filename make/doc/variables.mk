@@ -22,6 +22,10 @@ _cache = $(subst /bin/$*,,$@)/cmake
 $(PLTFS:%=$(O)/%/bin/%): $$(_cache)/Makefile
 	$(MAKE) -C $(_cache)
 
+# Keep resulting value unexpanded
+foo_FLAGS = $a + $((5 + $a))
+BAR = foo
+$(info $(value $(BAR)_FLAGS))
 
-# BAD: whole makefile -- single-thread (prs list not allowed)
+# BAD: whole makefile -- single-thread (prms list not allowed)
 .NOTPARALLEL:
