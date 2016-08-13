@@ -6,3 +6,18 @@ REF guide / cheatsheet
 
 Code splitting
   https://webpack.github.io/docs/code-splitting.html
+  + http://www.evotech.net/blog/2007/05/including-javascript-in-xhtml/
+
+Include css and js in xhtml
+  Internal
+    <style type="text/css">
+      {css:s}
+    </style>
+    <script type="text/javascript">
+      //<![CDATA[
+      {js:s}
+      //]]>
+    </script>
+  External
+    <style type="text/css" media="screen">@import url('res/style.css');</style>
+    <script src="res/script.js" type="text/javascript" charset="utf-8"></script>
