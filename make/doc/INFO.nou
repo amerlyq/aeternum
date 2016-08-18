@@ -28,6 +28,8 @@ Tips
     http://make.mad-scientist.net/papers/multi-architecture-builds/
   Deps gen
     http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
+  Using symlinks as targets (pitfall)
+    http://stackoverflow.com/questions/10180912/is-dependency-on-a-symlink-possible-in-a-makefile
 
 
 HACK
