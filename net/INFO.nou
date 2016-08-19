@@ -1,0 +1,45 @@
+OSI + termins
+  http://compnetworking.about.com/od/osimodel/tp/The-Seven-Layers-of-the-OSI-Model-Illustrated.htm
+  + https://habrahabr.ru/post/307252/
+  ASCII datagrams
+    ++ http://www.freesoft.org/CIE/Course/Section4/8.htm
+    http://www.networksorcery.com/enp/protocol/tcp.htm
+    https://github.com/luismartingarcia/protocol
+    http://www.scs.stanford.edu/nyu/03sp/notes/l8.pdf
+
+Networking (10+ articles)
+  https://habrahabr.ru/post/306180/
+
+  Shaping (enhance response in channel)
+    http://www.linux.org.ru/forum/talks/10310095
+
+Books
+  + https://www.gitbook.com/book/erlerobotics/erle-robotics-introduction-to-linux-networking/details
+  ! http://www.cs.newpaltz.edu/~pletcha/NET_PY/the-protocols-tcp-ip-illustrated-volume-1.9780201633467.24290.pdf
+  https://www.redbooks.ibm.com/redbooks/pdfs/gg243376.pdf
+
+ALT
+  http://webo.in/articles/habrahabr/34-streaming-chunking-finding-end/
+  https://nmap.org/book/tcpip-ref.html
+
+UDP vs TCP (for game programmers)
+  https://habrahabr.ru/post/209144/
+
+TCP
+  https://habrahabr.ru/company/billing/blog/252819/
+  https://habrahabr.ru/post/136926/
+  => Understanding Wireshark datagrams
+    http://networkstatic.net/what-are-ethernet-ip-and-tcp-headers-in-wireshark-captures/
+
+HTTP
+  https://habrahabr.ru/post/215117/
+
+VPN
+  https://habrahabr.ru/company/1cloud/blog/307280/
+
+% Channeling
+TCP/IP by audio-channel (and many other variants in comments)
+  https://habrahabr.ru/post/213157/
+
+Covert channels in TCP
+  http://firstmonday.org/ojs/index.php/fm/article/view/528/449
