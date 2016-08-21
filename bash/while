@@ -16,5 +16,51 @@ do read line
             \"color\":\"$c_mem\"
         },
         "
-    echo "${line/[/$TXT}" || exit 1
+    echo "${line/\[/$TXT}" || exit 1
 done
+
+
+### Correct linewise while-read:
+# http://unix.stackexchange.com/questions/18886/why-is-while-ifs-read-used-so-often-instead-of-ifs-while-read
+text=' hello  world\
+foo\bar'
+printf '%s\n' "$text" | while IFS= read -r line
+do printf '%s\n' "[$line]"; done
+# [ hello  world\]
+# [foo\bar]
+
+
+### Process multiple files (exit on shortest)
+# http://unix.stackexchange.com/questions/26601/how-to-read-from-two-input-files-using-while-loop
+while true
+do
+  IFS= read -r f1 <&3 || break
+  IFS= read -r f2 <&4 || break
+  # this will close fd3 and fd4 before executing anycode
+  anycode "$f1" "$f2" 3<&- 4<&-
+  # note that fd3 and fd4 are still open in the loop
+done 3<file1 4<file2
+exec 3<&- 4<&-
+
+
+### Process until both files ends
+while
+  IFS= read -r lineA <&3; statusA=$?
+  IFS= read -r lineB <&4; statusB=$?
+  [ $statusA -eq 0 ] || [ $statusB -eq 0 ]
+do
+  (($statusA)) && echo end of fileA
+done
+
+
+### Wrapper with progress bar
+set -o pipefail
+trap 'exit 1' INT
+src=${1:?}; shift
+N=$(wc -l < "$src"); n=0
+echo >/dev/tty
+while IFS= read -r line; do ((n+=1))
+  printf "\r%03d%% : %s" "$((100*n/N))" "$n/$N" >/dev/tty
+  eval "$@" <<< "$line"
+done < "$src"
+echo >/dev/tty
