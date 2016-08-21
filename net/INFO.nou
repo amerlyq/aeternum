@@ -1,6 +1,7 @@
 OSI + termins
   http://compnetworking.about.com/od/osimodel/tp/The-Seven-Layers-of-the-OSI-Model-Illustrated.htm
   + https://habrahabr.ru/post/307252/
+  https://wiki.wireshark.org/InternetProtocolFamily
   ASCII datagrams
     ++ http://www.freesoft.org/CIE/Course/Section4/8.htm
     http://www.networksorcery.com/enp/protocol/tcp.htm
@@ -15,8 +16,14 @@ Networking (10+ articles)
 
 Books
   + https://www.gitbook.com/book/erlerobotics/erle-robotics-introduction-to-linux-networking/details
+  +++ https://github.com/spinlockirqsave/books
   ! http://www.cs.newpaltz.edu/~pletcha/NET_PY/the-protocols-tcp-ip-illustrated-volume-1.9780201633467.24290.pdf
   https://www.redbooks.ibm.com/redbooks/pdfs/gg243376.pdf
+  ~ http://www-net.cs.umass.edu/wireshark-labs/
+  !!! http://www.tcpipguide.com/
+    * http://appnee.com/the-tcpip-guide-hd-pdf-epub/
+    * http://index-of.es/Magazines/hakin9/books/No.Starch.TCP.IP.Guide.Oct.2005.pdf
+    * https://doc.lagout.org/network/The%2520TCPIP%2520guide.pdf
 
 ALT
   http://webo.in/articles/habrahabr/34-streaming-chunking-finding-end/
