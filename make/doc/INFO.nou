@@ -30,6 +30,8 @@ Tips
     http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
   Using symlinks as targets (pitfall)
     http://stackoverflow.com/questions/10180912/is-dependency-on-a-symlink-possible-in-a-makefile
+  ! export PATH dont work for $(shell ...)
+    http://stackoverflow.com/questions/2838715/makefile-variable-initialization-and-export
 
 
 HACK
