@@ -1,0 +1,18 @@
+REF
+  http://www.schweikhardt.net/man_page_howto.html
+  http://www.cyberciti.biz/faq/linux-unix-creating-a-manpage/
+
+EX
+  http://www.linuxhowtos.org/System/creatingman.htm
+
+Tools
+  man
+  apropos
+  makewhatis (erlang)
+  catman
+
+Read from local dir
+  http://www.cyberciti.biz/faq/howto-read-file-as-manpage-with-man-command/
+  http://unix.stackexchange.com/questions/63573/how-is-the-path-to-search-for-man-pages-set
+  http://stackoverflow.com/questions/8335941/how-to-read-a-man-file-not-on-manpath
+  + https://wiki.archlinux.org/index.php/man_page
