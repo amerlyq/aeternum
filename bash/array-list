@@ -8,3 +8,10 @@ fls=($(find . -name "*.sh" | sort))
 IFS="$OLDIFS"
 
 echo "${#fls[@]}"
+
+
+# WARN: No space trimming for the implicit REPLY
+read -r <<<"   TEST   "; printf '<%s>\n' "$REPLY"
+# <   TEST   >
+read -r REPLY <<<"   TEST   "; printf '<%s>\n' "$REPLY"
+# <TEST>

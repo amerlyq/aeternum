@@ -1,3 +1,9 @@
+ALT
+  zsh
+  rc
+    http://plan9.bell-labs.com/sys/doc/rc.html
+  execline
+
 Cool man. Very cool
   >>>> http://www.tldp.org/LDP/abs/html/abs-guide.html
   >>>> http://tldp.org/LDP/abs/html/complexfunct.html
@@ -28,6 +34,10 @@ Often mistakes. @Must read!
   I   http://habrahabr.ru/post/47706/
   II  http://habrahabr.ru/post/47915/
   III http://habrahabr.ru/post/48053/
+
+  !!! http://mywiki.wooledge.org/BashGuide
+    http://mywiki.wooledge.org/BashFAQ
+    http://mywiki.wooledge.org/BashPitfalls
 
 Bash and cli commands list
   > http://ss64.com/bash/
