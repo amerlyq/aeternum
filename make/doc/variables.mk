@@ -29,3 +29,8 @@ $(info $(value $(BAR)_FLAGS))
 
 # BAD: whole makefile -- single-thread (prms list not allowed)
 .NOTPARALLEL:
+
+# Default expansion (like bash ${x:-dfl_val})
+trg_spec: tri := spec_val
+trg_%: prereq_%
+	echo "$(or $(tri),dfl_val)"
