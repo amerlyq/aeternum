@@ -21,7 +21,8 @@ req%: ; echo $@
 ## Double-colon rules
 #  * when target doesn't exists -- ALL recipes executed in order of def
 #  * any req* update -- triggers ALL respective recipes with older target
-#  * each rule should specify recipe -> or implicit rule will be auto-used
+#  * each rule should specify recipe -> or implicit rule will searched
+#    => ATT: it can undesirably sink into '% :: ...' terminal match-all
 #  ! req* not collected -- and not combined
 #  !! all recipes executed separately (just as different targets)
 double :: reqA reqB  # ignored (no implicit rule+recipe)

@@ -10,14 +10,18 @@ PLTF ?= linux windows android
 
 .PHONY: $(PLTF) all
 all: $(PLTF)
-$(PLTF:%=$(O)/%) :: ; +@mkdir -p "$@"
-$(PLTF) :: % : | $(O)/%
+$(PLTF:%=$(O)/%): ; +@mkdir -p "$@"
+$(PLTF): % : | $(O)/%
 	+@$(MAKE) --no-print-directory -C "$|" -f "$(shell pwd)/Makefile" \
-	  $(filter-out $(PLTF) $(PLTF:%=%/%),$(MAKECMDGOALS:$@/%=%))
+	  $(filter-out $(PLTF) $(PLTF:%=%/%),$(MAKECMDGOALS:$@/%=%)) \
+	  |& tee "$(O)/$@/last.log" | tee -a "$(O)/$@/complete.log" \
+	  ; exit $${PIPESTATUS[0]}
 # ALT:(don't pass simple) $(patsubst $@/%,%,$(filter $@/%,$(MAKECMDGOALS)))
 # NOTE: in general can't use $(shell pwd) -- if this file was included itself
 
-Makefile :: ;
+# EXPL: suppress rule for usage $ make -f /path/to/Makefile
+%/Makefile :: ;
+Makefile: ;
 %.mk :: ;
 # OR:(~) .DEFAULT: ...
 % :: $(.DEFAULT_GOAL) ;
