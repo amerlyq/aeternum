@@ -63,9 +63,16 @@ once:
 	@echo $@
 
 
-## Restrict req* to explicit rules only
+## Terminating :: restricts req* to explicit rules only
 #  * target MUST BE pattern-matched
 #  => inhibits chaining of intermediate targets in-between [f<(%.o<%.c)<f.c]
 expA: ; echo $@
 explicit-only/% :: expA reqA
 	@echo $^
+
+
+## Gathering of req* for rule::
+#  !!! => only possible with patt-matching rules
+drop :: once
+dro% ::
+	@echo D:$^
