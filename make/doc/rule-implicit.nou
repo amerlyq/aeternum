@@ -5,7 +5,7 @@ Algorithm
 # rule::norecipe, targs:norecipe, req*(!=target), req*(from implicit)
   split: t -> d n
   match: p~/ ? p~t : p~n  # at least one targ from rule: 'h% %h ...'
-  filter: '%:' (if !% exists) | norecipe
+  filter: '%:' (if !% exists) | all norecipe
     =>> impossible to gather req* from multiple implicit rules w/o recipe
   foreach: % -> s -> [d]req*
   test: noreq | req* def: as tgt or explicit req

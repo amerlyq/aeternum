@@ -34,3 +34,9 @@ $(info $(value $(BAR)_FLAGS))
 trg_spec: tri := spec_val
 trg_%: prereq_%
 	echo "$(or $(tri),dfl_val)"
+
+# Guard for empty vars in req*
+#   OR: --warn-undefined-variables
+t = $(or $(t_$(1)),$(error empty t_$(1)))
+t_name := some/target
+build: $(call t,name) ; echo $^

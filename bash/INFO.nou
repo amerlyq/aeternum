@@ -5,8 +5,8 @@ ALT
   execline
 
 Cool man. Very cool
-  >>>> http://www.tldp.org/LDP/abs/html/abs-guide.html
-  >>>> http://tldp.org/LDP/abs/html/complexfunct.html
+  >>> http://www.tldp.org/LDP/abs/html/abs-guide.html
+  >>> http://tldp.org/LDP/abs/html/complexfunct.html
   >> http://tldp.org/LDP/abs/html/arrays.html#ARRAYSTROPS
   >> http://www.iitk.ac.in/LDP/LDP/abs/html/abs-guide.html#ONLINE
   > http://habrahabr.ru/post/221273/
@@ -14,10 +14,12 @@ Cool man. Very cool
     BUT: -e doesn't do what expected:
       !!! http://mywiki.wooledge.org/BashFAQ/105
       http://webcache.googleusercontent.com/search?q=cache:fCMS7RcQsa4J:http://www.fvue.nl/wiki/Bash:_Error_handling%2Bbash++error+handling+function&hl=en&gbv=2&ct=clnk
+      http://unix.stackexchange.com/questions/23026/how-can-i-get-bash-to-exit-on-backtick-failure-in-a-similar-way-to-pipefail
     Error handling
       http://phaq.phunsites.net/2010/11/22/trap-errors-exit-codes-and-line-numbers-within-a-bash-script/
       https://www.howtoforge.com/detailed-error-handling-in-bash
-  http://www.tuxradar.com/content/command-line-tricks-smart-geeks
+  [_] http://www.tuxradar.com/content/command-line-tricks-smart-geeks
+  [_] http://redsymbol.net/articles/unofficial-bash-strict-mode/
   REF:
     http://www.gnu.org/software/bash/manual/bashref.html#Bourne-Shell-Builtins
 

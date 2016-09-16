@@ -2,6 +2,8 @@ all: prf1 prf2
 
 ## Dummy
 .SUFFIXES:
+# EXPL: suppress rule for usage $ make -f /path/to/Makefile
+%/Makefile :: ;
 Makefile :: ;
 %.mk :: ;
 
