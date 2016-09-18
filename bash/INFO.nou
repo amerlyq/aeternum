@@ -20,6 +20,7 @@ Cool man. Very cool
       https://www.howtoforge.com/detailed-error-handling-in-bash
   [_] http://www.tuxradar.com/content/command-line-tricks-smart-geeks
   [_] http://redsymbol.net/articles/unofficial-bash-strict-mode/
+  [_] http://www.etalabs.net/sh_tricks.html
   REF:
     http://www.gnu.org/software/bash/manual/bashref.html#Bourne-Shell-Builtins
 
@@ -32,7 +33,7 @@ test in an if statement, part of a && or || list, or if the command's return
 value is being inverted via !. A trap on ERR, if set, is executed before the
 shell exits."
 
-Often mistakes. @Must read!
+%%% Often mistakes. @Must read!
   I   http://habrahabr.ru/post/47706/
   II  http://habrahabr.ru/post/47915/
   III http://habrahabr.ru/post/48053/
