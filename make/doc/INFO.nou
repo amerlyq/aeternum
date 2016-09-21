@@ -20,6 +20,14 @@ REF
 
 SEE
   http://make.mad-scientist.net/papers/jobserver-implementation/
+  ! BETTER:USE: Non-recursive make
+    + https://evbergen.home.xs4all.nl/nonrecursive-make.html
+    http://stackoverflow.com/questions/559216/what-is-your-experience-with-non-recursive-make
+    https://github.com/dmoulding/boilermake
+    https://code.google.com/archive/p/nonrec-make
+    http://www.kolpackov.net/projects/build/benchmark.xhtml
+  What's Wrong With GNU make -- READ 'Reliability' section (cons of make)
+    http://www.conifersystems.com/whitepapers/gnu-make/
   +++ [_] http://david.rothlis.net/large-gnu-make/
   Build Java
     https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html
@@ -52,6 +60,14 @@ Tips
 
 
 HACK
+  Pipe errors
+    Ad-hoc for bash
+      make: $ cmd |& tee log && exit $${PIPESTATUS[0]}
+      # ATT: mandatory '&&' before exit
+      !!! BAD: no err when failed in the middle pipe
+    Proper solution
+      SHELL := $(shell which bash)
+      .SHELLFLAGS := -eu -o pipefail -c
   passing arguments into make recipes
     http://stackoverflow.com/questions/2214575/passing-arguments-to-make-run
     $ make -- target [<args>]
@@ -66,9 +82,46 @@ HACK
    PATH := $(subst $(space),:,$(dirs))
 
 
+USAGE
+  Targets
+    boldly make all (always rebuild)
+      $ make -B
+    ignore (treat as old)
+      $ make -o $tgt
+      * up-to-date other tgts beside specified
+      * temporary ignore changes in req*, unrelated to tgts
+    query state up-to-date
+      $ make -q $tgt
+    timestamps set up-to-date (similar to 'touch')
+      $ make -t
+      * ignore changes in req*, unrelated to tgts
+      * supply/merge manully created tgts by external means
+    pretend file was modified (but its timestamps remains the same!)
+      $ make -W $tgt
+MAKEFLAGS MAKELEVEL
+      * w/ '-n' to trace rebuild paths (E.G. unit tests for build system)
+      * w/o '-n' to suppress recipes for choosen tgts
+  Compile errors
+    keep going (try building all pending rules)
+      $ make -k
+      * gathers maximum errors to show from all targets
+  Override VAR=
+    Makefile: S:=0 | Q?=0 | override O=0 | S+=+ | Q+=+ | O+=+ | all: ; # $S $Q $O
+    |0+0+0| $ make O=1         $ ignored O cmdline, not exported!, always use 'override O+=..' to modify
+    |1 1 0| $ make S=1 Q=1     $ overrides S Q, assigning completely ignored -- i.a. '+='
+    |0+1+0| $ S=1 Q=1 O=1 make $ Q '?=' queries var from env, and applies '+=' !
+    |1 1 0| $ S=1 Q=1 make -e  $ force env vars, all '+=' ignored
+
+
 DEBUG
+  Print DFL rules/vars for make
+    $ make -p -f/dev/null
+  + https://www.safaribooksonline.com/library/view/managing-projects-with/0596006101/ch12.html
   http://bashdb.sourceforge.net/remake/  # remake dbg
   $ make --trace
-  $ make -n target $ dry-run -- print commands to execute
+  $ make -n target  $ dry-run -- print commands to execute
+  $ make -d  $ accompany output with rebuild decision metainfo
+  Test makefile on dependency on DFL
+    $ make -rR
   eval -> info
     http://make.mad-scientist.net/the-eval-function/
