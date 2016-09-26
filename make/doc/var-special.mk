@@ -8,6 +8,10 @@ digestA: hugefileB hugefileC
 	cat $^ > $@
 	rm $^
 
+# EXPL:
+#  * if any of files deleted -- no rebuild of digestA
+#  * any modified -- rebuilds digestA
+#  * one deleted, another modified => rebuilds, re-creating deleted file, and keep it
 .SECONDARY: hugefileB hugefileC
 # OR .INTERMEDIATE: hugefileB hugefileC
 # WARN: impossible to use pattern-match '.SECONDARY: hugefile%'
