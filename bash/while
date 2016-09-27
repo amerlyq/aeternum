@@ -19,6 +19,10 @@ do read line
     echo "${line/\[/$TXT}" || exit 1
 done
 
+# +++ REF read
+#   http://wiki.bash-hackers.org/commands/builtin/read
+# !!! Seems like 'read' can't read past one line -- see '-d' delimiter
+#   ? Instead use readarray
 
 ### Correct linewise while-read:
 # http://unix.stackexchange.com/questions/18886/why-is-while-ifs-read-used-so-often-instead-of-ifs-while-read
