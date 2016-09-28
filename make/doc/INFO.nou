@@ -111,6 +111,10 @@ MAKEFLAGS MAKELEVEL
     |1 1 0| $ make S=1 Q=1     $ overrides S Q, assigning completely ignored -- i.a. '+='
     |0+1+0| $ S=1 Q=1 O=1 make $ Q '?=' queries var from env, and applies '+=' !
     |1 1 0| $ S=1 Q=1 make -e  $ force env vars, all '+=' ignored
+  Expansion
+    WARN: values (both env and cmdline) are *ALWAYS* expanded
+    make: v:=$(VAR)
+    $ make VAR="\$(shell pwd)"
 
 
 DEBUG

@@ -55,6 +55,9 @@ shell exits."
     => No need to export => BUT it becomes error-prone in large scripts
     http://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path
 
+  echo vs printf
+    http://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo
+
 Bash and cli commands list
   > http://ss64.com/bash/
 
