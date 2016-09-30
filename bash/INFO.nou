@@ -41,6 +41,12 @@ test in an if statement, part of a && or || list, or if the command's return
 value is being inverted via !. A trap on ERR, if set, is executed before the
 shell exits."
 
+  set -o pipefail (POSIX/dash shell)
+    # The "stock" answer for POSIX implementations of PIPESTATUS / pipefail
+    $ $cmd && exit $${PIPESTATUS[0]}
+    http://cfajohnson.com/shell/cus-faq-2.html#Q11
+
+
 %%% Often mistakes. @Must read!
   I   http://habrahabr.ru/post/47706/
   II  http://habrahabr.ru/post/47915/
