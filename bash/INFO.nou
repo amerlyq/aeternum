@@ -82,6 +82,8 @@ Debug trick -- line by line execution
     http://bashdb.sourceforge.net/
     https://github.com/rocky/zshdb/wiki
 
+Last argument: most/last
+  http://stackoverflow.com/questions/1215538/extract-parameters-before-last-parameter-in
 
 Snippets (with description)
   http://sed.sourceforge.net/grabbag/scripts/#sdeb

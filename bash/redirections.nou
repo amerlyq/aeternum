@@ -65,3 +65,14 @@ Background interactive process
   : OR: http://serverfault.com/questions/188936/writing-to-stdin-of-background-process
     mkfifo fifo && exec < fifo
     exec 3> fifo && echo 'cmdline' >&3
+
+Process substitution error handling
+  BAD:FIND: no normal way to terminate on error?
+  + http://www.tldp.org/LDP/abs/html/process-sub.html
+  http://mywiki.wooledge.org/ProcessSubstitution
+  ++ http://stackoverflow.com/questions/7586589/bash-process-substitution-and-exit-codes
+  http://stackoverflow.com/questions/4410201/pipe-status-after-command-substitution
+
+Background process error handling
+  BAD: Same as process substitution : no normal way to terminate on error?
+  http://stackoverflow.com/questions/1570262/shell-get-exit-code-of-background-process
