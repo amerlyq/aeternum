@@ -64,6 +64,11 @@ shell exits."
   echo vs printf
     http://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo
 
+HACK
+  DFL:  func() { ...; }
+  ALSO: func() ( ... )  # prevent parameter assignments from affecting the calling shell execution environment
+  TRY:  func() ...
+
 Bash and cli commands list
   > http://ss64.com/bash/
 
