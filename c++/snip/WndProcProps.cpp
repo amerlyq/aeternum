@@ -1,3 +1,12 @@
+// Мбокс возвращает значение нажатой кнопки. В Мбип соответственно можно передать номер иконки - и будет звук:)
+if(MessageBox(NULL, "There Can Be Only One", "MesBox", MB_OK | MB_ICONEXCLAMATION) == IDOK) {
+    MessageBeep(MB_ICONASTERISK);
+}
+
+//BitBlt(renderTarget1DC, 0, 0, renderTargetWidth, renderTargetHeight, classicRenderer   ->GetCurrentFrameState(), 0, 0, SRCCOPY);
+//StretchBlt(renderTarget1DC, 0, 0, renderTargetWidth, renderTargetHeight, classicRenderer   ->GetCurrentFrameState(), 0, renderTargetHeight, renderTargetWidth, -renderTargetHeight, SRCCOPY);
+//SetWindowLong(fpsSlider, GWL_WNDPROC, (LONG)SliderProc);
+
 LRESULT CALLBACK MSWindow::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     // Создаём индивидуальный путь перенаправления сообщений для _каждого_ хендла окна.

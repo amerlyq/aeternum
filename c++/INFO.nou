@@ -24,3 +24,10 @@
       # exactly after C++11 (and free)
     https://www.youtube.com/watch?v=c1gO9aB9nbs&feature=youtu.be&t=18m40s
     http://en.cppreference.com/w/cpp/utility/program/exit
+
+%%% Inheritance
+  # для обычных полей ( не вирт и не конструкторы )
+        / pub | pro | pri
+  | pub | pub | pro | pri
+  | pro | pro | pro | ina
+  | pri | pri | pri | ina
