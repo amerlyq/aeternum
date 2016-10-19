@@ -24,8 +24,9 @@ $(PLTF): % : | $(O)/%
 Makefile: ;
 %.mk :: ;
 # OR:(~) .DEFAULT: ...
-% :: $(.DEFAULT_GOAL) ;
 $(foreach p,$(PLTF),$(eval $p/% :: $p ;))
+# WARN: '%' have to be the last rule (make < v4.0)
+% :: $(.DEFAULT_GOAL) ;
 
 # WARN: if targets contain '%' -> Make execs recipe only once to make them all!
 # ALT: .SECONDEXPANSION:
