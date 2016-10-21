@@ -2,6 +2,10 @@
   Regex
     http://en.cppreference.com/w/cpp/regex/ecmascript
 
+  FAQ
+    http://c-faq.com/
+      http://c-faq.com/osdep/cbreak.html
+
 %%% GCC
   GCC6
     https://gcc.gnu.org/gcc-6/changes.html
