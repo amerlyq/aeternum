@@ -1,0 +1,68 @@
+General debug / profile
+  https://docs.python.org/2/library/debug.html
+
+vim as IDE
+  http://www.sontek.net/blog/2011/05/07/turning_vim_into_a_modern_python_ide.html
+  http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
+
+
+< Helpers
+  https://github.com/mattboehm/vim-unstack
+> Online
+  http://nbviewer.ipython.org/
+
+
+Debuggers
+: See 'airy/notes/lior/pdb.otl' for cheetsheets
+  For segfaults, hung, daemons -- use directly gdb
+    https://wiki.python.org/moin/DebuggingWithGdb
+  > Overview
+    https://zschoche.org/debugging-in-vim/
+    > [X] https://zapier.com/engineering/debugging-python-boss/
+    [X] https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/
+    http://bugs.python.org/issue12913
+    http://www.onlamp.com/pub/a/python/2005/09/01/debugger.html
+  Complex workflow
+    > http://scipy-lectures.github.io/advanced/debugging/
+
+  pdb
+  : http://habrahabr.ru/post/104086/
+  : http://keflavich.github.io/blog/my-python-ipython-vim-debugging-workflow.html
+    Very detailed
+      http://pymotw.com/2/pdb/
+    pdb rc setup
+      > http://stackoverflow.com/questions/1623039/python-debugging-tips
+  pdb extensions
+    https://pypi.python.org/pypi/pdbpp/0.7.2
+
+  pudb
+    https://pypi.python.org/pypi/pudb
+    http://habrahabr.ru/post/158139/
+
+  ipython + ipdb
+    sudo pip3 -U ipython ipdb
+    import ipdb; ipdb.set_trace()
+    : https://pypi.python.org/pypi/ipdb
+    : http://georgejhunt.com/olpc/pydebug/pydebug/ipdb.html
+    : https://blog.safaribooksonline.com/2014/11/18/intro-python-debugger/
+    integration with pytest
+      https://github.com/mverteuil/pytest-ipdb
+
+  + Pyclewn + pdb-clone
+    http://pyclewn.sourceforge.net/install.html
+    http://pyclewn.sourceforge.net/
+    https://bitbucket.org/xdegaye/pdb-clone/wiki/Home
+
+  Vdebug
+    http://blog.joncairns.com/2012/08/vdebug-a-dbgp-debugger-client-for-vim-supporting-php-python-perl-and-ruby/
+    https://github.com/joonty/vdebug
+
+
+  GUI / Remote
+    https://github.com/Kozea/wdb
+    http://pybee.org/bugjar/
+    http://www.gnu.org/software/ddd/
+
+  < Old? -- python/php
+    https://github.com/jaredly/vim-debug
+    http://code.google.com/p/python3-trepan/

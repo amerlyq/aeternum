@@ -1,0 +1,17 @@
+Convert escape sequences
+  http://stackoverflow.com/questions/4020539/process-escape-sequences-in-a-string-in-python
+
+isinstance() vs type()
+  http://stackoverflow.com/questions/1549801/differences-between-isinstance-and-type-in-python
+
+keypress
+  ~ http://code.activestate.com/recipes/577977-get-single-keypress/
+  ALT: input() (OLD: raw_input)
+  ALT: os.system("pause 0 -a")
+
+REF
+  Context managers
+    http://book.pythontips.com/en/latest/context_managers.html
+  Exceptions
+    !!! http://matt.might.net/articles/implementing-exceptions/
+    !! https://doughellmann.com/blog/2009/06/19/python-exception-handling-techniques/
