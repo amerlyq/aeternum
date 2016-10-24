@@ -9,9 +9,18 @@ keypress
   ALT: input() (OLD: raw_input)
   ALT: os.system("pause 0 -a")
 
+bytes
+  http://dabeaz.blogspot.com/2010/01/few-useful-bytearray-tricks.html
+
 REF
   Context managers
     http://book.pythontips.com/en/latest/context_managers.html
   Exceptions
     !!! http://matt.might.net/articles/implementing-exceptions/
     !! https://doughellmann.com/blog/2009/06/19/python-exception-handling-techniques/
+
+Plugins
+  https://habrahabr.ru/post/79513/
+  http://stackoverflow.com/questions/932069/building-a-minimal-plugin-architecture-in-python
+  http://wehart.blogspot.com/2009/01/python-plugin-frameworks.html
+  http://jenyay.net/Programming/PyPlugins
