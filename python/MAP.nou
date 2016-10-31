@@ -51,6 +51,8 @@ Tasks
     http://www.sam.math.ethz.ch/~raoulb/teaching/PythonTutorial/symbolics.html#id4
     http://docs.sympy.org/latest/tutorial/index.html
     http://docs.sympy.org/latest/tutorial/printing.html
+  urllib2 -- reuse connection
+    https://erlerobotics.gitbooks.io/erle-robotics-python-gitbook-free/content/http/payloads_and_persistent_connections.html
 
 Understanding
   vars as refs

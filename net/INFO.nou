@@ -10,6 +10,7 @@ OSI + termins
 
 Networking (10+ articles)
   https://habrahabr.ru/post/306180/
+  +++ http://www.haifux.org/
 
   Shaping (enhance response in channel)
     http://www.linux.org.ru/forum/talks/10310095
@@ -50,3 +51,22 @@ TCP/IP by audio-channel (and many other variants in comments)
 
 Covert channels in TCP
   http://firstmonday.org/ojs/index.php/fm/article/view/528/449
+
+
+%% Socket
+
+REF
+  socket low-level / kernel
+    http://www.tldp.org/LDP/khg/HyperNews/get/net/net-intro.html
+    +++ http://www.tldp.org/LDP/tlk/tlk.html
+
+EXAMPLES
+  Send RAW ethernet packet
+    http://austinmarton.wordpress.com/2011/09/14/sending-raw-ethernet-packets-from-a-specific-interface-in-c-on-linux/
+      https://gist.github.com/austinmarton/1922600
+  a lot of simultaneous socket connections
+    http://stackoverflow.com/questions/651665/how-many-socket-connections-possible
+    http://nichol.as/asynchronous-servers-in-python
+    https://mrotaru.wordpress.com/2013/10/10/scaling-to-12-million-concurrent-connections-how-migratorydata-did-it/
+  very slow connection
+    http://www.sekuda.com/overriding_the_default_linux_kernel_20_second_tcp_socket_connect_timeout
