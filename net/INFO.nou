@@ -36,6 +36,9 @@ UDP vs TCP (for game programmers)
 TCP
   https://habrahabr.ru/company/billing/blog/252819/
   https://habrahabr.ru/post/136926/
+  https://en.wikipedia.org/wiki/TCP_tuning
+  +++ http://intronetworks.cs.luc.edu/1/html/tcp.html
+    = low-level problems and situations
   => Understanding Wireshark datagrams
     http://networkstatic.net/what-are-ethernet-ip-and-tcp-headers-in-wireshark-captures/
 
@@ -59,6 +62,7 @@ REF
   socket low-level / kernel
     http://www.tldp.org/LDP/khg/HyperNews/get/net/net-intro.html
     +++ http://www.tldp.org/LDP/tlk/tlk.html
+    +++ https://www.cs.unh.edu/cnrg/people/gherrin/linux-net.html
 
 EXAMPLES
   Send RAW ethernet packet
