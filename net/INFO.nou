@@ -63,6 +63,8 @@ REF
     http://www.tldp.org/LDP/khg/HyperNews/get/net/net-intro.html
     +++ http://www.tldp.org/LDP/tlk/tlk.html
     +++ https://www.cs.unh.edu/cnrg/people/gherrin/linux-net.html
+      /proc/net/rt_cache -- temporary routing cache
+      /proc/net/route -- FIB table
 
 EXAMPLES
   Send RAW ethernet packet
