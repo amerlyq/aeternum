@@ -76,3 +76,7 @@ EXAMPLES
     https://mrotaru.wordpress.com/2013/10/10/scaling-to-12-million-concurrent-connections-how-migratorydata-did-it/
   very slow connection
     http://www.sekuda.com/overriding_the_default_linux_kernel_20_second_tcp_socket_connect_timeout
+
+%% nginx
+  9. Nginx и проксирование сокетов
+    https://habrahabr.ru/post/252575/#8
