@@ -1,3 +1,6 @@
+REF
+  $ pydoc list
+
 General debug / profile
   https://docs.python.org/2/library/debug.html
 

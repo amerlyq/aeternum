@@ -2,6 +2,7 @@ OSI + termins
   http://compnetworking.about.com/od/osimodel/tp/The-Seven-Layers-of-the-OSI-Model-Illustrated.htm
   + https://habrahabr.ru/post/307252/
   https://wiki.wireshark.org/InternetProtocolFamily
+  + http://vichargrave.com/network-programming-design-patterns-in-c/
   ASCII datagrams
     ++ http://www.freesoft.org/CIE/Course/Section4/8.htm
     http://www.networksorcery.com/enp/protocol/tcp.htm
