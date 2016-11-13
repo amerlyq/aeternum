@@ -30,6 +30,10 @@ General
     : https://docs.python.org/2/tutorial/introduction.html#tut-unicodestrings
     https://pythonhosted.org/kitchen/unicode-frustrations.html
     http://www.gossamer-threads.com/lists/python/python/817588
+  super() MRO
+    ! https://fuhm.net/super-harmful/
+    + https://rhettinger.wordpress.com/2011/05/26/super-considered-super/
+    https://codedump.io/share/zo6l4GTAmk0L/1/force-child-class-to-call-parent-method-when-overriding-it
 
 Techniques
   unpacking args
