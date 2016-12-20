@@ -20,6 +20,9 @@
     http://www.codesynthesis.com/~boris/blog/2012/06/19/efficient-argument-passing-cxx11-part1/
   ++ Алёна C++ :: Приведение типов в C++
     http://alenacpp.blogspot.com/2005/08/c.html
+  !! Mixing PIC/PIE with non-PIC == BAD
+    http://stackoverflow.com/questions/8331456/mixing-pic-and-non-pic-objects-in-a-shared-library
+    REF http://stackoverflow.com/questions/18026333/what-does-compiling-with-pic-dwith-pic-with-pic-actually-do
 
 %%% Standart
   Static (singleton) destruction
