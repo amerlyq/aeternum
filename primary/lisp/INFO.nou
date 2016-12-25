@@ -1,0 +1,22 @@
+Lisp
+  SEE http://stackoverflow.com/questions/2720843/can-a-language-have-lisps-powerful-macros-without-the-parentheses
+    http://www.dwheeler.com/readable/sweet-expressions.html
+    https://news.ycombinator.com/item?id=823524
+    https://www.reddit.com/r/lisp/comments/1pyg07/why_not_use_indentations_rather_than_numerous/
+    https://pschombe.wordpress.com/2006/04/16/lisp-without-parentheses/
+    https://www.quora.com/Would-it-be-possible-to-replace-parentheses-in-LISP-with-whitespace
+    http://dustycloud.org/blog/wisp-lisp-alternative/
+  https://common-lisp.net/project/asdf/
+  TRY: WM instead of XMonad
+    https://common-lisp.net/project/clfswm/#screenshot
+  http://www.lisperati.com/
+  http://lisper.ru/wiki/lisp-source-code
+  http://habrahabr.ru/post/265589/
+  http://rus-linux.net/MyLDP/algol/LISP/lisp01.html
+  Multithreading
+    http://stackoverflow.com/questions/9400410/common-lisp-parallel-programming
+   Maybe think about Arc as Lisp with syntax sugar, short keywords, small rules
+  TRY:USE: lisp/scheme/guile under xdotool/xbindkey
+  IDEA: lisp image -> the same as meridia
+    -> dump memory from compiled syntax
+    http://stackoverflow.com/questions/480083/what-is-a-lisp-image

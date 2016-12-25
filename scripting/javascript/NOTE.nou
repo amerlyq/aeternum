@@ -4,6 +4,9 @@ WTF node.js ALSO short review for js frameworks
 REF guide / cheatsheet
   https://github.com/airbnb/javascript
 
+Static-analyzers
+  http://ternjs.net/
+
 Code splitting
   https://webpack.github.io/docs/code-splitting.html
   + http://www.evotech.net/blog/2007/05/including-javascript-in-xhtml/
