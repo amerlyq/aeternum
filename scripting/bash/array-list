@@ -15,3 +15,7 @@ read -r <<<"   TEST   "; printf '<%s>\n' "$REPLY"
 # <   TEST   >
 read -r REPLY <<<"   TEST   "; printf '<%s>\n' "$REPLY"
 # <TEST>
+
+# Array to delimited string
+#   http://stackoverflow.com/questions/13470413/bash-array-to-delimited-string
+(IFS=:;printf '%s\n' "${a[*]// /\\ }")
