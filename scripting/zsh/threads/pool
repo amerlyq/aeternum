@@ -1,0 +1,46 @@
+#!/bin/zsh
+
+# NOTE: 'fifo+lock' has better performance ~20-30% on /tmp
+# BUT: $tmpfile is better than fifo
+#   * it caches result -- can be read many times
+#   * prev results always available even before job completes
+# BUG: problems when zero free space left
+
+tmp=${TMPDIR:-/tmp}/zsh
+mkdir -p $tmp
+
+function invalidate {
+  env=$(< $tmp/f1 < $tmp/f2)
+}
+
+function f1 {
+  sleep 1
+  echo 1 >! $tmp/f1
+}
+
+function f2 {
+  sleep 2
+  echo 2 >! $tmp/f2
+}
+
+function async {
+  f1 &
+  f2 &
+  wait
+  builtin kill -USR1 ${1:?}
+}
+
+function run {
+  trap invalidate USR1
+  async $$ & async_pid=$!
+}
+
+run
+echo Running
+sleep 0.5
+kill -TERM $env &>/dev/null
+run
+echo Reset
+
+wait $async_pid
+echo $env

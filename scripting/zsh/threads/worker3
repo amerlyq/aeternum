@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+# v3 -- create permanent workers and then distribute commands to them
+# performance flaw -- when commands list is less then workers
+# SEE parallel: http://unethicalblogger.com/2010/11/11/gnu-parallel-changed-my-life.html
+worker() {
+  while (true) {
+    print "job started: $1"
+
+    read -u 0
+    eval "$REPLY"
+
+    print "job done: $1"
+  }
+}
+
+mkfifo pipe
+worker "worker 0" < pipe &  workers+=($!)
+worker "worker 1" < pipe &  workers+=($!)
+
+print "sleep 20" >> pipe
+print "sleep 30" >> pipe
+print "sleep 5; ls; sleep 5" >> pipe
+sleep 20
+print "sleep 20" >> pipe
+
+print "exit\nexit" >> pipe
+
+wait ${workers[*]}
+rm pipe

@@ -1,0 +1,44 @@
+#!/bin/zsh
+cd ~/aura  # TEMP
+
+[[ $THREADS =~ [0-9]+ ]] || THREADS=8
+
+# Args
+FUN="$1"; shift
+case "$1" in -s) bSEQ=1; shift ;; esac  # ALT: THREADS=1 <prg>
+CMD=($@)
+
+
+## Use multiple threads for criteria search -- kill all other and exit on success
+PID=$$
+# ALT:(trap USR1) http://unix.stackexchange.com/questions/48533/exit-shell-script-from-a-subshell
+TRAPUSR1(){ kill ${${(v)jobstates##*:*:}%=*} &>/dev/null; return 1; }
+function exit_on_first {
+    local psh=$(git for-each-ref --format="%(push:track)" refs/heads)
+    [[ $psh ]] || return
+    kill -USR1 $PID &>/dev/null
+}
+
+function git_process {
+    ## Additional verification of git repo existance
+    git rev-parse --git-dir > /dev/null 2>&1 && bFound=1 || continue
+    ## Print git info from zsh-specific prompt
+    case "$FUN" in st|pl|ph|synced) gita_$FUN "$1" ;; esac
+    ## Also, exec any git commands after "Gs/Gt/Gl/Gd ..."
+    [[ -z ${CMD[@]} ]] || git ${CMD[@]}
+}
+
+function worker {
+  (cd "$DIR/$1" && O=$(git_process "$1");
+   [[ -z $O ]] || printf '%s\n' "$O")
+}
+
+function main {
+  for rep in "${LST[@]}"; do
+    # EXPL process jobs in bunches
+    ((0==THREADS || $#jobstates < ${THREADS:-1})) || wait
+    [[ $FUN != pl ]] || echo ">> $rep"
+    eval worker "$rep" $( ((bSEQ)) || echo '&' )
+  done && wait
+}
+main & wait

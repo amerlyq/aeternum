@@ -1,0 +1,24 @@
+REF:HACK
+  https://coderwall.com/p/uut1xg/zsh-family-of-named-and-anon-shell-functions
+  http://unix.stackexchange.com/questions/242450/how-to-avoid-namespace-collisions-pollution-in-a-script-meant-to-be-sourced
+  http://unix.stackexchange.com/questions/206838/overridable-functions-in-zsh
+  http://zsh-workers.zsh.narkive.com/kSmxf8Iy/problems-with-zsh-s-job-control-and-running-jobs
+  http://www.zsh.org/mla/workers/2010/msg00121.html
+
+History
+  https://habrahabr.ru/users/1vanu4/favorites/comments/page3/
+
+Jobs
+  https://gist.github.com/CMCDragonkai/6084a504b6a7fee270670fc8f5887eb4
+  http://zsh.sourceforge.net/Doc/Release/Jobs-_0026-Signals.html
+
+Setup
+  http://zsh.sourceforge.net/FAQ/zshfaq02.html
+
+Coproc
+  https://www.zsh.org/mla/users/2011/msg00095.html
+
+Mutex
+  http://wiki.bash-hackers.org/howto/mutex
+  $ mkdir $ OR $ ln
+  http://mywiki.wooledge.org/ProcessManagement#How_do_I_make_sure_only_one_copy_of_my_script_can_run_at_a_time.3F

@@ -1,4 +1,8 @@
 Redirections
+  Pipe fail
+    REF: http://www.pixelbeat.org/programming/sigpipe_handling.html
+      BUG: xargs is broken
+    http://superuser.com/questions/554855/how-can-i-fix-a-broken-pipe-error
   Connect to socket
   http://hacktux.com/bash/socket
     exec 3<>/dev/tcp/localhost/22

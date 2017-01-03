@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+# v2 -- create new worker on each one destroyed
+# ALT: manual control of threads
+# SEE https://raw.githubusercontent.com/sindresorhus/pure/master/async.zsh
+# http://stackoverflow.com/questions/11087256/parallel-processing-or-threading-in-shell-scripting
+# http://www.gnu.org/software/bash/manual/html_node/Coprocesses.html
+n=0
+function create_new_job {
+    ((++n <= $#LST)) || return
+    (cd "$DIR/$LST[$n]" && git_process "$LST[$n]" &&
+        kill -0 $pid 2>/dev/null && kill -USR1 $pid ) &
+    # (sleep 1 && echo $n && kill -USR1 $$) &
+}
+trap create_new_job USR1
+for i in {1..4}; do kill -USR1 $pid; done
+wait

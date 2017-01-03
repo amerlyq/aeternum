@@ -10,6 +10,9 @@ ALT
   nash
     + written in Go
     https://github.com/NeowayLabs/nash
+  dgsh - directed graph shell
+    + bash-extended pipe graph syntax for for data streams
+    http://www.spinellis.gr/sw/dgsh/
 
 Cool man. Very cool
   >>> http://www.tldp.org/LDP/abs/html/abs-guide.html
@@ -95,3 +98,10 @@ Snippets (with description)
 
 printf format
   http://wiki.bash-hackers.org/commands/builtin/printf
+
+Timeout
+  + http://unix.stackexchange.com/questions/10698/timing-out-in-a-shell-script
+  http://unix.stackexchange.com/questions/43340/how-to-introduce-timeout-for-shell-scripting
+  http://unix.stackexchange.com/questions/225434/silently-timeout-command-in-zsh
+  http://stackoverflow.com/questions/392022/best-way-to-kill-all-child-processes
+  http://stackoverflow.com/questions/10028820/bash-wait-with-timeout
