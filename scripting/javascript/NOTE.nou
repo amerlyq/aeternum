@@ -10,6 +10,7 @@ Static-analyzers
 Code splitting
   https://webpack.github.io/docs/code-splitting.html
   + http://www.evotech.net/blog/2007/05/including-javascript-in-xhtml/
+  http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file
 
 Include css and js in xhtml
   Internal

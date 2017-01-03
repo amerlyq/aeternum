@@ -24,6 +24,8 @@ Custom Javascript, Google Tag Manager, etc., everything you can imagine is possi
 
 %% Alternatives to Jekyll
 TRY
+  http://www.dreamhost.com/
+
   Great plugin-based pipeline to convert contents
     http://www.metalsmith.io/
 
@@ -35,6 +37,7 @@ Rejected
   Octopress
     http://octopress.org/docs/
       https://github.com/octopress/octopress
+    https://kaworu.ch/blog/2013/09/23/categories-page-with-octopress/
   Hugo (GoHugo)
     http://usersnap.com/blog/hands-on-experience-with-hugo-static-site-generator/
   Ruhoh
