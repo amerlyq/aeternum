@@ -1,0 +1,8 @@
+% Jira Filter
+  All related tickets
+    ... AND NOT (status=Open OR status="In Progress" OR status=Closed OR status=Resolved) ORDER BY CID, priority
+  My progress
+    ... AND status = Closed AND status was "Resolved" by currentUser()
+  My comments
+    SEE: https://jamieechlin.atlassian.net/wiki/display/GRV/Scripted+JQL+Functions#ScriptedJQLFunctions-commented(commentquery)
+    issueFunction in commented("by currentUser()")  # "after -1d by Tom"
