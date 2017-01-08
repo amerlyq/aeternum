@@ -8,6 +8,9 @@ Haskell
     http://lambda-the-ultimate.org/node/485
   Over 130 Practical Recipes For Data Analysis and Machine Learning
     http://haskelldata.com/
+  +++ Write Yourself a Scheme in 48 Hours tutorial (highly recommended, by the way)
+    https://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours
+    http://stackoverflow.com/questions/1931875/when-is-it-ok-to-use-an-ioref
   > What I wish I knew when learning Haskell
     http://dev.stephendiehl.com/hask/
   Useful Applications
@@ -32,3 +35,8 @@ Haskell
   Monads
     https://github.com/anton-k/monads-for-drummers
     >> https://wiki.haskell.org/All_About_Monads
+
+
+Idioms
+  http://www.haskellforall.com/2012/07/breaking-from-loop.html
+    https://wiki.haskell.org/Monad_Transformers_Tutorial
