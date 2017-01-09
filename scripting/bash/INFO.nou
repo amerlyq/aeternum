@@ -67,6 +67,10 @@ shell exits."
   echo vs printf
     http://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo
 
+  Always quote any $VAR
+    http://unix.stackexchange.com/questions/131766/why-does-my-shell-script-choke-on-whitespace-or-other-special-characters
+    http://wiki.bash-hackers.org/syntax/quoting
+
 HACK
   DFL:  func() { ...; }
   ALSO: func() ( ... )  # prevent parameter assignments from affecting the calling shell execution environment
