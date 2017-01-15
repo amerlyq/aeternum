@@ -12,6 +12,10 @@ MAN
   > http://www.easy68k.com/paulrsm/doc/trick68k.htm
   http://heather.cs.ucdavis.edu/~matloff/50/LinuxAssembly.html
 
+  Operand specifiers
+    http://www.ece.sunysb.edu/~slin/system_programming/FilesLec/nov8/S41OpSpec.txt
+    mov/lea/brackets -- see bits correspondence
+
 Optimize prs + !many useful resources
   > http://www.agner.org/optimize/
   > http://habrahabr.ru/post/131971/

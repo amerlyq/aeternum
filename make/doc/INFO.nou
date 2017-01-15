@@ -67,7 +67,7 @@ HACK
       !!! BAD: no err when failed in the middle pipe
     Proper solution
       SHELL := $(shell which bash)
-      .SHELLFLAGS := -eu -o pipefail -c
+      .SHELLFLAGS := -euo pipefail -c
   passing arguments into make recipes
     http://stackoverflow.com/questions/2214575/passing-arguments-to-make-run
     $ make -- target [<args>]
