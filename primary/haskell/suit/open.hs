@@ -9,6 +9,7 @@ main = do
   exists <- doesFileExist path
   -- Read w/o exception
   input1 <- if exists then readFile path else return ""
+  putStrLn $ input1 ++ "---"
   -- Handle exception
   input2 <- catch (readFile path) $ \e -> print (e::SomeException) >> return ""
-  print input2
+  putStrLn $ input2 ++ "---"
