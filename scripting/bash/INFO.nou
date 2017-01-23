@@ -34,6 +34,7 @@ Cool man. Very cool
   + [_] https://google.github.io/styleguide/shell.xml#Naming_Conventions
   REF:
     http://www.gnu.org/software/bash/manual/bashref.html#Bourne-Shell-Builtins
+    ++ http://wiki.bash-hackers.org/commands/builtin/trap
 
 -_ set -e
 -_ set -o errexit
