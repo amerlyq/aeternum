@@ -16,6 +16,8 @@ REF
     http://clarkgrubb.com/makefile-style-guide#phony-targets
   !!! [_] REF dirnames -- use in my Makefiles
     http://www.gnu.org/software/make/manual/html_node/Directory-Variables.html
+  TODO:READ: from 8.4
+    http://www.gnu.org/software/make/manual/make.html#File-Name-Functions
 
 
 SEE
@@ -33,6 +35,8 @@ SEE
     https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html
   Splitting long rules
     http://www.linuxdevcenter.com/pub/a/linux/2002/02/14/makefiles.html?page=2
+  Kbuild> READ from :831
+    https://android.googlesource.com/kernel/common/+/android-3.10-adf/Documentation/kbuild/makefiles.txt
 
 Tips
   http://locklessinc.com/articles/makefile_tricks/
@@ -57,6 +61,8 @@ Tips
     http://stackoverflow.com/questions/10180912/is-dependency-on-a-symlink-possible-in-a-makefile
   ! export PATH dont work for $(shell ...)
     http://stackoverflow.com/questions/2838715/makefile-variable-initialization-and-export
+  Makefile target-variable : when many
+    http://stackoverflow.com/questions/1909188/define-make-variable-at-rule-execution-time
 
 
 HACK
