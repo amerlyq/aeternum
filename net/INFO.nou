@@ -48,6 +48,10 @@ TCP
     = low-level problems and situations
   => Understanding Wireshark datagrams
     http://networkstatic.net/what-are-ethernet-ip-and-tcp-headers-in-wireshark-captures/
+  Разрывы соединения TCP
+    https://habrahabr.ru/company/mailru/blog/316128/
+    > Классическая книга Ричарда Стивенса II издание -- много лучше
+    > Это хорошо изложено в книге «Эффективное программирование TCP/IP», (С) Йон Снейдер.  http://mexalib.com/view/2345
 
 HTTP
   https://habrahabr.ru/post/215117/
