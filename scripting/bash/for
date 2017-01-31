@@ -7,4 +7,4 @@ for i in 1 2 3 4 5; do echo $i; done
 for i in {1..5}; do echo $i; done     #3.0+
 for i in {0..10..2}; do echo $i; done #4.0+
 for i in "${arrayName[@]}"; do echo $i; done
-
+for ((i=0; i<${#a[@]}; ++i)); do echo "$i" "${a[i]}"; done
