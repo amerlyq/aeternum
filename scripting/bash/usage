@@ -1,0 +1,13 @@
+#!/bin/bash
+OPTS=("$@")
+_usage() {
+cat <<EOF
+  $ $0 $OPTS
+      $*
+  Usage: foobar <[options]>
+  Options:
+    -h   --help           Show this message
+    -b   --bar            Set foo to yes    ($foo)
+EOF
+}
+(($#)) || _usage "  >>>>>>>> no options given "
