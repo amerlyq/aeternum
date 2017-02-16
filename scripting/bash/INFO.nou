@@ -110,3 +110,9 @@ Timeout
   http://unix.stackexchange.com/questions/225434/silently-timeout-command-in-zsh
   http://stackoverflow.com/questions/392022/best-way-to-kill-all-child-processes
   http://stackoverflow.com/questions/10028820/bash-wait-with-timeout
+
+Profiling
+  2014: http://stackoverflow.com/questions/5014823/how-to-profile-a-bash-shell-script-slow-startup
+    http://stackoverflow.com/a/20855353/4749047
+  https://github.com/matstc/shell-profiler
+  $ strace -c ls

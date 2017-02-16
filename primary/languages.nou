@@ -51,6 +51,9 @@ ALL
       Ruby isn't nice for text processing -- beside DSL
     ! TRY: Ruby has nice template/metaprogramming features
 
+Rust
+  https://habrahabr.ru/post/321564/
+  => compiled ?
 
 J
   * http://www.jsoftware.com/source.htm
