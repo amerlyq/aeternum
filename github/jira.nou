@@ -6,3 +6,7 @@
   My comments
     SEE: https://jamieechlin.atlassian.net/wiki/display/GRV/Scripted+JQL+Functions#ScriptedJQLFunctions-commented(commentquery)
     issueFunction in commented("by currentUser()")  # "after -1d by Tom"
+
+Confluence
+  https://confluence.atlassian.com/doc/confluence-wiki-markup-251003035.html
+  https://confluence.atlassian.com/conf51/keyboard-shortcuts-336169228.html
