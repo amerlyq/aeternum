@@ -10,3 +10,11 @@ Regex
   http://perldoc.perl.org/perlre.html
     http://perldoc.perl.org/perlre.html#Repeated-Patterns-Matching-a-Zero-length-Substring
   !! http://www.rexegg.com/regex-quantifiers.html  # Traps and tricks
+
+Binary
+  http://perltricks.com/article/how-to-parse-binary-data-with-perl/
+  https://perlhacks.com/2014/04/data-munging-perl/
+  http://www.perlmonks.org/?node_id=53473
+  http://www.perlmonks.org/?node_id=224666
+  https://www.effectiveperlprogramming.com/
+  http://perldoc.perl.org/perlpacktut.html

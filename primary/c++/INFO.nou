@@ -10,6 +10,8 @@
   GCC6
     https://gcc.gnu.org/gcc-6/changes.html
     https://gcc.gnu.org/gcc-6/porting_to.html
+  Performance optimizations
+    ++ http://stackoverflow.com/questions/14492436/g-optimization-beyond-o3-ofast
 
 %%% General
   +++ Structure padding and alignment (low-level)
