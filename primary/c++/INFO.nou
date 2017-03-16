@@ -30,6 +30,8 @@
   !! Mixing PIC/PIE with non-PIC == BAD
     http://stackoverflow.com/questions/8331456/mixing-pic-and-non-pic-objects-in-a-shared-library
     REF http://stackoverflow.com/questions/18026333/what-does-compiling-with-pic-dwith-pic-with-pic-actually-do
+  ++ Linkers
+    http://www.lurklurk.org/linkers/linkers.html
 
 %%% Standart
   Static (singleton) destruction
@@ -47,3 +49,9 @@
   | pub | pub | pro | pri
   | pro | pro | pro | ina
   | pri | pri | pri | ina
+
+%%% Embedding data into ELF verbatim
+  + http://stackoverflow.com/questions/4864866/c-c-with-gcc-statically-add-resource-files-to-executable-library
+  + http://gareus.org/wiki/embedding_resources_in_executables
+  http://stackoverflow.com/questions/4158900/embedding-resources-in-executable-using-gcc/4158997#4158997
+  http://www.linuxjournal.com/content/embedding-file-executable-aka-hello-world-version-5967
