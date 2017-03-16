@@ -105,11 +105,18 @@ printf format
   http://wiki.bash-hackers.org/commands/builtin/printf
 
 Timeout
+  ++ http://stackoverflow.com/questions/687948/timeout-a-command-in-bash-without-unnecessary-delay
+    DEV:
+      ++ http://www.bashcookbook.com/bashinfo/source/bash-4.0/examples/scripts/timeout3
+      http://www.pixelbeat.org/scripts/timeout
+    E.G.  # NEED: bash>v4.3 SEE http://tiswww.case.edu/php/chet/bash/NEWS
+      $ _timeout()(set +b; sleep "$1" & shift; "$@" & wait -n; r=$?; kill -9 $(jobs -p); exit $r)
   + http://unix.stackexchange.com/questions/10698/timing-out-in-a-shell-script
   http://unix.stackexchange.com/questions/43340/how-to-introduce-timeout-for-shell-scripting
   http://unix.stackexchange.com/questions/225434/silently-timeout-command-in-zsh
   http://stackoverflow.com/questions/392022/best-way-to-kill-all-child-processes
   http://stackoverflow.com/questions/10028820/bash-wait-with-timeout
+  ALT: https://devel.ringlet.net/sysutils/timelimit/
 
 Profiling
   2014: http://stackoverflow.com/questions/5014823/how-to-profile-a-bash-shell-script-slow-startup
