@@ -31,7 +31,10 @@
     http://stackoverflow.com/questions/8331456/mixing-pic-and-non-pic-objects-in-a-shared-library
     REF http://stackoverflow.com/questions/18026333/what-does-compiling-with-pic-dwith-pic-with-pic-actually-do
   ++ Linkers
-    http://www.lurklurk.org/linkers/linkers.html
+    REF
+      http://www.lurklurk.org/linkers/linkers.html
+    Linking Order of Libraries
+      http://stackoverflow.com/questions/45135/why-does-the-order-in-which-libraries-are-linked-sometimes-cause-errors-in-gcc
 
 %%% Standart
   Static (singleton) destruction
@@ -52,6 +55,7 @@
 
 %%% Embedding data into ELF verbatim
   + http://stackoverflow.com/questions/4864866/c-c-with-gcc-statically-add-resource-files-to-executable-library
+  http://stackoverflow.com/questions/19169039/symbol-names-when-embedding-data-in-executable-on-linux
   + http://gareus.org/wiki/embedding_resources_in_executables
   http://stackoverflow.com/questions/4158900/embedding-resources-in-executable-using-gcc/4158997#4158997
   http://www.linuxjournal.com/content/embedding-file-executable-aka-hello-world-version-5967
