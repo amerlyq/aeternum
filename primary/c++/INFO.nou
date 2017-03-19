@@ -33,6 +33,7 @@
   ++ Linkers
     REF
       http://www.lurklurk.org/linkers/linkers.html
+      Tut: +++ https://www.embeddedrelated.com/showarticle/900.php
     Linking Order of Libraries
       http://stackoverflow.com/questions/45135/why-does-the-order-in-which-libraries-are-linked-sometimes-cause-errors-in-gcc
 
