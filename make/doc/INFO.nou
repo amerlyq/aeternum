@@ -111,12 +111,8 @@ MAKEFLAGS MAKELEVEL
     keep going (try building all pending rules)
       $ make -k
       * gathers maximum errors to show from all targets
-  Override VAR=
-    Makefile: S:=0 | Q?=0 | override O=0 | S+=+ | Q+=+ | O+=+ | all: ; # $S $Q $O
-    |0+0+0| $ make O=1         $ ignored O cmdline, not exported!, always use 'override O+=..' to modify
-    |1 1 0| $ make S=1 Q=1     $ overrides S Q, assigning completely ignored -- i.a. '+='
-    |0+1+0| $ S=1 Q=1 O=1 make $ Q '?=' queries var from env, and applies '+=' !
-    |1 1 0| $ S=1 Q=1 make -e  $ force env vars, all '+=' ignored
+  Override VAR
+    SEE:(at bottom): ./var-override.mk
   Expansion
     WARN: values (both env and cmdline) are *ALWAYS* expanded
     make: v:=$(VAR)
@@ -129,8 +125,9 @@ DEBUG
   + https://www.safaribooksonline.com/library/view/managing-projects-with/0596006101/ch12.html
   http://bashdb.sourceforge.net/remake/  # remake dbg
   $ make --trace
-  $ make -n target  $ dry-run -- print commands to execute
+  $ make -n target  $ --dry-run -- print commands to execute
   $ make -d  $ accompany output with rebuild decision metainfo
+  $ make -p -f /dev/null $ --print-data-base -- all VAR values
   Test makefile on dependency on DFL
     $ make -rR
   eval -> info
