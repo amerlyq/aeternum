@@ -2,10 +2,18 @@ One-liners collection
   http://www.softpanorama.org/Scripting/Perlorama/perl_in_command_line.shtml#More_on_emulation_of_Unix_cut
   !! READ: Tricks for one-liners
     https://blogs.oracle.com/ksplice/entry/the_top_10_tricks_of
+  Strict warnings
+    $ perl -Mstrict -Mautodie -M5.024 -Mwarnings=FATAL,all -lae '..'
+      WARN: -w != use warnings
+        https://perlmaven.com/always-use-strict-and-use-warnings
+      WARN: memleak for warnings FATAL in <v0.9907
+        https://rt.cpan.org/Public/Bug/Display.html?id=81294
 
 MAN
   All flags
     $ perldoc perlrun
+  Help on func
+    $ perldoc -f read
   if you use B::Deparse, you can see what it means (for most things)
     $ perl -MO=Deparse   -p  -e 1
     SEE http://perldoc.perl.org/functions/pack.html
