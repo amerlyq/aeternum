@@ -6,6 +6,12 @@
     http://c-faq.com/
       http://c-faq.com/osdep/cbreak.html
 
+DEBUG
+  Print lib path which will be used
+    $ gcc -print-file-name=libc.a
+  Trace linker libs
+    $ gcc -Wl,--trace main.c -o main -L. -lmylib
+
 
 %% Snippets
   http://www.geonius.com/software/index.html#libgpl

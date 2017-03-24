@@ -24,3 +24,6 @@ Judy -- fastest data containers (hash map)
   http://elliottback.com/wp/hashmap-implementation-in-c/
   http://petewarden.com/2010/01/07/c-hashmap/
   http://c.learncodethehardway.org/book/ex37.html
+
+Mangling in C
+  https://blogs.msdn.microsoft.com/oldnewthing/20120525-00/?p=7533/
