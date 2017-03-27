@@ -9,6 +9,13 @@
 DEBUG
   Print lib path which will be used
     $ gcc -print-file-name=libc.a
+    OR $ gcc -print-libgcc-file-name
+       # to link manually when using -nostdlib
+  Investigate intermediate files
+    $ gcc -save-temps ...
+  Check paths to includes and libs to link
+    $ gcc -H -v -print-search-dirs -o main main.c
+    ALT: $ gcc -### ...
   Trace linker libs
     $ gcc -Wl,--trace main.c -o main -L. -lmylib
 
