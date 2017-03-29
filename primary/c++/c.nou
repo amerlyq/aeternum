@@ -1,6 +1,11 @@
 const : bad things
   http://www.parashift.com/c++-faq/constptrptr-conversion.html
 
+extern
+  = DFL applies to any global function or symbol (BUT: common)
+  = declare variable without defining
+  2017-03-29 [X] http://stackoverflow.com/questions/1433204/how-do-i-use-extern-to-share-variables-between-source-files-in-c
+
 classes made in C
   http://blog.noctua-software.com/cpp-patterns-using-plain-c.html
 

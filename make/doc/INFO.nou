@@ -124,7 +124,7 @@ DEBUG
     $ make -p -f/dev/null
   + https://www.safaribooksonline.com/library/view/managing-projects-with/0596006101/ch12.html
   http://bashdb.sourceforge.net/remake/  # remake dbg
-  $ make --trace
+  $ make --trace  $ ALT: for older make $ make --debug=j
   $ make -n target  $ --dry-run -- print commands to execute
   $ make -d  $ accompany output with rebuild decision metainfo
   $ make -p -f /dev/null $ --print-data-base -- all VAR values

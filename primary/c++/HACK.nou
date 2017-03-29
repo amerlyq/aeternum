@@ -11,3 +11,13 @@ Wrapping function by another object from cmdline
   BAD: $ -D'main(...)=__real_main(__VA_ARGS__)'
     + simple to do
     - works only in C, breaks on C++ with mangling
+
+
+Addressing static function
+  + may be useful for unit tests to preprocess files by macros
+  //a.c
+    static void sfun() { printf("a\n"); }
+    void (*fptr)() = &sfun;
+  //b.c
+    extern void (*fptr)();
+    int main() { (fptr)(); return 0; }
