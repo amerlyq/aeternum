@@ -1,0 +1,13 @@
+%%% Technique
+
+Wrapping function by another object from cmdline
+  BET: $ -Wl,--wrap=main
+    + all usage of <sym> linked to //__wrap_<sym>
+    + sym //__real_<sym> won't be present in .symtab
+    - need to rename my own function as above
+  ALT: $ -D'main(...)=main(__VA_ARGS__) asm ("__real_main"); int main(__VA_ARGS__)'
+    + works in both C and C++
+    - can't reuse function type from left on right
+  BAD: $ -D'main(...)=__real_main(__VA_ARGS__)'
+    + simple to do
+    - works only in C, breaks on C++ with mangling
