@@ -112,6 +112,16 @@ PROLOG
         https://en.wikipedia.org/wiki/Warren_Abstract_Machine
         http://hassan-ait-kaci.net
         http://wambook.sourceforge.net
+  SEE
+    https://www.dcc.fc.up.pt/~vsc/Yap/
+    http://teyjus.cs.umn.edu/
+      = Lambda Prolog :: lambda tree syntax :: pattern unification
+      https://github.com/teyjus/teyjus/wiki/TeyjusManual
+
+  TRY
+    http://www.gprolog.org/
+      http://www.gprolog.org/manual/html_node/gprolog005.html
+      http://www.gprolog.org/manual/gprolog.html
 
 Markdown
   https://guides.github.com/features/mastering-markdown/
