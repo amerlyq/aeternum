@@ -20,3 +20,23 @@ Lisp
   IDEA: lisp image -> the same as meridia
     -> dump memory from compiled syntax
     http://stackoverflow.com/questions/480083/what-is-a-lisp-image
+  READ INFO Infrastructure review
+    https://habrahabr.ru/post/265589/
+      https://github.com/roswell/roswell
+      https://mmaul.github.io/clml.tutorials//2015/08/08/CLML-Time-Series-Part-1.html
+      https://github.com/melisgl/mgl
+  OpenGL in Lisp
+    ! can be ia edited !
+    https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y
+
+Review
+  https://habrahabr.ru/post/262225/
+
+
+Picolisp
+  TRY: using as shell language for my system scripting
+  ++ Great examples of user ia with *.so to call funcs, etc
+    https://picolisp.com/wiki/?home
+  TUT
+    https://habrahabr.ru/post/247965/
+    https://software-lab.de/doc/tut.html
