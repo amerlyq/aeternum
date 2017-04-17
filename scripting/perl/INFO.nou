@@ -18,6 +18,14 @@ Regex
     http://perldoc.perl.org/perlre.html#Repeated-Patterns-Matching-a-Zero-length-Substring
   !! http://www.rexegg.com/regex-quantifiers.html  # Traps and tricks
 
+  Matching
+    https://perldoc.perl.org/perlretut.html
+    http://perldoc.perl.org/perlrequick.html
+  Non-destructive substitution
+    http://stackoverflow.com/questions/8206135/storing-regex-result-in-a-new-variable
+    http://perldoc.perl.org/perl5132delta.html#Non-destructive-substitution
+      http://perldoc.perl.org/perlop.html
+
 Binary
   http://perltricks.com/article/how-to-parse-binary-data-with-perl/
   https://perlhacks.com/2014/04/data-munging-perl/
