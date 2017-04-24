@@ -1,0 +1,47 @@
+REF
+  SEE
+    http://code.jsoftware.com/wiki/Main_Page
+    https://en.wikipedia.org/wiki/J_(programming_language)
+      SEE external links for real world usage examples
+  REF system
+    /usr/share/doc/j8/jvocabulary.pdf
+    /usr/share/doc/j8/jrefcard.pdf
+  REF online
+    functions
+      http://www.jsoftware.com/help/learning/03.htm
+      SEE 3.8 trains of verbs
+    types and classes
+      http://www.jsoftware.com/help/learning/27.htm
+      http://www.jsoftware.com/help/learning/03.htm
+    Foreigns
+      REF http://www.jsoftware.com/help/dictionary/xmain.htm
+      http://code.jsoftware.com/wiki/Vocabulary/Foreigns
+  REF books
+    http://www.cs.trinity.edu/~jhowland/math-talk/functional1/
+    http://cs.trinity.edu/About/The_Courses/cs2322/j-books/primer.pdf
+    http://www.cs.nyu.edu/courses/fall05/G22.2110-001/dictionary.pdf
+  FAQ
+    HACK http://code.jsoftware.com/wiki/System/Interpreter/Requests
+    Oneline multiple statement
+      https://stackoverflow.com/questions/17733203/how-to-write-several-statements-in-the-same-line-in-j
+    Multiline function body
+      http://www.jsoftware.com/help/learning/12.htm
+    Run cmd, catch output
+      http://www.jsoftware.com/help/user/stdin_stdout.htm
+      http://code.jsoftware.com/wiki/User:Ian_Clark/Immex
+  E.G.
+    https://rosettacode.org/wiki/Category:J
+    http://olegykj.sourceforge.net/
+  History
+    http://keiapl.org/rhui/remember.htm
+    "Neural Networks in J" by Alexei N. Skurihin.
+
+E.G.
+  http://www.jsoftware.com/source.htm
+  https://github.com/openj/core
+  +? https://github.com/iocane/unbox
+  https://news.ycombinator.com/item?id=8339389
+    http://prog21.dadgum.com/48.html
+    https://github.com/wyc/snippets/blob/master/j/jtalk/examples.txt
+  Tools / complex
+    https://analyzethedatanotthedrivel.org/the-jod-page/

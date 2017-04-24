@@ -4,6 +4,11 @@
   ++ http://lambda-the-ultimate.org/node/2491
     nice discussion on diff langs
   https://xivilization.net/~marek/blog/
+  https://www.isp.uni-luebeck.de/sites/default/files/lectures/ws_2015_2016/CS%25203702%2520BachSemInf,%2520,%2520CS%25203703%2520BachSemMI,%2520,%2520CS%25205480%2520SemSSE,%2520,%2520CS%25205840%2520SemiEngl/copl-proceedings.pdf
+
+vector processing languages E.G: J, K, Q
+  https://kx.com/2015/02/13/vector-processing-languages-big-data-analytics-real-time-business-intelligence/
+    http://conceptualorigami.blogspot.com/2010/12/vector-processing-languages-future-of.html
 
 Languages Tree
 >>> https://en.wikipedia.org/wiki/Generational_list_of_programming_languages
@@ -56,11 +61,6 @@ Rust
   https://habrahabr.ru/post/321564/
   => compiled ?
   + http://rustbyexample.com/std_misc/fs.html
-
-J
-  * http://www.jsoftware.com/source.htm
-  + https://github.com/iocane/unbox
-  ~ https://github.com/openj/core
 
 APL
   https://analyzethedatanotthedrivel.org/2010/11/12/the-return-of-apl-fingers-2/

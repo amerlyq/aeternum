@@ -1,0 +1,45 @@
+%%% Atoms
+
+% exit on err with errmsg
+
+  $ /usr/lib/j8/bin/jconsole -js "9\!:27'exit 1'" "9\!:29]1" a=.23 b=.3 "echo 2 3*4 5 6" "exit 0"
+
+  SEE https://github.com/tangentstorm/tangentlabs/blob/master/j/repl.ijs
+  SEE uncaught throw
+    http://code.jsoftware.com/wiki/System/Interpreter/Requests
+
+  trap oneline
+    SEE http://www.jsoftware.com/help/dictionary/dx013.htm
+    # 9!:29[1
+    # 9!:27 'exit (13!:11 '''') [ stderr (13!:12 '''')'
+    # OR: 9!:27 '2!:55 (13!:11 '''') [ 1!:2&5 (13!:12 '''')'
+  ALT: trap by func
+    # onfail=:3 :0
+    #   1!:2&2 ARGV
+    #   1!:2&5]13!:12''
+    #   2!:55>:13!:11''
+    # )
+    # 9!:27 'onfail 1'
+    # 9!:29]1
+  ALT: try..catch
+    SEE http://www.jsoftware.com/help/dictionary/ctry.htm
+    body=: 3 : 0   # OR: =: verb define
+     try.
+      echo 2 3*4 5 6
+     catch.
+      stderr (13!:12 '')
+      exit (13!:11 '')
+      # OR: stderr (13!:11 '''');(13!:12 '''')
+     end.
+    )
+    body a.
+
+% shebang
+  http://www.jsoftware.com/help/user/hashbang.htm
+  http://juggle.gaertner.de/bnp/cgi.html
+  http://jsoftware.2058.n7.nabble.com/Running-script-from-jconsole-td65867.html
+  http://jsoftware.2058.n7.nabble.com/Example-bash-shell-scripts-using-J-7-01-td1874.html
+
+% /dev/stdin support
+  http://code.jsoftware.com/wiki/Scripts/Pretty_Print
+  G: http://code.jsoftware.com/mediawiki/index.php?title=Special%3AJwikiSearch&for=stdin
