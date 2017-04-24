@@ -4,6 +4,11 @@ Manual + Examples
 READ
   http://prog21.dadgum.com/22.html
 
+ALT
+  Elixir
+    http://elixir-lang.org/
+
+
 String concatenation (by ++ has O(n) and 8x memory)
   Of course there is one! You should use binary and IoList whenever
   possible. An IoList is iolist = [char() | binary() | iolist()]. They are
