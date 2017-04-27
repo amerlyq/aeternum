@@ -3,7 +3,8 @@ REF
     http://code.jsoftware.com/wiki/Main_Page
     https://en.wikipedia.org/wiki/J_(programming_language)
       SEE external links for real world usage examples
-  REF system
+  LIOR system
+    + http://www.jsoftware.com/help/dictionary/vocabul.htm
     /usr/share/doc/j8/jvocabulary.pdf
     /usr/share/doc/j8/jrefcard.pdf
   REF online
@@ -17,6 +18,7 @@ REF
       REF http://www.jsoftware.com/help/dictionary/xmain.htm
       http://code.jsoftware.com/wiki/Vocabulary/Foreigns
   REF books
+    + http://www.jsoftware.com/help/primer/contents.htm
     http://www.cs.trinity.edu/~jhowland/math-talk/functional1/
     http://cs.trinity.edu/About/The_Courses/cs2322/j-books/primer.pdf
     http://www.cs.nyu.edu/courses/fall05/G22.2110-001/dictionary.pdf
