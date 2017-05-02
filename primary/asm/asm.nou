@@ -15,6 +15,9 @@ MAN
   Operand specifiers
     http://www.ece.sunysb.edu/~slin/system_programming/FilesLec/nov8/S41OpSpec.txt
     mov/lea/brackets -- see bits correspondence
+  x86_64
+    https://stefanheule.com/blog/how-many-x86-64-instructions-are-there-anyway/
+      = how many instructions there actually are
 
 Optimize prs + !many useful resources
   > http://www.agner.org/optimize/
