@@ -119,6 +119,18 @@ PROLOG
     http://teyjus.cs.umn.edu/
       = Lambda Prolog :: lambda tree syntax :: pattern unification
       https://github.com/teyjus/teyjus/wiki/TeyjusManual
+  How I tried to not become a logic programmer
+    https://dtai.cs.kuleuven.be/projects/ALP/newsletter/aug08/content/Historical/content.html
+  Prolog vs Minikanren
+    http://stackoverflow.com/questions/28467011/what-are-the-main-technical-differences-between-prolog-and-minikanren-with-resp
+  Towards Banishing the Cut from Prolog
+    http://www.academia.edu/31138551/Towards_banishing_the_cut_from_Prolog
+    https://pdfs.semanticscholar.org/cba3/8a997be8923ac8efae940f00ea2ec26becea.pdf
+    http://edc-connection.ebscohost.com/c/articles/14370298/towards-banishing-cut-from-prolog
+
+  Books on logic programming
+    Logic Program Synthesis and Transformation: Proceedings of LOPSTR
+      https://books.google.com.ua/books?id=EcPgBwAAQBAJ&pg=PA212&lpg=PA212&dq=toward+banishing+the+cut+from+prolog&source=bl&ots=81MtCcwZmW&sig=SKF_qvAyyVH-ePnieX9rFr7BlGc&hl=en&sa=X&redir_esc=y
 
   TRY
     http://www.gprolog.org/
