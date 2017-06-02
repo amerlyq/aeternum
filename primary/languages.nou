@@ -59,6 +59,11 @@ ALL
       Ruby isn't nice for text processing -- beside DSL
     ! TRY: Ruby has nice template/metaprogramming features
 
+Idris
+  + compiled
+  = general purpose pure functional programming language with dependent types
+  https://www.idris-lang.org/
+
 Rust
   https://habrahabr.ru/post/321564/
   => compiled ?
@@ -149,7 +154,7 @@ PROLOG
 Markdown
   https://guides.github.com/features/mastering-markdown/
 
-Forth
+Forth  #forth
   http://habrahabr.ru/post/29967/
   http://habrahabr.ru/post/209730/
   : Изначально ядро этого языка представляет из себя некий словарь: набор
@@ -181,6 +186,10 @@ Fort
 
 Nim ? -- imperative, elegant, parallel, compiles in C
   http://nim-lang.org/
+  #nim
+
+Julia 2017
+  https://julialang.org/
 
 
 GNU R
@@ -238,3 +247,6 @@ Ada as language in usage (notes)
   K
     no community and docs, trading oriented, proprietary
     : https://github.com/kevinlawler/kona
+  Ruby ->
+    Crystal
+      https://crystal-lang.org/
