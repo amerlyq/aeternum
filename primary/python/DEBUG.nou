@@ -3,6 +3,7 @@ REF
 
 General debug / profile
   https://docs.python.org/2/library/debug.html
+  https://pythonhosted.org/Pympler/
 
 vim as IDE
   http://www.sontek.net/blog/2011/05/07/turning_vim_into_a_modern_python_ide.html
