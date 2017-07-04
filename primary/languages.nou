@@ -1,3 +1,15 @@
+!!! Insights
+  https://www.infoq.com/presentations/We-Really-Dont-Know-How-To-Compute
+  http://www.stroustrup.com/dne.html
+    = The Design and Evolution of C++
+
+Syntax comparisons
+  http://hyperpolyglot.org/
+  https://learnxinyminutes.com/
+
+Catalogue
+  +++ https://en.wikipedia.org/wiki/List_of_programming_languages_by_type
+
 >>> Good review
   http://blog.fourthbit.com/2014/03/01/the-best-programming-language-or-how-to-stop-worrying-and-love-the-code
   https://wiki.python.org/moin/LanguageComparisons
@@ -7,6 +19,7 @@
   https://www.isp.uni-luebeck.de/sites/default/files/lectures/ws_2015_2016/CS%25203702%2520BachSemInf,%2520,%2520CS%25203703%2520BachSemMI,%2520,%2520CS%25205480%2520SemSSE,%2520,%2520CS%25205840%2520SemiEngl/copl-proceedings.pdf
   https://news.ycombinator.com/item?id=1944913
     = Which programming book you just couldn’t stop reading from start to end?
+
 
 vector processing languages E.G: J, K, Q
   https://kx.com/2015/02/13/vector-processing-languages-big-data-analytics-real-time-business-intelligence/
@@ -61,7 +74,7 @@ ALL
 
 Idris
   + compiled
-  = general purpose pure functional programming language with dependent types
+  = general purpose pure functional programming language with _dependent types_
   https://www.idris-lang.org/
 
 Rust
@@ -71,6 +84,9 @@ Rust
 
 APL
   https://analyzethedatanotthedrivel.org/2010/11/12/the-return-of-apl-fingers-2/
+
+Frink -- success of domain language
+  https://frinklang.org/fsp/samples.fsp
 
 Io -- ALT to lua
 < with event-driven all operations
@@ -158,6 +174,7 @@ Markdown
   https://guides.github.com/features/mastering-markdown/
 
 Forth  #forth
+  ++ E.G. https://rosettacode.org/wiki/OpenGL#Forth
   http://habrahabr.ru/post/29967/
   http://habrahabr.ru/post/209730/
   : Изначально ядро этого языка представляет из себя некий словарь: набор
@@ -193,6 +210,12 @@ Nim ? -- imperative, elegant, parallel, compiles in C
 
 Julia 2017
   https://julialang.org/
+
+
+++ Eve -- relational language with concepts ecosystem
+  http://witheve.com/
+  ++ http://www.chris-granger.com/
+    http://play.witheve.com/#/examples/quickstart.eve
 
 
 GNU R
