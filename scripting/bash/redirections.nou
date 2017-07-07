@@ -59,6 +59,11 @@ Merge output
     $ cat <(cmd1 & cmd2) > file
   Simultaneously send the output of one command
     $ command0 | tee >(cmd1) >(cmd2) >(command3) | command4
+  Directed graph pipe: ALT: dgsh
+    $ { { { tee /dev/fd/3 /dev/fd/4 | command1 >&9;
+          } 3>&1 | command2 >&9;
+        } 4>&1 | command3 >&9;
+      } 9>&1
 
 Capture but show in stdout
   $ VAR=$(cmd | tee /dev/tty)

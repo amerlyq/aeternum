@@ -35,6 +35,8 @@ Cool man. Very cool
   REF:
     http://www.gnu.org/software/bash/manual/bashref.html#Bourne-Shell-Builtins
     ++ http://wiki.bash-hackers.org/commands/builtin/trap
+  Robust programming (bash -eu)
+    ${arr[@]+"${arr[@]}"}
 
 -_ set -e
 -_ set -o errexit
