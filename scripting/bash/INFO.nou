@@ -79,6 +79,13 @@ HACK
   ALSO: func() ( ... )  # prevent parameter assignments from affecting the calling shell execution environment
   TRY:  func() ...
 
+Double-fork daemonize
+  https://stackoverflow.com/questions/3430330/best-way-to-make-a-shell-script-daemon
+    http://thelinuxjedi.blogspot.com/2014/02/why-use-double-fork-to-daemonize.html
+    https://www.amazon.com/dp/0201433079
+  https://stackoverflow.com/questions/10408816/how-do-i-use-the-nohup-command-without-getting-nohup-out
+  $ nohup $cmd 0<&- &>/dev/null & disown
+
 Bash and cli commands list
   > http://ss64.com/bash/
 

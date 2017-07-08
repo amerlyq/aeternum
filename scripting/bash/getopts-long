@@ -4,20 +4,22 @@
 die() { printf "Err: '"${0##*/}"' %s${1+\n}" "$1"; return 1; }
 args() {
   local OPTIND=1
-  while getopts 'avf:k-' opt $*; do case "$opt"
+  while getopts 'avf:k-' o $*; do case $o
   in v) VERBOSE=1
   ;; k) KEEP=1
-  ;; f) FILE="$OPTARG"
-  ;; -) eval 'opt=${'$((OPTIND>2? --OPTIND :OPTIND))'#--}'
-    OPTARG="${opt#*=}"; case "${opt%%=*}"
-    in file) FILE="$OPTARG"
+  ;; f) FILE=$OPTARG
+  # ALT:(!OPTIND): $1 -- directly use
+  # ALT:(!OPTIND): eval 'o=${'$((OPTIND>2? --OPTIND :OPTIND))'#--}'
+  ;; -) v=${!OPTIND#--}; o=${v%%=*}; v=${v#$o}; v=${v#=}
+    case $o
+    in file) FILE=$v
     ;; verbose) VERBOSE=1
-    ;; *) die "invalid long option '--$opt'"
-    esac; OPTIND=1; shift
+    ;; *) die "invalid long option '--$o'"
+    esac; shift; OPTIND=1; continue
   ;; "?") die
-  ;; :) die "needs value for '-$opt'"
-  ;; *) die "has mismatched option '-$opt'"
-  esac; done; shift $((OPTIND-1));
+  ;; :) die "needs value for '-$o'"
+  ;; *) die "unprocessed valid option '-$o'"
+  esac; done; shift $((OPTIND-1))
 }
 
 do_keep() { (($KEEP)) && return || echo 'Delete all'; }
