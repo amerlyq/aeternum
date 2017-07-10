@@ -104,6 +104,11 @@ Debug trick -- line by line execution
     http://bashdb.sourceforge.net/
     https://github.com/rocky/zshdb/wiki
 
+POSIX check empty VAR with "x" :: [ "x$VAR" = "x" ]
+  ::: necessary, if $VAR may expand to something with metacharacters, confusing "["
+  >> https://serverfault.com/questions/7503/how-to-determine-if-a-bash-variable-is-empty
+  https://stackoverflow.com/questions/6852612/bash-test-for-empty-string-with-x
+
 Last argument: most/last
   http://stackoverflow.com/questions/1215538/extract-parameters-before-last-parameter-in
 
