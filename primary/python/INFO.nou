@@ -14,9 +14,6 @@ Aspects
 Interactive interpreter
   http://www.skulpt.org/
 
-Check for graphviz bindings:
-  https://github.com/pygraphviz/pygraphviz
-
 Argument parsing
   https://docs.python.org/3/library/argparse.html#module-argparse
   https://www.udemy.com/blog/python-command-line-arguments/

@@ -182,15 +182,20 @@ Advanced Debugging
 Instrumentation
   https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)
   https://en.wikipedia.org/wiki/Profiling_(computer_programming)
-  Callgraph
-    https://en.wikipedia.org/wiki/Call_graph
-    ++ http://stackoverflow.com/questions/13963321/build-a-call-graph-in-python-including-modules-and-functions
-      https://github.com/ejrh/ejrh/blob/master/utils/pyan.py
-      https://github.com/dafyddcrosby/pyan
-    http://pycallgraph.slowchop.com/en/master/
-      https://github.com/gak/pycallgraph
-      https://readthedocs.org/projects/pycallgraph/downloads/pdf/master/
-    https://ejrh.wordpress.com/2011/12/23/call-graphs-in-python/
+
+Callgraph
+  https://en.wikipedia.org/wiki/Call_graph
+  [_] objgraph http://www.huyng.com/posts/python-performance-analysis/
+  ++ http://stackoverflow.com/questions/13963321/build-a-call-graph-in-python-including-modules-and-functions
+    https://github.com/ejrh/ejrh/blob/master/utils/pyan.py
+    https://github.com/dafyddcrosby/pyan
+  http://pycallgraph.slowchop.com/en/master/
+    https://github.com/gak/pycallgraph
+    https://readthedocs.org/projects/pycallgraph/downloads/pdf/master/
+  https://ejrh.wordpress.com/2011/12/23/call-graphs-in-python/
+
+Metrics
+  [_] https://eastvisionsystems.com/profiling-tools-in-python-non-deterministic-and-memory-analysis/
   https://github.com/tobami/codespeed/
   https://github.com/pydata/vbench
   https://github.com/amcfague/linesman
