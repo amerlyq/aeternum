@@ -8,10 +8,16 @@ One-liners collection
         https://perlmaven.com/always-use-strict-and-use-warnings
       WARN: memleak for warnings FATAL in <v0.9907
         https://rt.cpan.org/Public/Bug/Display.html?id=81294
+  Pass variables
+    $ perl -wslne 'print if /$patt/ && $yes' -- -patt="$d" -yes
 
 MAN
   All flags
     $ perldoc perlrun
+    -a => -n | split into @F
+    -F => -a | field delimiter
+    -l / -l0 | line-ending processing
+    -s | pass args to perl oneliner BAD:(-w): spurious warnings
   Help on func
     $ perldoc -f read
   if you use B::Deparse, you can see what it means (for most things)
