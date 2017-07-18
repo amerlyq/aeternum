@@ -4,6 +4,7 @@
 die() { printf "Err: '"${0##*/}"' %s${1+\n}" "$1"; return 1; }
 args() {
   local OPTIND=1
+  # BET: use '-:' for options => see $ nvim /usr/bin/pacaur:1807
   while getopts 'avf:k-' o $*; do case $o
   in v) VERBOSE=1
   ;; k) KEEP=1
