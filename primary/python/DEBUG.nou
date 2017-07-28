@@ -5,6 +5,17 @@ General debug / profile
   https://docs.python.org/2/library/debug.html
   https://pythonhosted.org/Pympler/
 
+%%% Memory profiling
+  objgraphs
+    http://tech.labs.oliverwyman.com/blog/2008/11/14/tracing-python-memory-leaks/
+      << https://stackoverflow.com/questions/4178116/python-memory-usage-statistics-per-object-types-or-source-code-line
+    http://mg.pov.lt/blog/python-object-graphs.html
+    http://mg.pov.lt/blog/hunting-python-memleaks.html
+    http://mg.pov.lt/blog/object-graphs-with-graphviz.html
+  ++ http://vknight.org/unpeudemath/python/2016/09/26/Profiling-and-reducing-memory-consumption-in-python.html
+  https://eastvisionsystems.com/profiling-tools-in-python-non-deterministic-and-memory-analysis/
+  https://www.huyng.com/posts/python-performance-analysis
+
 vim as IDE
   http://www.sontek.net/blog/2011/05/07/turning_vim_into_a_modern_python_ide.html
   http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
