@@ -1,4 +1,5 @@
 ALT:(make)
+  SEE https://stackoverflow.com/questions/5110114/is-there-a-build-tool-based-on-inotify-like-mechanism
   ninja
     https://ninja-build.org/
   tup
