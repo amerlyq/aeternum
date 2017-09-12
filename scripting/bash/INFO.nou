@@ -79,6 +79,12 @@ HACK
   ALSO: func() ( ... )  # prevent parameter assignments from affecting the calling shell execution environment
   TRY:  func() ...
 
+SNIP
+  Test if input is empty
+    $ grep -qm1 '.*'
+    ALT: $ read -t0 -N1
+    CHECK: $ ifne -n 'false'
+
 Double-fork daemonize
   https://stackoverflow.com/questions/3430330/best-way-to-make-a-shell-script-daemon
     http://thelinuxjedi.blogspot.com/2014/02/why-use-double-fork-to-daemonize.html

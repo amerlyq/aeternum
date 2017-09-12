@@ -4,6 +4,7 @@ ALT:(make)
     https://ninja-build.org/
   tup
     http://gittup.org/tup/
+  SEE: |community/remake|
 
 
 REF
@@ -133,3 +134,6 @@ DEBUG
     $ make -rR
   eval -> info
     http://make.mad-scientist.net/the-eval-function/
+  List all targets to be rebuilt on next run
+    $ make --dry-run -d | sed -n "/Must remake target '/{s///;s/'\.\$//;p}" | command grep -vE '/(all|build|depend)$'
+    OR: $ r.sir-make-debug
