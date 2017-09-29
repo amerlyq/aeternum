@@ -3,3 +3,7 @@ REF: CMake
     ++ https://habrahabr.ru/post/330902/
   Android
     https://habrahabr.ru/company/alawar/blog/216473/
+
+
+DEBUG
+  $ cmake -Wdev --debug-output --trace[-expand] --warn-uninitialized --warn-unused-vars
