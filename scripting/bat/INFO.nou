@@ -1,0 +1,14 @@
+Man
+  http://www.rsdn.ru/article/winshell/batanyca.xml
+  http://www.philosoft.ru/batniki.zhtml
+  http://www.rsdn.ru/article/winshell/NTCommandProcessor.xml
+
+E.G.
+  http://hpc.name/thread/11860/p1.html
+  http://forum.script-coding.com/viewtopic.php?id=682
+
+
+Snips
+ copy "c:\Wacom_Tablet.dat" /b "%CD%\Wacom_Tablet.dat" /b
+
+C:\Windows\System32\drivers\etc\hosts
