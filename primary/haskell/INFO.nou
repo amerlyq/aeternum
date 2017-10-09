@@ -1,3 +1,9 @@
+TUT
+  https://haskell-lang.org/
+    https://github.com/haskell-foundation/foundation
+    ++ https://github.com/commercialhaskell/intero
+      http://commercialhaskell.github.io/intero/
+
 Haskell
   2016-05-10 [X] TRY:USE: xmonad
   [_] TRY: IDE http://leksah.org/
