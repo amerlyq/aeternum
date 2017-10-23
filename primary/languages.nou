@@ -118,6 +118,9 @@ Clojure -- ALT to Lisp on JVM
   http://clojure.org/
    the early buzz is growing on this one. Good documentation for a young
    language, and I like a lot of the design decisions.
+  https://ferret-lang.org/
+   open-source impl for embedded systems
+
 
 PROLOG
   SEE  SWI-Prolog -- term_expansion(T, R)
