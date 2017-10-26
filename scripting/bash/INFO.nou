@@ -109,6 +109,14 @@ Debug trick -- line by line execution
   SEE:(debuggers)
     http://bashdb.sourceforge.net/
     https://github.com/rocky/zshdb/wiki
+  FIND: dry-run for scripts
+    https://stackoverflow.com/questions/19115156/show-commands-without-executing-them
+    https://serverfault.com/questions/147628/implementing-dry-run-in-bash-scripts
+    https://stackoverflow.com/questions/22952959/dry-run-a-potentially-dangerous-script
+    https://stackoverflow.com/questions/171924/how-do-i-check-syntax-in-bash-without-running-the-script
+    https://gist.github.com/pablochacin/32442fbbdb99165d6f7c
+    https://ragrawal.wordpress.com/2012/03/19/dry-run-in-shell-scripts/
+
 
 POSIX check empty VAR with "x" :: [ "x$VAR" = "x" ]
   ::: necessary, if $VAR may expand to something with metacharacters, confusing "["
