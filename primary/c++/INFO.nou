@@ -6,6 +6,10 @@
     http://c-faq.com/
       http://c-faq.com/osdep/cbreak.html
 
+  Bestiary
+    ++ http://videocortex.io/2017/Bestiary/
+
+
 DEBUG
   Print lib path which will be used
     $ gcc -print-file-name=libc.a
