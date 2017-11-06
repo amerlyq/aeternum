@@ -116,6 +116,8 @@ Debug trick -- line by line execution
     https://stackoverflow.com/questions/171924/how-do-i-check-syntax-in-bash-without-running-the-script
     https://gist.github.com/pablochacin/32442fbbdb99165d6f7c
     https://ragrawal.wordpress.com/2012/03/19/dry-run-in-shell-scripts/
+  ALSO:(-xv): xtrace + verbose
+    https://stackoverflow.com/questions/14639125/logging-bash-scripts-with-verbose-and-xtrace-set-vx-and-customizing-ps4
 
 
 POSIX check empty VAR with "x" :: [ "x$VAR" = "x" ]
@@ -131,6 +133,10 @@ Snippets (with description)
 
 printf format
   http://wiki.bash-hackers.org/commands/builtin/printf
+
+Disable word-splitting on expansion -- to drop double quotes from code
+  https://unix.stackexchange.com/questions/228235/is-there-something-like-javascripts-split-in-the-shell
+  USE:(at header): IFS=
 
 Timeout
   ++ http://stackoverflow.com/questions/687948/timeout-a-command-in-bash-without-unnecessary-delay
