@@ -22,3 +22,9 @@ digestA: hugefileB hugefileC
 
 hugefile%:
 	touch $@
+
+# EXPL:
+#  * rebuild up-to-date targets when re-supplying new env vars to original Makefile
+.INIT: some.h
+.KEEP_STATE:
+#   https://docs.oracle.com/cd/E19504-01/802-5880/6i9k05dhe/index.html

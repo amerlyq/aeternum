@@ -9,4 +9,5 @@ REF: CMake
 
 
 DEBUG
-  $ cmake -Wdev --debug-output --trace[-expand] --warn-uninitialized --warn-unused-vars
+  $ cmake -Wdev --debug-output --trace[-expand] --warn-uninitialized --warn-unused-vars -DCMAKE_VERBOSE_MAKEFILE=ON
+  ALSO: afterwards $ make VERBOSE=1 ...

@@ -41,6 +41,8 @@ SEE
     https://android.googlesource.com/kernel/common/+/android-3.10-adf/Documentation/kbuild/makefiles.txt
 
 Tips
+  +++ Style guide
+    http://clarkgrubb.com/makefile-style-guide
   http://locklessinc.com/articles/makefile_tricks/
   ! http://make.mad-scientist.net/papers/rules-of-makefiles
   Metaprogramming
@@ -128,7 +130,12 @@ DEBUG
   http://bashdb.sourceforge.net/remake/  # remake dbg
   $ make --trace  $ ALT: for older make $ make --debug=j
   $ make -n target  $ --dry-run -- print commands to execute
+    WARN: all lines with $(MAKE) are executed _completely_
+      https://docs.oracle.com/cd/E19504-01/802-5880/6i9k05dhe/index.html
   $ make -d  $ accompany output with rebuild decision metainfo
+  $ make -dd $ list all deps (also hidden)
+  $ make -D  $ text of makefile as it's read
+  $ make -DD $ complete report
   $ make -p -f /dev/null $ --print-data-base -- all VAR values
   Test makefile on dependency on DFL
     $ make -rR
