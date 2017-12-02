@@ -9,6 +9,23 @@
   Bestiary
     ++ http://videocortex.io/2017/Bestiary/
 
+  Guideline
+    https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#f16-for-in-parameters-pass-cheaply-copied-types-by-value-and-others-by-reference-to-const
+
+  Anonymous namespace vs static
+    http://www.comeaucomputing.com/techtalk/#nostatic
+    https://stackoverflow.com/questions/4181059/linkage-of-symbols-within-anonymous-namespace-within-a-regular-namespace
+      https://stackoverflow.com/questions/4977252/why-an-unnamed-namespace-is-a-superior-alternative-to-static
+      https://stackoverflow.com/questions/11016220/what-are-inline-namespaces-for
+      https://stackoverflow.com/questions/5780918/hiding-a-c-class-in-a-header-without-using-the-unnamed-namespace
+    CHECK: hiding symbols with "-fwhole-program or -flto"
+      https://stackoverflow.com/questions/18932237/c-inline-keyword-and-compiler-optimization
+      https://kristerw.blogspot.com/2017/05/interprocedural-optimization-in-gcc.html
+        -fwhole-program makes all functions local to the translation unit, unless you explicitly tell the compiler they are externally visible.
+
+  Passing vars -- shared_ptr vs const ref
+    https://herbsutter.com/2013/06/05/gotw-91-solution-smart-pointer-parameters/
+
 
 DEBUG
   Print lib path which will be used

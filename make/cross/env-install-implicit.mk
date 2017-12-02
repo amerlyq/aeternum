@@ -1,4 +1,6 @@
 #!/usr/bin/make -srf
+# FAIL: too complex dependencies -- no atomic scaling
+
 # USAGE ./$0 -C /tmp/build_dir DESTDIR=/tmp/stage_dir
 #   WARN: copy to DESTDIR w/o sudo
 .DEFAULT_GOAL = all
