@@ -6,6 +6,13 @@ Lisp
     https://pschombe.wordpress.com/2006/04/16/lisp-without-parentheses/
     https://www.quora.com/Would-it-be-possible-to-replace-parentheses-in-LISP-with-whitespace
     http://dustycloud.org/blog/wisp-lisp-alternative/
+
+ALT
+  aur/newlisp 10.7.1-1 (22, 0.09)
+    newLISP is a LISP like, general purpose scripting language.
+  aur/lfe-git r963.2880c8a-1 (1, 0.08)
+    Lisp Flavoured Erlang
+
   https://common-lisp.net/project/asdf/
   TRY: WM instead of XMonad
     https://common-lisp.net/project/clfswm/#screenshot
@@ -34,11 +41,34 @@ Lisp
 Review
   https://habrahabr.ru/post/262225/
 
+REF
+  https://stackoverflow.com/questions/21935903/how-to-prepare-for-learning-lisp-off-line
+  https://bbs.archlinux.org/viewtopic.php?id=31731
 
-Picolisp
-  TRY: using as shell language for my system scripting
-  ++ Great examples of user ia with *.so to call funcs, etc
-    https://picolisp.com/wiki/?home
-  TUT
-    https://habrahabr.ru/post/247965/
-    https://software-lab.de/doc/tut.html
+TUT
+  http://www.jonathanfischer.net/modern-common-lisp-on-linux/
+  http://lisp-lang.org/learn/getting-started/
+  http://www.gigamonkeys.com/book/
+
+
+VIZ.
+  common lisp
+    sbcl (jit compiler)
+      http://www.sbcl.org/
+    quicklisp (pkg mgr)
+      https://www.quicklisp.org/beta/
+
+  owl-lisp
+    https://github.com/aoh/owl-lisp
+    = pure functional lisp
+
+  cmucl
+    https://www.cons.org/cmucl/
+
+  picolisp
+    TRY: using as shell language for my system scripting
+    ++ Great examples of user ia with *.so to call funcs, etc
+      https://picolisp.com/wiki/?home
+    TUT
+      https://habrahabr.ru/post/247965/
+      https://software-lab.de/doc/tut.html
