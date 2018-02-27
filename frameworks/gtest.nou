@@ -1,0 +1,7 @@
+Tests inside libraries
+  http://niki.code-karma.com/2011/02/google-test-with-static-libraries-in-msvc/
+  gcc:
+    use -Wl,--whole-archive when linking *.a with tests code
+  msvc:
+    ~ extract *.a and link all *.o directly into testrunner
+    ~ OR use header generator to create linking symbols requirements

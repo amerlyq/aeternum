@@ -1,0 +1,19 @@
+SEE
+  https://root.cern.ch/building-root
+
+INFO
+  READ General build problems
+    https://electric-cloud.com/plugins/build-automation
+
+  !!! Reproducible builds
+    https://reproducible-builds.org/docs/stable-inputs/
+    https://wiki.debian.org/ReproducibleBuilds
+
+  Faster builds
+    [_] CMP:READ: http://www.bitsnbites.eu/faster-c-builds/
+    http://voices.canonical.com/jussi.pakkanen/2012/10/01/building-cc-what-really-happens-and-why-does-it-take-so-long/
+    https://eklitzke.org/in-defense-of-c++
+      https://news.ycombinator.com/item?id=13581960
+
+  Configuration Management -- complete tools conveyor for C++
+    +++ https://lefticus.gitbooks.io/cpp-best-practices/content/02-Use_the_Tools_Available.html
