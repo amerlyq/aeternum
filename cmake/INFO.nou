@@ -6,8 +6,25 @@ REF: CMake
   READ
     ++ https://www.youtube.com/watch?v=eC9-iRN2b04
       https://github.com/Kitware/CMake/blob/master/CMakeLists.txt
+    Effective CMake 2017
+      https://www.youtube.com/watch?v=bsXLMQ6WgIk
+        https://www.slideshare.net/DanielPfeifer1/effective-cmake
+        OLD: https://www.slideshare.net/DanielPfeifer1/cmake-48475415
+    Collection of useful links regarding cmake
+      https://github.com/onqtam/awesome-cmake
+    CGold: The Hitchhiker’s Guide to the CMake
+      https://cgold.readthedocs.io/en/latest/index.html
 
 
 DEBUG
   $ cmake -Wdev --debug-output --trace[-expand] --warn-uninitialized --warn-unused-vars -DCMAKE_VERBOSE_MAKEFILE=ON
   ALSO: afterwards $ make VERBOSE=1 ...
+  https://cmake.org/Wiki/CMake_Performance_Tips
+    $ strace -r cmake --trace . 2>&1|sort -r|less
+
+
+USAGE
+  target_sources
+    https://crascit.com/2016/01/31/enhanced-source-file-handling-with-target_sources/
+  Wrapper to target_link_libraries() with additional flags
+    https://cmake.org/pipermail/cmake/2011-November/047257.html

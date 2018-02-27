@@ -1,0 +1,122 @@
+%%%% DEBUG CMake
+
+Create minimal file ./CMakeLists.txt
+  cmake_minimum_required(VERSION 3.5)
+  project(mypj)
+  # Investigating of args escaping rules (use unique easy-to-grep name)
+  add_custom_target(tttt COMMAND sh -c '"$0"||true' "${CMAKE_BINARY_DIR}/tttt")
+
+Build dependency graph (and verify exit code == 0)
+  $ rm -rf _build && cmake . -B_build; echo $?
+
+Custom target can be run by "make tttt", it won't be run on simple "make"
+  $ make -C _build tttt
+  # /tmp/mypj/_build/tttt: : command not found
+
+Look at chain of generated recipes
+  $ grep -rn tttt _build
+
+Ordered list of make recipes from "grep" above (only significant lines)
+  _build/Makefile:117:tttt: cmake_check_build_system
+  _build/Makefile:118:	$(MAKE) -f CMakeFiles/Makefile2 tttt
+
+  _build/CMakeFiles/Makefile2:80:tttt: CMakeFiles/tttt.dir/rule
+  _build/CMakeFiles/Makefile2:73:CMakeFiles/tttt.dir/rule: cmake_check_build_system
+  _build/CMakeFiles/Makefile2:75:	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tttt.dir/all
+
+  # NOTE: look at "CMakeFiles/tttt.dir/depend" path if you debug
+  #   "DEPENDS" explicit flag or implicit properties from any CMake commands
+  _build/CMakeFiles/Makefile2:66:CMakeFiles/tttt.dir/all:
+  _build/CMakeFiles/Makefile2:67:	$(MAKE) -f CMakeFiles/tttt.dir/build.make CMakeFiles/tttt.dir/depend
+  _build/CMakeFiles/Makefile2:68:	$(MAKE) -f CMakeFiles/tttt.dir/build.make CMakeFiles/tttt.dir/build
+
+  _build/CMakeFiles/tttt.dir/build.make:65:CMakeFiles/tttt.dir/build: tttt
+  _build/CMakeFiles/tttt.dir/build.make:59:tttt: CMakeFiles/tttt
+  _build/CMakeFiles/tttt.dir/build.make:56:CMakeFiles/tttt:
+  _build/CMakeFiles/tttt.dir/build.make:57:	sh -c 'echo $0 || true' /tmp/mypj/_build/tttt
+
+There it is, last line with resulting command -- how it's seen by Makefile when you do "make"
+
+
+
+%%%% DEBUG Makefile
+
+Now you can see _how exactly_ CMake had modified your arguments
+before embedding them into Makefile recipe. Before this recipe is run,
+it will be expanded by Makefile rules: it will expand _recursively_ all $(..), ${..} and $.
+It expands "$" with any single letter afterwards, even without brackets around !
+Therefore you must escape your "$" replacing them by "$$".
+
+Check how command looks like after expansion
+  $ make -C _build tttt VERBOSE=1
+  # sh -c '""||true' /tmp/mypj/_build/tttt
+  # /tmp/mypj/_build/tttt: : command not found
+
+It doesn't work -- because command is empty after expansion.
+Now change command by doubling your "$" and test again
+  add_custom_target(tttt COMMAND sh -c '"$$0"||true' "${CMAKE_BINARY_DIR}/tttt")
+  $ rm -rf _build && cmake . -B_build
+  $ make -C _build tttt VERBOSE=1
+  # sh -c '"$0" || true' /tmp/mypj/_build/tttt
+  # /tmp/mypj/_build/tttt: /tmp/mypj/_build/tttt: No such file or directory
+
+As you can see it works now -- your command is successfully run.
+Never mind error, your executable doesn't exist.
+But is it the best solution? Isn't it too complex?
+
+****
+
+In general, if recipe command line doesn't contain any shell built-in (for, while...),
+nor any special characters ($, &, ||, '', "", ...) -- it will be execve(),
+instead of running in shell (for performance reasons).
+It may seem you don't need escaping/quoting, because execve() runs command
+directly and not in shell. Moreover, manually adding quotes around variables
+will force shell to be used, as mentioned above -- and we will loose
+performance by forking shell process per each Makefile recipe line.
+  https://blog.melski.net/2010/11/15/shell-commands-in-gnu-make/
+
+BUT! execve() won't solve the problem of spaces and special symbols inside paths
+-- because Makefile expansion takes place before execve() and you will
+end up with incorrect command -- splitted on spaces inside paths with replaced
+parts of path with special symbols. Therefore you need quotes. ALWAYS.
+
+Moreover, if you set SHELL variable !inside! Makefile -- shell will be _always_
+used unconditionally. It means there is no need to wrap your commands in "sh -c ...".
+Check if CMake uses this variable by default:
+  $ grep -nr SHELL _build
+  _build/Makefile:39:SHELL = /bin/sh
+  _build/CMakeFiles/Makefile2:45:SHELL = /bin/sh
+  _build/CMakeFiles/tttt.dir/build.make:34:SHELL = /bin/sh
+
+Alright, variable is used, so we can write shell commands directly in CMake:
+  add_custom_target(tttt COMMAND "${CMAKE_BINARY_DIR}/tttt" || true)
+  $ rm -rf _build && cmake . -B_build
+  $ make -C _build tttt VERBOSE=1
+  # ./tttt || true
+  # /bin/sh: ./tttt: No such file or directory
+
+You see it's successfully run and much more simple.
+Moreover, command is run from its relative working dir.
+Great, but will it never break?
+
+
+
+%%%% DEBUG Shell
+
+Change command and clean rebuild your project again
+  add_custom_target(tttt COMMAND "${CMAKE_BINARY_DIR}/~$me tttt" || true)
+  $ rm -rf _build && cmake . -B_build
+  $ grep -nr 'me tttt' _build
+  # _build/CMakeFiles/tttt.dir/build.make:57:       "./~\$$me tttt" || true
+  $ make -C _build tttt VERBOSE=1
+  # "./~\$me tttt" || true
+  # /bin/sh: ./~$me tttt: No such file or directory
+
+Good, as you can see CMake had escaped everything for you.
+It prevented Makefile expansion and escaped paths for shell.
+
+Readability is preffered over portability:
+  * always use shell commands directly in CMake
+  * no need to escape anything beside CMake rules itself -- it will escape for Makefile and shell itself
+  * use "sh -c ..." if portability required (when something breaks on other UNIX beside Linux)
+  ? command "sh -c ..." is run directly by execve(), therefore there is no problem with double-fork
