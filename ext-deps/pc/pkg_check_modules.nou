@@ -1,0 +1,34 @@
+pkg_check_modules()
+
+NEED:
+  $ cat > ExtPkg.pc #<<EOT
+  prefix = /path/to/prefix
+  exec_prefix = ${prefix}
+  bindir = ${exec_prefix}/bin
+  libdir = ${exec_prefix}/lib
+  includedir = ${prefix}/include/ExtPkg
+  # CFLAGS = -O2
+  # DEFS = -D...
+  Name: ExtPkg
+  Description: ExtPkg library
+  Version: 1.0
+  Libs: -L${libdir} -Wl,--start-group -lextpkg -lextpkg2 -Wl,--end-group
+  Libs.private: -lusb-1.0
+  Cflags: -I${includedir} -I${includedir}/config -I${includedir}/extpkg_api
+  $ install -Dm644 ExtPkg.pc "$dst"/lib/pkgconfig/ExtPkg.pc
+
+E.G. import with fixup
+  find_package(PkgConfig REQUIRED)
+  pkg_check_modules(ExtPkg REQUIRED IMPORTED_TARGET ExtPkg)
+  get_property(_libs TARGET PkgConfig::ExtPkg PROPERTY INTERFACE_LINK_LIBRARIES)
+  set_property(TARGET PkgConfig::ExtPkg PROPERTY INTERFACE_LINK_LIBRARIES -Wl,--start-group ${_libs} -Wl,--end-group)
+  ...
+  target_link_libraries(MyLib PkgConfig::ExtPkg)
+
+BAD
+  * IMPORTED pkgs aren't GLOBAL -- not visible in parent/subling CMakeLists.txt
+  * IMPORTED pkgs can't be converted to GLOBAL (yet) -- must be include() instead of add_subdirectory()
+  * IMPORTED constructs list of libraries by names resolved to full paths, ignoring LDFLAGS
+    e.g. -Wl,--start-group ${_libs} -Wl,--end-group
+  * IMPORTED works best with dynamic *.so, it ignores :Libs.private: field completely, which is necessary for *.a
+    https://www.linux.org.ru/forum/development/13030327

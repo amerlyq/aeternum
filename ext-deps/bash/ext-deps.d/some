@@ -1,0 +1,49 @@
+#!/bin/bash
+#%USAGE: $ PJ_PREFIX_DIR=/my/_prebuilt-prefix ./$0 /path/to/some/src -- -C ./initial-vars
+set -euo pipefail
+
+(($#)) && [[ ${1:0:1} != - ]] || set -- "${0%/*/*}/relpath/to/some/src" "$@"
+f=$1; shift
+cmake_args=("$@")
+dst=${BT_PREFIX_DIR:?}
+
+tmp=$(mktemp -dt "ext-deps@${0##*/}~XXXX")
+onexit(){ rm -rf "$tmp"; }
+trap 'onexit' INT HUP QUIT TERM
+
+cp -a "$f/." "$tmp"
+b=$tmp/_build && mkdir "$b"
+export CCACHE_BASEDIR="${CCACHE_BASEDIR:-$b}"
+
+opts=(
+  OS_PLATFORM=Linux
+  ENABLE_MODE=generic
+  USE_TCP=ON
+)
+
+### FIXED: build on gcc 7.2.1
+if "${CC:-gcc}" --version | awk '{v=substr($3,0,1);exit!(!v||v>=7.0)}'
+then opts+=( CMAKE_C_FLAGS=-Wno-error=implicit-fallthrough ); fi
+
+# NOTE: "cmake" must be called w/o changing PWD -- to pass additional relpath args
+cmake -H"$tmp" -B"$b" "${opts[@]/#/-D}" "${cmake_args[@]}"
+
+cd "$b"
+make
+
+## Install
+install -Dm644  subdir/libsome.a   "$dst"/lib/libsome.a
+install -Dm755  apps/some_console "$dst"/bin/some_console
+
+## Remove all non-headers and unused files
+cd "$tmp"
+mv -t config "$b"/config/config_some.h
+rm -rf config/patches.h
+find -depth \( -type f -name '*.h' -o -type d ! -empty \) -o -delete
+
+## Copy all *.h into dedicated include dir <Some/*>
+dinc="$dst"/include/Some
+install -dm755 "$dinc"
+cp -at "$dinc" './.'
+
+onexit

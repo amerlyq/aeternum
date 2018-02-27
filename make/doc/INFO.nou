@@ -20,8 +20,6 @@ REF
     http://www.gnu.org/software/make/manual/html_node/Directory-Variables.html
   TODO:READ: from 8.4
     http://www.gnu.org/software/make/manual/make.html#File-Name-Functions
-  !!! Reproducible builds
-    https://reproducible-builds.org/docs/stable-inputs/
   E.G. makefile for medium-sized projects
     https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
   TUT:E.G.

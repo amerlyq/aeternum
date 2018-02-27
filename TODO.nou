@@ -31,3 +31,12 @@ Structure
     css
   ? langs
     other langs
+
+
+TODO: cmake/make/bash templates
+  E.G. bash:
+    - micro (one-two lines)
+    - small         +vars
+    - normal        +functions
+    - large         +getopts
+    - full-pledged  +auto-help

@@ -1,5 +1,6 @@
 #!/bin/bash
 # vim:ts=2:sw=2:sts=2
+# http://www.bahmanm.com/blogs/command-line-options-how-to-parse-in-bash-using-getopt
 
 die() { printf "Err: '"${0##*/}"' %s${1+\n}" "$1"; return 1; }
 args() {

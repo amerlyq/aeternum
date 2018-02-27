@@ -1,0 +1,97 @@
+External projects (rebuilding)
+  G: cmake find or build yourself
+  https://stackoverflow.com/questions/44990964/how-to-perform-cmakefind-package-at-build-stage-only
+    REF https://cmake.org/cmake/help/latest/module/ExternalProject.html
+    ++ TUT https://rix0r.nl/blog/2015/08/13/cmake-guide/
+  https://mirkokiefer.com/cmake-by-example-f95eb47d45b1
+
+CMP: IMPORTED vs INTERFACE
+  https://stackoverflow.com/questions/36648375/what-are-the-differences-between-imported-target-and-interface-libraries
+  DONE:REQ https://gitlab.kitware.com/cmake/cmake/issues/15689
+  https://stackoverflow.com/questions/15813746/cmake-doesnt-support-imported-libraries
+  propagation of INTERFACE / PUBLIC to target_link_libraries()
+    https://cmake.org/cmake/help/v3.5/command/target_link_libraries.html#libraries-for-both-a-target-and-its-dependents
+  DEPRECATED:
+    * IMPORTED_LINK_INTERFACE_LIBRARIES -> INTERFACE_LINK_LIBRARIES
+      https://cmake.org/cmake/help/v3.0/prop_tgt/IMPORTED_LINK_INTERFACE_LIBRARIES.html
+    * FOUND_VAR ${_pkgname}_FOUND -> now it sets both
+  NOTE: properties list
+    https://cmake.org/cmake/help/v3.10/manual/cmake-properties.7.html#target-properties
+
+  CASE: set properties
+    set_property(TARGET ${_pkgname} PROPERTY
+      INTERFACE_INCLUDE_DIRECTORIES
+        ${${_pkgname}_INCLUDE_DIRS})
+    set_property(TARGET ${_pkgname} PROPERTY
+      INTERFACE_LINK_LIBRARIES
+        -Wl,--start-group ${${_pkgname}_LIBRARIES} -Wl,--end-group usb-1.0)
+  OR: set_target_properties(${_pkgname} PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES
+      "${${_pkgname}_INCLUDE_DIRS}"
+    INTERFACE_LINK_LIBRARIES
+      "-Wl,--start-group ${${_pkgname}_LIBRARIES} -Wl,--end-group")
+
+Whole cycle -> packaging
+  http://foonathan.net/blog/2016/03/03/cmake-install.html
+  TUT https://cmake.org/cmake/help/git-master/manual/cmake-packages.7.html#creating-packages
+  +++ E.G. https://github.com/forexample/package-example
+    == complete template for XXXConfig.cmake for your project subcomponents
+
+
+ExternalProject_Add()
+  BAD
+    * can't use find_package() for ExternalProject -- because it must be built first
+      USE: cmake superproject = externals + myproject (embedded as dependent ExternalProject)
+      E.G. https://cmake.org/pipermail/cmake/2013-October/056105.html
+        http://mesos.apache.org/documentation/latest/cmake-examples/
+        ALT: https://stackoverflow.com/questions/15175318/cmake-how-to-build-external-projects-and-include-their-targets
+          https://stackoverflow.com/questions/35344132/cpack-exclude-install-commands-from-subdirectory-googletest-directory
+  ALT:TUT: https://coderwall.com/p/y3zzbq/use-cmake-enabled-libraries-in-your-cmake-project
+  SEE http://cmake-basis.github.io/howto/nested-superbuild.html
+  http://cmake.3232098.n2.nabble.com/Running-find-package-after-dependencies-are-built-td7585806.html
+  +++ E.G. ExternalProject_Add, cmake=3.9+ to use GoogleTest in CTest()
+    https://gist.github.com/johnb003/65982fdc7a1274fdb023b0c68664ebe4
+    http://cmake.3232098.n2.nabble.com/ExternalProject-dependency-question-td6934209.html
+      cmake_minimum_required(VERSION 3.9)
+      include(External_GTest.cmake)
+      add_executable(myTests src/main.cpp)
+      target_link_libraries(myTests libraryTargetOfCodeBeingTested ${GTEST_LIBRARY})
+      include(GoogleTest)
+      gtest_add_tests( TARGET      myTests TEST_LIST   myTests_targets)
+      # OR:BET:(3.10+): gtest_discover_tests(myTests TEST_LIST myTests_targets)
+        SEE: https://blog.kitware.com/dynamic-google-test-discovery-in-cmake-3-10/
+      set_tests_properties(${myTests_targets} PROPERTIES TIMEOUT 10)
+
+
+Native find_package()
+  SEE http://wiki.icub.org/wiki/CMake_and_FIND_PACKAGE
+  REF https://cmake.org/cmake/help/v3.10/command/find_package.html?highlight=find_package
+  TUT https://cmake.org/cmake/help/git-master/manual/cmake-packages.7.html#creating-packages
+  TUT:(simple):
+    http://doc.aldebaran.com/qibuild/advanced/guide/cmake/writing_a_config_cmake.html
+    E.G. https://stackoverflow.com/questions/19302542/finding-a-directory-in-cmake
+      https://stackoverflow.com/questions/15285969/cmake-find-library-link-to-specified-library-error/15642703#15642703
+  xxxConfig.cmake
+    REF https://cmake.org/pipermail/cmake/2010-November/040956.html
+  E.G.
+  USAGE :: add_subdirectory(ExtPkg_wrapper)
+    find_package(ExtPkg PATHS ${CMAKE_CURRENT_LIST_DIR} NO_DEFAULT_PATH)
+    # OR: set(ExtPkg_DIR ${CMAKE_CURRENT_LIST_DIR})
+
+
+imported targets
+  (bottom): https://cmake.org/cmake/help/v3.0/command/add_library.html#command:add_library
+  REF https://cmake.org/cmake/help/v3.0/manual/cmake-buildsystem.7.html#imported-targets
+    https://cmake.org/cmake/help/v3.0/command/target_include_directories.html#command:target_include_directories
+    * don't use target__() functions on IMPORTED == they must be treated as external immutables by project
+      BUT: you can use target__() inside XXXConfig.cmake to initially create IMPORTED/INTERFACE library
+
+  WARN: add_subdirectory() has reduced scope for IMPORTED_TARGET -- use include() instead
+    REQ: https://gitlab.kitware.com/cmake/cmake/issues/17256
+      https://gitlab.kitware.com/cmake/cmake/issues/17245
+    http://cmake.3232098.n2.nabble.com/how-to-modify-scope-of-imported-library-td7356918.html
+    https://stackoverflow.com/questions/9628350/how-to-modify-scope-of-imported-library-using-cmake
+
+
+Native find_modules()
+  ??? CMP: https://stackoverflow.com/questions/25854780/cmake-find-package-files-how-are-the-config-files-used
