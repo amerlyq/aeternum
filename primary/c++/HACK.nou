@@ -21,3 +21,7 @@ Addressing static function
   //b.c
     extern void (*fptr)();
     int main() { (fptr)(); return 0; }
+
+
+Atomic append to a file from multiple processes
+  http://nullprogram.com/blog/2016/08/03/

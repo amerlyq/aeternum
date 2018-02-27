@@ -27,7 +27,44 @@
     https://herbsutter.com/2013/06/05/gotw-91-solution-smart-pointer-parameters/
 
 
+TALK
+  [_] CppCon 2015: Andrei Alexandrescu “Declarative Control Flow"
+    https://www.youtube.com/watch?v=WjTrfoiB0MQ
+      https://github.com/cppcon/cppcon2015
+  [_] CppCon: async IO
+    https://www.youtube.com/watch?v=2UC6_rfJuAw
+  [_] SEE: using Templates in C++
+    https://www.youtube.com/watch?v=UQf488GQXlY&feature=push-u-sub&attr_tag=FZvJmp5IiTFNGmZR-6
+  [_] SEE: mighty UTF-8
+    https://www.youtube.com/watch?v=ysh2B6ZgNXk&t=2670s
+  [_] CppCon 2017: Anastasia Kazakova “Tools from the C++ eco-system to save a leg”
+    https://www.youtube.com/watch?v=30r_SsOjg2E
+  [_] Raymond Hettinger - Beyond PEP 8 -- Best practices for beautiful intelligible code - PyCon 2015
+    https://www.youtube.com/watch?v=wf-BqAjZb8M
+  [_] Scott Meyers – The Most Important Design Guideline
+    https://www.youtube.com/watch?v=5tg1ONG18H8
+  [_] CppCon 2017: Vinnie Falco “Make Classes Great Again! (Using Concepts for Customization Points)”
+    https://www.youtube.com/watch?v=WsUnnYEKPnI&feature=youtu.be
+  READ
+    [_] https://blog.jetbrains.com/clion/2017/11/towards-a-more-powerful-and-simpler-cpp-with-herb-sutter/
+    [_] http://www.sqlite.org/isolation.html
+    Code Review
+      https://m.habrahabr.ru/post/340550/
+      https://m.habrahabr.ru/post/342244/
+  TRY (c) smil3y0u
+    [_] https://github.com/cisco/openh264
+
+
 DEBUG
+  Show #include (module *.c) relpath "" -> gcc impl-defined <>
+    $ cpp -v /dev/null -o /dev/null
+    WARN! srcs are searched in same order as -I => can't override by later flags
+    $ cpp -I/tmp -I/var -iquote /home -v /dev/null -o /dev/null
+      ALSO: -isystem -nostdinc
+    ATT: q-include "" is searched relative to "currently processed" *.h / *.cpp, NOT pwd
+      REF: https://gcc.gnu.org/onlinedocs/cpp/Search-Path.html
+      TUT: http://commandlinefanatic.com/cgi-bin/showarticle.cgi?article=art026
+      https://stackoverflow.com/questions/3162030/difference-between-angle-bracket-and-double-quotes-while-including-heade
   Print lib path which will be used
     $ gcc -print-file-name=libc.a
     OR $ gcc -print-libgcc-file-name
