@@ -1,0 +1,21 @@
+
+ARCH: serialization / dispatching / rpc
+  http://szelei.me/introducing-rpclib/
+    https://github.com/rpclib/rpclib
+    https://www.reddit.com/r/cpp/comments/4z6oit/introducing_rpclib_a_modern_c_rpc_library/
+  https://grpc.io/about/
+  dispatch table
+    https://stackoverflow.com/questions/42162577/c-dispatch-table-with-templated-functions
+    +++ https://web.mst.edu/~nmjxv3/articles/function_dispatch.html
+    CMP static vs virtual
+      ++ https://eli.thegreenplace.net/2013/12/05/the-cost-of-dynamic-virtual-calls-vs-static-crtp-dispatch-in-c
+    https://softwareengineering.stackexchange.com/questions/304601/should-i-use-a-jump-table-or-a-switch-case-statement-for-similar-functions-but-m
+  https://github.com/cinemast/libjson-rpc-cpp
+    https://habrahabr.ru/post/312994/
+  https://github.com/pearu/simple-rpc-cpp
+  serialization on templates
+    https://habrahabr.ru/post/311262/
+  container / any
+    ++ https://gieseanw.wordpress.com/2017/05/03/a-true-heterogeneous-container-in-c/
+    + https://akrzemi1.wordpress.com/2013/11/18/type-erasure-part-i/
+      = type erasure pattern
