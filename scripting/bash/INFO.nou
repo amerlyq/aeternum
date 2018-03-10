@@ -62,6 +62,10 @@ shell exits."
     http://mywiki.wooledge.org/BashFAQ
     http://mywiki.wooledge.org/BashPitfalls
 
+  Linux filenames cavets
+    https://www.dwheeler.com/essays/fixing-unix-linux-filenames.html
+    https://stackoverflow.com/questions/1976007/what-characters-are-forbidden-in-windows-and-linux-directory-names
+
   Any changes to VAR, which already in ENV -- exported automatically!
     E.G: $ PATH=~/opt/bin:$PATH $ OR $ export aaa=33; aaa=55; env
     => No need to export => BUT it becomes error-prone in large scripts

@@ -26,6 +26,9 @@
   Passing vars -- shared_ptr vs const ref
     https://herbsutter.com/2013/06/05/gotw-91-solution-smart-pointer-parameters/
 
+  virtual methods / vtable optimization (redundancy)
+    http://lazarenko.me/devirtualization/
+
 
 TALK
   [_] CppCon 2015: Andrei Alexandrescu “Declarative Control Flow"
@@ -45,6 +48,10 @@ TALK
     https://www.youtube.com/watch?v=5tg1ONG18H8
   [_] CppCon 2017: Vinnie Falco “Make Classes Great Again! (Using Concepts for Customization Points)”
     https://www.youtube.com/watch?v=WsUnnYEKPnI&feature=youtu.be
+  [_] std::async is BAD
+    = std::async one of the worst function in the modern C++
+    https://bartoszmilewski.com/2011/10/10/async-tasks-in-c11-not-quite-there-yet/
+    ALSO: Effective Modern C++ by Scott Myers
   READ
     [_] https://blog.jetbrains.com/clion/2017/11/towards-a-more-powerful-and-simpler-cpp-with-herb-sutter/
     [_] http://www.sqlite.org/isolation.html
@@ -53,6 +60,8 @@ TALK
       https://m.habrahabr.ru/post/342244/
   TRY (c) smil3y0u
     [_] https://github.com/cisco/openh264
+  [_] NULL existence is worst mistake in CS ever
+    https://www.lucidchart.com/techblog/2015/08/31/the-worst-mistake-of-computer-science/
 
 
 DEBUG
