@@ -52,6 +52,14 @@ TALK
     = std::async one of the worst function in the modern C++
     https://bartoszmilewski.com/2011/10/10/async-tasks-in-c11-not-quite-there-yet/
     ALSO: Effective Modern C++ by Scott Myers
+  [_] About lambdas
+    https://www.youtube.com/watch?v=WXeu4fj3zOs
+  [_] Exception
+    https://channel9.msdn.com/Events/CPP/C-PP-Con-2014/016-Exception-Safe-Code-Part-I
+    https://channel9.msdn.com/Events/CPP/C-PP-Con-2014/023-Exception-Safe-Code-Part-II
+    https://channel9.msdn.com/Events/CPP/C-PP-Con-2014/026-Exception-Safe-Code-Part-III
+  [_] CppCon 2017: Hartmut Kaiser “The Asynchronous C++ Parallel Programming Model”
+    https://youtu.be/js-e8xAMd1s
   READ
     [_] https://blog.jetbrains.com/clion/2017/11/towards-a-more-powerful-and-simpler-cpp-with-herb-sutter/
     [_] http://www.sqlite.org/isolation.html
@@ -62,6 +70,9 @@ TALK
     [_] https://github.com/cisco/openh264
   [_] NULL existence is worst mistake in CS ever
     https://www.lucidchart.com/techblog/2015/08/31/the-worst-mistake-of-computer-science/
+  CMP непонятный код у новичков vs тупой код у опытных
+    https://habrahabr.ru/post/347166/
+    https://habrahabr.ru/post/349336/
 
 
 DEBUG
