@@ -1,0 +1,15 @@
+xlib + xrandr (st)
+  https://www.khronos.org/opengl/wiki/Programming_OpenGL_in_Linux:_Changing_the_Screen_Resolution
+  https://www.x.org/wiki/Projects/XRandR/
+  https://stackoverflow.com/questions/13706078/xrandr-related-c-programming
+  https://www.x.org/releases/X11R7.5/doc/randrproto/randrproto.txt
+  https://www.x.org/releases/X11R7.5/doc/man/man3/Xrandr.3.html
+  https://stackoverflow.com/questions/1829706/how-to-query-x11-display-resolution
+  https://encrypted.google.com/search?q=xorg%20get%20current%20display%20size
+  https://tronche.com/gui/x/xlib/events/window-state-change/
+  https://tronche.com/gui/x/xlib/events/window-entry-exit/
+  https://tronche.com/gui/x/xlib/events/processing-overview.html#PropertyChangeMask
+  E.G. http://dfe.petrsu.ru/koi/posob/X/example1.htm
+  https://tronche.com/gui/x/xlib/events/client-communication/property.html
+    https://stackoverflow.com/questions/5262413/does-xlib-have-an-active-window-event/41426283#41426283
+  TUT http://math.msu.su/~nap/2/GWindow/xintro.html
