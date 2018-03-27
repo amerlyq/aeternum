@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#%USAGE: $ ./build-host [{host|gcc[4-7]|clang}] [script_options...]
+#%DEBUG: $ ./build-host gcc5 -1bTvv
+#%HELP:  $ ./build-host host -h
+set -euo pipefail -o errtrace
+trap 'printf "%s:%s(): %s\n" "$LINENO" "${FUNCNAME-}" "${BASH_COMMAND-}"' ERR
+[[ " $* " =~ " -h " ]] && sed -rn '1d;/^(.*\s)?#%/s///p' "$0"
+
+## BAD: gcc-5 and gcc-7 require different _prebuilt-prefix
+#   <= linked to different libstdc++.so
+mode=${1-}
+case "$mode"
+in host) shift  # ignore, use native compilers
+;; gcc[0-9]) shift; export CC=gcc-${mode:3} CXX=g++-${mode:3}
+;; clang) shift; export CC=/usr/bin/clang CXX=/usr/bin/clang++
+;; [^-]*) echo "Err: wrong first argument '$mode', use {host|gcc5|clang} or leave empty"
+;; *) export -n CC CXX  # Disallow other compilers
+esac
+
+d_swd=$(readlink -e "$0")
+d_swd=${d_swd%/*}
+
+opts=(
+  CMAKE_BUILD_TYPE=Debug
+  # BUILD_TESTING=OFF
+)
+
+#%WARN: for diff compilers {host|gcc5|clang} you need diff PJ_PREFIX_DIR (i.a. linking) !!!
+#%  => use by default next paths: "$PJ_PREFIX_ROOT/_prefix-{host|gcc5|clang}"
+#%  otherwise deps will be built inside CMAKE_BINARY_DIR on each clean build
+[[ -d ${PJ_PREFIX_ROOT-} ]] && PJ_PREFIX_DIR=$PJ_PREFIX_ROOT/_prefix-$mode
+[[ -d ${PJ_PREFIX_DIR-} ]] && opts+=(
+  CMAKE_PREFIX_PATH="${PJ_PREFIX_DIR:?}"
+  EXT_DEPS_PROVIDER_PREFIX="${PJ_PREFIX_DIR:?}"
+)
+
+echo "Building host"
+
+#%NOTE: uses ccache by default (user's system-wide configuration)
+exec "$d_swd/build" -C "$@" -- ${opts[@]+"${opts[@]/#/-D}"}
+#%

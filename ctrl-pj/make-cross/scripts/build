@@ -1,0 +1,184 @@
+#!/usr/bin/env bash
+#%USAGE: $ ./build [script_options...] [-- [cmake_options...] [-- [make_options...]]]
+#% * debug "configure" $ ./build -cvvv
+#% * profile "build"   $ ./build -1bTvv
+#% * edit log file     $ ./build -e
+#% * jump to errors    $ EDITOR='vim -q' ./build -e
+#%
+set -euo pipefail -o errtrace
+trap 'printf "%s:%s(): %s\n" "$LINENO" "${FUNCNAME-}" "${BASH_COMMAND-}"' ERR
+
+d_pj=$(readlink -e "$0")
+d_pj=${d_pj%/*/*}
+f_log(){ echo "$d_build/_log/build-$(date +%Y%m%d_%H%M%S).log"; }
+
+all=0
+btype=""
+build=0
+ccache=0
+configure=0
+debug=0
+editlog=0
+logging=1
+nproc=$(nproc)
+printcached=0
+printhelp=0
+profilinglog=0
+remove=0
+timestamps=0
+usecleanenv=1
+verbose=0
+viewcached=0
+
+
+while getopts '1bB:cCdehH:lL:oOPrRTvX' o; do case $o in :|'?') exit 2
+;; h) printhelp=1           #% h = help
+;; 1) nproc=1               #% 1 = single thread -j1 (DFL=nproc)
+;; B) d_build=$OPTARG       #% B:= build dir path (DFL=./_build-<btype>)
+;; b) build=1               #% b = build make step (DFL=off)
+;; c) configure=1           #% c = configure cmake step (DFL=off)
+;; C) ccache=$((!ccache))   #% C^= toggle use of ccache (DFL=enabled (only on host))
+;; d) btype=Debug           #% d = override CMAKE_BUILD_TYPE=Debug (DFL=unknown)
+;; r) btype=RelWithDebInfo  #% r = override CMAKE_BUILD_TYPE=RelWithDebInfo
+;; e) editlog=1             #% e = show last errors (opens last log file in editor)
+;; H) d_pj=$OPTARG          #% H:= source dir path (DFL=.. (relative to script))
+;; l) logging=$((!logging))  #% l^= toggle output logging to file (DFL=enabled)
+;; L) f_log=$OPTARG         #% L:= log file path (DFL=<build_dir>/_log/build-<date>.log)
+;; o) printcached=1         #% o = print cmake cached options
+;; O) ((viewcached+=1))     #% O+= view cmake cached options in ncurses or gui (-O, -OO)
+;; P) profilinglog=1        #% P = profiling of buildsystem (requires last log with -T)
+;; R) remove=1              #% R = remove content of build dir (skips _* dirs e.g. _log)
+;; T) timestamps=1          #% T = timestamps annotation for build logs
+;; v) ((verbose+=1))        #% v+= verbose make, ld, cmake (-v, -vv, -vvv) = dev debug
+;; X) usecleanenv=$((!usecleanenv))  #% X^= toggle clean env vars (DFL=enabled)
+esac; done; unset o; shift $((OPTIND-1))
+
+for((i=1;i<=$#;++i)); do [[ ${!i} == -- ]] && break; done
+cmake_args=( "${@:1:i-1}" )
+make_args=( "${@:i+1}" )
+ld_flags=( )
+unset i
+
+
+### Derive vars
+# NOTE: if no steps specified -- execute all steps
+# BAD: using "make B-v" will conter-intuitively configure and build from beginning!
+# ((configure)) || ((build)) || all=1
+
+# NOTE: overwrite supplied cmdline build type by flags
+((verbose==1 || verbose>2)) && make_args+=( VERBOSE=1 )
+((verbose==2 || verbose>2)) && ld_flags+=( -Wl,--verbose )
+
+## BAD: find_*() access uninitialized vars -- but you need verbose=3 to end correctly
+[[ ${btype-} ]] && cmake_args+=( -D'CMAKE_BUILD_TYPE'="$btype" )
+((verbose>0)) && cmake_args+=( -Wdev )
+((verbose>1)) && cmake_args+=( --warn-uninitialized )  # --warn-unused-vars
+((verbose>2)) && cmake_args+=( --debug-output )
+
+
+### Derive values of interdependent vars
+if [[ -z ${d_build-} ]]; then d_build=$d_pj/_build-${btype,,}
+else
+  d=$d_pj; while [[ -n $d && ! $d_build -ef $d ]]; do d=${d%/*}; done
+  if [[ -n $d ]]; then
+    echo "Err: refuse to build into source_dir or its subpath"
+    echo "     d_pj = '$d_pj'"
+    echo "  d_build = '$d'"
+    exit 1
+  fi
+  unset d
+fi
+
+
+### Logging params
+f_lastlog(){ local f=${f_log-}
+  [[ $f ]] && echo "$f" \
+  || find "$(dirname "$(f_log)")" \
+    -mindepth 1 -maxdepth 1 -name 'build-*.log' \
+    -printf '%T@ %p\n' | LC_ALL=C sort -rnk1 | sed 's/^\S\+\s\+//;q'
+}
+
+fn_fix(){ grep --line-buffered -v \
+  ': no version information available (required by .*/cmake)$' || true; }
+fn_ts(){ ts -s %.s; }
+fn_log(){ local f=${f_log:-$(f_log)}; mkdir -p "${f%/*}"; stdbuf -oL -eL tee "$f"; }
+
+out_chain=( fn_fix )
+((timestamps)) && out_chain+=( fn_ts )
+((logging)) && out_chain+=( fn_log )
+
+
+### Controllable clean env for builds
+#   * prevent "make" jobs interference through env vars
+#   * ensure std env for all developers
+#   * affect only cmake/make commands (script needs too much ext refs itself)
+# && [[ $(readlink -e /usr/lib/ccache/bin/c++) -ef /usr/bin/ccache ]] \
+envpath='/usr/local/bin:/usr/bin:/bin'
+((ccache)) \
+  && hash /usr/bin/ccache &>/dev/null \
+  && envpath="/usr/lib/ccache/bin:/usr/lib/ccache:$envpath"
+
+withenv(){ /usr/bin/env $( ((usecleanenv)) && echo -i ) -- "${envvars[@]}" "$@"; }
+envvars=(
+  SHELL="$(which bash)"
+  PATH="$envpath"
+  ${ld_flags[@]+LDFLAGS="${ld_flags[*]}"}
+  # ---
+  ${CXX+CXX="$CXX"}
+  ${CC+CC="$CC"}
+  ${CCACHE_DIR+CCACHE_DIR="$CCACHE_DIR"}
+)
+
+# BAD:(ugly hack): toolchain is correct but points to integrators custom
+#   shell wrapper over gcc, which requires these global vars, arghhh
+# => USE custom toochain
+[[ " ${cmake_args[@]+"${cmake_args[*]}"} " =~ " -DPLATFORM_ARCHITECTURE=ARM " ]] && envvars+=(
+  ${BUILDTOP+BUILDTOP="$BUILDTOP"}
+  ${ROOTFS+ROOTFS="$ROOTFS"}
+)
+
+
+### Pass control to cli applications
+if ((printhelp)); then
+  # TODO: substitute (DFL=$var) by var value to merge Variables and Help
+  sed -rn '1d;/^(.*\s)?#%/s///p' "$0"
+  printf "\nVariables:\n"
+  (IFS=; declare -p) | grep -v '\s[A-Z0-9_]\+\b' | sed 's/declare -\S\+//'
+  exit
+fi
+
+# NOTE: change options inside build dir by cli $ cmake -Dopt:type=val
+((printcached)) && { cmake -LAH -B"$d_build" \
+  | awk '{if(f)print} /-- Cache values/{f=1}'; exit; }
+
+((profilinglog)) && { awk '
+  {printf"%.3f %s\n",strtonum($1)-t,$0; t=strtonum($1)}
+  ' "$(f_lastlog)" | sort -sk1n,1; exit; }
+
+
+### Pass control to gui/tui applications
+((editlog)) && exec ${EDITOR:?} "$(f_lastlog)"
+((viewcached==2)) && exec cmake-gui "$d_build"
+((viewcached==1)) && exec ccmake "$d_build"
+
+
+### Main routine
+# NOTE: delete content of build dir beside generated statistics: _log, _gv, etc
+#   => don't delete directory itself -- it can be mounted RAM disk
+((remove)) && find -H "$d_build" -mindepth 1 -maxdepth 1 \
+  -type d -name '_*' -prune -o \
+  -exec rm $( ((verbose)) && echo -v ) -rf {} +
+
+## Redirect output to file (enable only for main operations)
+((${#out_chain[@]})) && exec &> >(IFS=$'|'; eval "${out_chain[*]}")
+
+## BAD: shows errors but doesn't stops output immediately
+((all)) || ((configure)) && withenv cmake -H"$d_pj" -B"$d_build" \
+  -Werror=dev ${cmake_args[@]+"${cmake_args[@]}"}
+
+## BAD: no colors with "cmake --build" even if export CLICOLOR_FORCE=1
+#   => manually use "make" directly in build dir OR:BET: own colorizing wrappers
+((all)) || ((build)) && withenv cmake --build "$d_build" -- \
+  --jobs="$nproc" ${make_args[@]+"${make_args[@]}"}
+
+exit 0

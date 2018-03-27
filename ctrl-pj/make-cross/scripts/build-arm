@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#%USAGE: $ ./build-arm {AA|BB} [script_options...]
+#%DEBUG: $ ./build-arm BB -1bTvv
+#%HELP:  $ ./build-arm BB -h
+set -euo pipefail -o errtrace
+trap 'printf "%s:%s(): %s\n" "$LINENO" "${FUNCNAME-}" "${BASH_COMMAND-}"' ERR
+[[ " $* " =~ " -h " ]] && sed -rn '1d;/^(.*\s)?#%/s///p' "$0"
+
+
+# HACK: first argument must be always positional
+allowed="AA|BB"
+pltf=${1:?"Err: empty first arg. Run $ ./build-arm ($allowed)"}
+shift
+
+[[ $pltf =~ ^($allowed)$ ]] || {
+  echo "Err: use one of ($allowed) platforms, not '$pltf'"
+  exit 1
+}
+
+d_swd=$(readlink -e "$0")
+d_swd=${d_swd%/*}
+d_sdk=${d_swd%/*/*/*/*}/sdk
+rootfs=$d_sdk/rootfs
+
+opts=(
+  CMAKE_TOOLCHAIN_FILE="$d_sdk/buildroot/output/host/usr/share/buildroot/toolchainfile.cmake"
+  # NOTE: override wrong sysroot CMAKE_FIND_ROOT_PATH
+  # WARN:HACK:(inappropriate usage): according to docs CMAKE_SYSROOT must be set only inside toolchain file
+  #   https://cmake.org/cmake/help/v3.7/variable/CMAKE_SYSROOT.html#variable:CMAKE_SYSROOT
+  CMAKE_SYSROOT="$rootfs"
+
+  # NOTE: default build type, can be overriden by '-d/-r' flags
+  CMAKE_BUILD_TYPE=RelWithDebInfo
+  PLATFORM_VERSION="$pltf"
+)
+
+echo "Building ${pltf} sample"
+exec "$d_swd/build" "$@" -- ${opts[@]+"${opts[@]/#/-D}"}
