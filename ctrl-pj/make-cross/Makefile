@@ -76,10 +76,10 @@ clean-% ::
 	rm -rf --preserve-root $(_bdir)/
 
 run-% ::
-	$(abspath $(_bdir))/main/main
+	$(abspath $(_bdir))/exe/exe
 
 console-% ::
-	$(abspath $(_bdir))/ctl/console
+	$(abspath $(_bdir))/console/console
 
 test-% ::
 	$(abspath $(_bdir))/test/test
@@ -120,7 +120,7 @@ install-all: install-pj install-pj-test install-external-pj
 ##################################################
 ### Target specials
 install-pj-% ::
-	fakeroot cp -T $(_bdir)/main/main $(ROOTFS)/usr/bin/pj-main
+	fakeroot cp -T $(_bdir)/exe/exe $(ROOTFS)/usr/bin/pj-exe
 
 install-pj-test-% ::
 	fakeroot cp -T $(_bdir)/console/console $(ROOTFS)/usr/bin/pj-console

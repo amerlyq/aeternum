@@ -19,11 +19,13 @@ shift
 
 d_swd=$(readlink -e "$0")
 d_swd=${d_swd%/*}
-d_sdk=${d_swd%/*/*/*/*}/sdk
-rootfs=$d_sdk/rootfs
+
+# ALT: toolchain=/path/to/buildroot/output/host/usr/share/buildroot/toolchainfile.cmake
+toolchain=$d_swd/toolchain-arm.cmake
+rootfs=${d_swd%/*}/_rootfs
 
 opts=(
-  CMAKE_TOOLCHAIN_FILE="$d_sdk/buildroot/output/host/usr/share/buildroot/toolchainfile.cmake"
+  CMAKE_TOOLCHAIN_FILE="$toolchain"
   # NOTE: override wrong sysroot CMAKE_FIND_ROOT_PATH
   # WARN:HACK:(inappropriate usage): according to docs CMAKE_SYSROOT must be set only inside toolchain file
   #   https://cmake.org/cmake/help/v3.7/variable/CMAKE_SYSROOT.html#variable:CMAKE_SYSROOT
@@ -31,7 +33,7 @@ opts=(
 
   # NOTE: default build type, can be overriden by '-d/-r' flags
   CMAKE_BUILD_TYPE=RelWithDebInfo
-  PLATFORM_VERSION="$pltf"
+  # PLATFORM_BOARD="$pltf"
 )
 
 echo "Building ${pltf} sample"
