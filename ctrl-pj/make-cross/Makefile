@@ -15,9 +15,9 @@ hosts := host gcc5 clang
 boards := AA BB
 
 ### Parameters
-broot := $(d_pj)
-bpref := $(broot)/_build-
-bdflt := $(or $(BOARD),host)
+broot := $(or $(PJ_BUILD_ROOT),$(d_pj))
+bpref := $(or $(PJ_BUILD_PREFIX),$(broot)/_build-)
+bdflt := $(or $(PJ_BUILD_DEFAULT),$(HWTYPE),host)
 bflgs :=
 
 ### Defaults
@@ -62,7 +62,7 @@ $(specials): % : %-$(bdflt)
 $(specials:%=%-%): _btgt = $(*)
 
 # EXPL:(_bdir): build dir lazy fallback to prefixed name of currently derived target
-_bdir = $(or $(bdir),$(bpref)$(_btgt))
+_bdir = $(or $(bdir),$(PJ_BUILD_DIR),$(bpref)$(_btgt))
 
 # THINK: instead of "bdir" use target prefix dir $ make /some/dir/host-Rcb
 #   => _bdir = $(or $(and $(findstring /,$*),$(*D)),...)
@@ -91,16 +91,20 @@ dlt-daemon-% ::
 	$(if $(BT_PREFIX_DIR),$(BT_PREFIX_DIR)/bin,$(abspath $(_bdir))/EP/dlt)/dlt-daemon
 
 graph-cmake-% ::
-	+@$(MAKE) -f '$(this)' '$(*F)' bdir='$(_bdir)' bflgs='-c -- --graphviz=_gv/g'
+	+@$(MAKE) -f '$(this)' \
+	  '$(*F)' bdir='$(_bdir)' \
+	  bflgs='-c -- --graphviz="$(_bdir)/_gv/g"'
 	find '$(_bdir)/_gv' -type f -name 'g*' -execdir mv {} {}.gv \;
-	# dot -Tx11 '$(_bdir)/_gv/g.gv'
+	# USE: dot -Tx11 '$(_bdir)/_gv/g.gv'
+
+doxygen-% ::
+	$(d_pj)/scripts/gen-doxygen '$(d_pj)' '$(_bdir)/_doxy'
 
 
 ##################################################
 ### Target
-# NOTE: if BOARD is set -- then it's whole firmware build + install
+# NOTE: if target-specific vars are set -- then it's whole firmware build + install
 #   => otherwise it's developer's custom build (prevents accidental install on host)
-#   * use $(BOARD) instead of $(ARCH) because we depend only on BOARD var
 ifneq ($(BOARD),)
 $(if $(BOARD),,$(error empty BOARD))
 $(if $(ROOTFS),,$(error empty ROOTFS))
@@ -130,7 +134,7 @@ install-pj-test-% ::
 ##################################################
 ### Organizer
 external-pj/build/._build:
-	./external-pj/build
+	./external-pj/build "$(@D)"
 	touch $@
 
 install-external-pj:

@@ -19,6 +19,7 @@ ccache=0
 configure=0
 debug=0
 editlog=0
+index=1
 logging=1
 nproc=$(nproc)
 printcached=0
@@ -31,7 +32,7 @@ verbose=0
 viewcached=0
 
 
-while getopts '1bB:cCdehH:lL:oOPrRTvX' o; do case $o in :|'?') exit 2
+while getopts '1bB:cCdehH:lL:oOPrRTvX~:' o; do case $o in :|'?') exit 2
 ;; h) printhelp=1           #% h = help
 ;; 1) nproc=1               #% 1 = single thread -j1 (DFL=nproc)
 ;; B) d_build=$OPTARG       #% B:= build dir path (DFL=./_build-<btype>)
@@ -51,6 +52,7 @@ while getopts '1bB:cCdehH:lL:oOPrRTvX' o; do case $o in :|'?') exit 2
 ;; T) timestamps=1          #% T = timestamps annotation for build logs
 ;; v) ((verbose+=1))        #% v+= verbose make, ld, cmake (-v, -vv, -vvv) = dev debug
 ;; X) usecleanenv=$((!usecleanenv))  #% X^= toggle clean env vars (DFL=enabled)
+;;\~) index=$OPTARG         #% ~:= multipurpose index (e.g. choose older log file like HEAD~2)
 esac; done; unset o; shift $((OPTIND-1))
 
 for((i=1;i<=$#;++i)); do [[ ${!i} == -- ]] && break; done
@@ -91,11 +93,11 @@ fi
 
 
 ### Logging params
-f_lastlog(){ local f=${f_log-}
+f_lastlog(){ local f=${f_log-} i=$index
   [[ $f ]] && echo "$f" \
   || find "$(dirname "$(f_log)")" \
     -mindepth 1 -maxdepth 1 -name 'build-*.log' \
-    -printf '%T@ %p\n' | LC_ALL=C sort -rnk1 | sed 's/^\S\+\s\+//;q'
+    -printf '%T@ %p\n' | LC_ALL=C sort -rnk1 | sed -n "$i"'{s/^\S\+\s\+//p;q}'
 }
 
 fn_fix(){ grep --line-buffered -v \
@@ -118,7 +120,6 @@ envpath='/usr/local/bin:/usr/bin:/bin'
   && hash /usr/bin/ccache &>/dev/null \
   && envpath="/usr/lib/ccache/bin:/usr/lib/ccache:$envpath"
 
-withenv(){ /usr/bin/env $( ((usecleanenv)) && echo -i ) -- "${envvars[@]}" "$@"; }
 envvars=(
   SHELL="$(which bash)"
   PATH="$envpath"
@@ -128,6 +129,12 @@ envvars=(
   ${CC+CC="$CC"}
   ${CCACHE_DIR+CCACHE_DIR="$CCACHE_DIR"}
 )
+
+# THINK: tag stat with cmdline ${*//\%/%%} -- limit to 80 chars
+# BAD: no /usr/bin/time on old Ubuntu -- use built-in
+# withtime(){ command time -f "stat:\t%U\t%S\t%e" "$@"; }
+withtime(){ TIMEFORMAT=$'stat:\t%U\t%S\t%R'; time "$@"; }
+withenv(){ withtime /usr/bin/env $( ((usecleanenv)) && echo -i ) -- "${envvars[@]}" "$@"; }
 
 # BAD:(ugly hack): toolchain is correct but points to integrators custom
 #   shell wrapper over gcc, which requires these global vars, arghhh
@@ -151,9 +158,15 @@ fi
 ((printcached)) && { cmake -LAH -B"$d_build" \
   | awk '{if(f)print} /-- Cache values/{f=1}'; exit; }
 
-((profilinglog)) && { awk '
+((profilinglog==1)) && { awk '
   {printf"%.3f %s\n",strtonum($1)-t,$0; t=strtonum($1)}
   ' "$(f_lastlog)" | sort -sk1n,1; exit; }
+
+# FAIL:(no birth time on tmpfs/btrfs): stat -c%Y-%W some
+# FAIL:(unsupported on tmpfs): setfattr -n user.dt -v "$SECONDS" "$(f_log)"
+# BET:USE: /usr/bin/time -- per each command TODO: sum times per file
+((profilinglog==2)) && { find "$(dirname "$(f_lastlog)")" \
+  -maxdepth 1 -type f -execdir grep -HPRo '^stat:\K.*' {} + | sort; exit; }
 
 
 ### Pass control to gui/tui applications
