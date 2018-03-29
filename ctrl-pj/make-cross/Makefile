@@ -118,21 +118,27 @@ clean: clean-external-pj
 
 distclean: clean
 install: all install-all
-install-all: install-pj install-pj-test install-external-pj
+install-all: install-pj-exe install-pj-test install-external-pj
 
 
 ##################################################
 ### Target specials
-install-pj-% ::
+# CRIT! all pattern rules must be strictly distinct
+#   i.e. using "install-pj-%" will wrongly catch "install-pj-test-%"
+
+# TODO: use cmake install(), then "make install" into some local _build/prefix-install OR CMAKE_STAGING_DIR
+#   => then copy recursively that prefix into ROOTFS in one go here
+install-pj-exe-% ::
 	fakeroot cp -T $(_bdir)/exe/exe $(ROOTFS)/usr/bin/pj-exe
 
 install-pj-test-% ::
+	fakeroot cp -T $(d_pj)/scripts/run-tests $(ROOTFS)/usr/bin/pj-run-tests
 	fakeroot cp -T $(_bdir)/console/console $(ROOTFS)/usr/bin/pj-console
 	fakeroot cp -T $(_bdir)/test/test $(ROOTFS)/usr/bin/pj-test
 
 
 ##################################################
-### Organizer
+### Additionally aggregated external projects
 external-pj/build/._build:
 	./external-pj/build "$(@D)"
 	touch $@

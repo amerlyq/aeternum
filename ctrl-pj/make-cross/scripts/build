@@ -114,11 +114,17 @@ out_chain=( fn_fix )
 #   * prevent "make" jobs interference through env vars
 #   * ensure std env for all developers
 #   * affect only cmake/make commands (script needs too much ext refs itself)
-# && [[ $(readlink -e /usr/lib/ccache/bin/c++) -ef /usr/bin/ccache ]] \
 envpath='/usr/local/bin:/usr/bin:/bin'
-((ccache)) \
-  && hash /usr/bin/ccache &>/dev/null \
+
+# NOTE: ccache for crossbuilds available only through toolchain.cmake
+#  !! cmake for crossbuilds must be found only inside buildroot
+if [[ ${BUILDROOT-} ]]; then
+  envpath="$BUILDROOT/output/host/usr/bin:$envpath"
+elif ((ccache)); then
+  # [[ $(readlink -e /usr/lib/ccache/bin/c++) -ef /usr/bin/ccache ]] \
+  hash /usr/bin/ccache &>/dev/null \
   && envpath="/usr/lib/ccache/bin:/usr/lib/ccache:$envpath"
+fi
 
 envvars=(
   SHELL="$(which bash)"
@@ -158,9 +164,20 @@ fi
 ((printcached)) && { cmake -LAH -B"$d_build" \
   | awk '{if(f)print} /-- Cache values/{f=1}'; exit; }
 
+
+# WARN: log lines may be before or after actual operation
+#   dt = next entry time - current time
+# BUT! => then last entry dt is unknown (time until the end of the program)
+# ALT:(post-timestamp): {printf"%.3f %s\n",strtonum($1)-t,$0; t=strtonum($1)}
+# ALSO: for multi-thread builds use VERBOSE and track/eval dt per each thread
+#   => otherwise build in single thread for correct results
 ((profilinglog==1)) && { awk '
-  {printf"%.3f %s\n",strtonum($1)-t,$0; t=strtonum($1)}
+  BEGIN{s="0\tprelude..."}
+  {printf"%.3f\t%s\n",strtonum($1)-t,s}
+  {t=strtonum($1);sub(/\s/,"\t");s=$0}
+  END{printf"%.3f\t%s\n",0,s}
   ' "$(f_lastlog)" | sort -sk1n,1; exit; }
+
 
 # FAIL:(no birth time on tmpfs/btrfs): stat -c%Y-%W some
 # FAIL:(unsupported on tmpfs): setfattr -n user.dt -v "$SECONDS" "$(f_log)"
