@@ -1,0 +1,10 @@
+BUG
+  2018-03-25 [X] "print/format" output is delayed by one statement ::: refresh stdout
+    https://stackoverflow.com/questions/2078490/lisp-format-and-force-output
+      (format t "var")
+      (finish-output nil)
+      (setq var (read))
+    http://www.gigamonkeys.com/book/practical-a-simple-database.html
+      (format *query-io* "~a: " "var")
+      (force-output *query-io*)
+      (setq var (read-line *query-io*))

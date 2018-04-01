@@ -1,0 +1,16 @@
+%%%% High-order concepts
+
+Conditions and Restarts (error-handling?)
+  https://lisper.in/restarts
+
+Promises
+  https://blog.domenic.me/youre-missing-the-point-of-promises/
+  https://lisper.in/promises
+  https://jlongster.com/Stop-Trying-to-Catch-Me
+
+Continuations
+  https://en.wikipedia.org/wiki/Continuation
+  https://jlongster.com/Whats-in-a-Continuation
+  http://wiki.c2.com/?ContinuationPassingStyle
+    <= http://wiki.c2.com/?FinalizeInsteadOfProperDestructor
+  http://wiki.c2.com/?ContinuationExplanation

@@ -1,0 +1,77 @@
+"Lisp is not dead, it just smells funny. (c)"
+
+BLOG
+  Gamedev / Graphics
+    http://planet.lisp.org/
+
+Books
+  Paradigms of Artificial Intelligence Programming
+    https://github.com/norvig/paip-lisp
+    https://github.com/norvig/pytudes
+
+  Loving Common Lisp, or the Savvy Programmer's Secret Weapon
+    TUT https://leanpub.com/lovinglisp/read
+
+  Successful Lisp
+    http://dept-info.labri.fr/~strandh/Teaching/PFS/Common/
+      http://dept-info.labri.fr/~strandh/Teaching/PFS/Common/David-Lamkins/contents.html
+
+  Let Over Lambda
+    https://letoverlambda.com/
+    https://letoverlambda.com/textmode.cl/guest/toc
+    https://github.com/thephoeron
+  https://github.com/thephoeron/let-over-lambda
+
+  Lisp in Small Pieces
+    https://www.amazon.com/Lisp-Small-Pieces-Christian-Queinnec/dp/0521545668
+    RU: https://github.com/ilammy/lisp
+      https://github.com/ilammy/lisp/releases/download/v.1.2/lisp-10pt.epub
+      https://habrahabr.ru/post/204442/
+
+TUT
+  The Common Lisp Cookbook
+    http://cl-cookbook.sourceforge.net/index.html
+    https://lispcookbook.github.io/cl-cookbook/getting-started.html
+  Common Lisp/First steps/Experienced tutorial
+    https://en.wikibooks.org/wiki/Common_Lisp/First_steps/Experienced_tutorial
+  Elisp -- Emacs In a Box
+    https://caiorss.github.io/Emacs-Elisp-Programming/
+
+http://www.n-a-n-o.com/lisp/cmucl-tutorials/LISP-tutorial-16.html
+https://joshtronic.com/2015/04/26/open-challenge-learn-lisp-with-me/
+
+Articles
+  Substad: for fast substitution in LISP, with an application on unification
+    https://www.sciencedirect.com/science/article/pii/0020019078900431
+  Technical Issues of Separation in Function Cells and Value Cells
+    ++ [_] READ http://www.nhplace.com/kent/Papers/Technical-Issues.html
+  A comparison of reduction in APL with polyarity in LISP
+    https://dl.acm.org/citation.cfm?id=801225
+
+
+Design
+  User Interface Management and Design: Proceedings of the Workshop on User ...
+    https://books.google.com.ua/books?id=McOqCAAAQBAJ&pg=PA280&lpg=PA280&dq=clx+%22event-loop%22&source=bl&ots=-d0K6SZ4gq&sig=OeAsY0ngKXtYy11h8tgxwQiwCd8&hl=ru&sa=X&ved=0ahUKEwivks7TooXaAhVCWSwKHWnzDhwQ6AEIXTAI#v=onepage&q=clx%20%22event-loop%22&f=false
+
+
+History / DEV:NOTE
+  Lisp
+    http://www.paulgraham.com/rootsoflisp.html
+  Haskell
+    https://www.microsoft.com/en-us/research/publication/a-history-of-haskell-being-lazy-with-class/?from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fum%2Fpeople%2Fsimonpj%2Fpapers%2Fhistory-of-haskell%2F
+      https://www.microsoft.com/en-us/research/publication/wearing-hair-shirt-retrospective-haskell-2003/
+        https://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/HaskellRetrospective.ppt
+    SQL is unneeded for Web
+      http://gilesbowkett.blogspot.com/2007/05/sql-unnecessary-in-haskells-happs.html
+
+
+Rust
+  Scheme IMPL in Rust (dev notes)
+    http://fitzgeraldnick.com/2015/02/22/memory-management-in-oxischeme.html
+  Rust features in CL
+    http://phoe-krk.tumblr.com/post/142364382368/rust-features-in-common-lisp-ideas
+      http://designisrefactoring.com/2016/04/01/rust-via-its-core-values/
+
+
+Lisp CMP Haskell
+  https://crypto.stanford.edu/~blynn/lambda/lisp.html

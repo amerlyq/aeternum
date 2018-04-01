@@ -1,0 +1,53 @@
+ExitStack in Python
+  https://www.rath.org/on-the-beauty-of-pythons-exitstack.html
+    - with statement
+    - defer in Go
+    + variadic stack of resources
+
+with-*
+  http://clhs.lisp.se/Front/X_Alph_W.htm
+
+Resource deallocation
+  https://franz.com/support/documentation/7.0/doc/gc.htm#finalizations-2
+  http://www.lispworks.com/documentation/lw43/CLIM/html/climguide-331.htm
+    https://github.com/antifuchs/mcclim/blob/master/defresource.lisp
+  http://www.lispworks.com/documentation/lcl50/aug/aug-137.html
+  http://dept-info.labri.fr/~strandh/Teaching/PFS/Common/David-Lamkins/chapter09.html
+  http://blog.find-method.de/index.php?/archives/122-Explicit-resource-handling-in-Lisp.html
+
+Dependency injection
+  https://github.com/fare/lisp-interface-library
+
+Finalize CMP Destructor
+  http://wiki.c2.com/?FinalizeInsteadOfProperDestructor
+
+
+Deinit
+  https://groups.google.com/forum/#!topic/comp.lang.lisp/m3sNcMaLQVY
+    !! don't link non-memory resource mgmt to GC (e.g. destructors)
+      => it must be done by program flow itself (i.e. finalizers)
+    http://coding.derkeiler.com/Archive/Lisp/comp.lang.lisp/2004-10/2822.html
+  Define:
+    (defgeneric deinitialize (object) (:method (o t) nil))
+    (defmacro with-managed-instances (bindings &body body)
+      (let ((symbols (mapcar #'first bindings)))
+        `(let ,symbols
+           (unwind-protect
+             (progn
+               (setf ,@(mapcar (lambda (b) (list (first b) `(progn ,@(rest b)))) bindings))
+               ,@body)
+             (progn
+               ,@(mapcar (lambda (symbol) `(deinitialize ,symbol)) symbols))))))
+
+  Usage:
+    (with-managed-instances ((foo (make-instance 'foo)) (bar (make-instance 'bar))) ...  ...)
+      = After the body, there're calls to (deinitialize foo) and (deinitialize bar).
+    Then you have things like
+      (defclass some-connection (...)
+        ((descriptor...)
+         ...))
+      (defmethod deinitialize (c some-connection)
+        (close (slot-value c 'descriptor)))
+      ...
+      (with-managed-instances ((c (make-instance 'some-connection :host foo)))
+        ... do something with c ...))

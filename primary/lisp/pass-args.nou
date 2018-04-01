@@ -1,0 +1,12 @@
+pass lambda into function
+  https://stackoverflow.com/questions/43639180/lisp-with-predicate-as-parameter
+  https://habrahabr.ru/sandbox/88573/
+  https://stackoverflow.com/questions/13213611/writing-lambda-expressions-in-common-lisp
+
+pass data by ref NOT FP
+  https://stackoverflow.com/questions/15233522/lisp-argument-pointer
+  https://stackoverflow.com/questions/1249991/variable-references-in-lisp
+
+pass struct by value (copy)
+  http://www.lispforum.com/viewtopic.php?f=2&t=4157
+  https://stackoverflow.com/questions/19133763/how-do-i-write-a-comparable-cffitranslate-into-foreign-defmethod-for-this-cffi/39942257#39942257
