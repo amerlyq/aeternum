@@ -31,6 +31,8 @@
 
 
 TALK
+  [_] SEE Inheritance and operator=()
+    https://www.youtube.com/watch?v=QGcVXgEVMJg
   [_] CppCon 2015: Andrei Alexandrescu “Declarative Control Flow"
     https://www.youtube.com/watch?v=WjTrfoiB0MQ
       https://github.com/cppcon/cppcon2015

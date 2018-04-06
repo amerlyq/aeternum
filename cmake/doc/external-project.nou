@@ -1,0 +1,2 @@
+Change cmake options in CONFIGURE_COMMAND
+  https://stackoverflow.com/questions/37924373/cmake-externalproject-add-with-cmakelists-on-subfolder?rq=1
