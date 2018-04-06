@@ -95,3 +95,7 @@ imported targets
 
 Native find_modules()
   ??? CMP: https://stackoverflow.com/questions/25854780/cmake-find-package-files-how-are-the-config-files-used
+
+
+collecting sources
+  +++ [_] READ https://github.com/ruslo/sugar/wiki/Collecting-sources

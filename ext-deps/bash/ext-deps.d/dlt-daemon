@@ -1,0 +1,49 @@
+#!/bin/bash
+#%USAGE: $ PJ_PREFIX_DIR=/my/devprefix ./$0 [{/path/to/dlt-daemon | ssh://.../dlt-daemon.git}]
+set -euo pipefail
+
+(($#)) || if [[ ${PJ_USE_LATEST:+x} ]]
+then set -- 'http://git.projects.genivi.org/dlt-daemon.git'
+elif [[ ${PJ_ROOT_DIR:+x} ]]
+then set -- "${PJ_ROOT_DIR:?}/usr_pkgs/luxoft/dlt/dlt-daemon"
+else set -- "${PJ_MIRROR_GIT:?}/dlt-daemon.git"; fi
+
+dst=${PJ_PREFIX_DIR:?}
+repo=$1
+
+fetch_repo(){ local repo=$1 tmp=$2
+  if [[ ! $repo =~ ^[a-z]+:// ]]; then
+    cp -at "$tmp" "$repo/."
+  elif [[ $repo =~ \| ]]; then
+    git clone --single-branch --depth=1 -- "${repo%|*}" "$tmp/_dl"
+    cp -at "$tmp" "$tmp/_dl/${repo##*|}/."
+  else
+    git clone --single-branch --depth=1 -- "$repo" "$tmp"
+  fi
+}
+
+tmp=$(mktemp -dt "host@${0##*/}~XXXX")
+onexit(){ rm -rf "$tmp"; }
+trap 'onexit' INT HUP QUIT TERM
+
+fetch_repo "$repo" "$tmp"
+b=$tmp/_build && mkdir "$b"
+cd "$b"
+
+opts=(
+  CMAKE_INSTALL_PREFIX="$dst"
+  CMAKE_INSTALL_LIBDIR="lib"  # FIXED: lib64 for x86_64 is wrong for us
+  WITH_DLT_EXAMPLES=OFF
+  WITH_DLT_TESTS=OFF
+)
+
+export PKG_CONFIG_PATH="$dst/lib/pkgconfig:${PKG_CONFIG_PATH-}"
+export LDFLAGS="-L'$dst/lib'"
+
+
+cmake -H"$tmp" -B"$b" "${opts[@]/#/-D}"
+
+make
+make install DESTDIR=
+unset LDFLAGS
+onexit
