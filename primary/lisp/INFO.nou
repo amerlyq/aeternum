@@ -1,3 +1,6 @@
+READ: https://github.com/cl21/cl21
+  http://cl21.org/
+
 Lisp
   SEE http://stackoverflow.com/questions/2720843/can-a-language-have-lisps-powerful-macros-without-the-parentheses
     http://www.dwheeler.com/readable/sweet-expressions.html
@@ -40,6 +43,8 @@ ALT
   OpenGL in Lisp
     ! can be ia edited !
     https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y
+  Game engine 2D in Lisp
+    https://www.youtube.com/watch?v=zw9JnspwEdM
   REF books
     http://landoflisp.com/
 

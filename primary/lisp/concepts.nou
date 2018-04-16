@@ -14,3 +14,11 @@ Continuations
   http://wiki.c2.com/?ContinuationPassingStyle
     <= http://wiki.c2.com/?FinalizeInsteadOfProperDestructor
   http://wiki.c2.com/?ContinuationExplanation
+  (saved) http://tmp.barzilay.org/cont.txt
+    EXPL https://stackoverflow.com/questions/16529475/scheme-continuations-for-dummies
+  https://www.pvk.ca/Blog/2013/09/19/all-you-need-is-call-slash-cc/
+  REF https://en.wikipedia.org/wiki/Continuation_passing_style
+  ARCH
+    https://stackoverflow.com/questions/16651843/why-does-not-exist-a-primitive-call-with-current-continuations-in-common-lisp
+    https://stackoverflow.com/questions/3811448/can-call-with-current-continuation-be-implemented-only-with-lambdas-and-closures
+    https://groups.google.com/forum/#!msg/comp.lang.lisp/1Ggl_BUi3Yg/VFTIDaJqRK8J

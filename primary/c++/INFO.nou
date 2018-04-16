@@ -29,6 +29,11 @@
   virtual methods / vtable optimization (redundancy)
     http://lazarenko.me/devirtualization/
 
+  Undefined behavior
+    http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html
+    http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html
+    http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html
+
 
 TALK
   [_] SEE Inheritance and operator=()
