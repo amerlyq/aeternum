@@ -72,6 +72,8 @@ Tips
     http://stackoverflow.com/questions/2838715/makefile-variable-initialization-and-export
   Makefile target-variable : when many
     http://stackoverflow.com/questions/1909188/define-make-variable-at-rule-execution-time
+  Escape spaces, newline and comma
+    http://blog.jgc.org/2007/06/escaping-comma-and-space-in-gnu-make.html
 
 
 HACK

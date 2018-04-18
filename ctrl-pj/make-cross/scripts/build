@@ -13,14 +13,18 @@ d_pj=${d_pj%/*/*}
 f_log(){ echo "$d_build/_log/build-$(date +%Y%m%d_%H%M%S).log"; }
 
 all=0
-btype=""
+btesting=0
+btype=
 build=0
 ccache=0
+cmake_args=()
 configure=0
 debug=0
 editlog=0
 index=1
+ld_flags=()
 logging=1
+make_args=()
 nproc=$(nproc)
 printcached=0
 printhelp=0
@@ -32,33 +36,34 @@ verbose=0
 viewcached=0
 
 
-while getopts '1bB:cCdehH:lL:oOPrRTvX~:' o; do case $o in :|'?') exit 2
-;; h) printhelp=1           #% h = help
-;; 1) nproc=1               #% 1 = single thread -j1 (DFL=nproc)
-;; B) d_build=$OPTARG       #% B:= build dir path (DFL=./_build-<btype>)
-;; b) build=1               #% b = build make step (DFL=off)
-;; c) configure=1           #% c = configure cmake step (DFL=off)
-;; C) ccache=$((!ccache))   #% C^= toggle use of ccache (DFL=enabled (only on host))
-;; d) btype=Debug           #% d = override CMAKE_BUILD_TYPE=Debug (DFL=unknown)
-;; r) btype=RelWithDebInfo  #% r = override CMAKE_BUILD_TYPE=RelWithDebInfo
-;; e) editlog=1             #% e = show last errors (opens last log file in editor)
-;; H) d_pj=$OPTARG          #% H:= source dir path (DFL=.. (relative to script))
-;; l) logging=$((!logging))  #% l^= toggle output logging to file (DFL=enabled)
-;; L) f_log=$OPTARG         #% L:= log file path (DFL=<build_dir>/_log/build-<date>.log)
-;; o) printcached=1         #% o = print cmake cached options
-;; O) ((viewcached+=1))     #% O+= view cmake cached options in ncurses or gui (-O, -OO)
-;; P) profilinglog=1        #% P = profiling of buildsystem (requires last log with -T)
-;; R) remove=1              #% R = remove content of build dir (skips _* dirs e.g. _log)
-;; T) timestamps=1          #% T = timestamps annotation for build logs
-;; v) ((verbose+=1))        #% v+= verbose make, ld, cmake (-v, -vv, -vvv) = dev debug
+while getopts '1bB:cCdD:ehH:lL:oOPrRtTvX~:' o; do case $o in :|'?') exit 2
+;; h) printhelp=1               #% h = help
+;; 1) nproc=1                   #% 1 = single thread -j1 (DFL=nproc)
+;; B) d_build=$OPTARG           #% B:= build dir path (DFL=./_build-<btype>)
+;; b) build=1                   #% b = build make step (DFL=off)
+;; c) configure=1               #% c = configure cmake step (DFL=off)
+;; C) ccache=$((!ccache))       #% C^= toggle use of ccache (DFL=enabled (only on host))
+;; d) btype=Debug               #% d = override CMAKE_BUILD_TYPE=Debug (DFL=unknown)
+;; D) cmake_args+=(-D"$OPTARG") #% D+= cmake definitions (DFL=(<empty>))
+;; r) btype=RelWithDebInfo      #% r = override CMAKE_BUILD_TYPE=RelWithDebInfo
+;; e) editlog=1                 #% e = show last errors (opens last log file in editor)
+;; H) d_pj=$OPTARG              #% H:= source dir path (DFL=.. (relative to script))
+;; l) logging=$((!logging))     #% l^= toggle output logging to file (DFL=enabled)
+;; L) f_log=$OPTARG             #% L:= log file path (DFL=<build_dir>/_log/build-<date>.log)
+;; o) printcached=1             #% o = print cmake cached options
+;; O) ((viewcached+=1))         #% O+= view cmake cached options in ncurses or gui (-O, -OO)
+;; P) ((profilinglog+=1))       #% P = profiling of buildsystem (requires last log with -T), (-P, -PP)
+;; R) remove=1                  #% R = remove content of build dir (skips _* dirs e.g. _log)
+;; t) ((btesting+=1))           #% t+= use BUILD_TESTING = <default> / ON / OFF (''/-t/-tt)
+;; T) timestamps=1              #% T = timestamps annotation for build logs
+;; v) ((verbose+=1))            #% v+= verbose make, ld, cmake (-v, -vv, -vvv) = dev debug
 ;; X) usecleanenv=$((!usecleanenv))  #% X^= toggle clean env vars (DFL=enabled)
-;;\~) index=$OPTARG         #% ~:= multipurpose index (e.g. choose older log file like HEAD~2)
+;;\~) index=$OPTARG             #% ~:= multipurpose index (e.g. choose older log file like HEAD~2)
 esac; done; unset o; shift $((OPTIND-1))
 
 for((i=1;i<=$#;++i)); do [[ ${!i} == -- ]] && break; done
-cmake_args=( "${@:1:i-1}" )
-make_args=( "${@:i+1}" )
-ld_flags=( )
+cmake_args+=( "${@:1:i-1}" )  # USAGE: pass other flags to cmake beside "-D"
+make_args+=( "${@:i+1}" )
 unset i
 
 
@@ -73,23 +78,26 @@ unset i
 
 ## BAD: find_*() access uninitialized vars -- but you need verbose=3 to end correctly
 [[ ${btype-} ]] && cmake_args+=( -D'CMAKE_BUILD_TYPE'="$btype" )
+((btesting)) && cmake_args+=( -D'BUILD_TESTING'="$( ((btesting % 2)) && echo ON || echo OFF )" )
 ((verbose>0)) && cmake_args+=( -Wdev )
 ((verbose>1)) && cmake_args+=( --warn-uninitialized )  # --warn-unused-vars
 ((verbose>2)) && cmake_args+=( --debug-output )
 
 
 ### Derive values of interdependent vars
-if [[ -z ${d_build-} ]]; then d_build=$d_pj/_build-${btype,,}
-else
-  d=$d_pj; while [[ -n $d && ! $d_build -ef $d ]]; do d=${d%/*}; done
+check_bdir(){ local d=$d_pj b=$1
+  while [[ -n $d && ! $b -ef $d ]]; do d=${d%/*}; done
   if [[ -n $d ]]; then
-    echo "Err: refuse to build into source_dir or its subpath"
+    echo "Err: refusing to build directly into project dir or one of its parents"
     echo "     d_pj = '$d_pj'"
-    echo "  d_build = '$d'"
+    echo "  d_build = '$b'"
     exit 1
   fi
-  unset d
-fi
+}
+
+[[ ${d_build-} ]] || d_build=$d_pj/_build-default
+[[ ${btype-} ]] && d_build+=.${btype,,}
+check_bdir "$d_build"
 
 
 ### Logging params
@@ -195,7 +203,8 @@ fi
 ### Main routine
 # NOTE: delete content of build dir beside generated statistics: _log, _gv, etc
 #   => don't delete directory itself -- it can be mounted RAM disk
-((remove)) && find -H "$d_build" -mindepth 1 -maxdepth 1 \
+((remove)) && [[ -d $d_build ]] && \
+  find -H "$d_build" -mindepth 1 -maxdepth 1 \
   -type d -name '_*' -prune -o \
   -exec rm $( ((verbose)) && echo -v ) -rf {} +
 

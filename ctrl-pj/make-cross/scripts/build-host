@@ -37,5 +37,5 @@ opts=(
 echo "Building host"
 
 #%NOTE: uses ccache by default (user's system-wide configuration)
-exec "$d_swd/build" -C "$@" -- ${opts[@]+"${opts[@]/#/-D}"}
+exec "$d_swd/build" -C ${opts[@]+"${opts[@]/#/-D}"} "$@"
 #%

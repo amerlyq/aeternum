@@ -37,4 +37,4 @@ opts=(
 )
 
 echo "Building ${pltf} sample"
-exec "$d_swd/build" "$@" -- ${opts[@]+"${opts[@]/#/-D}"}
+exec "$d_swd/build" ${opts[@]+"${opts[@]/#/-D}"} "$@"

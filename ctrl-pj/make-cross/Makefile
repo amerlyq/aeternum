@@ -37,8 +37,14 @@ $(hosts:%=%-%) :: _bscript := $(d_pj)/scripts/build-host
 $(alltgts:%=%-): %- : %-1b
 
 # EXPL:(_btgt): use right side of name as flags (e.g. "B-Rcb" => "-Rcb")
+#% NOTE: flags after minus are always required (can't use host" ..." or host-" ...")
 #% * new build $ make host-Rcb
-$(alltgts:%=%-%): _btgt = $(patsubst %-$(*F),%,$(@F))
+#% * pass args $ make host"-Rcb -DBUILD_TESTING=OFF"
+$(alltgts:%=%-%): _btgt = $(patsubst %-$(subst $(subst ,, ),,$(*F)),%,$(subst $(subst ,, ),,$(@F)))
+# BAD: wrong if tgt name contains /-/     <= $(firstword $(subst -, ,$(@F)))
+# BAD: wrong if tgt flags matches /-.*|/  <= $(subst -$(*F)|,,$(@F)|)
+# BAD: wrong if tgt flags contain / /     <= $(patsubst %-$(*F),%,$(@F))
+
 
 # NOTE: exec "configure" once, but "build" runs always
 #  => let cmake itself decide if some files have changed
@@ -123,7 +129,7 @@ install-all: install-pj-exe install-pj-test install-external-pj
 
 ##################################################
 ### Target specials
-# CRIT! all pattern rules must be strictly distinct
+# CRIT! all pattern rules must be strictly distinct (one does not contain another)
 #   i.e. using "install-pj-%" will wrongly catch "install-pj-test-%"
 
 # TODO: use cmake install(), then "make install" into some local _build/prefix-install OR CMAKE_STAGING_DIR

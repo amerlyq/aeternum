@@ -13,6 +13,7 @@ make AA
 make bdir=$HOME/_build-arm-release BB
 make host
 make host-Rcb
+make host-Rttcb             # rebuild without tests (-DBUILD_TESTING=OFF)
 make clean-BB
 make clean-host clean-gcc5
 
@@ -41,6 +42,11 @@ make host-1bvvv
 # immediately open errors log in editor
 # => NEED: export EDITOR=vim, or export EDITOR=gedit
 make host-e
+
+# Pass additional directives in quotes
+make "host-Rcb -DBUILD_TESTING=ON"
+make host"-Rcb -DBUILD_TESTING=ON"
+make host-Rcb" -DBUILD_TESTING=ON"
 ```
 
 Parameters
