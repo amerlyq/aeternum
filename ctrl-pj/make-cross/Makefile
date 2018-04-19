@@ -6,6 +6,7 @@
 .NOTPARALLEL:
 .SUFFIXES:
 MAKEFLAGS += -rR --no-print-directory
+$(subst ,, ) := $(subst ,, )
 
 ### Constants
 this := $(lastword $(MAKEFILE_LIST))
@@ -40,18 +41,22 @@ $(alltgts:%=%-): %- : %-1b
 #% NOTE: flags after minus are always required (can't use host" ..." or host-" ...")
 #% * new build $ make host-Rcb
 #% * pass args $ make host"-Rcb -DBUILD_TESTING=OFF"
-$(alltgts:%=%-%): _btgt = $(patsubst %-$(subst $(subst ,, ),,$(*F)),%,$(subst $(subst ,, ),,$(@F)))
+$(alltgts:%=%-%): _btgt = $(patsubst %-$(subst $( ),,$(*F)),%,$(subst $( ),,$(@F)))
 # BAD: wrong if tgt name contains /-/     <= $(firstword $(subst -, ,$(@F)))
 # BAD: wrong if tgt flags matches /-.*|/  <= $(subst -$(*F)|,,$(@F)|)
 # BAD: wrong if tgt flags contain / /     <= $(patsubst %-$(*F),%,$(@F))
 
+#%WARN: use space when adjacent flag contains '=', otherwise whole tgt is treated as env var
+#% USE:(no additional '-' prepended):  $ make host-"-DBUILD_TESTING"
+#% BUT:(prepend space => not env var): $ make host-" -DBUILD_TESTING=OFF"
+$(alltgts:%=%-%): _bflgs = $(or $(bflgs),$(and $(filter-out -%,$(subst $( ),-,$(*F))),-)$(*F))
 
 # NOTE: exec "configure" once, but "build" runs always
 #  => let cmake itself decide if some files have changed
 # EXPL:(%-%): first % is substituted, second % is left as-is -- works as stem
 #   => stem passed as flags to underlying script
 $(alltgts:%=%-%) ::
-	'$(_bscript)' '$(_btgt)' -B '$(_bdir)' $(or $(bflgs),-$(*F))
+	'$(_bscript)' '$(_btgt)' -B '$(_bdir)' $(_bflgs)
 
 
 ##################################################

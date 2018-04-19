@@ -72,8 +72,6 @@ Tips
     http://stackoverflow.com/questions/2838715/makefile-variable-initialization-and-export
   Makefile target-variable : when many
     http://stackoverflow.com/questions/1909188/define-make-variable-at-rule-execution-time
-  Escape spaces, newline and comma
-    http://blog.jgc.org/2007/06/escaping-comma-and-space-in-gnu-make.html
 
 
 HACK
@@ -92,11 +90,18 @@ HACK
   # Don't launch new concurrent job when system is overloaded (be single-threaded)
     https://www.gnu.org/software/make/manual/html_node/Parallel.html
     $ make -l 2.5
-  Replace spaces by colon
-    SEE https://www.gnu.org/software/make/manual/html_node/Syntax-of-Functions.html#Syntax-of-Functions
-   empty :=
-   space := $(empty) $(empty)
-   PATH := $(subst $(space),:,$(dirs))
+  Escaping
+    Escape spaces, newline and comma
+      http://blog.jgc.org/2007/06/escaping-comma-and-space-in-gnu-make.html
+     $(subst ,, ) := $(subst ,, )
+     path := $(subst $( ),:,$(PATH))
+    Replace spaces by colon
+      SEE https://www.gnu.org/software/make/manual/html_node/Syntax-of-Functions.html#Syntax-of-Functions
+     empty :=
+     space := $(empty) $(empty)
+     path := $(subst $(space),:,$(PATH))
+  Library of std functions
+    http://gmsl.sourceforge.net/
 
 
 USAGE
