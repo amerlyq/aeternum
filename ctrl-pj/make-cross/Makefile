@@ -3,9 +3,10 @@
 #%USAGE: $ make {AA|BB|host|gcc5|clang}[-1bcCdehloOOPrRTvvvX]
 #% * chaining  $ make host test
 .DEFAULT_GOAL = all
+MAKEFLAGS += -rR --no-print-directory
 .NOTPARALLEL:
 .SUFFIXES:
-MAKEFLAGS += -rR --no-print-directory
+Makefile:;
 $(subst ,, ) := $(subst ,, )
 
 ### Constants
@@ -29,33 +30,33 @@ clean: clean-$(bdflt)
 ##################################################
 ### Magic for builds
 alltgts := $(boards) $(hosts)
-$(boards:%=%-%) :: _bscript := $(d_pj)/scripts/build-arm
-$(hosts:%=%-%) :: _bscript := $(d_pj)/scripts/build-host
+$(boards:%=%\ %): _bscript := $(d_pj)/scripts/build-arm
+$(hosts:%=%\ %): _bscript := $(d_pj)/scripts/build-host
 
 ## Magical targets, which pass choosen flags to underlying build script
 # EXPL:(%-): for dash-targets use default debug flags (e.g. "B-" => "-1b")
 #% * use -j1   $ make host-
-$(alltgts:%=%-): %- : %-1b
+$(alltgts:%=%-): %- : %\ -1b
 
 # EXPL:(_btgt): use right side of name as flags (e.g. "B-Rcb" => "-Rcb")
 #% NOTE: flags after minus are always required (can't use host" ..." or host-" ...")
 #% * new build $ make host-Rcb
 #% * pass args $ make host"-Rcb -DBUILD_TESTING=OFF"
-$(alltgts:%=%-%): _btgt = $(patsubst %-$(subst $( ),,$(*F)),%,$(subst $( ),,$(@F)))
+$(alltgts:%=%\ %): _btgt = $(patsubst %|$(subst $( ),|,$(*F)),%,$(subst $( ),|,$(@F)))
 # BAD: wrong if tgt name contains /-/     <= $(firstword $(subst -, ,$(@F)))
 # BAD: wrong if tgt flags matches /-.*|/  <= $(subst -$(*F)|,,$(@F)|)
 # BAD: wrong if tgt flags contain / /     <= $(patsubst %-$(*F),%,$(@F))
 
 #%WARN: use space when adjacent flag contains '=', otherwise whole tgt is treated as env var
-#% USE:(no additional '-' prepended):  $ make host-"-DBUILD_TESTING"
-#% BUT:(prepend space => not env var): $ make host-" -DBUILD_TESTING=OFF"
-$(alltgts:%=%-%): _bflgs = $(or $(bflgs),$(and $(filter-out -%,$(subst $( ),-,$(*F))),-)$(*F))
+#% USE:(no additional '-' prepended):  $ make host"-DBUILD_TESTING"
+#% BUT:(prepend space => not env var): $ make host" -DBUILD_TESTING=OFF"
+$(alltgts:%=%\ %): _bflgs = $(or $(bflgs),$(*F))
 
 # NOTE: exec "configure" once, but "build" runs always
 #  => let cmake itself decide if some files have changed
 # EXPL:(%-%): first % is substituted, second % is left as-is -- works as stem
 #   => stem passed as flags to underlying script
-$(alltgts:%=%-%) ::
+$(alltgts:%=%\ %):
 	'$(_bscript)' '$(_btgt)' -B '$(_bdir)' $(_bflgs)
 
 
@@ -70,7 +71,7 @@ $(specials): % : %-$(bdflt)
 
 ## ATT! without these two lines most of the Makefile magic won't work
 # EXPL:(_btgt): use right side of name as target (e.g. clean-B => "B")
-$(specials:%=%-%): _btgt = $(*)
+$(specials:%=%-%): _btgt = $(*F)
 
 # EXPL:(_bdir): build dir lazy fallback to prefixed name of currently derived target
 _bdir = $(or $(bdir),$(PJ_BUILD_DIR),$(bpref)$(_btgt))
@@ -186,6 +187,16 @@ help:
 # ATT! place .SECONDEXPANSION prerequisites at the very bottom of Makefile
 # 	=> reduce number of affected recipes
 .SECONDEXPANSION:
+
+# NOTE: short alias <tgt>-<flags> to append cmdline w/o space delimiter
+#   <= only [- ] delimiters are allowed (other symbols could be considered later)
+# BAD: too complex, ugly to extend for other delimiters
+$(foreach t,$(alltgts),$(eval $t-% : \
+	$t\$$$$( )-$$$$(subst $$$$( ),\ ,%) ;))
+# BAD: stem expanded -> split prereq on space -> expand vars in prereq
+# host-%: host\ -% ;
+#   DEBUG: $ make --debug=a host"-R -DBUILD_TESTING=OFF"
+
 
 # EXPL:(%): for simple targets use default build flags (e.g. "B" => "-b")
 #% * withcmake $ make host
