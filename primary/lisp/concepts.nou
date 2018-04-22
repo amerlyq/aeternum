@@ -22,3 +22,12 @@ Continuations
     https://stackoverflow.com/questions/16651843/why-does-not-exist-a-primitive-call-with-current-continuations-in-common-lisp
     https://stackoverflow.com/questions/3811448/can-call-with-current-continuation-be-implemented-only-with-lambdas-and-closures
     https://groups.google.com/forum/#!msg/comp.lang.lisp/1Ggl_BUi3Yg/VFTIDaJqRK8J
+
+Currying
+  http://www.chadbraunduin.com/2011/07/common-lisp-currying.html
+
+Comparison
+  https://common-lisp.net/project/cdr/document/8/cleqcmp.html
+
+Looping
+  +++ http://www.gigamonkeys.com/book/loop-for-black-belts.html

@@ -24,6 +24,8 @@ Reader-macro
   https://gist.github.com/chaitanyagupta/9324402
   ALSO: On Lisp (Chapter 17, Read-Macros):
   https://lisper.in/reader-macros
+  ++ https://letoverlambda.com/index.cl/guest/chap4.html
+  http://www.chadbraunduin.com/2011/07/common-lisp-reader-macros.html
 
 XXX
   https://stackoverflow.com/questions/267862/what-makes-lisp-macros-so-special
@@ -32,3 +34,5 @@ XXX
     http://lists.warhead.org.uk/pipermail/iwe/2005-July/000130.html
   The Nature of Lisp
     http://www.defmacro.org/ramblings/lisp.html
+  READ Catch-22 situation
+    https://stackoverflow.com/questions/39426889/catch-22-situation-with-common-lisp-macros
