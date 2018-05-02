@@ -188,6 +188,12 @@ help:
 # 	=> reduce number of affected recipes
 .SECONDEXPANSION:
 
+# TRY:TODO: build/run bdir with last timestamp BAD: name can be anything
+# NEED store config ".ctl.mk" inside bdir
+# IDEA use ".ctl.mk" to cache env vars and back-reference $pj/Makefile (may be useful for IDE)
+# last-%:
+# %-last:
+
 # NOTE: short alias <tgt>-<flags> to append cmdline w/o space delimiter
 #   <= only [- ] delimiters are allowed (other symbols could be considered later)
 # BAD: too complex, ugly to extend for other delimiters
