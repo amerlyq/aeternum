@@ -14,6 +14,7 @@ make bdir=$HOME/_build-arm-release BB
 make host
 make host-Rcb
 make host-Rttcb             # rebuild without tests (-DBUILD_TESTING=OFF)
+make bdflt=gcc5 @-Rcb       # TODO: use '@' as placeholder for $bdflt
 make clean-BB
 make clean-host clean-gcc5
 

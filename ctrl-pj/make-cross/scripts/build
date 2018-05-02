@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#%USAGE: $ ./build [script_options...] [-- [cmake_options...] [-- [make_options...]]]
+#%USAGE: $ ./build <script_options...> [-- [<cmake_options...>] [-- [<make_options...>]]]
 #% * debug "configure" $ ./build -cvvv
 #% * profile "build"   $ ./build -1bTvv
 #% * edit log file     $ ./build -e
@@ -37,7 +37,7 @@ viewcached=0
 
 
 while getopts '1bB:cCdD:ehH:lL:oOPrRtTvX~:' o; do case $o in :|'?') exit 2
-;; h) printhelp=1               #% h = help
+;; h) ((printhelp+=1))          #% h+= help (-h, -hh)
 ;; 1) nproc=1                   #% 1 = single thread -j1 (DFL=nproc)
 ;; B) d_build=$OPTARG           #% B:= build dir path (DFL=./_build-<btype>)
 ;; b) build=1                   #% b = build make step (DFL=off)
@@ -56,7 +56,7 @@ while getopts '1bB:cCdD:ehH:lL:oOPrRtTvX~:' o; do case $o in :|'?') exit 2
 ;; R) remove=1                  #% R = remove content of build dir (skips _* dirs e.g. _log)
 ;; t) ((btesting+=1))           #% t+= use BUILD_TESTING = <default> / ON / OFF (''/-t/-tt)
 ;; T) timestamps=1              #% T = timestamps annotation for build logs
-;; v) ((verbose+=1))            #% v+= verbose make, ld, cmake (-v, -vv, -vvv) = dev debug
+;; v) ((verbose+=1))            #% v+= verbose make, ld, cmake (-v, -vv, -vvv, -vvvv) = dev debug
 ;; X) usecleanenv=$((!usecleanenv))  #% X^= toggle clean env vars (DFL=enabled)
 ;;\~) index=$OPTARG             #% ~:= multipurpose index (e.g. choose older log file like HEAD~2)
 esac; done; unset o; shift $((OPTIND-1))
@@ -79,9 +79,10 @@ unset i
 ## BAD: find_*() access uninitialized vars -- but you need verbose=3 to end correctly
 [[ ${btype-} ]] && cmake_args+=( -D'CMAKE_BUILD_TYPE'="$btype" )
 ((btesting)) && cmake_args+=( -D'BUILD_TESTING'="$( ((btesting % 2)) && echo ON || echo OFF )" )
-((verbose>0)) && cmake_args+=( -Wdev )
+((verbose>0)) && cmake_args+=( -Wdev -Wno-error=dev )
 ((verbose>1)) && cmake_args+=( --warn-uninitialized )  # --warn-unused-vars
 ((verbose>2)) && cmake_args+=( --debug-output )
+((verbose>3)) && cmake_args+=( -Werror=dev )
 
 
 ### Derive values of interdependent vars
@@ -146,8 +147,8 @@ envvars=(
 
 # THINK: tag stat with cmdline ${*//\%/%%} -- limit to 80 chars
 # BAD: no /usr/bin/time on old Ubuntu -- use built-in
-# withtime(){ command time -f "stat:\t%U\t%S\t%e" "$@"; }
-withtime(){ TIMEFORMAT=$'stat:\t%U\t%S\t%R'; time "$@"; }
+# withtime(){ command time -f "time:\t%U\t%S\t%e" "$@"; }
+withtime(){ TIMEFORMAT=$'time:  %1Uu  %1Ss  %1Re'; time "$@"; }
 withenv(){ withtime /usr/bin/env $( ((usecleanenv)) && echo -i ) -- "${envvars[@]}" "$@"; }
 
 # BAD:(ugly hack): toolchain is correct but points to integrators custom
@@ -165,8 +166,9 @@ if ((printhelp)); then
   sed -rn '1d;/^(.*\s)?#%/s///p' "$0"
   printf "\nVariables:\n"
   (IFS=; declare -p) | grep -v '\s[A-Z0-9_]\+\b' | sed 's/declare -\S\+//'
-  exit
-fi
+}
+
+((printhelp)) && { Help; exit; }
 
 # NOTE: change options inside build dir by cli $ cmake -Dopt:type=val
 ((printcached)) && { cmake -LAH -B"$d_build" \
@@ -191,7 +193,7 @@ fi
 # FAIL:(unsupported on tmpfs): setfattr -n user.dt -v "$SECONDS" "$(f_log)"
 # BET:USE: /usr/bin/time -- per each command TODO: sum times per file
 ((profilinglog==2)) && { find "$(dirname "$(f_lastlog)")" \
-  -maxdepth 1 -type f -execdir grep -HPRo '^stat:\K.*' {} + | sort; exit; }
+  -maxdepth 1 -type f -execdir grep -HPRo '^time:\K.*' {} + | sort; exit; }
 
 
 ### Pass control to gui/tui applications
@@ -201,6 +203,11 @@ fi
 
 
 ### Main routine
+((all||remove||configure||build)) || {
+  echo "Err: specify on cmdline at least one action"
+  echo; Help; exit 1
+}
+
 # NOTE: delete content of build dir beside generated statistics: _log, _gv, etc
 #   => don't delete directory itself -- it can be mounted RAM disk
 ((remove)) && [[ -d $d_build ]] && \
@@ -213,7 +220,7 @@ fi
 
 ## BAD: shows errors but doesn't stops output immediately
 ((all)) || ((configure)) && withenv cmake -H"$d_pj" -B"$d_build" \
-  -Werror=dev ${cmake_args[@]+"${cmake_args[@]}"}
+  ${cmake_args[@]+"${cmake_args[@]}"}
 
 ## BAD: no colors with "cmake --build" even if export CLICOLOR_FORCE=1
 #   => manually use "make" directly in build dir OR:BET: own colorizing wrappers
