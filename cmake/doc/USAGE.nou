@@ -1,0 +1,19 @@
+%%% Build
+
+  DFL
+    $ r.chroot
+    $ mkdir -p _build && cd _build
+    $ cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=OFF ..
+
+  ALT: options
+    set (BUILD_TESTS OFF CACHE BOOL)
+
+  ALSO:DFL: embed configuration
+    if(NOT CMAKE_BUILD_TYPE)
+      set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Possible: Debug Release RelWithDebInfo MinSizeRel" FORCE)
+    endif()
+
+  Cross-pltf
+    $ cmake -E make_directory ./_build
+    $ r.chroot cmake -E chdir ./_build cmake -DCMAKE_BUILD_TYPE=Debug ..
+    $ cd ./_build && make -j2

@@ -1,0 +1,19 @@
+DEBUG
+  $ cmake -Wdev --debug-output --trace[-expand] --warn-uninitialized --warn-unused-vars -DCMAKE_VERBOSE_MAKEFILE=ON
+  ALSO: afterwards $ make VERBOSE=1 ...
+  https://cmake.org/Wiki/CMake_Performance_Tips
+    $ strace -r cmake --trace . 2>&1|sort -r|less
+
+
+Options
+  SEE: https://stackoverflow.com/questions/9298278/cmake-print-out-all-accessible-variables-in-a-script
+  enlist
+    $ cmake ..
+    $ cmake -LAH | awk '{if(f)print} /-- Cache values/{f=1}'
+  change
+    $ cmake -Dopt:type=val ..
+    $ cd _build && cmake -Dopt:type=val
+    $ cmake -C cfg.cmake ..
+  ncurses
+    $ sudo apt-get install cmake-curses-gui
+    $ ccmake ..

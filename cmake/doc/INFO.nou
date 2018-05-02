@@ -16,13 +16,6 @@ REF: CMake
       https://cgold.readthedocs.io/en/latest/index.html
 
 
-DEBUG
-  $ cmake -Wdev --debug-output --trace[-expand] --warn-uninitialized --warn-unused-vars -DCMAKE_VERBOSE_MAKEFILE=ON
-  ALSO: afterwards $ make VERBOSE=1 ...
-  https://cmake.org/Wiki/CMake_Performance_Tips
-    $ strace -r cmake --trace . 2>&1|sort -r|less
-
-
 USAGE
   target_sources
     https://crascit.com/2016/01/31/enhanced-source-file-handling-with-target_sources/
