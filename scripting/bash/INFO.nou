@@ -13,6 +13,9 @@ ALT
   dgsh - directed graph shell
     + bash-extended pipe graph syntax for for data streams
     http://www.spinellis.gr/sw/dgsh/
+  eshell -- inside Emacs
+    https://www.reddit.com/r/emacs/comments/6y3q4k/yes_eshell_is_my_main_shell/
+
 
 Cool man. Very cool
   >>> http://www.tldp.org/LDP/abs/html/abs-guide.html

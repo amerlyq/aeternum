@@ -1,0 +1,20 @@
+
+TUT https://gist.github.com/fstab/6d39fae3a436d9bd6cecb1d9fde9a667
+
+E.G.
+  terminate spawn
+    https://stackoverflow.com/questions/19774016/terminating-spawn-sessions-in-expect
+  capture output
+    http://wiki.tcl.tk/11583
+  spawn telnet
+    http://stephenhouser.com/development/2014-04-14-testing-with-expect.html
+  rand
+    https://stackoverflow.com/questions/37742937/expect-script-on-linux
+
+E.G.IMPL:
+  socket
+    TUT http://wiki.tcl.tk/15315
+  netcat
+    http://wiki.tcl.tk/14702
+  IRC
+    https://nikit.tcl-lang.org/page/IRC
