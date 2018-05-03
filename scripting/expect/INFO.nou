@@ -10,10 +10,24 @@ E.G.
     http://stephenhouser.com/development/2014-04-14-testing-with-expect.html
   rand
     https://stackoverflow.com/questions/37742937/expect-script-on-linux
+  read file
+    http://wiki.tcl.tk/367
+  match end-of-line
+    https://stackoverflow.com/questions/14299630/tcl-expect-dollar-sign-anchor-to-match-last-character-not-working
+  var ref
+    http://wiki.tcl.tk/12000
+    http://wiki.tcl.tk/8662
+  read stdin
+    http://wiki.tcl.tk/1288
+
 
 E.G.IMPL:
   socket
+    REF http://www.tcl.tk/man/tcl8.5/TclCmd/socket.htm
     TUT http://wiki.tcl.tk/15315
+    G: http://wiki.tcl.tk/_/search?S=socket&_charset_=UTF-8
+    E.G. http://wiki.tcl.tk/15315
+    TALK https://groups.google.com/forum/#!topic/comp.lang.tcl/SYCOEI5O0ag
   netcat
     http://wiki.tcl.tk/14702
   IRC
