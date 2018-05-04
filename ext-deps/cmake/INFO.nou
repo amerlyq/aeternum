@@ -1,0 +1,22 @@
+RQ
+  * search existing dep (err if notfound)
+    - prefix
+    - system
+  * build dep yourself
+    - keep local build
+      = reliable clean independent build
+      ! NEED: always use required/preffered compiler for ext deps instead of currently used for CMake
+        i.e. some ext-deps can't be built by clang
+    - install into prefix (if available, error if not specified)
+      + caching (improve build time)
+      - BAD: inconsistency
+  * use one of auto fallback strategies
+  * choose options per each dep
+  * configurations for set of options of all deps altogether
+    - all local (jenkins release)
+    - all searched (jenkins develop)
+    - most cached but some only local (noob-friendly defaults)
+    - switch strategies only for some components (partial update of deps)
+  * ext deps as alien sources must be always built locally (they may frequently change)
+    - provide option/strategy to force "cache everything" -- even such deps
+      => ultimately necessary for massive rebuilds when refactoring (1 min -> 30 sec)
