@@ -19,6 +19,8 @@ E.G.
     http://wiki.tcl.tk/8662
   read stdin
     http://wiki.tcl.tk/1288
+  expect timeout
+    TUT https://www.oreilly.com/library/view/exploring-expect/9781565920903/ch04s04.html
 
 
 E.G.IMPL:

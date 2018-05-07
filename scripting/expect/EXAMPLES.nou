@@ -1,0 +1,19 @@
+%%% Receipts
+
+  Expand list to args
+    configure_user {*}[scan [gets stdin] "bitlbee %s %s"]
+
+  Catch command output -- SSH w/o local PTY (-tt)
+     set ssh [open "|ssh -tt -q -o {StrictHostKeyChecking no} $user@$host /bin/sh" r+]
+
+  Avoid triple-escaping in quoted regex
+   set accrgx " \\($tag\\): .*, $user\[ \r\n\]"
+   set accrgx [subst -nocommands -nobackslashes {\s\($tag\):\s.*,\s$user[ \n\r]}]
+
+  Check variables exist and not empty
+    USE: {assert var1 some_user}
+     proc assert {args} { foreach var $args {
+       if {![info exists ::$var]} { error "Err: var '$var' must exist" }
+       set v [uplevel set $var]
+       if {$v eq ""} { error "Err: $var='$v'" }
+     }}
