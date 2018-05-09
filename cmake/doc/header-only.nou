@@ -1,0 +1,30 @@
+%%%% Header-only (classic)
+
+IDEA: dot-prefix
+  project(.IServer)
+
+
+STD: interface library
+  # WARN:(CMake limitations): you can't add *.hpp for your IDE here
+  add_library(${PROJECT_NAME} INTERFACE)
+  target_include_directories(${PROJECT_NAME} INTERFACE ${PROJECT_SOURCE_DIR})
+
+
+BAD: will be injected into source files of *each* target which you link to (daring consequences with *.cpp)
+  add_library(${PROJECT_NAME} INTERFACE)
+  target_sources(${PROJECT_NAME} INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/IServer.hpp)
+    = NEED: full path, because it will be resolved in each place, where sources will be injected
+  target_include_directories(${PROJECT_NAME} INTERFACE ${PROJECT_SOURCE_DIR})
+
+
+BAD: properties won't allow header sources either
+  # same problems -- headers aren't allowed
+  add_library(${PROJECT_NAME} INTERFACE IMPORTED GLOBAL)
+  set_property(TARGET ${PROJECT_NAME} PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${PROJECT_SOURCE_DIR})
+  # set_property(TARGET ${PROJECT_NAME} PROPERTY SOURCES IServer.hpp)
+
+
+BAD: creates almost empty "lib.IServer.a"
+  add_library(${PROJECT_NAME} IServer.hpp)
+  target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
+  set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
