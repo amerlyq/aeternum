@@ -1,0 +1,26 @@
+#pragma once VS include guards
+
+Headers with same content (size) and same timestamp are treated as the same header = second header not included
+  https://gcc.gnu.org/bugzilla/show_bug.cgi?id=52566
+  I treat it as feature, I'm glad it has broken so early
+  => build system itself must be fixed (don't use copies of same header, ever)
+  * don't use include guards at all, if you need to include same file multiple times
+  ::: OR: use unique comments inside headers
+
+
+BOM + immediate #pragma once + precompiled headers = double inclusion
+  https://gcc.gnu.org/bugzilla/show_bug.cgi?id=56549
+  Again, it's feature, and I'm again glad it has broken so fast (with double-definition)
+  => files must be in UTF-8 w/o BOM, when it breaks -- fix it
+  * to got into problems, you need to place #pragma at the very top of file and use precompiled headers
+  * all corporate files must have copyright at the very beginning of file, which prevent this problem
+  * BOM for UTF-8 is not recommended (excerp and a link to Unicode standard)
+    https://stackoverflow.com/questions/2223882/whats-different-between-utf-8-and-utf-8-without-bom
+  ::: always remove BOM, and whip with slippers everyone whoever won't
+
+
+#pragma is slow
+  https://gcc.gnu.org/bugzilla/show_bug.cgi?id=58770
+  = 1.5 sec / 10.000 files
+  * we have 400 .cpp files with recursive tree ~50 headers per each
+  => the worst case is 3 sec total -- compare with >30 sec per compilation of our single .cpp with booost
