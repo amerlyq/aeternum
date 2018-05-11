@@ -1,4 +1,7 @@
 #pragma once VS include guards
+  https://www.reddit.com/r/cpp/comments/4cjjwe/come_on_guys_put_pragma_once_in_the_standard/
+  https://www.quora.com/Why-is-%E2%80%9C-pragma-once%E2%80%9D-still-not-standard-C++
+
 
 Headers with same content (size) and same timestamp are treated as the same header = second header not included
   https://gcc.gnu.org/bugzilla/show_bug.cgi?id=52566

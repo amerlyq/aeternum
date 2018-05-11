@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #%USAGE: to install all deps (everything in ./ext-deps.d/): $ ./ext-deps -iA
 #%  * to disable some target-scripts completely -- remove "x" permission (chmod -x)
 #%  * all target-scripts are parametrized by env vars

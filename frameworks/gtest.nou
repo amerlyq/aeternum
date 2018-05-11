@@ -5,3 +5,8 @@ Tests inside libraries
   msvc:
     ~ extract *.a and link all *.o directly into testrunner
     ~ OR use header generator to create linking symbols requirements
+
+
+TALK
+  no tests for start-up
+    https://dou.ua/lenta/columns/product-that-works/

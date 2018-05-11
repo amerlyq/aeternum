@@ -8,12 +8,14 @@ REF: CMake
       https://github.com/Kitware/CMake/blob/master/CMakeLists.txt
     Effective CMake 2017
       https://www.youtube.com/watch?v=bsXLMQ6WgIk
-        https://www.slideshare.net/DanielPfeifer1/effective-cmake
+        + https://www.slideshare.net/DanielPfeifer1/effective-cmake
         OLD: https://www.slideshare.net/DanielPfeifer1/cmake-48475415
     Collection of useful links regarding cmake
       https://github.com/onqtam/awesome-cmake
     CGold: The Hitchhiker’s Guide to the CMake
       https://cgold.readthedocs.io/en/latest/index.html
+    Composable Generators and Property-based testing
+      https://www.slideshare.net/SumantTambe/c-generators-and-propertybased-testing?next_slideshow=1
 
 
 USAGE

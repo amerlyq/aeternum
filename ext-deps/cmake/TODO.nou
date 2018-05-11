@@ -1,0 +1,9 @@
+TRY: different dirs for local libs and installed ones
+  REF https://cmake.org/cmake/help/v3.2/prop_tgt/INTERFACE_INCLUDE_DIRECTORIES.html
+    READ: https://cmake.org/cmake/help/v3.0/manual/cmake-buildsystem.7.html#id16
+  https://cmake.org/pipermail/cmake/2013-April/054331.html
+  https://stackoverflow.com/questions/39887352/how-to-create-a-cmake-header-only-library-that-depends-on-external-header-files
+  target_include_directories(lib1 INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/lib1>
+    $<INSTALL_INTERFACE:${YOUR_INSTALL_DIR}/lib1>
+  )
