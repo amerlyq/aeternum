@@ -161,9 +161,9 @@ withenv(){ withtime /usr/bin/env $( ((usecleanenv)) && echo -i ) -- "${envvars[@
 
 
 ### Pass control to cli applications
-if ((printhelp)); then
-  # TODO: substitute (DFL=$var) by var value to merge Variables and Help
+Help(){ # TODO: substitute (DFL=$var) by var value to merge Variables and Help
   sed -rn '1d;/^(.*\s)?#%/s///p' "$0"
+  ((printhelp>1)) || return 0
   printf "\nVariables:\n"
   (IFS=; declare -p) | grep -v '\s[A-Z0-9_]\+\b' | sed 's/declare -\S\+//'
 }

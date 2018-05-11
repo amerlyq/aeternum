@@ -68,6 +68,7 @@ specials := $(shell sed -rn 's/^([A-Za-z0-9-]+)-% ::(\s.*|$$)/\1/p' '$(this)'|so
 
 # EXPL:(%-$(bdflt)): map short names to default targets "smth => smth-<default>"
 $(specials): % : %-$(bdflt)
+@-%: $(bdflt)-% ;
 
 ## ATT! without these two lines most of the Makefile magic won't work
 # EXPL:(_btgt): use right side of name as target (e.g. clean-B => "B")
@@ -111,6 +112,11 @@ graph-cmake-% ::
 
 doxygen-% ::
 	$(d_pj)/scripts/gen-doxygen '$(d_pj)' '$(_bdir)/_doxy'
+
+
+## DEV
+# strip-% ::
+# deploy-flash-% ::
 
 
 ##################################################
@@ -174,6 +180,11 @@ help:
 	@echo "Specials: $(foreach s,$(specials),$s-%)"
 	@sed -rn '/^(.*\s)?#%/s///p' '$(this)'
 
+tags:
+	$(d_pj)/scripts/gen-tags
+
+tags-all:
+	ctags -R
 
 ##################################################
 ### Magical one-time rules
@@ -188,11 +199,14 @@ help:
 # 	=> reduce number of affected recipes
 .SECONDEXPANSION:
 
-# TRY:TODO: build/run bdir with last timestamp BAD: name can be anything
-# NEED store config ".ctl.mk" inside bdir
-# IDEA use ".ctl.mk" to cache env vars and back-reference $pj/Makefile (may be useful for IDE)
-# last-%:
-# %-last:
+# TRY:TODO: build/run bdir with last timestamp (from multiple)
+#   BAD:(impossible): name can be anything and dir placed anywhere
+# IDEA use "$bdir/_rc.mk" to cache env vars and back-reference $pj/Makefile (may be useful for IDE)
+#   i.e. all params not supplied explicitly by "make" or "env" must be queried from _rc.mk and saved back
+#   BET: store inside "$pj/_build.config" -- because "$bdir" can be <anything>
+#     DEV: parse cfg tgt "blast" variable
+# @-%:
+# %-@:
 
 # NOTE: short alias <tgt>-<flags> to append cmdline w/o space delimiter
 #   <= only [- ] delimiters are allowed (other symbols could be considered later)
