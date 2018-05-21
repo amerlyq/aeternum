@@ -81,6 +81,13 @@ shell exits."
     http://unix.stackexchange.com/questions/131766/why-does-my-shell-script-choke-on-whitespace-or-other-special-characters
     http://wiki.bash-hackers.org/syntax/quoting
 
+
+Environment
+  NOTE: "export VAR" won't generate error even if VAR doesn't exist
+    $ export VAR
+    => can be used to unconditionally export required vars from sourced ~/.shell/profile
+
+
 HACK
   DFL:  func() { ...; }
   ALSO: func() ( ... )  # prevent parameter assignments from affecting the calling shell execution environment

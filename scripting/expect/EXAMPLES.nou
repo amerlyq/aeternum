@@ -1,5 +1,9 @@
 %%% Receipts
 
+  Env vars
+    $::env(PATH)
+    if {[string range $path 0 1] eq "~/"} { string replace $path 0 0 $::env(HOME) }
+
   Expand list to args
     configure_user {*}[scan [gets stdin] "bitlbee %s %s"]
 
