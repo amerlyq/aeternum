@@ -7,3 +7,9 @@ TRY: different dirs for local libs and installed ones
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/lib1>
     $<INSTALL_INTERFACE:${YOUR_INSTALL_DIR}/lib1>
   )
+
+
+find_package()
+  WARN: (<name>_FOUND, <name>_INCLUDE_DIRS, <name>_LIBRARIES) must not be cached
+    => modifying underlying cached vars must change values of derived ones / be correctly refreshed in target_link_libraries()
+    https://gitlab.kitware.com/cmake/community/wikis/doc/tutorials/How-To-Find-Libraries
