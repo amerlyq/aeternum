@@ -86,6 +86,8 @@ Environment
   NOTE: "export VAR" won't generate error even if VAR doesn't exist
     $ export VAR
     => can be used to unconditionally export required vars from sourced ~/.shell/profile
+  BAD: won't generate error even if broken
+    $ export VAR=$(false)
 
 
 HACK
