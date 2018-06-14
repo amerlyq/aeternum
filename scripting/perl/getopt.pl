@@ -1,4 +1,5 @@
 use Getopt::Std;
+$Getopt::Std::STANDARD_HELP_VERSION = 1;
 
 # NOTE
 # * keep alphabetic order (ignoring case) of letters
@@ -20,11 +21,19 @@ my $fmt  = $opts{F} // (defined $opts{N} ? "%08lx %08lx\n" : "%08lx\n");
 # NOTE negate boolean options
 my $skip = not ($opts{s} // 0);
 my $skip = defined $opts{s} ? 0 : 1;
+# Descriptive long names
+# my $append_after = $opts{a} // 0;
+# my $insert_into = $opts{i} // 0;
+
 
 ## Args
 # NOTE fallback values if not specified
 my $src = $opts{i} // $ARGV[0] // "/path/to/default/input/file";
 my $dst = $opts{o} // "/tmp/output";
+
+## Comma-separated key-value FORMAT: -o key1=val1,key2=val2,...
+#   %offsets = (%offsets, split(/[,=]/, $opts{o})) if $opts{o}
+
 
 ## Help
 # ALT:BET:(Pod::Usage): http://perldoc.perl.org/Getopt/Long.html#Documentation-and-help-texts

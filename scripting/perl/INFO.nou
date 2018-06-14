@@ -1,9 +1,26 @@
-Debug
+REF
+  Special vars (quick-ref)
+    https://www.perlmonks.org/?node_id=353259
+
+
+DEBUG
   https://metacpan.org/pod/Devel::Trepan
   Unroll short expr and checks syntax
     $ perl -MO=Deparse -e "print while <>"
       print $_ while defined($_ = readline ARGV);
       -e syntax OK
+
+
+Tools
+  $ perltidy
+
+
+CLI interfaces
+  REF: http://perldoc.perl.org/Getopt/Long.html
+  TUT: https://stackoverflow.com/questions/1183876/what-are-the-best-practices-for-implementing-a-cli-tool-in-perl
+  ARCH: http://catb.org/esr/writings/taoup/html/ch11s06.html
+  +++ TUT: https://www.perl.com/pub/2005/07/14/bestpractices.html/
+
 
 CPAN
   SEE http://perltricks.com/article/196/2015/10/1/What-s-new-on-CPAN---September-2015/

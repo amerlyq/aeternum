@@ -19,3 +19,6 @@ use v5.10; # Only needed for 'static vars' -- initialized only once
 
 use 5.014;  # (== 'use v5.14' but w/o warnings)
 # USE: for s///r  == substitute into new var instead of in-place
+
+## NOTE: some wide-used C functions
+# use POSIX qw/ceil/;
