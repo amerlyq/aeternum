@@ -1,9 +1,12 @@
 REF: CMake
   Tips
     ++ https://habrahabr.ru/post/330902/
+    http://voices.canonical.com/jussi.pakkanen/2013/03/26/a-list-of-common-cmake-antipatterns/
   Android
     https://habrahabr.ru/company/alawar/blog/216473/
   READ
+    Export and reuse targets
+      +++ https://pabloariasal.github.io/2018/02/19/its-time-to-do-cmake-right/
     ++ https://www.youtube.com/watch?v=eC9-iRN2b04
       https://github.com/Kitware/CMake/blob/master/CMakeLists.txt
     Effective CMake 2017
