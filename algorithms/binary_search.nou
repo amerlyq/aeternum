@@ -1,0 +1,4 @@
+REF: https://en.wikipedia.org/wiki/Binary_search_algorithm
+
+TRY: interpolation search to fasten initial jump -- fallback to regular search when $high-$low < $median_func_length
+  CHECK: maybe FAIL for func >> $median_func_length
