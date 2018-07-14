@@ -1,0 +1,3 @@
+
+Check pkg version, which will be found by pkg_check_modules()
+  $ PKG_CONFIG_PATH=/path/to/prefix/lib/pkgconfig pkg-config --modversion Magic++

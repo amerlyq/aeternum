@@ -38,6 +38,7 @@ $(hosts:%=%\ %): _bscript := $(d_pj)/scripts/build-host
 #% * use -j1   $ make host-
 $(alltgts:%=%-): %- : %\ -1b
 
+# ALT:TRY: use dedicated targets to tie flags for :: script_args (@-<flags>) and cmake_args (@@-<flags>)
 # EXPL:(_btgt): use right side of name as flags (e.g. "B-Rcb" => "-Rcb")
 #% NOTE: flags after minus are always required (can't use host" ..." or host-" ...")
 #% * new build $ make host-Rcb
@@ -68,6 +69,11 @@ specials := $(shell sed -rn 's/^([A-Za-z0-9-]+)-% ::(\s.*|$$)/\1/p' '$(this)'|so
 
 # EXPL:(%-$(bdflt)): map short names to default targets "smth => smth-<default>"
 $(specials): % : %-$(bdflt)
+# BUG: spaces not allowed here MAYBE create explicit recipes for @-% ?
+#   <= SEE(below):BAD: stem expanded and splitted before being interpreted
+# MAYBE:BET: move flags logic from make to wrapper script and use make only for targets
+#   i.e. wrapper chain (ctl -> Makefile -> build-host) -> cmake
+#   ALT:USE: env vars e.g. CMAKE_ARGS, OR hide iterface completely, wrapping each of limited options
 @-%: $(bdflt)-% ;
 
 ## ATT! without these two lines most of the Makefile magic won't work

@@ -2,6 +2,9 @@ REF: CMake
   Tips
     ++ https://habrahabr.ru/post/330902/
     http://voices.canonical.com/jussi.pakkanen/2013/03/26/a-list-of-common-cmake-antipatterns/
+    +++ https://pabloariasal.github.io/2018/02/19/its-time-to-do-cmake-right/
+  Performance
+    ++ TUT:ANLZ: https://stackoverflow.com/questions/35436945/cmake-rebuild-cache-for-just-a-subdirectory
   Android
     https://habrahabr.ru/company/alawar/blog/216473/
   READ
@@ -26,3 +29,8 @@ USAGE
     https://crascit.com/2016/01/31/enhanced-source-file-handling-with-target_sources/
   Wrapper to target_link_libraries() with additional flags
     https://cmake.org/pipermail/cmake/2011-November/047257.html
+
+  Rebuild single subdir (to re-emit compilation warnings)
+    http://cmake.3232098.n2.nabble.com/Possible-to-clean-files-of-one-target-library-only-td3472161.html
+    BAD:WTF: also cleans all dependencies $ cmake --build /path/to/build_dir --target mysubdir -- VERBOSE=1 clean
+    BET: $ cd ./_build/mysubdir && find -type f -name '*.o' -delete && make
