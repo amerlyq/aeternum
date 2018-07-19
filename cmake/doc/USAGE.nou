@@ -17,3 +17,32 @@
     $ cmake -E make_directory ./_build
     $ r.chroot cmake -E chdir ./_build cmake -DCMAKE_BUILD_TYPE=Debug ..
     $ cd ./_build && make -j2
+
+
+
+HACK
+
+  fPIE / fPIC
+    ATT: don't enable until absolutely necessary (security requirements)
+      * fPIE does not provide security on 32bit at all (SEE: exploit return-to-libc)
+      * PIC is harder to debug -- don't take a grudge out on triage developers
+      set(CMAKE_POSITION_INDEPENDENT_CODE OFF)
+    NOTE: linkers defaults are different -- TEMP: must disable explicitly
+      ALSO: must disable for compiler gcc>=6
+      SEE:REQ: https://gitlab.kitware.com/cmake/cmake/issues/16561
+      include(CheckCXXCompilerFlag)
+      check_cxx_compiler_flag("-no-pie" SUPPORTS_CXXFLAG_nopie)
+      if(SUPPORTS_CXXFLAG_nopie)
+        # add_compile_options(-fno-pie)
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -no-pie")
+      endif()
+
+  If such relocs present -- it's not PIC
+    $ readelf --relocs *.o | awk '$3~/^R_/ && $5!~/^\.debug/{print $3}' | sort -u | grep 'R_X86_64_32S\?'
+
+  Add -fPIC only when necessary for reused external targets
+    add_subdirectory(/path/to/ext_module ${CMAKE_BINARY_DIR}/ext_module)
+    get_target_property(some_TYPE SomeExtTargetName TYPE)
+    if(some_TYPE STREQUAL "SHARED_LIBRARY")
+      set_property(TARGET SomeExtTargetName PROPERTY POSITION_INDEPENDENT_CODE ON)
+    endif()
