@@ -17,3 +17,18 @@ Options
   ncurses
     $ sudo apt-get install cmake-curses-gui
     $ ccmake ..
+  default options
+    $ cmake --system-information
+
+
+HARDEN
+  Build everything as shared libs to reduce propagation of PRIVATE interfaces between .a
+    | -DBUILD_SHARED_LIBS=ON
+
+
+GCC build profiling
+  https://stackoverflow.com/questions/13559818/profiling-the-c-compilation-process
+  http://gcc.gnu.org/ml/gcc-help/2009-03/msg00304.html
+  https://blog.mozilla.org/nfroyd/2013/08/02/i-got-99-problems-and-compilation-time-is-one-of-them/
+  https://www.reddit.com/r/cpp/comments/41nr9s/reducing_c_compilation_time/
+  https://www.reddit.com/r/cpp/comments/6aj9i6/tools_for_profiling_the_build_process/

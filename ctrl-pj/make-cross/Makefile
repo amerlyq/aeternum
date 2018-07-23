@@ -57,6 +57,7 @@ $(alltgts:%=%\ %): _bflgs = $(or $(bflgs),$(*F))
 #  => let cmake itself decide if some files have changed
 # EXPL:(%-%): first % is substituted, second % is left as-is -- works as stem
 #   => stem passed as flags to underlying script
+# BUG: using '/' breaks parsing $ make gcc5"-ci -I/tmp/staging"
 $(alltgts:%=%\ %):
 	'$(_bscript)' '$(_btgt)' -B '$(_bdir)' $(_bflgs)
 
@@ -217,6 +218,7 @@ tags-all:
 # NOTE: short alias <tgt>-<flags> to append cmdline w/o space delimiter
 #   <= only [- ] delimiters are allowed (other symbols could be considered later)
 # BAD: too complex, ugly to extend for other delimiters
+# BUG: using '/' breaks parsing $ make gcc5"-ci -I/tmp/staging"
 $(foreach t,$(alltgts),$(eval $t-% : \
 	$t\$$$$( )-$$$$(subst $$$$( ),\ ,%) ;))
 # BAD: stem expanded -> split prereq on space -> expand vars in prereq
