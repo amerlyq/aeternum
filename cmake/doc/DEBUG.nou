@@ -32,3 +32,19 @@ GCC build profiling
   https://blog.mozilla.org/nfroyd/2013/08/02/i-got-99-problems-and-compilation-time-is-one-of-them/
   https://www.reddit.com/r/cpp/comments/41nr9s/reducing_c_compilation_time/
   https://www.reddit.com/r/cpp/comments/6aj9i6/tools_for_profiling_the_build_process/
+
+
+ALG: debug 'undefined reference' error
+  - look at verbose build logs
+  - find first symbol which is "undefined reference", e.g. registerStubAdapterCreateMethod()
+  - find who requires this symbol (line before it), e.g. libSome_server.a(SomeServerDBusStubAdapter.cpp.o)
+  - find which lib provides this symbol, i.e. run inside ./_build directory and CMAKE_PREFIX_PATH
+    $ nm -Ap $(find -type f \( -name '*.a' -o -name '*.so*' \) ) | grep -vw U | grep registerStubAdapterCreateMethod
+      => ./lib/libCommonAPI-DBus.so
+  - find what binary was linking at that time, e.g. test_Some
+  - find linking cmdline and look at relative order of "libSome_server.a" and "libCommonAPI-DBus.so"
+  !! lib which requires must be BEFORE lib which provides symbol
+  !!! CMake is not deterministic, therefore it may sometime reorder dependencies after topological sort
+    => therefore order on different PC or same PC in different time may differ,
+    producing sporadic linking errors which no one else can reproduce
+  ::: FIXED: specify additional or remove excessive deps from target_link_libraries(test_Some ...) of target binary
