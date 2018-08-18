@@ -18,6 +18,9 @@
 # * BAD: using CMAKE_INSTALL_PREFIX="$rootfs/usr"
 #   => additionally searched here (appended to CMAKE_SYSTEM_PREFIX_PATH)
 #   !! prefixed by CMAKE_FIND_ROOT_PATH => no sense to use
+# * ALT: using CMAKE_SYSROOT="$rootfs" => overrides sysroot set by CMAKE_FIND_ROOT_PATH
+#   WARN:HACK:(inappropriate usage): according to docs CMAKE_SYSROOT must be set only inside toolchain file
+#   REF: https://cmake.org/cmake/help/v3.7/variable/CMAKE_SYSROOT.html#variable:CMAKE_SYSROOT
 # * ATT: toolchain is sourced multiple times -- NEED cache passed control vars for toolchain itself inside env vars
 #   https://stackoverflow.com/questions/28613394/check-cmake-cache-variable-in-toolchain-file
 
@@ -41,6 +44,9 @@ set(CMAKE_CXX_FLAGS "-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BI
 
 ### Configure find_*(), pkg_check_*()
 # set(ENV{PKG_CONFIG_SYSROOT_DIR} "${HOST_PREFIX}/usr/arm-buildroot-linux-gnueabihf/sysroot")
+# ALT:(for cmake<3.1): export PKG_CONFIG_PATH="$dst/lib/pkgconfig:${PKG_CONFIG_PATH-}"
+#   export LDFLAGS="-L'$prf_install/lib'" && ... && unset LDFLAGS
+#     <= WARN: "$prf_install" path must not contain single-quotes!
 set(PKG_CONFIG_USE_CMAKE_PREFIX_PATH ON)
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)

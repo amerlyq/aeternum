@@ -17,6 +17,7 @@ fPIE / fPIC
     check_cxx_compiler_flag("-no-pie" SUPPORTS_CXXFLAG_nopie)
     if(SUPPORTS_CXXFLAG_nopie)
       # add_compile_options(-fno-pie)
+      # WARN: seems like CMAKE_EXE_LINKER_FLAGS don't work on cmdline
       set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -no-pie")
     endif()
 

@@ -20,3 +20,25 @@ RQ
   * ext deps as alien sources must be always built locally (they may frequently change)
     - provide option/strategy to force "cache everything" -- even such deps
       => ultimately necessary for massive rebuilds when refactoring (1 min -> 30 sec)
+  * different compilers / toolchains
+
+
+Lifetime (change frequency) / build time impact
+  * new each time you press "make"
+    => trigger build directly from inside CMake
+    = remove by "make"
+    + simple, robust, reliable
+    --- slow and repetitive
+  * per incremental build -- rebuild on reconfigure (on "cmake")
+    => use ExternalProjects
+    = remove by "make clean"
+    -- make clean must not
+  * per clean build -- rebuild on build dir recreation
+    => use internal ./_build/_prefix
+    + isolated for build
+    = remove by "make distclean"
+    - can't be shared
+  * per session -- rebuild on demand when deps breaks
+    ? how to rebuild automatically if revisions have changed ?
+    ++ can be shared for multiple builds
+    - still slow -- requires calling CMake of each ext-dep on each command (to check changes)

@@ -4,6 +4,8 @@
 #%  * all target-scripts are parametrized by env vars
 #%USAGE: install only choosen targets (better):
 #%  $ ./$0 [-d /path/to/buildroot/dl] [-t /my/_prebuilt-prefix] [-i] [targets..]
+#%USAGE: use ccache and another compiler
+#%  $ CC=gcc-5 CXX=g++-5 PATH="/usr/lib/ccache/bin:/usr/lib/ccache:$PATH" ./$0 -iAt /my/_prebuilt-prefix
 #%
 #%USAGE:(for *single* target): pass args to target recept itself after "--"
 #%  $ ./$0 target -- /path/to/.tar.gz -C ./cmake-config
@@ -64,7 +66,7 @@ assert_has_key(){ declare -rn a=$1; local k=$2
 assert_func(){ local fn=$1 funcs
   funcs=$(declare -F | awk '$3~/^[A-Z]/{print$3}')
   grep -qxF "$fn" <<< "$funcs" && return
-  echo "Err: wrong function-choice '$choice'"
+  echo "Err: wrong function-choice '$fn'"
   sed 's/^/  /' <<< "$funcs" | sort -n
   exit 2
 }

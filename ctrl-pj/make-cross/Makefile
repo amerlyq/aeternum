@@ -151,14 +151,17 @@ install-all: install-pj-exe install-pj-test install-external-pj
 # CRIT! all pattern rules must be strictly distinct (one does not contain another)
 #   i.e. using "install-pj-%" will wrongly catch "install-pj-test-%"
 
-# BAD:SECU: undeserved root priviliges
+# BAD:(cumbersome): low flexibility and high coupling in unrelated place (here, "install" target)
+#	$ cp -T '$(_bdir)/exe/exe' '$(ROOTFS)/usr/bin/pj-exe'
+# BAD:SECU: undeserved root priviliges for other "make" subroutines
 #   $ sudo $(MAKE) -C '$(_bdir)' install
-# BAD:CFG: on Jenkins under "sudo" PATH is different -> "cmake" may not exist or found outside cross-build
+# BAD:CFG: on Jenkins under "sudo" PATH is different -> "cmake" may not exist or found outside cross-build prefix
 #   $ sudo cmake --build '$(_bdir)' --target install
-# ALT:SECU: use "-DCMAKE_STAGING_PREFIX=$(_bdir)/_install" to override install() destination
-#   and then use sudo only once recursively $ sudo cp -a '$(_bdir)/_install/.' '$(ROOTFS)/usr'
+# ALT:SECU:(cumbersome) use "-DCMAKE_STAGING_PREFIX=$(_bdir)/_install" to override install() destination
+#   => then copy recursively and use sudo only once $ sudo cp -a '$(_bdir)/_install/.' '$(ROOTFS)/usr'
 # BET:(only when {sudo -> fakeroot}):
 #   $ cmake --build '$(_bdir)' --target install
+#   => then pack everything under fakeroot: $ fakeroot $(MAKE) -f ./mk/rootfs.mk all
 install-pj-exe-% ::
 	fakeroot cp -T $(_bdir)/exe/exe $(ROOTFS)/usr/bin/pj-exe
 

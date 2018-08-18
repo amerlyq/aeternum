@@ -36,7 +36,8 @@ SEE
     https://code.google.com/archive/p/nonrec-make
     http://www.kolpackov.net/projects/build/benchmark.xhtml
   What's Wrong With GNU make -- READ 'Reliability' section (cons of make)
-    http://www.conifersystems.com/whitepapers/gnu-make/
+    +++ http://www.conifersystems.com/whitepapers/gnu-make/
+      == good overview on Makefile design as language
   +++ [_] http://david.rothlis.net/large-gnu-make/
   Build Java
     https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html
@@ -114,7 +115,7 @@ USAGE
       * temporary ignore changes in req*, unrelated to tgts
     query state up-to-date
       $ make -q $tgt
-    timestamps set up-to-date (similar to 'touch')
+    timestamps set up-to-date (similar to 'touch $@' for <stamp> files)
       $ make -t
       * ignore changes in req*, unrelated to tgts
       * supply/merge manully created tgts by external means

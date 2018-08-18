@@ -13,3 +13,11 @@ find_package()
   WARN: (<name>_FOUND, <name>_INCLUDE_DIRS, <name>_LIBRARIES) must not be cached
     => modifying underlying cached vars must change values of derived ones / be correctly refreshed in target_link_libraries()
     https://gitlab.kitware.com/cmake/community/wikis/doc/tutorials/How-To-Find-Libraries
+
+
+Export / Import targets
+  REF+ https://gitlab.kitware.com/cmake/community/wikis/doc/tutorials/Exporting-and-Importing-Targets
+  https://stackoverflow.com/questions/47718485/install-and-export-interface-only-library-cmake
+  TUT https://foonathan.net/blog/2016/03/03/cmake-install.html
+  Qs http://cmake.3232098.n2.nabble.com/Explanation-of-the-CMake-INSTALL-and-EXPORT-Commands-td7583921.html
+  ALSO:REQ:(custom target) https://gitlab.kitware.com/cmake/cmake/issues/16990
