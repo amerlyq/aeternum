@@ -34,6 +34,7 @@ REF
   E.G.
     https://rosettacode.org/wiki/Category:J
     http://olegykj.sourceforge.net/
+    http://code.jsoftware.com/wiki/Scripts
   History
     http://keiapl.org/rhui/remember.htm
     "Neural Networks in J" by Alexei N. Skurihin.
@@ -44,6 +45,15 @@ REF
 TUT
   Ulam's Spiral
     https://www.youtube.com/watch?v=dBC5vnwf6Zw
+  J
+    http://habrahabr.ru/post/201470/
+    http://habrahabr.ru/post/220291/
+    http://habrahabr.ru/post/221011/
+  Amatour look
+    http://habrahabr.ru/post/198052/
+    http://habrahabr.ru/post/198066/
+    http://habrahabr.ru/post/198228/
+    http://habrahabr.ru/post/198230/
 
 
 E.G.
@@ -55,3 +65,13 @@ E.G.
     https://github.com/wyc/snippets/blob/master/j/jtalk/examples.txt
   Tools / complex
     https://analyzethedatanotthedrivel.org/the-jod-page/
+
+
+USAGE
+  $ jcalc <expr> $ for short calculations
+  $ jcalc $(cat *.ijs) $ for mediocre
+  $ j8 -c $ for big?
+    load 'file.ijs'
+    : but this will export only global vars, defined with '=:'
+    Ctrl-D
+  $ { echo expr | j8 -c; echo; }

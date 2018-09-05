@@ -208,11 +208,10 @@ Help(){ # TODO: substitute (DFL=$var) by var value to merge Variables and Help
   echo; Help; exit 1
 }
 
-# NOTE: delete content of build dir beside generated statistics: _log, _gv, etc
+# NOTE: delete content of build dir beside ext-deps and generated statistics: _prefix, _log, _gv, etc
 #   => don't delete directory itself -- it can be mounted RAM disk
 ((remove)) && [[ -d $d_build ]] && \
-  find -H "$d_build" -mindepth 1 -maxdepth 1 \
-  -type d -name '_*' -prune -o \
+  find -H "$d_build" -mindepth 1 -maxdepth 1 -name '_*' -prune -o \
   -exec rm $( ((verbose)) && echo -v ) -rf {} +
 
 ## Redirect output to file (enable only for main operations)
