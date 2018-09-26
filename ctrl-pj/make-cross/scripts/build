@@ -223,7 +223,7 @@ Help(){ # TODO: substitute (DFL=$var) by var value to merge Variables and Help
 
 ## BAD: no colors with "cmake --build" even if export CLICOLOR_FORCE=1
 #   => manually use "make" directly in build dir OR:BET: own colorizing wrappers
-((all)) || ((build)) && withenv cmake --build "$d_build" -- \
-  --jobs="$nproc" ${make_args[@]+"${make_args[@]}"}
+((all)) || ((build)) && withenv chrt --batch 0 \
+  cmake --build "$d_build" -- --jobs="$nproc" ${make_args[@]+"${make_args[@]}"}
 
 exit 0
