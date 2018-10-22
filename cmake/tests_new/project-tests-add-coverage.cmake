@@ -5,6 +5,11 @@
 #%  PRODUCED:(output):
 #%    * target "${PROJECT_NAME}_cov"
 #%
+
+# NOTE: all *.cpp with corresponding tests will be included in coverage report
+# OR: declare special new property to contain reduced source list for coverity
+#   => BAD: must be set in each CMakeLists.txt explicitly BET: stick to default properties
+
 if(NOT TARGET ${PROJECT_NAME})
   message(FATAL_ERROR "Variable 'PROJECT_NAME=${PROJECT_NAME}' must be an existing target")
 endif()

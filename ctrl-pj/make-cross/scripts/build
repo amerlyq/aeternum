@@ -197,6 +197,7 @@ Help(){ # TODO: substitute (DFL=$var) by var value to merge Variables and Help
 
 
 ### Pass control to gui/tui applications
+((editlog>0)) && [[ $EDITOR =~ vim ]] && EDITOR="$EDITOR +cbuffer"
 ((editlog)) && exec ${EDITOR:?} "$(f_lastlog)"
 ((viewcached==2)) && exec cmake-gui "$d_build"
 ((viewcached==1)) && exec ccmake "$d_build"

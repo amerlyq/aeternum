@@ -65,6 +65,8 @@ TALK
     https://channel9.msdn.com/Events/CPP/C-PP-Con-2014/016-Exception-Safe-Code-Part-I
     https://channel9.msdn.com/Events/CPP/C-PP-Con-2014/023-Exception-Safe-Code-Part-II
     https://channel9.msdn.com/Events/CPP/C-PP-Con-2014/026-Exception-Safe-Code-Part-III
+    ++ https://www.youtube.com/watch?v=GC4cp4U2f2E
+    ++ https://www.youtube.com/watch?v=LfRLQ7IChtg&list=WL&index=48&t=0s
   [_] CppCon 2017: Hartmut Kaiser “The Asynchronous C++ Parallel Programming Model”
     https://youtu.be/js-e8xAMd1s
   READ
@@ -82,6 +84,12 @@ TALK
     https://habrahabr.ru/post/349336/
   CppCon 2018: Bjarne Stroustrup “Concepts: The Future of Generic Programming (the future is here)”
     https://www.youtube.com/watch?v=HddFGPTAmtU&feature=youtu.be
+  CppCon 2018: Kris Jusiak “State Machines Battlefield - Naive vs STL vs Boost”
+    https://www.youtube.com/watch?v=yZVby-PuXM0
+  What do you do when your Codebase is Old Enough to Vote
+    https://www.youtube.com/watch?v=hCi8oZWL1js&feature=youtu.be
+  CppCon 2016: Nicholas Ormrod “The strange details of std::string at Facebook"
+    https://www.youtube.com/watch?v=kPR8h4-qZdk
 
 
 DEBUG

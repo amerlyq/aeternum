@@ -5,6 +5,8 @@ ALT:(make)
   tup
     http://gittup.org/tup/
   SEE: |community/remake|
+  Meson :: CppCon 2018: "Compiling Multi-Million Line C++ Code Bases Effortlessly with the Meson Build System"
+    https://www.youtube.com/watch?v=SCZLnopmYBM&t=1318s
 
 
 REF
