@@ -22,6 +22,10 @@ Functional prg
   https://www.isp.uni-luebeck.de/sites/default/files/lectures/ws_2015_2016/CS%25203702%2520BachSemInf,%2520,%2520CS%25203703%2520BachSemMI,%2520,%2520CS%25205480%2520SemSSE,%2520,%2520CS%25205840%2520SemiEngl/copl-proceedings.pdf
   https://news.ycombinator.com/item?id=1944913
     = Which programming book you just couldn’t stop reading from start to end?
+  ++ http://cs.lmu.edu/~ray/notes/pltypes/
+    = read about languages outside of classification
+    +++ https://graydon2.dreamwidth.org/3186.html
+    +++ https://graydon2.dreamwidth.org/189377.html
 
 
 vector processing languages E.G: J, K, Q
@@ -234,6 +238,8 @@ GNU R
 Go (golang)
   Why Go is not good
     ! http://yager.io/programming/go.html
+  Go, the unwritten parts
+    https://rakyll.org/
 
 
 > FUTURE <
