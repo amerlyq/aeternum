@@ -1,5 +1,6 @@
 % Implicit rules alg
   https://www.gnu.org/software/make/manual/html_node/Implicit-Rule-Search.html#Implicit-Rule-Search
+  # WARN: make does not consider implicit rules for PHONY targets
 
 Algorithm
 # rule::norecipe, targs:norecipe, req*(!=target), req*(from implicit)

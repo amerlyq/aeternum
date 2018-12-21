@@ -1,3 +1,4 @@
+#!/usr/bin/make -f
 .PHONY: all
 all: tgA tgB
 
@@ -17,3 +18,9 @@ tgA: req
 # HACK: order-only req* works normally even with .PHONY
 tgB: | req
 	touch $@
+
+# WARN:FAIL: make does not consider implicit rules for PHONY targets
+.PHONY: impl.all
+all: impl.all
+%.all:
+	echo impl :: $*

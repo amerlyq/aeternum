@@ -1,0 +1,79 @@
+SEE
+  https://github.com/gojuno/make-profiler
+  https://github.com/eddyp/make-profiler
+
+
+CMP: performance of shells (bash/ash/sh)
+  https://www.oreilly.com/openbook/make3/book/ch10.pdf
+    ++ tips on performance
+
+
+%%% Profiling
+
+HACK: only chosen targets
+  => instead of assigning to "SHELL" VAR, use target-specific VAR
+  | $(PROFILING_TGTS): SHELL = $(with_profiler)
+
+
+INFO:
+  ! each _significant_ target must be build exactly one time
+    ?? when it's possible to build target more then once ??
+
+[_] TODO: report-format +/- per each way
+
+Use bash wrapper
+  --- FAIL: this shell is used even for "$(shell ...)" commands -- must be absolutely correct shell wrapper
+  SHELL := ./report_time.sh :: #!/bin/bash shift; time "$@"
+  https://stackoverflow.com/questions/6966877/measure-time-spent-in-each-target-of-a-makefile
+  ALT:TRY: .SHELLFLAGS = -c 'echo "$0"; date +%s.%N; time "$@"' '$@'
+    -- BAD: hard to use due to space expansion, need wrapper script
+  OR: SHELL += -x
+
+
+Use warning
+  https://www.cmcrossroads.com/article/tracing-rule-execution-gnu-make
+  pr_shell := $(SHELL)
+  SHELL = $(warning Building $@ $(if $<, (from $<))$(if $?, ($? newer)))$(pr_shell) -x
+
+
+Use /usr/bin/time
+  FAIL: absent on Debian/Jenkins
+  PERF: "time" overhead of (5.2 - 3.2 ~= 2) seconds / 1000 jobs
+  REF:(forks): https://en.wikipedia.org/wiki/Time_(Unix)#Real_Time_vs_CPU_Time
+  SHELL = rusage.sh
+  exec time -f 'errcode=%x elapsed=%e user=%U system=%S maxrss=%M avgrss=%t avgmem=%K avgdata=%D swaps=%W fsin=%I fsout=%O majflt=%F mnrflt=%R ctxforce=%c ctxwait=%w' "$@"
+    ::: $ r.maint-time
+  ALT: use bash "time"
+    withtime(){ TIMEFORMAT=$'time:  %1Uu  %1Ss  %1Re'; time "$@"; }
+
+
+Bash tracing
+  FAIL: no shell-subst when passed from makefile :: SHELL := ...
+    SHELL := $(shell which env) -- PS4='+ $$(date "+%s.%N")\011 ' $(shell which bash)
+    .SHELLFLAGS := -euo pipefail -x -c
+  | PS4='+ $(date "+%s.%N")\011 '
+  | exec 3>&2 2>/tmp/bashstart.$$.log
+  | set -x
+  | ...
+  | set +x
+  | exec 2>&3 3>&-
+
+
+Make tracing
+  Use (<target>) name and PID as unique identifiers
+    BAD: can't get tokens (e.g. 0x178ec20) to identify each recept/job from inside makefile
+  e.g.
+    $ make --debug=all
+    $ make --debug=basic,jobs,makefile
+    $ make --debug=jobs
+    Need a job token; we have children
+    Live child 0x178ec20 (job-10) PID 2167
+    Live child 0x17909f0 (job-9) PID 2166
+    Reaping winning child 0x17909f0 PID 2166
+    Removing child 0x17909f0 PID 2166 from chain.
+    Released token for child 0x17909f0 (job-9).
+    Live child 0x178ec20 (job-10) PID 2167
+    Obtained token for child 0x17917f0 (job-11).
+    Putting child 0x17917f0 (job-11) PID 2172 on the chain.
+    Live child 0x17917f0 (job-11) PID 2172
+    Live child 0x178ec20 (job-10) PID 2167

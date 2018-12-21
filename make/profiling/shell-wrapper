@@ -1,0 +1,37 @@
+#!/bin/bash
+#%USAGE: $ grep '^\[profiling\]' _build.log | sort -t$'\x1f' -k8.10rn,8 H
+set -euo pipefail
+
+
+# USAGE:
+# <_profiling.log awk -F'\x1f ' -vOFS='\t' '{j=sprintf("jobs=%.1f",(substr($6,6)+substr($7,8))/(substr($8,9)+0?substr($8,9):1)); print j,$6,$7,$8,$9,substr($11,1,100)}' | tr -d $'\x1f' >! prof.log
+
+## BAD: to make conjencture about -j1 you must log graph of total system utilization over job's time
+#   => avgjobs = (user + system) / elapsed * avgsysload
+
+## BAD: output will be interleaved with commands anyway
+##  => NEED: "/usr/bin/time --output=file"
+# if [[ -d ${BUILDTOP-} ]]; then
+#   exec 2>> $BUILDTOP/_profiling.log
+# fi
+
+argv=$*
+argv=${argv#-c }
+
+fmt=(
+  "[profiling]"
+  id="${UUID-}"
+  ts="$(date "+%s.%2N")"
+  ppid="$PPID"
+  pid="$$"
+  user='%2U'
+  system='%2S'
+  elapsed='%2R'
+  mk="${MK-}"
+  target="${TGT+${TGT//%/%%}}"
+  new="${NEW+${NEW//%/%%}}"
+  cmdline="${argv//%/%%}"
+)
+
+export TIMEFORMAT=${fmt[*]/%/$'\x1f'}
+time /bin/bash "$@"
