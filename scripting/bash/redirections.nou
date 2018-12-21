@@ -3,6 +3,8 @@ Redirections
     REF: http://www.pixelbeat.org/programming/sigpipe_handling.html
       BUG: xargs is broken
     http://superuser.com/questions/554855/how-can-i-fix-a-broken-pipe-error
+    HACK: trap return code of pipe
+      $ sort -k2rn,2 || exit ${?//141/0}
   Connect to socket
   http://hacktux.com/bash/socket
     exec 3<>/dev/tcp/localhost/22

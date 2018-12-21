@@ -1,4 +1,6 @@
 ALT
+  REF:(2018): POSIX 7
+    http://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.html
   HISTORY: https://www.ibm.com/developerworks/library/l-linux-shells/index.html
   zsh
   rc
