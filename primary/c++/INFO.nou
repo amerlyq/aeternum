@@ -35,6 +35,13 @@
     http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html
 
 
+Nightmares
+  CppCon 2018: Nicolai Josuttis “The Nightmare of Initialization in C++”
+    https://www.youtube.com/watch?v=7DTlWPgX6zs
+  CppCon 2018: Richard Powell “How to Argue(ment)"
+    https://www.youtube.com/watch?v=ZbVCGCy3mGQ
+
+
 TALK
   [_] SEE Inheritance and operator=()
     https://www.youtube.com/watch?v=QGcVXgEVMJg
@@ -67,6 +74,8 @@ TALK
     https://channel9.msdn.com/Events/CPP/C-PP-Con-2014/026-Exception-Safe-Code-Part-III
     ++ https://www.youtube.com/watch?v=GC4cp4U2f2E
     ++ https://www.youtube.com/watch?v=LfRLQ7IChtg&list=WL&index=48&t=0s
+    +++ https://akrzemi1.wordpress.com/2011/10/05/using-stdterminate/
+      https://akrzemi1.wordpress.com/2011/09/28/who-calls-stdterminate/
   [_] CppCon 2017: Hartmut Kaiser “The Asynchronous C++ Parallel Programming Model”
     https://youtu.be/js-e8xAMd1s
   READ
