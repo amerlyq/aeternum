@@ -5,3 +5,20 @@ Binary parsing
   http://www.perlmonks.org/?node_id=224666
   https://www.effectiveperlprogramming.com/
   http://perldoc.perl.org/perlpacktut.html
+
+
+Unpack oneliners
+  Table of records
+    $ perl -e 'my $i; print((++$i) % 4 ? $_ : $_, "\n") for unpack("(x C v V)*", <STDIN>)'
+
+
+Use pre-partitioned lvalue-refs (lrefs) over readonly binary data (faster x100 > unpack)
+  https://www.perlmonks.org/?node_id=1182397
+    https://www.perlmonks.org/?node_id=535539
+    | my $buffer = chr(0) x 4800;
+    | my $header = \substr $buffer, 0, 300;
+    | my @subs = map{ \substr( $buffer, 300 + $_ *18, 18 ) } 0 .. 249;
+    | while( read( $fhTest, $buffer, 4800, 0 ) == 4800 ) {
+    |     printf "H:%-20.20s first: %s last: %s\n", $$header, ${ $subs[0] }, ${ $subs[249] };
+    |     $hash{ $$header } = [ map{ $$_ } @subs ];
+    | }
