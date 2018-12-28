@@ -1,0 +1,5 @@
+NOTE: instead of linking with -lpthread
+  set(THREADS_PREFER_PTHREAD_FLAG ON)
+  # set(THREADS_PTHREAD_ARG "2" CACHE STRING "" FORCE)  # for older cmake
+  find_package(Threads REQUIRED)
+  target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)

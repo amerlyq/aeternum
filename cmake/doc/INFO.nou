@@ -22,6 +22,14 @@ REF: CMake
       https://cgold.readthedocs.io/en/latest/index.html
     Composable Generators and Property-based testing
       https://www.slideshare.net/SumantTambe/c-generators-and-propertybased-testing?next_slideshow=1
+    CppCon 2018: Mateusz Pusz “Git, CMake, Conan - How to ship and reuse our C++ projects”
+      https://youtu.be/S4QSKLXdTtA
+      https://www.opennet.ru/opennews/art.shtml?num=49519
+
+
+ALT
+  Meson
+    https://www.opennet.ru/opennews/art.shtml?num=47031
 
 
 USAGE
