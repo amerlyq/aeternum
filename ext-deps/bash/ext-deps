@@ -167,6 +167,7 @@ _main(){ declare -ga ordered_targets
   done
 }
 
+# ATT: due to getopts you need two double hypen for solitary "cmdline_args" $ ./$0 -- -- ...
 for((i=1;i<=$#;++i)); do [[ ${!i} == -- ]] && break; done
 cmdline_args=( "${@:i+1}" )
 _main "${@:1:i-1}"

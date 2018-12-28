@@ -4,6 +4,17 @@
 #   http://www.bahmanm.com/blogs/command-line-options-how-to-parse-in-bash-using-getopt
 #   http://wiki.bash-hackers.org/howto/getopts_tutorial
 
+
+# pass opts to below prg {{{
+dop=maiIsSuUrR
+opts=; while getopts "x${dop}dgN" o; do case $o in :|'?') exit 1
+esac; opts+=$o; done; shift $((OPTIND - 1))
+has(){ [[ $opts =~ [$*] ]]; }
+# OR: dopts=$(tr -cd "$dop" <<< "$opts")
+has "$dop" && cmd+=( -"${opts//[^$dop]}" )
+# }}}
+
+
 OPTS_SET=($@)
 if [ $# -eq 0 ]; then OPTS_SET="-adiorsv"; fi
 #if ( ! getopts "abc:deh" opt); then
