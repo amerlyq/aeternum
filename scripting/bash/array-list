@@ -19,3 +19,24 @@ read -r REPLY <<<"   TEST   "; printf '<%s>\n' "$REPLY"
 # Array to delimited string
 #   http://stackoverflow.com/questions/13470413/bash-array-to-delimited-string
 (IFS=:;printf '%s\n' "${a[*]// /\\ }")
+
+# String to array splitting
+# !!! https://stackoverflow.com/questions/10586153/split-string-into-an-array-in-bash/45201229#45201229
+IFS=', ' read -ra array <<< "$string"
+
+a=(); while read -rd,; do a+=("$REPLY"); done <<<"$string,"; declare -p a;
+# declare -a a=([0]="Paris" [1]=" France" [2]=" Europe")
+
+readarray -td, a <<<"$string,"; unset 'a[-1]'; declare -p a;
+## declare -a a=([0]="Paris" [1]=" France" [2]=" Europe")
+
+readarray -td '' a < <(awk '{ gsub(/, /,"\0"); print; }' <<<"$string, "); unset 'a[-1]'; declare -p a;
+## declare -a a=([0]="Paris" [1]="France" [2]="Europe")
+
+# Trimming
+function mfcb { local val="$4"; "$1"; eval "$2[$3]=\$val;"; };
+function val_ltrim { if [[ "$val" =~ ^[[:space:]]+ ]]; then val="${val:${#BASH_REMATCH[0]}}"; fi; };
+function val_rtrim { if [[ "$val" =~ [[:space:]]+$ ]]; then val="${val:0:${#val}-${#BASH_REMATCH[0]}}"; fi; };
+function val_trim { val_ltrim; val_rtrim; };
+readarray -c1 -C 'mfcb val_trim a' -td, <<<"$string,"; unset 'a[-1]'; declare -p a;
+## declare -a a=([0]="Paris" [1]="France" [2]="Europe")
