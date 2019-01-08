@@ -39,5 +39,5 @@ rec-% ::
 	$(MAKE) -C '$(dir $(this))' -f '$(this)' INST=$*
 
 job-% ::
-	echo '$(INST)=$$PPID/$*=$$$$'
+	echo "$(INST)=$$PPID/$*=$$$$"
 	sleep 0.1
