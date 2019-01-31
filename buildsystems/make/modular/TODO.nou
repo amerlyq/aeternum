@@ -1,0 +1,14 @@
+USAGE:
+  auto-build whole firmware
+  dev-build whole firmware
+  dev-build single dependency
+
+VIZ.
+  direct recursing (our firmware)
+    :: mod: $(read mod/deps.txt)
+    => dev-build single dependency -- must be also done only through global interface
+  direct sourcing (buildroot)
+    :: include mod/config.mk
+  reverse recursing
+  reverse sourcing
+  recursive reverse sourcing (usr_pkgs)

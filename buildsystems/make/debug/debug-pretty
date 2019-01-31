@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#%SUMMARY: list all targets to be rebuilt on next run
+set -euo pipefail
+
+"${MAKE:-make}" --debug=all "$@" \
+| sed '
+  /^GNU Make/,+5d
+  /^Reading makefiles...$/s//\n{{{ &/
+  s/^\s*/&&/g
+' | $EDITOR +'setf nou|set nofen nowrap noro ma bt=nofile'

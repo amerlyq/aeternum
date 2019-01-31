@@ -1,0 +1,7 @@
+USAGE: actions
+  * [custom]: $ make tgt       # = run once only tgt
+  * [always]: $ make -W tgt    # = rerun tgt
+  * [w/deps]: $ make -B tgt    # = rerun tgt (with all deps)
+  * [ignore]: $ make -o tgt    # = all beside tgt
+  *  [reset]: $ make -t tgt    # = skip tgt (when error) (FAIL: aliased tgt do not propagate to actual ones)
+  * [dryrun]: $ make -n tgt    # = only print commands (BAD: must disable "silent")

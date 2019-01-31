@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#%SUMMARY: list all targets to be rebuilt on next run
+set -euo pipefail
+
+filter(){ sed -n "/Must remake target '/{s///;s/'\.\$//;p}" \
+  | command grep -vE '/(all|build|depend)$'
+}
+exec > >(filter)
+
+[[ -t 0 ]] && exec "${MAKE:-make}" --dry-run --debug "$@"

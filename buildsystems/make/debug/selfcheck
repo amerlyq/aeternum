@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#%SUMMARY: occasional self-check for Makefile errors
+set -euo pipefail
+
+exec make --dry-run --warn-undefined-variables "$@"

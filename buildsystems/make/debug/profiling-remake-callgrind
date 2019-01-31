@@ -1,0 +1,9 @@
+#!/bin/bash
+#%SUMMARY: use "remake" drop-in replacement of "make" on steroids for profiling and debugging of Makefiles
+# REF: https://unix.stackexchange.com/questions/283478/how-to-display-dependencies-given-in-a-makefile-as-a-tree/496046#496046
+set -euo pipefail
+
+make build -B MAKE="remake --profile -o --clone--"
+callgrind_annotate callgrind.out.* --threshold=100 --inclusive=yes | head -40
+callgrind_annotate callgrind.out.* --threshold=10 --auto=yes --context=2 --inclusive=yes --tree=both
+# kcachegrind callgrind.out.*

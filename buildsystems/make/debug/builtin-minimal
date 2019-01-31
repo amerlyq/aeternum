@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#%SUMMARY: print built-in rules and variables
+#%USAGE: $ ./$0 [-rR --warn-undefined-variables] [--] [some]
+set -euo pipefail
+
+exec > >(sed '/# automatic/{N;d}')
+exec 2> /dev/null
+
+exec <<'EOT'
+# NOTE: no sense to make empty, when using "-rR"
+# BUT: useful if you want to keep other built-ins
+.SUFFIXES:
+EOT
+
+! env --ignore-environment -- \
+  make -f- --print-data-base \
+  -rR --warn-undefined-variables \
+  "$@"

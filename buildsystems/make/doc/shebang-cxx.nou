@@ -1,0 +1,39 @@
+%%%% C++ #shebang
+
+TRY:
+  [_] use hash of content as name
+  [_] use hash instead of timestamp = one-time compile
+    BUT: how to delete files with obsolete hashes?
+
+ALT:
+  inverted self-compile by hooking link-time trampoline into main()
+    ./airy/airy/lib/selfcompile.c
+
+
+trivial: (with cache based on timestamps)
+  BAD:SECU: possible cache file name collisions
+  $ //usr/bin/test "$0" -ot "${out:=${TMPDIR:-/tmp}/$(readlink -e "$0"|tr / _)}" || gcc "$0" -o "$out" && exec "$out"
+  $ //usr/bin/test "$0" -ot /tmp/a.out || gcc "$0" -o /tmp/a.out && exec /tmp/a.out  # BAD: same dst names
+  $ //usr/bin/make -sf/dev/null LDFLAGS=-I. "$@" "${0%.*}" || exit && exec "${0%.*}"
+
+
+multiline:
+  $ //bin/false || mkdir -p "${d:=${TMPDIR:-/tmp}/${0%/*}}"; n=${0##*/}; n=${n%.*}; \
+    //usr/bin/make -C "$d" -sf/dev/null -- VPATH="${0%/*}" "$n" || exit && exec "$d/$n"
+
+
+explicit:
+  $ //bin/true && set -eu && exec make X="${TMPDIR:-/tmp}/cxx" -srf/dev/null --eval='!:$X/$S;$<' --eval='$X/$S:$S;mkdir -p $(@D)&&$(LINK.cpp) $^ -o $@' "$@" S="$(realpath "$0")"
+  $ //bin/true && exec make -C "${TMPDIR:-/tmp}/cxx" -{srf,o}/dev/null --eval='!:$(0:/%=%);./$<' --eval='$(0:/%=%):$0;mkdir -p $(@D)&&$(LINK.cpp) $^ -o $@' "$@" 0="$(realpath "$0")"
+  $ //bin/true && mkdir -p "${TMPDIR:-/tmp}/cxx/${0%/*}" && exec make -C "$_" -{srf,o}/dev/null --eval='!:$X;./$<' --eval='$X:$0;$(LINK.cpp) $^ -o $@' "$@" 0="$(realpath "$0")" X="${0##*/}"
+
+
+implicit:
+  $ //usr/bin/make -C "${TMPDIR:-/tmp}" -sf/dev/null --eval '.SUFFIXES: .$E' --eval='vpath %.$E $(dir $X)' --eval='$(MAKEFILE_LIST): $(notdir $X) ; ./$<' "$@" -- "E=${0##*.}" "X=$(realpath "${0%.*}")"; exit
+  $ //bin/true && mkdir -p "${TMPDIR:-/tmp}/cxx/${0%/*}" && exec make -C "$_" -{sf,o}/dev/null --eval='!:$(basename $X);./$<' --eval='vpath %$(suffix $X) $(dir $0)' "$@" 0="$(realpath "$0")" X="${0##*/}"
+  $ //bin/true && mkdir -p "${TMPDIR:-/tmp}/cxx/${0%/*}" && exec make -C "$_" -{sf,o}/dev/null --eval='!:$(basename $(notdir $0));./$<' --eval='vpath %$(suffix $0) $(dir $0)' "$@" 0="$(realpath "$0")"
+  $ //bin/true && exec make -{sf,o}/dev/null --eval='!:$X/$(basename $0);$<' --eval '$X/$0:$0;install -DT -- $< $@' "$@" 0="$(realpath "$0")" X="${TMPDIR:-/tmp}/cxx" CXXFLAGS="-I${0%/*}"
+
+
+NOT
+  $ //usr/bin/install -pDT "$0" "${TMPDIR:-/tmp}/cxx/$0" || exit && exec make -{sf,o}/dev/null --eval="!:${0##*/};./\$<" "$@"

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#%SUMMARY: print table of "exec()" arguments
+set -euo pipefail
+
+{ { strace -ttt -f -e trace=%process -- "$@" \
+  | ts -s %.s
+} 3>&1 1>&2 2>&3 \
+  | grep -E '\b(execve)\(' \
+  | grep -vw ENOENT \
+  | sed 's/^.*]\s//; s/\w*("//; s/"\?\],\s.*$//; s/\["/"/; s/", "/\t/g' \
+  | column -ts$'\t' -o$'|'
+} 2>&1
