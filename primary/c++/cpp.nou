@@ -52,3 +52,8 @@ Optimizing IO
     Хотим ещё быстрее! (getchar/getchar_unlocked) 0.82 / 0.28 с!
     C++11: std::stoi 1.04 c
     Boost::Spirit::Qi 0.18 c
+
+
+Const objects can't be moved
+  http://yacoder.guru/blog/2015/05/06/cpp-curiosities-one-does-not-simply-move-a-const-object/
+  std::move(const ...)

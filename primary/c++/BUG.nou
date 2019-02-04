@@ -1,0 +1,9 @@
+Small strings with embedded null
+  WARN: compiler parser bug in "small strings" optimization of gcc<8 (clang is OK):
+   * std::string(const char*) must copy only until very first '\0' byte
+     because it receives pointer to .rodata and calculates strlen() of argument
+     i.e.(for gcc>=8): std::string("\u0000") == std::string()
+   * binary data ctor std::string("\u0000", 1) is not enough, as problem in parser itself
+     ERROR:(=0x01): std::string("\u0000\u0008", 1)[0] != '\0' !!!
+     FAIL:(same problem, =0x01): const char s[]="\u0000\u0008"; s[0] != '\0'
+  ::: USE: std::string{'\0'}

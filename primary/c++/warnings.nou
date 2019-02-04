@@ -1,0 +1,10 @@
+Disable some flags for concrete files
+  E.G. https://stackoverflow.com/questions/13638408/override-compile-flags-for-single-files
+  | set_source_files_properties(foo.cpp PROPERTIES COMPILE_FLAGS -Wno-effc++ -Wno-error=unused-variable)
+
+Localize specific code when including boost::filesystem itself
+  E.G. https://stackoverflow.com/questions/15053776/how-do-you-disable-the-unused-variable-warnings-coming-out-of-gcc/22708539#22708539
+  | #pragma GCC diagnostic push
+  | #pragma GCC diagnostic ignored "-Wunused-variable"
+  | #include <your problematic library>
+  | #pragma GCC diagnostic pop
