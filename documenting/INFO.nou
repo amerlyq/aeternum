@@ -1,0 +1,34 @@
+SEIZE
+  +++ [_] READ http://www.writethedocs.org/guide/
+  [_] BLOG https://www.ericholscher.com/
+  [_] BLOG https://idratherbewriting.com/
+    [_] http://idratherbewriting.com/archves-2017/
+    [_] http://idratherbewriting.com/2017/01/28/technical-writing-trends-for-2017/
+  [_] https://github.com/rtfd/blog
+
+
+REF
+  Podcast
+    [_] https://www.stitcher.com/podcast/id-rather-be-writing-technical-writing-podcast
+  Latter-day saints (testing)
+    https://tech.lds.org/wiki/LDSTech_Swarm
+
+
+VIZ:
+  https://orgmode.org/
+    e.g. https://orgmode.org/worg/org-contrib/babel/uses.html#sec-6
+  http://www.sphinx-doc.org/en/stable/
+  https://asciidoctor.org/
+  https://github.com/rtfd/readthedocs.org
+  https://github.com/mbakeranalecta/sam
+
+  [_] CMP: + pitfalls
+    https://gist.github.com/dupuy/1855764
+
+  INFO:VIZ. supported GitHub markups
+    [_] READ: https://github.com/github/markup#markups
+
+
+IDEA
+  Constraints in documentation
+    https://everypageispageone.com/2016/06/05/why-we-need-constrainable-lightweight-markup-languages/

@@ -1,0 +1,11 @@
+% Jekyll
+
+TRY:
+  using 'collections' instead of 'pages'
+    https://jekyllrb.com/docs/collections/
+    + https://kylewbanks.com/blog/creating-category-pages-in-jekyll-without-plugins
+      = aggregator pages
+
+Themes
+  https://jekyllthemes.io/theme/carte
+  BET: https://idratherbewriting.com/documentation-theme-jekyll/#
