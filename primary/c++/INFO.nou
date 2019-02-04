@@ -40,9 +40,20 @@ Nightmares
     https://www.youtube.com/watch?v=7DTlWPgX6zs
   CppCon 2018: Richard Powell “How to Argue(ment)"
     https://www.youtube.com/watch?v=ZbVCGCy3mGQ
+  Templates -- compile time is important for maintenance
+    https://habr.com/ru/company/jugru/blog/438260/
+    Evolution: C -> C++ -> C++ STL -> C++ -> C
+      https://twitter.com/ChristerEricson/status/1078095388244996096
+        Goal of programmers is to ship, on time, on budget. It’s not “to
+        produce code.” IMO most modern C++ proponents 1) overassign importance
+        to source code over 2) compile times, debugability, cognitive load for
+        new concepts and extra complexity, project needs, etc. 2 is what matters.
 
 
 TALK
+  [_] The next big Thing - Andrei Alexandrescu - Meeting C++ 2018 Opening Keynote
+    https://www.youtube.com/watch?v=tcyb1lpEHm0
+      = see his vision
   [_] SEE Inheritance and operator=()
     https://www.youtube.com/watch?v=QGcVXgEVMJg
   [_] CppCon 2015: Andrei Alexandrescu “Declarative Control Flow"
