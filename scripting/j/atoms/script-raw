@@ -1,0 +1,35 @@
+#!/usr/lib/j8/bin/jconsole -jprofile
+NB.SUMMARY: raw skeleton for robust failing scripts
+
+smoutput=: 0 0 $ 1!:2&2
+tmoutput=: 0 0 $ 1!:2&4
+stdout=: 1!:2&4
+stderr=: 1!:2&5
+stdin=: 1!:1@3: :. stdout
+dberr=: 13!:11
+dberm=: 13!:12
+echo=: 0 0&$ @ (1!:2&2)
+exit=: 2!:55
+errhandle=: 9!:27
+errexit=: 9!:29]1
+
+onfail=:3 :0
+  smoutput ARGV   NB. print actual cmdline (in boxes)
+  stderr]dberm''  NB. print error message and line number
+  exit>:dberr''   NB. exit with immex error code
+)
+errhandle 'onfail 1'
+errexit
+
+3 : 0''
+  a=.>2}.ARGV
+  while. #a=.}.a do.
+    o=.{.a
+    echo o
+  end.
+
+  NB. "istty" is too hard for raw mode
+  NB. echo <stdin ''
+)
+
+exit 0

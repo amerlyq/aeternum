@@ -1,0 +1,8 @@
+#!/bin/sh
+#0 :0
+exec /usr/lib/j8/bin/jconsole "$0" "$@"
+# vim:ft=j
+)
+NB. https://rosettacode.org/wiki/Multiline_shebang#J
+echo 'hi'
+exit ''

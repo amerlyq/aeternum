@@ -1,0 +1,4 @@
+#!/usr/lib/j8/bin/jconsole
+NB.REF: http://www.jsoftware.com/help/user/hashbang.htm
+load 'strings'
+echo 'abcXXXdef' rplc 'XXX';' insert '

@@ -1,0 +1,8 @@
+#!/usr/lib/j8/bin/jconsole -jprofile
+NB.SUMMARY: raw interpreter without convenient verb aliases and library
+NB.i.e: define verbs yourself
+echo=: 0 0&$ @ (1!:2&2)
+exit=: 2!:55
+
+echo 'hi'
+exit 0

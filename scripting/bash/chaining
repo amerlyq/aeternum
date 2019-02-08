@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#%SUMMARY: build pipeline, connecting command by command
+set -euo pipefail
+
+# REF: https://unix.stackexchange.com/questions/217605/bash-how-to-propagate-errors-in-process-substitution
+# FAIL: works only in interactive shell (set -m monitor)
+# trap "stty erase ^?" SIGCHLD
+trap 'exit 1' USR2
+trap 'exit' TERM
+
+exec > >(tail -1 || kill -USR2 $$)
+exec > >(head -n +2 || kill $$)
+
+# BUG: passing exit code don't work?
+{ exec > >(3>&- tr f F; false; echo $? | tee >&3)
+} 3>&2
+
+ls | sort
+kill 0
+wait

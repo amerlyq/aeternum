@@ -1,0 +1,30 @@
+#!/usr/lib/j8/bin/jconsole
+NB.SUMMARY: skeleton for robust failing scripts
+
+errhandle=: 9!:27
+errexit=: 9!:29]1
+
+onfail=:3 :0
+  smoutput ARGV   NB. print actual cmdline (in boxes)
+  stderr]dberm''  NB. print error message and line number
+  exit>:dberr''   NB. exit with immex error code
+)
+errhandle 'onfail 1'
+errexit
+
+NB. in-place lambda call
+3 : 0''
+  a=.>1}.ARGV
+  while. #a=.}.a do.
+    o=.{.a
+    NB. stdout o,'= '
+    echo ".o
+  end.
+
+  NB. stdin is tty
+  if. (0 = isatty 0) do.
+    echo <stdin ''
+  end.
+)
+
+exit 0

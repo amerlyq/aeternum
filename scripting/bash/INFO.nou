@@ -60,6 +60,8 @@ shell exits."
     # The "stock" answer for POSIX implementations of PIPESTATUS / pipefail
     $ $cmd && exit $${PIPESTATUS[0]}
     http://cfajohnson.com/shell/cus-faq-2.html#Q11
+    Manually pass errors from process substitution
+      https://unix.stackexchange.com/questions/217605/bash-how-to-propagate-errors-in-process-substitution
 
 
 %%% Often mistakes. @Must read!

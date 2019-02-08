@@ -1,0 +1,18 @@
+#!/usr/lib/j8/bin/jconsole
+NB.SUMMARY: wrapper for robust failing scripts
+
+errhandle=: 9!:27
+errexit=: 9!:29]1
+
+onfail=:3 :0
+  smoutput ARGV   NB. print actual cmdline (in boxes)
+  stderr]dberm''  NB. print error message and line number
+  exit>:dberr''   NB. exit with immex error code
+)
+errhandle 'onfail 1'
+errexit
+
+NB. NOTE: source arg1 as script
+0!:100 {.2}.ARGV
+
+exit 0

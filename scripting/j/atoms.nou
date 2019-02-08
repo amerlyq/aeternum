@@ -34,11 +34,13 @@
     )
     body a.
 
+
 % shebang
-  http://www.jsoftware.com/help/user/hashbang.htm
-  http://juggle.gaertner.de/bnp/cgi.html
-  http://jsoftware.2058.n7.nabble.com/Running-script-from-jconsole-td65867.html
-  http://jsoftware.2058.n7.nabble.com/Example-bash-shell-scripts-using-J-7-01-td1874.html
+  REF:
+    http://juggle.gaertner.de/bnp/cgi.html
+    http://jsoftware.2058.n7.nabble.com/Running-script-from-jconsole-td65867.html
+    http://jsoftware.2058.n7.nabble.com/Example-bash-shell-scripts-using-J-7-01-td1874.html
+
 
 % /dev/stdin support
   http://code.jsoftware.com/wiki/Scripts/Pretty_Print

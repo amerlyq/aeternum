@@ -1,0 +1,25 @@
+#!jrun
+NB.USAGE: $ PATH=.:$PATH ./$0
+NB.REF: http://www.jsoftware.com/help/user/hashbang.htm
+NB.WARN: "-" in interpreter path is not allowed
+
+exec
+
+NB. in-place lambda call
+3 : 0''
+  a=.>2}.ARGV
+  while. #a do.
+    o=.{.a
+    if. '-'={.o do.
+      echo 'O:',o
+    else.
+      echo 'A:',o
+    end.
+    a=.}.a
+  end.
+
+  NB.NOTE: stdin is tty
+  if. (0 = isatty 0) do.
+    echo <stdin ''
+  end.
+)
