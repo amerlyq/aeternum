@@ -24,6 +24,8 @@ Optimize prs + !many useful resources
   > http://habrahabr.ru/post/131971/
 
 Examples
+  print argv in ARM
+    https://github.com/wyc/snippets/tree/master/armasm/argv
   std c lib
     http://jdefr.swippet.com/2012/03/22/using-libc-with-assembly/
   truss & strace

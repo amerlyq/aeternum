@@ -1,0 +1,123 @@
+#!/bin/sh
+#0 :0
+trap '' PIPE
+exec /usr/lib/j8/bin/jconsole "$0" "$@"
+# vim:ft=j
+)
+NB.SUMMARY: awk-like table data processing
+NB.USAGE: $ ./$0 [-b 'beg-exprs'..] [-e 'end-exprs'..] ['line-exprs'...]
+
+NB. TODO: gather all files (and stdin by '-') into single list of boxes with data
+NB.   => process each file in loop
+NB.   => use file name/number matchers to apply different exprs to different data
+
+errhandle=: 9!:27
+errexit=: 9!:29]1
+
+onfail=:3 :0
+  smoutput 1}.ARGV  NB. print actual cmdline (in boxes)
+  stderr]dberm''    NB. print error message and line number
+  exit>:dberr''     NB. exit with immex error code
+)
+errhandle 'onfail 1'
+errexit
+
+NB. BET:USE: {getenv'RS'} with fallback to LF
+RS =: LF
+FS =: ' '
+print=: [
+NB. print=: echo
+
+
+NB.NOTE: parse cmdline options
+verb define ''
+  prolog =: i.0
+  eachln =: i.0
+  epilog =: i.0
+
+  i=.1
+  while. (i=.>:i) < #ARGV do.
+    o=. >i{ARGV
+
+    if. '-' = {.o do.
+      if. 2 > #o do.
+        k=. 2}.o
+        o=. 1{o
+      else.
+        i=. >:i
+        k=. i{ARGV
+        o=. 1{o
+      end.
+    else.
+      k=. i{ARGV
+      o=. ' '
+    end.
+    NB. if. '-n' do. print=: [ end.
+
+    if. 'b' = o do.
+      prolog =: prolog,k
+    elseif. 'e' = o do.
+      epilog =: epilog,k
+    elseif. do.
+      eachln =: eachln,k
+    end.
+
+  end.
+)
+
+NB.DEBUG:
+NB. echo 'B:';prolog
+NB. echo 'X:';eachln
+NB. echo 'E:';epilog
+
+
+NB.NOTE: prolog expressions (e.g. read and manually parse header)
+print".>prolog
+
+verb define ''
+  if. (0 = isatty 0) do.
+    NB. read whole text from /dev/stdin (line-by-line is impossible it seems...)
+    S=: input=: stdin''
+  else.
+    input=: ''
+    NB. stderr 'Err: requires stdin input or [-f file..] specified on cmdline'
+    NB. exit 2
+  end.
+)
+
+NB.NOTE: table-as-whole
+lines =: RS splitstring input         NB. split text into lines
+R=: lines =: }:lines                  NB. remove last empty line (proper UNIX must end with '\n')
+NB. lines =: -.&a: lines              NB. remove all empty lines (only on demand)
+cells =: (FS splitstring>) "0 lines   NB. split lines into columns
+T=: cells =: -.&a:"1 cells            NB. remove empty columns (created after splitting)
+NB. echo cells
+
+NB. [_] READ: https://code.jsoftware.com/wiki/User:Devon_McCormick/Code/WorkOnLargeFiles
+NB. BAD:(still whole file at once): readln =: [: (1!:01) 1:  | while (s:'`.') ~: s:<L=:readln''
+NB.INFO: split on space; strip isolated spaces (0x20); OR:( TAB | LF | 10{a. )
+NB. [ (#~ a: ~: ]) <;._1 ' ' , 'hello    world test   abc  123'
+NB.INFO: prepend space (,); split on first char (' '), enbox; strip empty boxes (-.&a:)
+NB. [ -.&a: <;._1 ' ' , 'hello    world test   abc  123'
+NB.INFO: adaptable to arbitrary white space
+NB. [ WHITE =. ' ',TAB,CRLF
+NB. [ (</.~ (* +/\@({. , 2&(</\)))@(-.@(e.&WHITE)))&.(' '&, :. }.) 'a b cc dd'
+
+
+NB. NOTE: line-by-line
+NB.ALT:REF: https://code.jsoftware.com/wiki/Interfaces/Text
+verb define ''
+  NR=: -1
+  while. (NR=:>:NR) < #cells do.
+    L=: > NR{ lines
+    NB. BAD: fixed max number of cols in each row
+    F=: NR{ cells
+    V=: 0".& >F
+    print".>eachln
+  end.
+)
+
+NB.NOTE: epilog expressions (e.g. apply once for whole table)
+print".>epilog
+
+exit 0

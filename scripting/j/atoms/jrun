@@ -4,7 +4,7 @@ NB.SUMMARY: wrapper for robust failing scripts
 errhandle=: 9!:27
 errexit=: 9!:29]1
 
-onfail=:3 :0
+onfail=: verb define
   smoutput ARGV   NB. print actual cmdline (in boxes)
   stderr]dberm''  NB. print error message and line number
   exit>:dberr''   NB. exit with immex error code
@@ -12,7 +12,21 @@ onfail=:3 :0
 errhandle 'onfail 1'
 errexit
 
-NB. NOTE: source arg1 as script
-0!:100 {.2}.ARGV
+NB.INFO: source arg1 as script, eval others [arg2..] as expr
+NB.REF: http://www.jsoftware.com/help/dictionary/d332.htm
+NB. (0!:100) 2{ARGV
+NB. echo".;:inv 3}.ARGV
+
+NB.INFO: source all args as scripts
+0!:100"0 (2}.ARGV)
+NB. (echo"0) 2}.ARGV
+
+NB.INFO: source inside anonymous function
+NB. 3 : 0''
+NB.   ARGV=.}.ARGV
+NB.   while. #ARGV=.}.ARGV do.
+NB.     echo {.ARGV
+NB.   end.
+NB. )
 
 exit 0

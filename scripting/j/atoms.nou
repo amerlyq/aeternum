@@ -45,3 +45,18 @@
 % /dev/stdin support
   http://code.jsoftware.com/wiki/Scripts/Pretty_Print
   G: http://code.jsoftware.com/mediawiki/index.php?title=Special%3AJwikiSearch&for=stdin
+
+Looping
+  https://code.jsoftware.com/wiki/Vocabulary/Loopless
+  map
+    REF https://code.jsoftware.com/wiki/Vocabulary/quote
+    | <"0 i.4
+    | echo"0 i.4
+  partition
+    REF https://code.jsoftware.com/wiki/JPhrases/Partition
+  text tables processing
+    https://code.jsoftware.com/wiki/Interfaces/Text
+    string searching
+      | x I.@:E. y | Find Matching Positions
+      | x +/@:E. y | Count Matching Positions
+      | x +./@:E.y | Is Substring x in y?

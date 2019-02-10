@@ -4,6 +4,8 @@ REF
     https://en.wikipedia.org/wiki/J_(programming_language)
       SEE external links for real world usage examples
   LIOR system
+    (aspects) https://code.jsoftware.com/wiki/Essays/JAspects
+    https://code.jsoftware.com/wiki/NuVoc
     + http://www.jsoftware.com/help/dictionary/vocabul.htm
     /usr/share/doc/j8/jvocabulary.pdf
     /usr/share/doc/j8/jrefcard.pdf
@@ -58,8 +60,11 @@ TUT
     http://tangentstorm.github.io/apljk/
     + https://github.com/sabren/b4/blob/master/web/apljk/wireworld.ijs.org
 
+TALK
+  https://www.infoq.com/presentations/j-language
 
 E.G.
+  https://code.jsoftware.com/wiki/Scripts
   http://www.jsoftware.com/source.htm
   https://github.com/openj/core
   +? https://github.com/iocane/unbox
@@ -68,6 +73,7 @@ E.G.
     https://github.com/wyc/snippets/blob/master/j/jtalk/examples.txt
   Tools / complex
     https://analyzethedatanotthedrivel.org/the-jod-page/
+    https://analyzethedatanotthedrivel.org/tag/jsoftware/
 
 
 USAGE
@@ -78,3 +84,34 @@ USAGE
     : but this will export only global vars, defined with '=:'
     Ctrl-D
   $ { echo expr | j8 -c; echo; }
+
+
+VIZ.
+  ext libs
+    https://code.jsoftware.com/wiki/Vocabulary/Libraries
+
+
+DEBUG
+  analysis
+    https://code.jsoftware.com/wiki/Guides/Parsing
+    https://code.jsoftware.com/wiki/User:Ian_Clark/A_Dummy_Tries_To_Read_J
+    https://code.jsoftware.com/wiki/Essays/Un-puzzling_expressions
+  visualize
+    https://code.jsoftware.com/wiki/Vocabulary/Dissect
+    https://code.jsoftware.com/wiki/Essays/Tree_Display
+    https://code.jsoftware.com/wiki/User:Art_Anger/FlowTree
+      $ wget 'https://code.jsoftware.com/mediawiki/images/3/36/Aatrace.ijs'
+      | require '~/j8/system/util/Aatrace.ijs'
+  lint
+    https://code.jsoftware.com/wiki/Addons/debug/lint
+  tracing
+    https://code.jsoftware.com/wiki/User:Art_Anger/aatrace.ijs
+      = https://code.jsoftware.com/wiki/User:Art_Anger/FlowTree
+    https://code.jsoftware.com/wiki/Scripts/Tracer
+    https://code.jsoftware.com/wiki/Addons/general/misc#A.27general.2Fmisc.2Ftrace.27
+    evaluation
+      | load 'pacman'
+      | 'install' jpkg 'general/misc'
+      | require 'trace'
+      | trace '+/3<+/"1(=2&{"1)/:~S:_1{;/5 6$1+i.6'
+      !!! beware, you'll see everything what happens during evalution.

@@ -1,0 +1,23 @@
+#!/usr/lib/j8/bin/jconsole
+NB. REF: https://code.jsoftware.com/wiki/Vocabulary/Idioms
+NB. Variable-Length Records
+NB. You need to split a list into fields where each field starts with a length.
+
+NB. First you calculate, for each position in y, where the next record would
+NB. start if a record starts at that position. Then you use the special
+NB. sequence {~^:a: to go through the chain of records.
+
+data =. '5There2is1a4tide2in3the7affairs2of3men'  NB. 1-byte numeric length between words
+]l =. >: (a. i. data) - a. i. '0'  NB. Each start-of-record has a length.  Others immaterial
+NB. 6 37 57 54 67 54 3 58 68 2 50 5 69 58 53 54 3 ...
+
+]n =. (#l) <. l + i. # l   NB. Now each position of n has a next-record position
+NB. 6 38 38 38 38 38 9 38 38 11 ...
+
+]pos =. (n,_1) {~^:a: 0   NB. find all the record starting positions, and return them as an array
+NB. 0 6 9 11 16 19 23 31 34 38 _1
+
+((i. #data) e. pos) <;._1 data  NB. Extract the valid fields into boxes
+NB. +-----+--+-+----+--+---+-------+--+---+
+NB. |There|is|a|tide|in|the|affairs|of|men|
+NB. +-----+--+-+----+--+---+-------+--+---+
