@@ -22,3 +22,13 @@ Use pre-partitioned lvalue-refs (lrefs) over readonly binary data (faster x100 >
     |     printf "H:%-20.20s first: %s last: %s\n", $$header, ${ $subs[0] }, ${ $subs[249] };
     |     $hash{ $$header } = [ map{ $$_ } @subs ];
     | }
+
+
+BET:PERF: use mmap'ed file instead of streamline access to allow backward window iteration together with string view
+  https://www.perlmonks.org/?node_id=801973
+  https://www.effectiveperlprogramming.com/2010/01/memory-map-files-instead-of-slurping-them/
+  BUT: no gain expected if we already read() whole block before unpack()
+
+
+MAYBE: split into 8+ parts for multithreading
+  REF: https://perldoc.perl.org/threads.html

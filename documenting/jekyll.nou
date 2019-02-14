@@ -6,6 +6,35 @@ TRY:
     + https://kylewbanks.com/blog/creating-category-pages-in-jekyll-without-plugins
       = aggregator pages
 
+
+DFL
+  NOTE: if no 'type:' -- then values applied even to '*.css' files
+    -- USE: type: {/pages/posts/drafts/<collection>/}
+  defaults:
+    - scope: { path: "", type: "my_collect" }  # a collection in your site, in plural form
+      values: { layout: "default" }
+    - scope: { path: "",  type: "posts" } # empty => all
+      values: { layout: "my-site" }
+    - scope:
+        path: "projects"    # ./projects/ folder
+        type: "pages"       # for *.html
+      values:
+        layout: "project"   # overrides prev dfl layout
+        author: "Mr. Hyde"  # 'page.author' liquid var
+  collections:
+    - my_collect:
+        output: true
+
+
+ENV
+  $ export JEKYLL_ENV=production  # DFL=(development)
+  => Conditional includes in builds
+  => e.g. to hide Disqus comment forms or Google Analytics.
+   {% if jekyll.environment == "production" %}
+      {% include disqus.html %}
+   {% endif %}
+
+
 Themes
   https://jekyllthemes.io/theme/carte
   BET: https://idratherbewriting.com/documentation-theme-jekyll/#

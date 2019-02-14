@@ -4,6 +4,29 @@ REF:
   https://jekyllrb.com/
   https://wiki.archlinux.org/index.php/jekyll
 
+
+SEE
+  http://krishicks.com/post/subtree-gh-pages/
+  http://gohugo.io/tutorials/github-pages-blog#configure-git-workflow:fcefb200141ace3e7bfd6542457b7a72
+  http://www.damian.oquanta.info/posts/one-line-deployment-of-your-site-to-gh-pages.html
+  http://stephenplusplus.github.io/yeoman.io/deployment.html
+
+
+Structure
+  *gh-pages* contains only already generated content
+    * must be versioned <-- rollback if generating failed
+    = simplify porting to other static generators
+    = MAYBE don't regenerate by github
+      ALT: add *master* as subtree *src* to allow regeneration
+       All other sites can do the same by auto pulling.
+       So pages can be regenerated for all of them automatically.
+        = Shared copy of templates
+  *master* keeps all templates/etc (shared data)
+    = so it can be pulled as branch of my other projects 'as-is'
+  *example* contains typical data to test all those templates
+    * There may be even one branch per each site type
+
+
 % TODO
   [54%] READ http://jekyllrb.com/docs/configuration/
   [_] CHECK: if using 'source: src' will interfere with ../src/.. url spec
