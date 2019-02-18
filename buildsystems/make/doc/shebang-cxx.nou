@@ -20,7 +20,19 @@ trivial: (with cache based on timestamps)
 multiline:
   $ //bin/false || mkdir -p "${d:=${TMPDIR:-/tmp}/${0%/*}}"; n=${0##*/}; n=${n%.*}; \
     //usr/bin/make -C "$d" -sf/dev/null -- VPATH="${0%/*}" "$n" || exit && exec "$d/$n"
+  $ //bin/mkdir -p "/tmp${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && \
+    //bin/true && exec make -C "$_" -sf/dev/null --eval="!:${n%.*};\$(CURDIR)/\$<" VPATH="$d" "$@"
 
+  $ //bin/mkdir -p "${D:=/tmp${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}}" && \
+    //usr/bin/make -C "$_" -sf/dev/null "$@" -- VPATH="$d" "${n%.*}" || exit && exec "$D/$_"
+
+  BET? two lines of 76 width
+  $ //bin/mkdir -p "/tmp${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
+    //usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" "$@"
+
+  $ //bin/mkdir -p "${O:=${TMPDIR:=/tmp}${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}}" && exec \
+    //usr/bin/make -C "$O" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" "$@"
+      DEBUG: $ ./$0 CXXFLAGS=-g ; coredumpctl gdb -r
 
 explicit:
   $ //bin/true && set -eu && exec make X="${TMPDIR:-/tmp}/cxx" -srf/dev/null --eval='!:$X/$S;$<' --eval='$X/$S:$S;mkdir -p $(@D)&&$(LINK.cpp) $^ -o $@' "$@" S="$(realpath "$0")"
@@ -33,6 +45,7 @@ implicit:
   $ //bin/true && mkdir -p "${TMPDIR:-/tmp}/cxx/${0%/*}" && exec make -C "$_" -{sf,o}/dev/null --eval='!:$(basename $X);./$<' --eval='vpath %$(suffix $X) $(dir $0)' "$@" 0="$(realpath "$0")" X="${0##*/}"
   $ //bin/true && mkdir -p "${TMPDIR:-/tmp}/cxx/${0%/*}" && exec make -C "$_" -{sf,o}/dev/null --eval='!:$(basename $(notdir $0));./$<' --eval='vpath %$(suffix $0) $(dir $0)' "$@" 0="$(realpath "$0")"
   $ //bin/true && exec make -{sf,o}/dev/null --eval='!:$X/$(basename $0);$<' --eval '$X/$0:$0;install -DT -- $< $@' "$@" 0="$(realpath "$0")" X="${TMPDIR:-/tmp}/cxx" CXXFLAGS="-I${0%/*}"
+  $ //bin/mkdir -p "/tmp${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec make -C "$_" -sf/dev/null --eval="!:${n%.*};\$(CURDIR)/\$<" VPATH="$d" "$@"
 
 
 NOT

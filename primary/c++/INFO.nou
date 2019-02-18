@@ -133,10 +133,18 @@ DEBUG
     ALT: $ gcc -### ...
   Trace linker libs
     $ gcc -Wl,--trace main.c -o main -L. -lmylib
+  Profiling compile time
+    $ g++ -v -ftime-report
+  Profiling for templates (time/memory)
+    https://github.com/mikael-s-persson/templight
+    https://danielleamethyst.org/work_blog/templates/
 
 
 %% Snippets
-  http://www.geonius.com/software/index.html#libgpl
+  |aur/templight-git|
+  |aur/templight-tools-git|
+    https://github.com/mikael-s-persson/templight
+    http://www.geonius.com/software/index.html#libgpl
 
 
 %%% GCC
