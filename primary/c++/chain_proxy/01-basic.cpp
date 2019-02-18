@@ -4,6 +4,7 @@
 #include <memory>
 
 struct IDB {
+    virtual ~IDB() = default;
     virtual void exec() const = 0;
 };
 
@@ -13,7 +14,9 @@ struct MyDB : IDB {
     }
 };
 
-struct Accessor : IDB {};
+struct Accessor : IDB {
+    virtual ~Accessor() = default;
+};
 
 struct Unsafe : Accessor {
     Unsafe(IDB *db_) : db(db_) {}

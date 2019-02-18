@@ -7,6 +7,7 @@
 #include <vector>
 
 struct IDB {
+    virtual ~IDB() = default;
     virtual void exec() const = 0;
 };
 
@@ -21,6 +22,7 @@ struct MyDB : IDB {
 struct Lockable;
 
 struct Accessor {
+    virtual ~Accessor() = default;
     virtual Lockable operator->() const = 0;
     virtual explicit operator IDB const * () const {
         throw std::domain_error("not implemented");

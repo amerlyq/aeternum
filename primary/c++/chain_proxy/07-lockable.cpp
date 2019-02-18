@@ -4,6 +4,7 @@
 #include <memory>
 
 struct IDB {
+    virtual ~IDB() = default;
     virtual void exec() const = 0;
 };
 
@@ -25,6 +26,7 @@ struct Lockable {
 };
 
 struct Accessor {
+    virtual ~Accessor() = default;
     virtual Lockable operator->() const = 0;
 };
 

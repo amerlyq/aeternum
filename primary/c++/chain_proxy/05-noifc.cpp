@@ -4,6 +4,7 @@
 #include <memory>
 
 struct IDB {
+    virtual ~IDB() = default;
     virtual void exec() const = 0;
 };
 
@@ -14,6 +15,7 @@ struct MyDB : IDB {
 };
 
 struct Accessor {
+    virtual ~Accessor() = default;
     virtual IDB* operator->() const = 0;
 };
 

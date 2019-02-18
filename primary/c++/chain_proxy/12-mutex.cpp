@@ -1,5 +1,6 @@
 //bin/mkdir -p "/tmp${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
-//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" "$@"
+//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" CXXFLAGS=-g LDFLAGS=-lpthread "$@"
+#include <atomic>
 #include <cassert>
 #include <chrono>
 #include <functional>
@@ -7,32 +8,60 @@
 #include <map>
 #include <memory>
 #include <mutex>
+#include <thread>
 #include <vector>
 
 struct IDB {
     virtual void exec() const = 0;
+    virtual void interrupt() const = 0;
 };
 
 struct MyDB : IDB {
     MyDB(char id) : m_id(id) {}
+    void interrupt() const override final {
+        std::cout << "---Interrupt---" << std::endl;
+        // ALT: sqlite3_interrupt();
+        m_ongoing.clear();
+    }
     void exec() const override final {
-        std::cout << "MyDB(" << m_id << ")" << std::endl;
+        if (m_ongoing.test_and_set()) {
+            throw std::logic_error("BUG: already being executed");
+        }
+        std::cout << "MyDB(" << m_id << ") beg...";
+        for (int i = 0; i < 20; ++i) {
+            if (!m_ongoing.test_and_set()) {
+                m_ongoing.clear();
+                std::cout << std::endl;
+                throw std::runtime_error("interrupted");
+            }
+            std::cout << m_id << std::flush;
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+        std::cout << " END(" << m_id << ")" << std::endl;
     }
     char m_id;
+    mutable std::atomic_flag m_ongoing;
 };
 
 struct Lockable;
 
 struct Accessor {
+    virtual ~Accessor() = default;
+    virtual void interrupt() const = 0;
     virtual Lockable operator->() const = 0;
     virtual explicit operator IDB const * () const {
         throw std::domain_error("not implemented");
     }
+    virtual bool try_lock() const {
+        throw std::domain_error("not implemented");
+    }
 };
 
+// ATT: can't be replaced by std::unique_ptr<db, custom_deleter>
+//  <= otherwise to call ptr->exec() you must reimplement whole IDB for all accessors
 struct Lockable {
     using lock_t = std::unique_lock<std::mutex>;
-    Lockable(Accessor const *const a, lock_t lock = lock_t())
+    Lockable(Accessor const * const a, lock_t lock = lock_t())
     : m_a(a), m_lock(std::move(lock)) {
         assert(a);
         std::cout << "*lock*" << std::endl;
@@ -55,9 +84,13 @@ struct Lockable {
 
 struct Unsafe : Accessor {
     Unsafe(std::unique_ptr<IDB> db) : m_db(std::move(db)) {}
+    virtual ~Unsafe() = default;
     Lockable operator->() const override final {
         std::cout << "Unsafe->" << std::endl;
         return Lockable(this);
+    }
+    void interrupt() const override final {
+        m_db->interrupt();
     }
     explicit operator IDB const * () const override final {
         return m_db.get();
@@ -67,66 +100,89 @@ struct Unsafe : Accessor {
 
 struct Exclusive : Accessor {
     Exclusive(std::unique_ptr<Accessor> a) : m_a(std::move(a)) {}
+    virtual ~Exclusive() = default;
+    bool try_lock() const override final {
+        if (m_Lock) {
+            throw std::logic_error("BUG: already pre-locked");
+        }
+        // ATT: raises std::system_error() if already owned by this THREAD
+        m_Lock = Lockable::lock_t(m_Mutex, std::try_to_lock);
+        return m_Lock.owns_lock();
+    }
+    void interrupt() const override final {
+        m_a->interrupt();
+    }
     Lockable operator->() const override final {
         std::cout << "Exclusive->" << std::endl;
-        auto locked = Lockable::lock_t(m_Mutex, std::try_to_lock);
-        if (!locked) {
-            throw std::logic_error("simultaneous access is forbidden");
+        if (!m_Lock && !try_lock()) {
+            throw std::logic_error("BUG: simultaneous access is forbidden");
         }
-        return Lockable(m_a.get(), std::move(locked));
+        return Lockable(m_a.get(), std::move(m_Lock));
     }
     std::unique_ptr<Accessor> const m_a;
     mutable std::mutex m_Mutex;
+    mutable Lockable::lock_t m_Lock;
 };
 
 struct Pool : Accessor {
     using make_new_t = std::function<std::unique_ptr<Accessor>(void)>;
     Pool(make_new_t f) : m_f(std::move(f)) {}
-    ~Pool() noexcept {
-        std::lock_guard<std::mutex> guard(m_Guard);
-        for (int i=0; i<m_Mutexes.size(); ++i) {
-            // NEED: m_as[i]->apply(sqlite3_interrupt);
-            // WTF: try_lock_for() not available by default ?
-            // auto locked = Lockable::lock_t(m_Mutexes[i], std::chrono::seconds(5));
-            auto locked = Lockable::lock_t(*m_Mutexes[i], std::try_to_lock);
-            if (!locked) {
-                // throw std::logic_error("interrupt takes too long");
-                abort();
-            }
-            m_as[i].reset();
+    virtual ~Pool() { clear(); }
+    void interrupt() const override final {
+        std::lock_guard<std::mutex> guard(m_Mutex);
+        for (auto const& a : m_as) {
+            a->interrupt();
         }
-        m_as.clear();
-        m_Mutexes.clear();
     }
     Lockable operator->() const override final {
         // FAIL: won't save us, if we are blocked after somebody called dtor()
-        std::lock_guard<std::mutex> guard(m_Guard);
+        std::lock_guard<std::mutex> guard(m_Mutex);
         std::cout << "Pool->" << std::endl;
-        for (int i=0; i<m_Mutexes.size(); ++i) {
-            auto locked = Lockable::lock_t(*m_Mutexes[i], std::try_to_lock);
-            if (locked) {
-                return Lockable(m_as[i].get(), std::move(locked));
+        for (auto const& a : m_as) {
+            if (a->try_lock()) {
+                return a->operator->();
             }
         }
-        m_as.emplace_back(m_f());
-        m_Mutexes.emplace_back();
-        // BUG: Operation not permitted
-        auto locked = Lockable::lock_t(*m_Mutexes.back());
         std::cout << "=MakeNew=" << std::endl;
-        return Lockable(m_as.back().get(), std::move(locked));
+        m_as.push_back(m_f());
+        return m_as.back()->operator->();
+    }
+    void clear() {
+        std::lock_guard<std::mutex> guard(m_Mutex);
+        std::cout << "---DeadPool---" << std::endl;
+        for (auto const& a : m_as) {
+            // FAIL: can't send interrupt when exec() is ongoing (due to Exclusive)
+            a->interrupt();
+            // WTF: try_lock_for() not available by default ?
+            // FAIL:(gcc4.8): uses MONOTONIC instead of STEADY clock in
+            // ALT: for/sleep 25 times by 200ms and try to lock each time
+            // auto locked = Lockable::lock_t(m_Mutexes[i], std::chrono::seconds(5));
+            std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+            // HACK: hold locks on all connections until .clear()->destroy()->release()
+            if (!a->try_lock()) {
+                throw std::logic_error("interrupt takes too long");
+            }
+        }
+        m_as.clear();
     }
     make_new_t const m_f;
     mutable std::vector<std::unique_ptr<Accessor>> m_as;
-    // WTF: mutex don't have move-ctor ? => must wrap
-    mutable std::vector<std::unique_ptr<std::mutex>> m_Mutexes;
-    mutable std::mutex m_Guard;
+    mutable std::mutex m_Mutex;
 };
 
 struct Proxy : Accessor {
     using lock_t = std::lock_guard<std::mutex>;
     Proxy() = default;
+    virtual ~Proxy() = default;
+    void interrupt() const override final {
+        m_a->interrupt();
+    }
     void use(std::unique_ptr<Accessor> a) {
         lock_t guard(m_Mutex);
+        std::cout << "---Switch---" << std::endl;
+        // NOTE: interrupt and destroy whole pool of connections
+        // BUG?
         m_a = std::move(a);
     }
     Lockable operator->() const override final {
@@ -142,8 +198,14 @@ struct Proxy : Accessor {
     mutable std::mutex m_Mutex;
 };
 
+// NOTE: used as persistent member of all objects which use db
+//   => required for shared->exec() syntax instead of unnatural (*proxysharedptr)->exec();
 struct Shared : Accessor {
     Shared(std::shared_ptr<Accessor> a) : m_a(std::move(a)) {}
+    virtual ~Shared() = default;
+    void interrupt() const override final {
+        m_a->interrupt();
+    }
     Lockable operator->() const override final {
         std::cout << "Shared->" << std::endl;
         return m_a->operator->();
@@ -171,7 +233,7 @@ struct Manager {
             return excl;
         };
         for (auto const it : m_ps) {
-            it.second->use(std::unique_ptr<Accessor>(new Pool(fmakenew)));
+            it.second->use(std::unique_ptr<Pool>(new Pool(fmakenew)));
         }
     }
     std::map<int, std::shared_ptr<Proxy>> m_ps;
@@ -180,7 +242,11 @@ struct Manager {
 struct User {
     User(Shared&& db) : m_db(std::move(db)) {}
     void f() {
-        m_db->exec();
+        try {
+            m_db->exec();
+        } catch (std::runtime_error const& exc) {
+            std::cout << ":: " << exc.what() << std::endl;
+        }
     }
     Shared m_db;
 };
@@ -189,7 +255,13 @@ int main()
 {
     Manager mgr;
     mgr.activate('A');
-    User user1(mgr.get(1));
-    user1.f();
+    std::thread service([&](){
+        User user1(mgr.get(1));
+        user1.f();  // runs A until interrupted
+        user1.f();  // continues with B
+    });
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    mgr.activate('B');
+    service.join();
     return 0;
 }

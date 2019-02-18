@@ -4,6 +4,7 @@
 #include <memory>
 
 struct IDB {
+    virtual ~IDB() = default;
     virtual void exec() const = 0;
 };
 
@@ -14,6 +15,7 @@ struct MyDB : IDB {
 };
 
 struct Accessor : IDB {
+    virtual ~Accessor() = default;
     virtual IDB* operator->() const = 0;
     void exec() const override final {
         std::cout << "Accessor()" << std::endl;
