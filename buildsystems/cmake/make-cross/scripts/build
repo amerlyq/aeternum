@@ -147,6 +147,7 @@ envvars=(
 
 # THINK: tag stat with cmdline ${*//\%/%%} -- limit to 80 chars
 # BAD: no /usr/bin/time on old Ubuntu -- use built-in
+# BET: use command time if available -- and print additional info (like minpjflt)
 # withtime(){ command time -f "time:\t%U\t%S\t%e" "$@"; }
 withtime(){ TIMEFORMAT=$'time:  %1Uu  %1Ss  %1Re'; time "$@"; }
 withenv(){ withtime /usr/bin/env $( ((usecleanenv)) && echo -i ) -- "${envvars[@]}" "$@"; }
