@@ -74,6 +74,9 @@ struct Proxy : Accessor {
     Lockable operator->() const override final {
         std::cout << "Proxy->" << std::endl;
         return b->operator->();
+        if (!b) {
+            throw std::logic_error("BUG: accessing empty proxy");
+        }
     }
     Accessor* b;
 };

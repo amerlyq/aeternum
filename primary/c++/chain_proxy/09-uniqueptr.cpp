@@ -80,6 +80,9 @@ struct Proxy : Accessor {
     Proxy(std::unique_ptr<Accessor> a) : m_a(std::move(a)) {}
     Lockable operator->() const override final {
         std::cout << "Proxy->" << std::endl;
+        if (!m_a) {
+            throw std::logic_error("BUG: accessing empty proxy");
+        }
         return m_a->operator->();
     }
     std::unique_ptr<Accessor> const m_a;

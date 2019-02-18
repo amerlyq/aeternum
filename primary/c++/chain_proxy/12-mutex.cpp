@@ -133,6 +133,9 @@ struct Proxy : Accessor {
         // BET:(<C++14): use RW/S boost::shared_lock + boost::unique_lock
         lock_t guard(m_Mutex);
         std::cout << "Proxy->" << std::endl;
+        if (!m_a) {
+            throw std::logic_error("BUG: accessing empty proxy");
+        }
         return m_a->operator->();
     }
     std::unique_ptr<Accessor> m_a;
