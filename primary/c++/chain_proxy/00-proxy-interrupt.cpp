@@ -1,5 +1,6 @@
 //bin/mkdir -p "/tmp${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
-//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" CXXFLAGS=-g LDFLAGS=-lpthread "$@"
+//usr/bin/env -i -- PATH=/bin CXXFLAGS='-g -std=c++11' LDFLAGS='-lpthread' \
+//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" "$@"
 #include <atomic>
 #include <chrono>
 #include <iostream>
@@ -34,25 +35,47 @@ struct MyDB {
         }
         std::cout << " END(" << m_id << ")" << std::endl;
     }
-    char m_id;
+    char const m_id;
     mutable std::atomic_flag m_ongoing;
+};
+
+struct Lockable {
+    using lock_t = std::unique_lock<std::mutex>;
+    Lockable(MyDB const *db, lock_t lock) : m_db(db), m_lock(std::move(lock)) {
+        std::cout << "*lock*" << std::endl;
+    }
+    ~Lockable() { std::cout << "*unlock*" << std::endl; }
+
+    explicit Lockable(Lockable const&) = delete;
+    Lockable& operator=(Lockable const&) = delete;
+    Lockable(Lockable&&) = default;
+    Lockable& operator=(Lockable&&) = default;
+
+    MyDB const * operator->() const { return m_db; }
+
+    lock_t m_lock;
+    MyDB const * const m_db;
 };
 
 struct Proxy {
     Proxy() = default;
     void use(std::unique_ptr<MyDB> db) {
+        // FAIL: must be under mutex, but can't be under mutex...
+        if (m_db) {
+            m_db->interrupt();
+        }
         std::lock_guard<std::mutex> guard(m_Mutex);
         // NOTE: interrupt and destroy whole pool of connections
         m_db = std::move(db);
     }
-    MyDB const * operator->() const {
+    Lockable operator->() const {
         // BET:(<C++14): use RW/S boost::shared_lock + boost::unique_lock
-        std::lock_guard<std::mutex> guard(m_Mutex);
+        Lockable::lock_t locked(m_Mutex);
         std::cout << "Proxy->" << std::endl;
         if (!m_db) {
             throw std::logic_error("BUG: accessing empty proxy");
         }
-        return m_db.get();
+        return Lockable(m_db.get(), std::move(locked));
     }
     std::unique_ptr<MyDB> m_db;
     mutable std::mutex m_Mutex;
@@ -90,7 +113,7 @@ int main()
 
     std::thread task([&](){
         // simulate continuous dispatching of different requests (transport)
-        while (1) {
+        for (int i = 0; i < 2; ++i) {
             // wait until any db becomes active
             while (!ready_to_process) {
                 std::this_thread::sleep_for(std::chrono::milliseconds(200));
@@ -119,7 +142,7 @@ int main()
     // ATT: throws "already being executed" if ever executed from another thread
     // proxy->exec();
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(700));
+    std::this_thread::sleep_for(std::chrono::milliseconds(400));
 
     // NOTE: send "db switch" signal to task (emulated by atomic flag)
     ready_to_process.store(false);
