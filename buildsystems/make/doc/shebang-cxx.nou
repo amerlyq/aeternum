@@ -11,10 +11,11 @@ ALT:
 
 
 trivial: (with cache based on timestamps)
-  BAD:SECU: possible cache file name collisions
+    BAD:SECU: possible cache file name collisions
   $ //usr/bin/test "$0" -ot "${out:=${TMPDIR:-/tmp}/$(readlink -e "$0"|tr / _)}" || gcc "$0" -o "$out" && exec "$out"
   $ //usr/bin/test "$0" -ot /tmp/a.out || gcc "$0" -o /tmp/a.out && exec /tmp/a.out  # BAD: same dst names
   $ //usr/bin/make -sf/dev/null LDFLAGS=-I. "$@" "${0%.*}" || exit && exec "${0%.*}"
+  $ //usr/bin/g++ "$0" -o "${0%.*}" || exit && exec "${0%.*}"
 
 
 multiline:
@@ -32,6 +33,7 @@ multiline:
 
   $ //bin/mkdir -p "${O:=${TMPDIR:=/tmp}${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}}" && exec \
     //usr/bin/make -C "$O" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" "$@"
+
       DEBUG: $ ./$0 CXXFLAGS=-g ; coredumpctl gdb -r
 
 explicit:

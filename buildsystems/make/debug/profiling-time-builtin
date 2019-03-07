@@ -1,10 +1,12 @@
 #!/bin/bash
-#%USAGE: $ grep '^\[profiling\]' _build.log | sort -t$'\x1f' -k8.10rn,8 H
 set -euo pipefail
 
-
-# USAGE:
+#%USAGE: $ <_build03.log sed 's/^[0-9.]\+\s\+//' | grep '^\[profiling\]' | sort -t$'\x1f' -k8.10rn,8 H
 # <_profiling.log awk -F'\x1f ' -vOFS='\t' '{j=sprintf("jobs=%.1f",(substr($6,6)+substr($7,8))/(substr($8,9)+0?substr($8,9):1)); print j,$6,$7,$8,$9,substr($11,1,100)}' | tr -d $'\x1f' >! prof.log
+# <_profiling.log awk -F'\x1f ' -vOFS='\t' '{j=sprintf("jobs=%.1f",(substr($6,6)+substr($7,8))/(substr($8,9)+0?substr($8,9):1)); print j,$6,$7,$8,$9,substr($11,1,100)}' | tr -d $'\x1f' | sort -t$'\t' -k1.6n,1.7 -k4.9rn,4 | gzip >! prof.log.gz
+# <proff awk -F'\x1f ' -vOFS='\t' '{j=sprintf("jobs=%.1f",(substr($6,6)+substr($7,8))/(substr($8,9)+0?substr($8,9):1)); print j,$6,$7,$8,$9,substr($11,1,100)}' | tr -d $'\x1f' H
+# USE: <_profiling.log awk -F'\x1f ' -vOFS='\t' '$12~/make -C/{j=sprintf("jobs=%.1f",(substr($6,6)+substr($7,8))/(substr($8,9)+0?substr($8,9):1)); print j,$6,$7,$8,substr($12,1,100)}' | tr -d $'\x1f' | sed 's/\w\+=//1;s/\t\w\+=/\t/g' | grep -v 'install$' | sort -k4rn,4 | head -15
+
 
 ## BAD: to make conjencture about -j1 you must log graph of total system utilization over job's time
 #   => avgjobs = (user + system) / elapsed * avgsysload

@@ -40,6 +40,7 @@ set_property(GLOBAL APPEND PROPERTY test_objects
 )
 
 
+# ALSO:DEV:(faster relinking and gdb reload): BUILD_TESTING_EXE_PER_TESTFILE
 if(BUILD_TESTING_EXE_PER_COMPONENT)
   include(project-tests-add-exe)
 endif()

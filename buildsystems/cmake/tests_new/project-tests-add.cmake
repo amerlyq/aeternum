@@ -69,6 +69,7 @@ set_property(GLOBAL APPEND PROPERTY test_targets ${PROJECT_NAME}_test)
 # get_target_property(_libs ${PROJECT_NAME}_test LINK_LIBRARIES)
 # message(FATAL_ERROR "${_incs} | ${_libs}")
 
+# ALSO:DEV:(faster relinking and gdb reload): BUILD_TESTING_EXE_PER_TESTFILE
 if(BUILD_TESTING_EXE_PER_COMPONENT)
   include(project-tests-add-exe)
 endif()
