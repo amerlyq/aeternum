@@ -1,14 +1,43 @@
+TODO
+  [_] READ current buildroot, etc. sources
+    * config of single mod
+    * installing chain -- staging / rootfs / etc.
+  [_] READ look into "linux" build process
+
+
 USAGE:
   auto-build whole firmware
   dev-build whole firmware
   dev-build single dependency
+  no special targets
+    "rootfs", "linux", "toolchain" are same root dirs as everything else
+  delete ./_build/<mod>/ dir for clean rebuild
+
 
 VIZ.
   direct recursing (our firmware)
     :: mod: $(read mod/deps.txt)
     => dev-build single dependency -- must be also done only through global interface
+    !! FAIL: breaks "build->install order-deps" because "build" and "install" called in different nested processes
+    -- too many recursive process spawning
   direct sourcing (buildroot)
     :: include mod/config.mk
+    -- need distinct targets and vars for all mods
+    -- too many sourcing at once isn't fast either (e.g. 200 mods)
+    ?? THINK: make optional sourcing or recursing depending on existence of "config.mk" or only "Makefile"
+      !! BET: be consistent with hardcoded inflexible ifc !!
   reverse recursing
+    :: cd rootfs && make -> builds rootfs from all its dependencies
+    ++ easy to choose necessary target by simply going into expected directory
+    => to build with deps
   reverse sourcing
   recursive reverse sourcing (usr_pkgs)
+
+
+VIZ: different kinds of tests
+  * run-host-configure-tests (host requirements self-testing)
+  * run-host-tests
+  * make-target-tests
+  * emu-run-target-tests
+  * make-rootfs-with-target-tests
+  * make-mixin-rootfs-with-target-tests
