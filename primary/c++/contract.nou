@@ -1,0 +1,8 @@
+
+  ALT:USE: std::system_error with an error code of std::errc::operation_not_permitted
+  ALT: shallow exc
+
+correct inheritance:
+  struct contract_breach_failure : std::logic_error {
+    using std::logic_error::logic_error;
+  };
