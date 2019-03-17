@@ -5,6 +5,36 @@ TODO
   [_] READ look into "linux" build process
 
 
+INFO
+  CMP: https://stackoverflow.com/questions/559216/what-is-your-experience-with-non-recursive-make
+  Recursive Make Considered Harmful - Aegis
+    http://aegis.sourceforge.net/auug97.pdf
+  Non-recursive Make Considered Harmful - GHC/Haskell
+    https://www.microsoft.com/en-us/research/wp-content/uploads/2016/03/hadrian.pdf
+  Non-recursive boilerplate examples
+    BAD: too cryptic, no transparency
+    VIZ:
+      https://github.com/dmoulding/boilermake
+      https://github.com/igagis/prorab
+
+
+ARCH
+  project
+    products
+      components
+        modules
+          sources
+
+
+CASE
+  Build whole firmware
+    * export must always be rebuilt if import changes
+    * import-export deps are resolved inside single non-recursive make
+    * still you must traverse all components and query their interpreters if they require rebuild
+      ! only component itself knows if its sources are updated and export must be rebuilt
+      ? how to do "query" efficiently ?
+
+
 USAGE:
   auto-build whole firmware
   dev-build whole firmware
