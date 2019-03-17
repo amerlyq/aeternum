@@ -16,6 +16,7 @@ Positional jump
 
 Interval unpack of nested array
   | my @fastbins;
+  | (@fastbins[0 .. 9], my ($text, $length)) = unpack("I10 Z I", $data);
   | (@{$struct{fastbins}[0 .. 9]}, my ($text, $length)) = unpack("I10 Z I", $data);
 
 

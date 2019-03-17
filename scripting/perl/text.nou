@@ -1,0 +1,77 @@
+Help
+  oneliner
+    | sub help { open STDIN,'<',$0; while(<STDIN>){ print $1,$/ if /^(?:.*\s)?#%(.*)/ }; exit; }
+  extended
+    | sub help { local $\ = $/; open(STDIN, '<:encoding(UTF-8)', $0);
+    |     while (<STDIN>) { print $1 if /^(?:.*\s)?#%(.*)/ }; exit
+    | }
+  return
+    | sub help { open STDIN,'<',$0; grep { $_ } map { $1.$/ if /^(?:.*\s)?#%(.*)/ } <STDIN> }
+    USAGE:
+      | GetOptions(...) or die $/,&help;
+      | , 'help|h|?' => sub { print &help; exit }
+      | do { local ($,,$\) = ($/,$/); print &help }
+    MAYBE: substitute "$0" by program name
+  mixed
+    | GetOptions(...) or die &help | where | sub help { print ... }
+    FAIL:(UB): stdout help can be undesiredly piped to next program
+    :: prints to stdout, then to stderr, but stderr is shown first due to disabled buffering
+      MAYBE? mixed stdout/stderr is good to filter-out only error messages w/o help
+
+
+Table
+  BAD: results in extra newline :: while(<>){print$_}
+    | $, = $ENV{OFS} // " ";
+    | $\ = $ENV{ORS} // $/;
+  BET:
+    | use constant OAS => $ENV{OAS} // ":";
+  Split on space with backslash-escaping
+    REF: https://www.perlmonks.org/?node_id=870238
+    CMP: https://rosettacode.org/wiki/Tokenize_a_string_with_escaping#Perl
+    | push @t,$1 while ($str =~ /((?>\\.|[^\\\s\n])+)/g);
+    | @t = map { s/\\(\d{3})/{'\\'.chr($1)}/ge } split(/\s/, $str =~ s/\\(.)/{ sprintf '\\%03d', ord($1) }/ger);
+
+
+Number conversion
+  BET? https://www.effectiveperlprogramming.com/2015/06/perl-v5-22-adds-hexadecimal-floating-point-literals/
+    | use Safe;  # why these ops? No idea, but they all have to be there
+    | my @ops = qw( lineseq leaveeval const padsv padany rv2gv );
+    | my $cmpmt = Safe->new; $cmpmt->permit_only(@op);
+    | my $result = $cmpmt->reval('0x1fp3');
+  BAD: don't support hex numbers '0x...' but uselessly supports "infinity" and "exp" notation
+    | use Scalar::Util qw(looks_like_number); looks_like_number('0x40')
+  DFL: using oct() -- but its default format is "oct", not "int", and still no support for "float"
+    $ perl -e 'local $\=$,=$/; print map(oct,@ARGV)' -- 10 010 0x10 0b10
+    $ perl -e 'local $\=$,=$/; print map { /^0/?oct:int } @ARGV' -- 10 010 0x10 0b10
+    | GetOptions(\%opts, 'size|s=o')  # BET! uses int() by default
+
+
+Function arguments unpacking (signatures)
+  TUT: https://www.effectiveperlprogramming.com/2015/04/use-v5-20-subroutine-signatures/
+
+
+IO buffering
+  !!! https://perl.plover.com/FAQs/Buffering.html
+  TUT: https://stackoverflow.com/questions/12643325/perl-bidirectional-pipe-ipc-how-to-avoid-output-buffering
+  ALSO:(pitfall): https://stackoverflow.com/questions/23502239/perl-stdin-without-buffering-or-line-buffering
+    https://www.perlmonks.org/?node_id=815969
+  REF https://perldoc.perl.org/perlvar.html#Variables-related-to-filehandles
+    | my $IOBUF = $ENV{REELF_LINE_BUFFERED} || 0;
+    | select((select(STDOUT), $|=1)[0]) if $IOBUF;
+  WARN: $| has no effect on STDIN
+  HACK: use sysread()/syswrite() for completely unbuffered IO
+    https://www.oreilly.com/library/view/perl-cookbook/1565922433/ch07s15.html
+
+
+Slurp
+  DFL:PERF: 80ms for "<" vs 300ms for "<:encoding(UTF-8)" due to utf8
+   | open my $fh, "<", @_;
+   | local $/ = undef; my $data = <$fh>;   # scalar
+   | OR: chomp(my @lines = <$fh>);         # array
+   | close $fh;
+  DFL: oneliner
+   | sub readlines { open my $fh, '<', @_; my @_ = <$fh>; close $fh; return @_; }
+  Path::Tiny
+    ALT:REF: https://perlmaven.com/use-path-tiny-to-read-and-write-file
+   | use Path::Tiny qw( path );
+   | my @lines = path($file)->lines_utf8;

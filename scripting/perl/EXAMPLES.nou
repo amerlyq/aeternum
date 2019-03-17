@@ -13,6 +13,8 @@ One-liners collection
 
 MAN
   All flags
+    DEMO: https://habr.com/en/post/70610/
+      => how to understand flags for oneliners
     $ perldoc perlrun
     -a => -n | split into @F
     -F => -a | field delimiter
@@ -51,6 +53,10 @@ Toggle debug by signals (if enabled from cmdline)
 
 Different return value based on type
   sub { ...; wantarray ? ($a, $b) : $a; }
+
+Cast anything to bool
+  REF: https://stackoverflow.com/questions/32261602/perl-how-to-force-boolean-to-0-1
+  | my $flag = !!$ENV{LINE_BUFFERED}  # => {1, ""}
 
 Read pairs of key-value
   while (my ($k, $v) = each %rel_addr) {

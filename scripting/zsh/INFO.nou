@@ -20,6 +20,8 @@ Setup
 
 Coproc
   https://www.zsh.org/mla/users/2011/msg00095.html
+  !!! CMP: https://unix.stackexchange.com/questions/296432/shell-mutual-piping-of-stdin-stdout-of-two-commands
+  $ coproc cmd0 && cmd1 <&p >&p
 
 Mutex
   http://wiki.bash-hackers.org/howto/mutex

@@ -182,6 +182,8 @@ DEBUG
       # exactly after C++11 (and free)
     https://www.youtube.com/watch?v=c1gO9aB9nbs&feature=youtu.be&t=18m40s
     http://en.cppreference.com/w/cpp/utility/program/exit
+  ALT:(singletons): use signals
+    https://www.fluentcpp.com/2018/03/06/issues-singletons-signals/
 
 %%% Inheritance
   # для обычных полей ( не вирт и не конструкторы )

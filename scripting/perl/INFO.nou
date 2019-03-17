@@ -1,14 +1,25 @@
+BAD: why not perl
+  https://habr.com/ru/post/327408/
+
 REF
   Special vars (quick-ref)
     https://www.perlmonks.org/?node_id=353259
+  +++ [_] BOOK: http://modernperlbooks.com/books/modern_perl_2014/03-perl-language.html
+  TUT: list vs array
+    https://habr.com/ru/post/150140/
+  BOOK: Mastering Perl: Creating Professional Programs with Perl
 
 
 DEBUG
-  https://metacpan.org/pod/Devel::Trepan
-  Unroll short expr and checks syntax
+  Print
+    | do { local ($,,$\)=(" ", $/); print "DEBUG:", @expr; };
+    | use Data::Dumper; print Dumper \@expr;
+  Unroll (short expr and checks syntax)
     $ perl -MO=Deparse -e "print while <>"
-      print $_ while defined($_ = readline ARGV);
-      -e syntax OK
+    # print $_ while defined($_ = readline ARGV);
+    # -e syntax OK
+  ALT
+    https://metacpan.org/pod/Devel::Trepan
 
 
 Tools
@@ -25,13 +36,39 @@ CLI interfaces
 CPAN
   SEE http://perltricks.com/article/196/2015/10/1/What-s-new-on-CPAN---September-2015/
 
-Pipes
+IPC / Pipes
   http://docstore.mik.ua/orelly/perl3/prog/ch16_03.htm
+  TUT: https://stackoverflow.com/questions/29099196/sort-file-using-pipe-in-perl
+  ++ TUT: https://perldoc.perl.org/perlipc.html#Bidirectional-Communication-with-Another-Process
+  https://www.perlmonks.org/bare/?node_id=212885
+  https://www.perlmonks.org/bare/?node_id=580761
+  http://billauer.co.il/blog/2013/03/fork-wait-and-the-return-values-in-perl-in-different-scenarios/
+  Exit code from child
+    https://perldoc.perl.org/functions/close.html
+    | waitpid $pid, 0;
+    | use POSIX ":sys_wait_h";
+    | exit WEXITSTATUS($?) if WIFEXITED($?) and WEXITSTATUS($?);
+    OR:(blocking close): | close $fh or die $?
 
 Refs
   TUT https://mojolicious.org/perldoc/perlref
 
+Constants
+  https://perldoc.perl.org/constant.html
+  https://perlmaven.com/constants-and-read-only-variables-in-perl
+  | use constant SOME => 5;
+  | print "${+SOME} @{[SOME]}"
+    HACK: expr {+...} works, because "+" evaluates next content as expression
+    i.e. $a{+shift} will be similar to :: my $v = shift; $a{$v}
+
+Safe diamond
+  https://www.masteringperl.org/2014/10/the-double-diamond-a-more-secure/
+  ERR: $ perl -e 'print while(<>);' 'date |'
+  USE: $ perl -e 'print while(<<>>);' 'date |'
+
 Regex
+  Stages of Regex Users
+    https://www.perlmonks.org/?node=7%20Stages%20of%20Regex%20Users
   $ man pcrepattern
   https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions
   http://perldoc.perl.org/perlre.html
