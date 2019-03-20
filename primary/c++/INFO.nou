@@ -51,6 +51,8 @@ Nightmares
 
 
 TALK
+  [_] pointers vs references (guideline)
+    https://www.fluentcpp.com/2018/10/02/pointers-references-optional-references-cpp/
   [_] The next big Thing - Andrei Alexandrescu - Meeting C++ 2018 Opening Keynote
     https://www.youtube.com/watch?v=tcyb1lpEHm0
       = see his vision

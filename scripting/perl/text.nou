@@ -75,3 +75,10 @@ Slurp
     ALT:REF: https://perlmaven.com/use-path-tiny-to-read-and-write-file
    | use Path::Tiny qw( path );
    | my @lines = path($file)->lines_utf8;
+
+
+Unicode
+  Diamond in utf-8
+    REF: https://stackoverflow.com/questions/519309/how-do-i-read-utf-8-with-diamond-operator
+    | use open qw( :encoding(utf8) :std );
+    | use open qw( :std :utf8 );
