@@ -200,3 +200,11 @@ DEBUG
   + http://gareus.org/wiki/embedding_resources_in_executables
   http://stackoverflow.com/questions/4158900/embedding-resources-in-executable-using-gcc/4158997#4158997
   http://www.linuxjournal.com/content/embedding-file-executable-aka-hello-world-version-5967
+
+
+Online compilers
+  https://cppinsights.io/
+  https://taas.trust-in-soft.com/tsnippet/#
+  http://quick-bench.com/
+  https://ideone.com/
+  https://wandbox.org/
