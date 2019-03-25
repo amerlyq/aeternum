@@ -23,6 +23,7 @@ Table
   BAD: results in extra newline :: while(<>){print$_}
     | $, = $ENV{OFS} // " ";
     | $\ = $ENV{ORS} // $/;
+    | $OUTPUT_RECORD_SEPARATOR = $INPUT_RECORD_SEPARATOR;
   BET:
     | use constant OAS => $ENV{OAS} // ":";
   Split on space with backslash-escaping
@@ -30,6 +31,14 @@ Table
     CMP: https://rosettacode.org/wiki/Tokenize_a_string_with_escaping#Perl
     | push @t,$1 while ($str =~ /((?>\\.|[^\\\s\n])+)/g);
     | @t = map { s/\\(\d{3})/{'\\'.chr($1)}/ge } split(/\s/, $str =~ s/\\(.)/{ sprintf '\\%03d', ord($1) }/ger);
+
+
+List
+  in list
+    https://stackoverflow.com/questions/2383505/perl-if-element-in-list
+    | if( grep { $element eq $_ } 0..9 ){ ... }
+    | sub in(&@){ local $_; my $fn=shift; for(@_){ if($fn->()){ return 1; } }; return 0; }
+    | if( in { $element eq $_ } @list ){ ... }
 
 
 Number conversion
@@ -61,6 +70,11 @@ IO buffering
   WARN: $| has no effect on STDIN
   HACK: use sysread()/syswrite() for completely unbuffered IO
     https://www.oreilly.com/library/view/perl-cookbook/1565922433/ch07s15.html
+
+
+File handles
+  isopen seek/tell read/write
+    https://stackoverflow.com/questions/3807231/how-can-i-test-if-i-can-write-to-a-filehandle/4200474#4200474
 
 
 Slurp
