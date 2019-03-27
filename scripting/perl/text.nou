@@ -31,6 +31,15 @@ Table
     CMP: https://rosettacode.org/wiki/Tokenize_a_string_with_escaping#Perl
     | push @t,$1 while ($str =~ /((?>\\.|[^\\\s\n])+)/g);
     | @t = map { s/\\(\d{3})/{'\\'.chr($1)}/ge } split(/\s/, $str =~ s/\\(.)/{ sprintf '\\%03d', ord($1) }/ger);
+  Embedded data into script itself
+    https://www.perl.com/article/66/2014/2/7/3-ways-to-include-data-with-your-Perl-distribution/
+    | my $data = do { local $/; <main::DATA> };
+    | __DATA__
+    | 1 2 3 4 5
+  Data in script's directory
+    | use FindBin;
+    | open (my $DATA, '<', "$FindBin::Bin/perl_tiobe.yaml") or die $!;
+    | my $data = do { local $/; <$DATA> };
 
 
 List
