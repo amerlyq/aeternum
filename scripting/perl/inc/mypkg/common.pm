@@ -1,12 +1,17 @@
 # NOTE: use general namespace for all dynamic vars
 # ALT: don't use "package" at all and simply "source" everything in file
 # REF: https://perldoc.perl.org/perlmod.html#Packages
-package mypkg;
+package mypkg::common;
+
+our @EXPORT = qw(argfull
+    help opts OFS ORS
+);
 
 use warnings FATAL => 'all';
 use autodie;  # qw(:all)
 use strict;
 use feature ();
+use Symbol;
 
 ## WARN: only if you don't have your own "sub import"
 # @ISA = qw(Exporter);
@@ -20,26 +25,23 @@ use feature ();
 # ALSO: find and import all subroutines in module
 #   https://stackoverflow.com/questions/607282/whats-the-best-way-to-discover-all-subroutines-a-perl-module-has
 #   https://stackoverflow.com/questions/732133/how-can-i-export-all-subs-in-a-perl-package
-sub import
-{
-    my $caller = caller;
-    my $pakage = shift;
-    my ($feature_tag) = @_;
+sub import {
+    # NOTE:(here): $0 == $fname
+    my ($package, $caller, $fname, $lnum) = (shift, caller);
+    my $feature_tag = shift // ':5.14';  # NOTE: instead of "use 5.014" for s///r
+    my @symbols = @_ ? @_ : @EXPORT;
 
     warnings->import;
     strict->import;
-    # NOTE: instead of "use 5.014" for s///r
-    $feature_tag = ':5.14' if not defined $feature_tag;
     feature->import( $feature_tag );
     # mypkg->export_to_level(1);
     # mypkg->export_to_level(1, @_);
     # OR: use Exporter (); goto \&Exporter::import;
 
-    @_ = qw(argparse parse $opts) if not @_;
-    {
-        no strict 'refs';
-        *{"${caller}::$_"} = \*{"${caller}::$_"} for @_;  # OR: = \&{ $func }
-    }
+    # REF: https://perldoc.perl.org/Symbol.html
+    # for (@symbols) { *{qualify_to_ref($_, $caller)} = \*{qualify_to_ref($_, $package)}; }
+    # ALT:BAD?
+    { no strict 'refs'; *{"${caller}::$_"} = \*{"${caller}::$_"} for @_; }  # OR: = \&{ $func }
 }
 
 sub unimport

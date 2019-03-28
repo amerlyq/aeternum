@@ -61,6 +61,23 @@ Constants
     HACK: expr {+...} works, because "+" evaluates next content as expression
     i.e. $a{+shift} will be similar to :: my $v = shift; $a{$v}
 
+
+Symbolic refs
+  REF: https://perldoc.perl.org/perlref.html#Symbolic-references
+  HOW: https://stackoverflow.com/questions/2275463/how-can-i-create-a-perl-variable-name-based-on-a-string
+  BAD: https://perl.plover.com/varvarname.html
+    https://perl.plover.com/varvarname2.html
+    https://perl.plover.com/varvarname3.html
+  typeglobs
+    TUT https://www.perlmonks.org/?node_id=1092776
+    MAYBE: use typeglob instead of aliases to reduce required version
+    REF: https://www.perlmonks.org/?node_id=976523
+      | use 5.022;
+      | use feature 'refaliasing';
+      | no warnings 'experimental::refaliasing';
+      | \my ($ad1, $sz1, $ad2, $sz2) = \(@F[0, 2, 6, 8]);
+
+
 Safe diamond
   https://www.masteringperl.org/2014/10/the-double-diamond-a-more-secure/
   ERR: $ perl -e 'print while(<>);' 'date |'
