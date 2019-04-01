@@ -1,0 +1,8 @@
+Extending (override)
+  https://www.perlmonks.org/?node_id=442097
+  | %hash1 = (%hash1, %hash2) if %hash2;
+  | %hash1 = (%hash1, %{$hashref2 // {}});
+  | map { $hash1{$_} = $hash2{$_} } keys %hash2
+  | $hash1{$_} = $hash2{$_} for keys %hash2;
+  | @hash1{keys %hash2} = values %hash2;
+  | $combined{$k} = $v while my ($k, $v) = each %hash2;

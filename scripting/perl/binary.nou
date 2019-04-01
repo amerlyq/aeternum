@@ -20,13 +20,6 @@ Interval unpack of nested array
   | (@{$struct{fastbins}[0 .. 9]}, my ($text, $length)) = unpack("I10 Z I", $data);
 
 
-Unpack oneliners
-  Table of records
-    $ perl -e 'my $i; print((++$i) % 4 ? $_ : $_, "\n") for unpack("(x C v V)*", <STDIN>)'
-  Struct (header)
-    $ perl -e 'print $_,"\n" for unpack("a3 c V V! a4 c c n a4 N N c c a4 a4 V v A*",<STDIN>)'
-
-
 Use pre-partitioned lvalue-refs (lrefs) over readonly binary data (faster x100 > unpack)
   https://www.perlmonks.org/?node_id=1182397
     https://www.perlmonks.org/?node_id=535539

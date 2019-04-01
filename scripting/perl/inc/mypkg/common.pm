@@ -7,10 +7,19 @@ our @EXPORT = qw(argfull
     help opts OFS ORS
 );
 
+# SEE: recommended modules
+#   https://perldoc.perl.org/perlmodlib.html#Pragmatic-Modules
 use warnings FATAL => 'all';
-use autodie;  # qw(:all)
+use autodie;  # qw(:all) -- RQ:(cpan): IPC::System::Simple
 use strict;
 use feature ();
+
+# NOTE: conditional inclusion
+# use if $] < 5.008, "utf8";
+
+# REF: https://perldoc.perl.org/open.html
+# use open IN  => ":crlf", OUT => ":bytes";
+
 use Symbol;
 
 ## WARN: only if you don't have your own "sub import"

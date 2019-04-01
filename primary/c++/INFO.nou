@@ -112,6 +112,9 @@ TALK
     https://www.youtube.com/watch?v=hCi8oZWL1js&feature=youtu.be
   CppCon 2016: Nicholas Ormrod “The strange details of std::string at Facebook"
     https://www.youtube.com/watch?v=kPR8h4-qZdk
+  Refactoring to Immutability - Kevlin Henney
+    https://www.youtube.com/watch?v=APUCMSPiNh4
+    NICE: immutable datastructs && filters / pipelines
 
 
 DEBUG
@@ -174,6 +177,8 @@ DEBUG
       Tut: +++ https://www.embeddedrelated.com/showarticle/900.php
     Linking Order of Libraries
       http://stackoverflow.com/questions/45135/why-does-the-order-in-which-libraries-are-linked-sometimes-cause-errors-in-gcc
+  EOF
+    https://latedev.wordpress.com/2012/12/04/all-about-eof/
 
 %%% Standart
   Static (singleton) destruction

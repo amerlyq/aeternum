@@ -1,5 +1,8 @@
 BAD: why not perl
   https://habr.com/ru/post/327408/
+  Style guide
+    https://metacpan.org/release/Perl-Critic
+
 
 REF
   Special vars (quick-ref)
