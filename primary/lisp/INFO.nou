@@ -48,6 +48,12 @@ ALT
   REF books
     http://landoflisp.com/
 
+ALT:
+  Scheme / gauche (like quicklisp)
+    https://practical-scheme.net/
+      https://practical-scheme.net/gauche/
+        https://practical-scheme.net/gauche/memo-c-j.html
+
 Review
   https://habrahabr.ru/post/262225/
 

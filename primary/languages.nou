@@ -286,6 +286,11 @@ Ada as language in usage (notes)
     https://github.com/JohnTortugo/Babel/blob/master/Ada/notes.txt
 
 
+R
+  Optimizing and benchmarking code
+    http://adv-r.had.co.nz/Profiling.html
+
+
 > NO <
   Nemerle
     based on .NET, can use matching and code generation, some concepts

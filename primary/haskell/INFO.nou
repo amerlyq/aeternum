@@ -1,8 +1,10 @@
 TUT
+  BOOK:RU: http://anton-k.github.io/ru-haskell-book/book/home.html
   https://haskell-lang.org/
     https://github.com/haskell-foundation/foundation
     ++ https://github.com/commercialhaskell/intero
       http://commercialhaskell.github.io/intero/
+  BOOK: Simon Marlow -- Parallel and Concurrent Programming in Haskell
 
 
 Monads
