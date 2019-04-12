@@ -40,3 +40,12 @@ BET:PERF: use mmap'ed file instead of streamline access to allow backward window
 
 MAYBE: split into 8+ parts for multithreading
   REF: https://perldoc.perl.org/threads.html
+
+
+Temp file
+  WARN: https://perldoc.perl.org/File/Temp.html
+  | use File::Temp qw(tempfile);
+  | use File::Basename qw(dirname basename);
+  | (my $fh, $tmp) = tempfile(basename($fout).'.XXXXX',
+  |     DIR => dirname($fout), UNLINK => 0, EXLOCK => 1);
+  | select($fh);
