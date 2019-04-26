@@ -48,6 +48,36 @@ Nightmares
         produce code.” IMO most modern C++ proponents 1) overassign importance
         to source code over 2) compile times, debugability, cognitive load for
         new concepts and extra complexity, project needs, etc. 2 is what matters.
+  strict aliasing
+    https://gist.github.com/shafik/848ae25ee209f698763cffee272a58f8
+    https://habr.com/ru/post/114117/
+    https://blog.regehr.org/archives/1307
+  volatile
+    = passing exec(std::atomic<bool> const& isCancelled) is OK and "volatile" is unnecessary
+      ::: memory barriers before atomic.read() will ensure var will be in sync
+        https://en.cppreference.com/w/cpp/atomic/memory_order
+        SEE: modification order
+      ::: OR:BET? pass functor isCancelled() -- no troubles about memory ordering, etc.
+       | auto const& num = m_NumPendingTasks;
+       | auto const isCancelled = [&num](){ return num > 0; }
+       | exec(std::function<bool()> const& isCancelled)
+        !! ensure lifespan of lambda/tasks is less then lifespan of "this" -- othewise use std::shared_from_this()
+        * threads always copy code -- no sense to make "const&"
+        * mutable data inside const ref classes still can be changed (side effects will be propagated back)
+    volatile isn't atomic
+      https://componenthouse.com/2016/10/21/a-note-about-the-volatile-keyword-in-cpp/
+      ++ https://habr.com/ru/post/328362/
+        SEE: table of 5 main distinctions
+    volatile will be removed from future C
+      https://www.youtube.com/watch?v=xkshva7DKfQ
+    volatile only for "unusual" memory i.e. same location at different addresses
+      http://www.drdobbs.com/parallel/volatile-vs-volatile/212701484
+  default zero-init of class objects
+    ::: must always initialize by `a = {}` or `a{}`
+    https://en.cppreference.com/w/cpp/language/value_initialization
+      SEE: Explanation (1-4) in table
+    https://en.cppreference.com/w/cpp/language/default_initialization
+      SEE: Explanation (3) + effects directly below
 
 
 TALK
