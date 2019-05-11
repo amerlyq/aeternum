@@ -16,6 +16,13 @@ DEBUG:
 Monads
   TUT: http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html
     TUT: http://learnyouahaskell.com/a-fistful-of-monads
+  +++ Pro and Cons
+    https://medium.com/zendesk-engineering/dont-fear-the-monad-f424260f29f6
+    https://grishaev.me/en/no-monads
+  [_] READ: Free monads are harmful
+    https://markkarpov.com/post/free-monad-considered-harmful.html
+    ALSO: http://www.haskellforall.com/2012/06/you-could-have-invented-free-monads.html
+  G: monads limitations
 
 
 Haskell
