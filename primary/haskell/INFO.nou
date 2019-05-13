@@ -23,6 +23,10 @@ Monads
     https://markkarpov.com/post/free-monad-considered-harmful.html
     ALSO: http://www.haskellforall.com/2012/06/you-could-have-invented-free-monads.html
   G: monads limitations
+  ALSO: Implementing Algebraic Effects in C “Monads for Free in C”
+    Microsoft Research Technical Report MSR-TR-2017-23
+  Stream monad
+    https://patternsinfp.wordpress.com/2010/12/31/stream-monad/
 
 
 Haskell
