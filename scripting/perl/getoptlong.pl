@@ -17,6 +17,8 @@ GetOptions(\%opts,
     'delimiter|d=s' => \$US  # save into var
 ) or die &help;
 
+my $offset = do { local $_ = (shift @ARGV // 0); /^0/ ? oct : int };
+
 sub help { open(my $fh, '<:encoding(UTF-8)', $0);
     while (<$fh>) { print $2,"\n" if /^(.*\s)?#%(.*)/ }
     close($fh); exit
