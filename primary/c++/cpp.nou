@@ -57,3 +57,7 @@ Optimizing IO
 Const objects can't be moved
   http://yacoder.guru/blog/2015/05/06/cpp-curiosities-one-does-not-simply-move-a-const-object/
   std::move(const ...)
+
+
+Throw exception from destructor
+  https://akrzemi1.wordpress.com/2011/09/21/destructors-that-throw/

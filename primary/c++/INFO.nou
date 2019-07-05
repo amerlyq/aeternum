@@ -11,6 +11,11 @@
 
   Guideline
     https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#f16-for-in-parameters-pass-cheaply-copied-types-by-value-and-others-by-reference-to-const
+    Consistent naming practices
+      https://github.com/tvaneerd/isocpp/blob/master/on_naming.md
+        <= https://www.fluentcpp.com/2018/05/29/a-concrete-example-of-naming-consistency/
+    Use =default or not
+      https://www.fluentcpp.com/2019/04/23/the-rule-of-zero-zero-constructor-zero-calorie/
 
   Anonymous namespace vs static
     http://www.comeaucomputing.com/techtalk/#nostatic
@@ -81,6 +86,18 @@ Nightmares
 
 
 TALK
+  079 Design Patterns in Functional programming by Scott Wlaschin
+    https://youtu.be/X_WcbyQ19YM
+  GOTO 2018 • Unconditional Code • Michael Feathers
+    https://youtu.be/AnZ0uTOerUI
+  GOTO 2018 • Don't Walk Away from Complexity, Run • Venkat Subramaniam
+    https://youtu.be/4MEKu2TcEHM
+  Declarative Thinking, Declarative Practice - Kevlin Henney [ ACCU 2016 ]
+    https://youtu.be/nrVIlhtoE3Y
+  YOW! 2013 Kevlin Henney - The SOLID Design Principles Deconstructed
+    https://youtu.be/tMW08JkFrBA
+  C++Now 2019: Vittorio Romeo “Higher-order functions and `function_ref`”
+    https://www.youtube.com/watch?v=5V74RPUEu5s
   10 Techniques to Understand Code You Don’t Know - Jonathan Boccara [ACCU 2019]
     https://www.youtube.com/watch?v=tOOK-VsWU-I
   GOTO 2017 • Code as Risk • Kevlin Henney

@@ -1,4 +1,13 @@
 TUT
+  [_] !!! SEE: The Functional Programmer's Toolkit - Scott Wlaschin
+    https://www.youtube.com/watch?v=Nrp_LZ-XGsY&t=2234s
+   = The functional programming community has a number of patterns with
+     strange names such as monads, monoids, functors, and catamorphisms.
+  [_] Design Patterns in Functional programming by Scott Wlaschin
+     https://www.youtube.com/watch?v=X_WcbyQ19YM
+   = How to see them in imperative programming and what to NOT do
+  Domain Modeling Made Functional - Scott Wlaschin
+    https://youtu.be/Up7LcbGZFuo
   BOOK:RU: http://anton-k.github.io/ru-haskell-book/book/home.html
   https://haskell-lang.org/
     https://github.com/haskell-foundation/foundation

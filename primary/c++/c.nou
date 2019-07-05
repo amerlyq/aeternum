@@ -18,6 +18,9 @@ multi-dim arrays : bad things
 printf
   printf("\n%.*s\n", pbuf.sz, pbuf.data);
 
+vargs
+  https://stackoverflow.com/questions/46547321/passing-variable-number-of-arguments-of-different-types-in-c
+
 | cin.ignore().get()  | pause for linux
 
 Simple samples

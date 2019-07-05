@@ -1,0 +1,84 @@
+%%%% Sanitizers
+
+VIZ: https://clang.llvm.org/docs/index.html
+
+READ
+  [_] https://clang.llvm.org/docs/ClangStaticAnalyzer.html
+  [_] https://clang.llvm.org/docs/ThreadSafetyAnalysis.html
+  [_] https://clang.llvm.org/docs/ControlFlowIntegrity.html
+  [_] https://clang.llvm.org/docs/DataFlowSanitizer.html
+  [_] https://clang.llvm.org/docs/SafeStack.html
+  [_] https://clang.llvm.org/docs/ShadowCallStack.html
+  [_] https://clang.llvm.org/docs/LTOVisibility.html
+
+  ALSO
+    [_] https://clang.llvm.org/docs/SanitizerCoverage.html
+    [_] https://clang.llvm.org/docs/SanitizerStats.html
+    [_] https://clang.llvm.org/docs/SourceBasedCodeCoverage.html
+
+TUT
+  https://habr.com/ru/post/323380/
+  https://habr.com/ru/company/pvs-studio/blog/236293/
+
+CMake
+  REF
+    https://stackoverflow.com/questions/44320465/whats-the-proper-way-to-enable-addresssanitizer-in-cmake-that-works-in-xcode
+    https://gist.github.com/jlblancoc/44be9d4d466f0a973b1f3808a8e56782
+  TUT
+    http://www.stablecoder.ca/2018/02/01/analyzer-build-types.html
+    [_] SEIZE: https://github.com/StableCoder/cmake-scripts
+  USE:
+    string(APPEND CMAKE_CXX_FLAGS_DEBUG " -fno-omit...")
+    string(APPEND CMAKE_LINKER_FLAGS_DEBUG " -fno-omit...")
+  MAYBE: create separate target
+    $ cmake -DCMAKE_BUILD_TYPE=ASAN .
+
+Address + Leak
+  REF: https://clang.llvm.org/docs/AddressSanitizer.html
+    https://clang.llvm.org/docs/LeakSanitizer.html
+  USE: -fsanitize=address -fno-omit-frame-pointer
+    * 3x stack increase
+    * 2x heap increase for small chunks
+
+  Offline symbolizing of output addresses
+  $ ASAN_OPTIONS=symbolize=0 ./a.out 2> log
+  $ projects/compiler-rt/lib/asan/scripts/asan_symbolize.py / < log | c++filt
+
+  ALSO
+    ASAN_OPTIONS=check_initialization_order=1
+    ASAN_OPTIONS=suppressions=MyASan.supp
+      interceptor_via_fun:NameOfCFunctionToSuppress
+      interceptor_via_fun:-[ClassName objCMethodToSuppress:]
+      interceptor_via_lib:NameOfTheLibraryToSuppress
+      leak:<pattern>
+
+
+Memory
+  REF: https://clang.llvm.org/docs/MemorySanitizer.html
+  USE: -fsanitize=memory -fno-omit-frame-pointer
+    * 3x slowdown
+    * 2x more memory
+
+  ALSO:
+    -fsanitize-memory-track-origins=2
+    * 2x additional slowdown
+    * 1.5x additional more memory
+
+  MAYBE:
+    -fsanitize-memory-use-after-dtor
+      with $ MSAN_OPTIONS=poison_in_dtor=1 ...
+
+
+Thread
+  REF: https://clang.llvm.org/docs/ThreadSanitizer.html
+  USE: -fsanitize=thread
+    * 5-15x slowdown
+    * 5-10x memory (ALSO: plus 1MB per thread)
+    * exe/lib must be PIC/PIE
+
+
+UB
+  REF: https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html
+  USE: -fsanitize=undefined -fno-omit-frame-pointer
+    UBSAN_OPTIONS=print_stacktrace=1
+    UBSAN_OPTIONS=silence_unsigned_overflow=1

@@ -1,0 +1,121 @@
+# vim:ft=yaml
+#%SUMMARY: style for C++ snippets
+#%SEE:(others): ./airy/sir/cfg/*
+#%
+Language: Cpp
+Standard: Cpp11
+
+# After all below modifications it's nearer to WebKit, but better to be based on default LLVM
+BasedOnStyle: LLVM
+
+# Visually split closed sections in class definition
+AccessModifierOffset: -4
+
+# Don't align args -- functions with long names make their args an unreadable mess on the right
+AlignAfterOpenBracket: DontAlign
+
+# Despite human's desire to align everything, re-aligns are harder to maintain and review diffs
+AlignEscapedNewlines: DontAlign
+
+# Prefer to split multiline args instead of moving all of them on next single line
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# One-liners are error-prone to attention sneak off, and mechanic errors being skipped by sliding glances
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+
+# Keep types on same line
+AlwaysBreakAfterReturnType: None
+
+# Templates are some kind of decorators and aren't part of return type, therefore don't stick them together
+#   => use separate line for sliding glance to ignore them easily.
+AlwaysBreakTemplateDeclarations: true
+# (clang8): AlwaysBreakTemplateDeclarations: Yes
+
+# When args are placed on multiple lines, it's hard to concentrate on
+#   adjacent args in middle and easy for them to be lost visually
+BinPackArguments: false
+BinPackParameters: false
+
+# Any line continuations are more emphasized at the start of string,
+#   also it emphasizes reason why continuations are necessary
+BreakBeforeBinaryOperators: NonAssignment
+
+# All starting braces of functions/classes must be at the line beginning
+#   + often developers insert empty line after function definition anyway to reduce cluttering
+#   + multiline args declaration is as ugly as hell if opening brace not moved to next line
+#   + vim/emacs shortcuts allow fast jumping to function beg/end in this case
+# cons:
+#   - one-liner definitions of class methods in .cpp file are looking better with "{" on same line, bear with it
+#   - compressed namespaces are better then multiline, but as I prefer to remove namespaces completely -- it's no problem
+# BreakBeforeBraces: Linux
+## ALT: custom more fine-tuned variant (for the sake of CompactNamespaces):
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass:            true
+  AfterControlStatement: false
+  AfterEnum:             false
+  AfterExternBlock:      false
+  AfterFunction:         false
+  AfterNamespace:        false
+  AfterStruct:           false
+  AfterUnion:            false
+  BeforeCatch:           false
+  BeforeElse:            false
+  IndentBraces:          false
+  SplitEmptyFunction:    false
+  SplitEmptyNamespace:   false
+  SplitEmptyRecord:      false
+
+# Special lists delimited by ":" and "," are more emphasized at the start of string
+BreakBeforeInheritanceComma: true
+BreakConstructorInitializersBeforeComma: true
+BreakConstructorInitializers: BeforeComma
+# (clang8): BreakInheritanceList: BeforeComma
+
+# Many developers complain about 80 chars, especially with long C++ identifiers
+# ColumnLimit: 80
+ColumnLimit: 120
+
+# When using "Linux" braces wrapping, it has no effect anyway
+CompactNamespaces: true
+
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
+# All indents must be multiple of "4" so pressing <Tab> allows developers align it easily
+#   => otherwise spaces become messed with time, as no-one uses spaces to fine-tune their indents
+# ALSO: indent "2" is too taxing and causing fatigue and mental strain after long hours of work
+#   => read REF above to kernel style guide and their reasoning
+#   !! for C++ indent "2" makes code looking messy blob instead of organized structure
+#   !! if you code is too far on right as you need too much indent levels -- fix you code, not indent width
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 8
+IndentWidth: 4
+UseTab: Never
+
+# Nested define directives must be indented by 1 space each -- to emphasize and attract attention
+#   BAD: clang reuses "IndentWidth: 4" for this; must endure and use less nested defines...
+IndentPPDirectives: None
+
+# Useful after headers list, between classes and unrelated functions
+# BUT: for nicely distributed classes/functions by files default "1" must be enough
+# MaxEmptyLinesToKeep: 2
+
+# I equally hate all three variant of alignment, but "Middle" can be barely tolerated by everybody.
+#   => now after long years "Middle" starts looking for me not simply tolerated, by even nicer then other two...
+# cons: ugly "&" refs
+#   - i.e. both "Thread & thr" and "Thread&& thr" are exclusively ugly, you can't have both of them nice at same time
+#   + I better stick to uniformaly " & " and " && " -- everywhere separated by spaces
+#   + separate "&" has an advantage of emphasized ref -- you won't miss type looking with sliding glance
+# PointerAlignment: Middle
+# BUT: instead use more familiar to devs with less ugly refs "Left" variant
+PointerAlignment: Left
+# DerivePointerAlignment: true
+
+# Only developers aesthetic sense must influence comments layout, not lifeless dumb algorithms
+# BUT:BET:(stick to defaults): -- let it reflow and simply remove ugly comments afterwards
+# ReflowComments: false
+
+# All trailing comments must be emphasized with spaces before and after, to distinct from scraps of old refactoring
+#  e.g. "func();  // comment"
+SpacesBeforeTrailingComments: 2
