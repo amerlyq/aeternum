@@ -1,0 +1,151 @@
+%%%% Notches ~everywhere~
+
+%%% Syntax
+
+RED -- Problems / attention
+  RQ | REQUIRE | REQUIREMENT
+  ERR | ERROR
+  REGR | REGRESSION
+  BUG
+  XXX
+  WTF
+  BAD
+  FAIL | FAILED | FAILURE
+  CRIT | CRITICAL
+
+GREN -- Future
+  ADD
+  NEED
+  FIND
+  ALSO
+  BET | BETTER
+  E.G | e.g | EXAMPLE = (exampli gratia)
+
+Category -- Unconditionally necessary actions
+  SEE
+  READ
+  SEIZE
+  REF | REFERENCE
+  TUT | TUTORIAL
+  BLOG
+  BOOK
+  LIOR
+  LORE
+
+YELW -- Doubts
+  ALT
+  OR
+  CASE
+  THINK
+  IDEA
+  CHG | CHANGE
+  RENAME
+  CMP | COMPARE | COMPARISON
+  I.E | i.e | MEANS = (id est)
+  EXAM | EXAMINE
+
+BLUE -- Development
+  DEV | DEVELOP
+  CFG
+  ENH | ENHANCE
+  HACK
+  NICE
+  RFC
+  SEP | SEPARATE
+  SPL | SPLIT
+  DECI| DECIDE
+
+PINK -- Questionable
+  TODO
+  CHECK
+  TRY
+  MOVE
+  NOT
+  REQ | REQUEST
+  MAYBE
+  QST | QUEST | QUESTIONABLE  # DUB | DUBIOUS | arguable
+
+CYAN -- InfoType/Description Connotations (annotation flavor)
+  INF | INFO
+  SRC | SOURCE
+  VAR | VARs | VARIABLE
+  VIZ | PRECISELY (videlicet = full list enumeration)
+  ALG | ALGORITHM
+  SEQ | SEQUENCE
+  HYP | HYPO | HYPOTHESIS
+  CONT | CONTR | CONTRACT
+  IMPL | IMPLEMENT | IMPLEMENTATION
+  ARCH | ARCHITECTURE
+  PERF | PERFORMANCE
+  TALK
+  SECU | SECURE | SECURITY
+  MMAP | MINDMAP
+
+ORNG -- Beware
+  BUT
+  DONT
+  FIX | FIXME
+  WARN | WARNING
+  ATT | ATTN | ATTENTION
+  REM | REMOVE
+
+GREY -- Connotation
+  DONE
+  FIXED
+  EXPL | EXPLAIN | EXPLANATION
+  TEMP | TEMPORARY
+  UNUSED
+  OBSOL | OBSOLETE
+  DEPR | DEPRECATED
+  TL;DR
+
+PURP -- Markers
+  NOTE | N.B. = (nota bene)
+  USE
+  USAGE
+  DFL
+  STD
+  SUM | SUMMARY
+  DEBUG
+  I.A | i.a | AMONGST = (inter alia)
+  DEP | DEPENDS | DEPENDENCY
+
+
+**************************************************
+%%% Grammar
+
+  Treat each line of code or any text as:
+    * future idea
+    * proposal impl
+    * happened fact
+
+  Color
+    * action => urgency
+    * annotation => type
+    !! we use different colors for actions from same *group* to emphasize difference in urgency
+      => introduce artificial "defects" to increase attention capturing and emphasis
+
+Combining:
+  use "parentheses" to emphasize the subject (when relevant only to part of the text below)
+    e.g.
+      INFO:(sqlite3):NOTE:(bind): remains the same after .clear() method
+      BUG:(m_var): unexpected racing under [...] conditions
+
+  use "colon" to combine annotations
+    e.g.
+      THINK:RENAME: aaaa OR bbbb
+      NOTE:(<subject>): ...
+
+  trailing "question mark" doubts <anything>
+    context-related meanings
+      CHECK: statement validity
+      FIND: related info
+      THINK: usecase applicability
+    e.g.
+      RENAME? -> MySpecialClass
+
+  trailing "exclamation mark" converts <annotation> to urgent <action>
+    context-related additional verb
+      TODO: pending task
+    e.g.
+      EXPL! subscription process
