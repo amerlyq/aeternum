@@ -1,0 +1,70 @@
+%%%% Dataflow fork visualization
+
+"correlation between cause and effect"
+
+********************************
+%%% Heading
+
+transparent
+  -> measurable
+    -> adjustable
+  -> predictable
+    -> comparable
+  -> modifyable
+    -> adaptive
+
+transparent
+  -> measurable -> adjustable
+  -> predictable -> comparable
+  -> modifyable -> adaptive
+
+
+********************************
+%%% Trailing
+
+transparent >>
+  measurable ->
+    adjustable
+  predictable ->
+    comparable
+  modifyable ->
+    adaptive
+
+transparent >>
+  measurable -> adjustable
+  predictable -> comparable
+  modifyable -> adaptive
+
+
+********************************
+%%% Vertical
+
+transparent
+  | measurable
+  |   : adjustable
+  | predictable
+  |   : comparable
+  | modifyable
+  |   : adaptive
+
+transparent
+  | measurable -- adjustable
+  | predictable -- comparable
+  | modifyable -- adaptive
+
+
+********************************
+%%% Tree-like
+
+transparent
+├── measurable
+│   └── adjustable
+├── predictable
+│   └── comparable
+└── modifyable
+    └── adaptive
+
+transparent
+├── measurable ── adjustable
+├── predictable ── comparable
+└── modifyable ── adaptive

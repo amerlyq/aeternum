@@ -1,0 +1,18 @@
+%%%% Worklog
+
+%%% Tracking complex learning process
+
+  * git repository
+  * one text file per application / technology you learning
+    grouped notches --  ./notches.nou
+    decision markers -- ./decision.nou
+    plain text graphs -- ./dataflow.nou
+  * with growth of experience
+    add new arguments and change accepted solutions
+    delimit applicability / suitability areas
+
+E.G.
+  ./cmake.txt
+    - how to name folders
+    - custom commands VS file/execute
+    - subcommands VS single one
