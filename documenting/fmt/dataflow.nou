@@ -2,6 +2,10 @@
 
 "correlation between cause and effect"
 
+NOTE: default format is 1 cause -> N effects
+  => use reverse-direction in case of N cause -> 1 effect
+    e.g. enumerate all necessary things to achieve one goal
+
 ********************************
 %%% Heading
 
