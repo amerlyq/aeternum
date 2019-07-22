@@ -17,6 +17,8 @@ READ
       http://www.hpl.hp.com/techreports/tandem/TR-85.7.pdf
   TUT fast syntax overview
     2018-04-13 [X] https://www.youtube.com/watch?v=IEhwc2q1zG4
+  TUT Writing a Web Framework with Lisp Flavoured Erlang, Part II: Route Parsing.
+    https://blog.usejournal.com/writing-a-web-framework-with-lisp-flavoured-erlang-part-ii-route-parsing-eb8d2e34fe48
   The Erlang VM or How I Stopped Worrying & Started Loving Parallel Prog.
     https://www.youtube.com/watch?v=ArRr4trTCjQ
   Profiling, Erlang Factory -- Performance Optimization 101

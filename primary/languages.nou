@@ -3,6 +3,12 @@
   http://www.stroustrup.com/dne.html
     = The Design and Evolution of C++
 
+REPL -- everything in one interface
+  online-IDE: https://repl.it
+    https://repl.it/site/blog/elisp
+  offline-aggregator:
+    https://github.com/replit/prybar
+
 Syntax comparisons
   http://hyperpolyglot.org/
   https://learnxinyminutes.com/
@@ -228,6 +234,7 @@ Nim ? -- imperative, elegant, parallel, compiles in C
 
 Julia 2017
   https://julialang.org/
+  https://docs.julialang.org/en/v1/manual/metaprogramming/index.html
 
 
 ++ Eve -- relational language with concepts ecosystem

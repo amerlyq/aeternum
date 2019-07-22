@@ -1,5 +1,19 @@
+WHY lisp
+  +++ [_] READ:HOWTO: http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/
+  ++ https://www.linkedin.com/pulse/building-cloud-choosing-lisp-because-nobody-told-me-i-mason-browne
+  Review
+    https://habrahabr.ru/post/262225/
+  These years in Common Lisp: 2018 - Vince Zd - Medium
+    https://medium.com/@vindarel/these-years-in-common-lisp-2018-1d6b9084920d
+  Why We Hate Lisp
+    http://wiki.c2.com/?WhyWeHateLisp
+    http://wiki.c2.com/?WhyWeLoveLisp
+
+
 READ: https://github.com/cl21/cl21
   http://cl21.org/
+  BOOK: Full-stack lisp https://leanpub.com/fullstacklisp/read
+
 
 Lisp
   SEE http://stackoverflow.com/questions/2720843/can-a-language-have-lisps-powerful-macros-without-the-parentheses
@@ -16,6 +30,8 @@ Lisp
     https://news.ycombinator.com/item?id=1390944
 
 ALT
+  CMP:(evolution): https://www.iro.umontreal.ca/~monnier/hopl-4-emacs-lisp.pdf
+
   aur/newlisp 10.7.1-1 (22, 0.09)
     newLISP is a LISP like, general purpose scripting language.
   aur/lfe-git r963.2880c8a-1 (1, 0.08)
@@ -53,18 +69,21 @@ ALT:
     https://practical-scheme.net/
       https://practical-scheme.net/gauche/
         https://practical-scheme.net/gauche/memo-c-j.html
+  IDEA: shell-like repl
+    https://www.reddit.com/r/lisp/comments/5b76a5/why_not_use_a_lisp_repl_as_a_permanent_shield/
 
-Review
-  https://habrahabr.ru/post/262225/
 
 REF
   https://stackoverflow.com/questions/21935903/how-to-prepare-for-learning-lisp-off-line
   https://bbs.archlinux.org/viewtopic.php?id=31731
 
 TUT
+  ++ QuickStart: https://cs.gmu.edu/~sean/lisp/LispTutorial.html
   http://www.jonathanfischer.net/modern-common-lisp-on-linux/
   http://lisp-lang.org/learn/getting-started/
   http://www.gigamonkeys.com/book/
+  Setup Common Lisp IDE (emacs) / Хабр
+    https://habr.com/ru/post/259737/
 
 
 scripting
@@ -72,6 +91,9 @@ scripting
 
 
 VIZ.
+  utils
+    https://awesome-cl.com/
+
   common lisp
     sbcl (jit compiler)
       http://www.sbcl.org/
