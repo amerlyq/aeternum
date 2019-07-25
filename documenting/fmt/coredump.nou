@@ -3,20 +3,30 @@
 % Deadlock
 {noformat:title=./relpath/to/archive_with_coredump.tar.gz}
 * 740 (blocked by 745) :: operation "Policy::update" waits "Profile::isactive"
-* 745 (blocked by 735) :: holds "Profile::switch" waits "Service::recache"
-* 735 (blocked by 745) :: holds "Service::switch" waits "Profile::isactive"
+* 745 (blocked by 735) :: operation "Policy::isactive" holds "Profile::switch" waits "Service::recache"
+* 735 (blocked by 745) :: operation "Service::recache" holds "Service::switch" waits "Profile::isactive"
 {noformat}
 
-  ALG:
-    [C lang]
-      #1  0x4112b34c in __lll_lock_wait (futex=futex@entry=0x43adc9ac <staticMutexes.13501+48>, private=0x0)
-      #2  0x411279e8 in __GI___pthread_mutex_lock (mutex=<optimized out>) at pthread_mutex_lock.c:79
-        ---> (gdb) x/d $r4+8  :::  0x43adc9b4 <staticMutexes.13501+56>:   735
-      #3  0x43a88b3e in sqlite3BtreeOpen () at sqlite3.c:64381
-    [C++]
-      #1  0x4112b34c in __lll_lock_wait (futex=futex@entry=0xae4a10, private=0x0)
-      #2  0x41127b4c in __GI___pthread_mutex_lock (mutex=<optimized out>) at pthread_mutex_lock.c:114
-      #5  std::recursive_mutex::lock (this=0xae4a10)
-      #6  std::lock_guard<std::recursive_mutex>::lock_guard (__m=..., this=<synthetic pointer>)
-      #7  Service::recache (this=0xae4900)
-        ---> (gdb) p/d m_mutex._M_mutex.__data.__owner ::: $6 = 745
+
+FORMAT: * 745 (blocked by 735) :: operation "AAA" holds "BBB" waits "<BBB> from thread 735"
+  #6  std::lock_guard<std::recursive_mutex>::lock_guard(mutex2)
+  #7  CCC blocked     | <-- thread 754 is blocked on "mutex2" here, which was acquired by 735 beforehand
+  ...                 |
+  #10 BBB holds       | <-- thread 745 had acquired "mutex1" here, which is needed by 735 (it become blocked on "mutex1")
+  ...                 |
+  #13 AAA operation   | <-- name of the main operation of current task executed by worker thread 745
+
+
+ALG:
+  [C lang]
+    #1  0x4112b34c in __lll_lock_wait (futex=futex@entry=0x43adc9ac <staticMutexes.13501+48>, private=0x0)
+    #2  0x411279e8 in __GI___pthread_mutex_lock (mutex=<optimized out>) at pthread_mutex_lock.c:79
+      ---> (gdb) x/d $r4+8  :::  0x43adc9b4 <staticMutexes.13501+56>:   735
+    #3  0x43a88b3e in sqlite3BtreeOpen () at sqlite3.c:64381
+  [C++]
+    #1  0x4112b34c in __lll_lock_wait (futex=futex@entry=0xae4a10, private=0x0)
+    #2  0x41127b4c in __GI___pthread_mutex_lock (mutex=<optimized out>) at pthread_mutex_lock.c:114
+    #5  std::recursive_mutex::lock (this=0xae4a10)
+    #6  std::lock_guard<std::recursive_mutex>::lock_guard (__m=..., this=<synthetic pointer>)
+    #7  Service::recache (this=0xae4900)
+      ---> (gdb) p/d m_mutex._M_mutex.__data.__owner ::: $6 = 745
