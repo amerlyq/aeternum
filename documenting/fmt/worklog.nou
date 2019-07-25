@@ -16,3 +16,24 @@ E.G.
     - how to name folders
     - custom commands VS file/execute
     - subcommands VS single one
+
+
+%%% Artifacts
+
+ALG: RnD activity worklog
+  process == log into worklog file *everything* you do
+    - problem statement / elaboration / adjustments
+    - any related topics
+    - ideas and their expected applications
+    - models to work with
+    - assumptions to behold
+    - solutions to check
+    - action-items to guide process
+    - attached googled results with short summary
+    - conclusions on each idea
+  outcome == thorough investigation *report*
+    = (structure squeezed from worklog)
+    - list of successful solutions
+    - comprehensive list of every solution you tried with failure reasons explained
+    - detailed comparison of every solutions and their applicability / limitations
+    - conclusion: best recommendations
