@@ -62,6 +62,12 @@ shell exits."
     http://cfajohnson.com/shell/cus-faq-2.html#Q11
     Manually pass errors from process substitution
       https://unix.stackexchange.com/questions/217605/bash-how-to-propagate-errors-in-process-substitution
+  bash: $ set -fCureEo pipefail
+    OR: with pathname expansion
+    $ set +f -CueEo pipefail
+    $ shopt -s nullglob
+  zsh:  $ set -FCureo pipefail
+    NOTE= use one of [F3G] to disable/error/null glob
 
 
 %%% Often mistakes. @Must read!
