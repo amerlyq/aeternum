@@ -18,6 +18,12 @@ INFO
     https://reproducible-builds.org/docs/stable-inputs/
     https://wiki.debian.org/ReproducibleBuilds
 
+  Build version, Firmware version, and build-id hash matching
+    2019-07-28 [X] https://interrupt.memfault.com/blog/gnu-build-id-for-firmware
+    2019-07-28 [X] https://embeddedartistry.com/blog/2016/10/27/giving-you-build-a-version
+    https://gitlab.com/wolframroesler/version
+      http://pubs.opengroup.org/onlinepubs/9699919799/utilities/what.html
+
   Faster builds
     [_] CMP:READ: http://www.bitsnbites.eu/faster-c-builds/
     http://voices.canonical.com/jussi.pakkanen/2012/10/01/building-cc-what-really-happens-and-why-does-it-take-so-long/
