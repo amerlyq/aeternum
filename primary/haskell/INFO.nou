@@ -20,6 +20,10 @@ DEBUG:
   types
     TUT fmap() vs (.) -- step by step
       https://stackoverflow.com/questions/27883414/difference-between-function-composition-operator-and-fmap
+  Error messages
+    Use typehole "_" so Haskell will write code by itself :)
+      https://reasonablypolymorphic.com/blog/typeholes/
+      ++ https://reasonablypolymorphic.com/blog/theorems-for-free/
 
 
 Monads
