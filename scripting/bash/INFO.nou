@@ -114,6 +114,9 @@ SNIP
     $ grep -qm1 '.*'
     ALT: $ read -t0 -N1
     CHECK: $ ifne -n 'false'
+  Create aliases per each switch-case statement
+    $ ! _has_pr vienv || while IFS= read -r s; do alias vi$s="vienv $s"
+      done < <(sed -rn '/case/,/esac/{/\s*(in|;;)\s+(\w+)\).*/s//\2/p}' "$(which vienv)")
 
 Double-fork daemonize
   https://stackoverflow.com/questions/3430330/best-way-to-make-a-shell-script-daemon
