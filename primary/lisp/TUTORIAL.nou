@@ -7,3 +7,9 @@ Writing libraries
 
 CI (Continuous Integration / Travis)
   +++ http://lisp-lang.org/learn/continuous-integration
+
+CFFI -- foreign interface to C libs
+  DOC https://common-lisp.net/project/cffi/
+  TUT https://common-lisp.net/project/cffi/manual/html_node/Tutorial.html
+  ALT https://github.com/rpav/c2ffi
+  SRC https://github.com/rpav/cl-autowrap

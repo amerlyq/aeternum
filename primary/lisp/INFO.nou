@@ -29,13 +29,22 @@ Lisp
     http://www.iaeng.org/IJCS/issues_v32/issue_4/IJCS_32_4_19.pdf
     https://news.ycombinator.com/item?id=1390944
 
+
+Lisp on Erlang VM
+  irc:#erlang-lisp
+  http://lfe.io/
+  |aur/lfe-git| r963.2880c8a-1 (1, 0.08)
+    Lisp Flavoured Erlang
+  http://joxa.org/
+  http://the-concurrent-schemer.github.io/scm-doc/
+  https://github.com/b0oh/lol
+
+
 ALT
   CMP:(evolution): https://www.iro.umontreal.ca/~monnier/hopl-4-emacs-lisp.pdf
 
   aur/newlisp 10.7.1-1 (22, 0.09)
     newLISP is a LISP like, general purpose scripting language.
-  aur/lfe-git r963.2880c8a-1 (1, 0.08)
-    Lisp Flavoured Erlang
 
   https://common-lisp.net/project/asdf/
   TRY: WM instead of XMonad

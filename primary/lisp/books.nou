@@ -4,6 +4,16 @@ BLOG
   Gamedev / Graphics
     http://planet.lisp.org/
 
+
+READ:INFO
+  [_] https://cliki.net/Getting%20Started
+  [_] https://www.reddit.com/r/lisp/comments/6snw5d/questions_for_2017_common_lisp_experts/
+  [_] https://news.ycombinator.com/item?id=13979002
+  [_] http://www.n-a-n-o.com/lisp/cmucl-tutorials/LISP-tutorial-16.html
+  [_] https://joshtronic.com/2015/04/26/open-challenge-learn-lisp-with-me/
+
+
+
 Books
   Paradigms of Artificial Intelligence Programming
     https://github.com/norvig/paip-lisp
@@ -37,8 +47,6 @@ TUT
   Elisp -- Emacs In a Box
     https://caiorss.github.io/Emacs-Elisp-Programming/
 
-http://www.n-a-n-o.com/lisp/cmucl-tutorials/LISP-tutorial-16.html
-https://joshtronic.com/2015/04/26/open-challenge-learn-lisp-with-me/
 
 Articles
   Substad: for fast substitution in LISP, with an application on unification
