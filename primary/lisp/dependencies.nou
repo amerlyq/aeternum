@@ -1,0 +1,12 @@
+%%%% Distribution and dependencies
+
+Known location
+  /usr/share/common-lisp/{source,systems}/
+  => everything must be installed under these paths
+  ++ auto-loaded by ASDF built into SBCL
+
+
+sysinit /etc/.../sbclrc
+  => define all deps there
+    e.g. symlink to your Quicklisp or Roswell installation
+  => only load required scripts

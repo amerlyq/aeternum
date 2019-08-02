@@ -1,0 +1,31 @@
+ArchLinux guidelines
+  2019-07-31 [X] https://wiki.archlinux.org/index.php/Lisp_package_guidelines
+  USE:
+    ~/.local/share/common-lisp/source/
+    /usr/local/share/common-lisp/source/
+    /usr/share/common-lisp/source/
+    FASL's under ~/.cache/common-lisp/
+  https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=quicklisp
+    => create your local projects in /usr/lib/quicklisp/local-projects
+
+
+ASDF
+  https://stackoverflow.com/questions/48143473/having-to-re-install-quicklisp-packages-on-each-restart
+  https://stackoverflow.com/questions/24171268/how-to-make-defsystem-use-everything
+    + defsystem
+    + dump current state to binary, then load back, add more features and dump again by another name
+  ++ https://github.com/fare/asdf3-2013/blob/master/els-slides.org#more-declarative-defsystem
+  https://lispcookbook.github.io/cl-cookbook/systems.html
+    = http://cl-cookbook.sourceforge.net/systems.html
+  SBCL: http://www.sbcl.org/asdf/The-defsystem-form.html
+  REF: https://common-lisp.net/project/asdf/asdf.html#Defining-systems-with-defsystem
+  https://riptutorial.com/ru/common-lisp/example/2183/%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%B0%D1%8F-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0-asdf-%D1%81-%D0%BF%D0%BB%D0%BE%D1%81%D0%BA%D0%BE%D0%B9-%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%BE%D0%B9-%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2
+  https://common-lisp.net/~mmommer/asdf-howto.shtml
+  +++ [_] READ https://github.com/fare/asdf/blob/master/doc/best_practices.md
+  [_] READ: Delivering Common Lisp Applications with ASDF 3.3
+    https://european-lisp-symposium.org/static/2017/rideau.pdf
+
+
+Frozen systems
+  [_] TRY: use bundled frozen systems to distribute your programs
+    https://www.quicklisp.org/beta/bundles.html
