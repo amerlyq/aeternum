@@ -33,3 +33,7 @@ INFO
 
   Configuration Management -- complete tools conveyor for C++
     +++ https://lefticus.gitbooks.io/cpp-best-practices/content/02-Use_the_Tools_Available.html
+
+
+Rules for portable builds
+  https://blog.gibson.sh/2017/11/26/creating-portable-linux-binaries/
