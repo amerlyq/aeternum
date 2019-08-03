@@ -1,0 +1,19 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+
+(defpackage #:example (:use #:cl))
+(in-package #:example)
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (ql:quickload "cl-unicode"))
+
+(defpackage #:example (:use #:cl #:cl-unicode))
+(in-package #:example)
+
+(defun main (&key (mychr #x67e))
+  (format t "~A~%" (unicode1-name (code-char mychr))))
+
+;;; vim: set ft=lisp lisp:
