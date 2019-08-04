@@ -52,3 +52,38 @@ implicit:
 
 NOT
   $ //usr/bin/install -pDT "$0" "${TMPDIR:-/tmp}/cxx/$0" || exit && exec make -{sf,o}/dev/null --eval="!:${0##*/};./\$<" "$@"
+
+
+embedding:
+  https://stackoverflow.com/questions/2482348/run-c-or-c-file-as-a-script
+```
+    #if 0
+    make $@ -f - <<EOF
+    all: foo
+    foo.o:
+       cc -c -o foo.o -DFOO_C $0
+    bar.o:
+       cc -c -o bar.o -DBAR_C $0
+    foo: foo.o bar.o
+       cc -o foo foo.o bar.o
+    EOF
+    exit;
+    #endif
+
+    #ifdef FOO_C
+
+    #include <stdlib.h>
+    extern void bar();
+    int main(int argc, char* argv[]) {
+        bar();
+        return EXIT_SUCCESS;
+    }
+
+    #endif
+
+    #ifdef BAR_C
+    void bar() {
+       puts("bar!");
+    }
+    #endif
+```
