@@ -29,3 +29,15 @@ ASDF
 Frozen systems
   [_] TRY: use bundled frozen systems to distribute your programs
     https://www.quicklisp.org/beta/bundles.html
+
+
+Writing Lisp libraries
+  TUT: https://davazp.net/2014/11/26/modern-library-with-asdf-and-package-inferred-system.html
+    e.g. https://github.com/davazp/cl-docker
+
+  Shadowing symbols
+    https://stackoverflow.com/questions/44596132/use-package-shadowing-symbols
+
+
+Distribution
+  https://stackoverflow.com/questions/913671/are-there-lisp-native-code-compilers

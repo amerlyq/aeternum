@@ -1,0 +1,42 @@
+DEMO
+  OpenGL in Lisp
+    ! can be ia edited !
+    https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y
+  Game engine 2D in Lisp
+    https://www.youtube.com/watch?v=zw9JnspwEdM
+  Interactive music composition
+    https://www.youtube.com/watch?v=xzTH_ZqaFKI
+
+
+%%% Configuration
+
+EMacs for Vimmers -- initial configs to iterate
+  +++ https://github.com/ideasman42/emacs-for-vimmers
+    https://github.com/ideasman42/emacs-for-vimmers/blob/master/.emacs.d/init.el
+
+
+SLIME in spacemacs
+  https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Blang/common-lisp
+  https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#lisp-key-bindings
+
+  https://practicalli.github.io/spacemacs/structured-editing/lisp-state.html
+
+
+SPACEMACS basics tutorials
+  [_] READ:(migration philosophy): http://develop.spacemacs.org/doc/VIMUSERS.html
+  [_] READ: https://kiranshila.com/index.php/2018/09/15/setting-up-spacemacs-my-new-favorite-text-editor/
+  [_] NOTE: http://paul-gowder.com/emacs.html
+
+  https://www.youtube.com/c/jackofsome
+
+  OrgMode
+    https://www.youtube.com/watch?v=UT1bcq_HIkE&feature=youtu.be
+
+
+Other semantic-aware modes
+  https://www.reddit.com/r/emacs/comments/ciswlw/symex_mode_editing_lisp_code_in_a_vimlike_way/
+    https://www.youtube.com/watch?v=a5s1ScTx8Zk
+
+
+IDEA: learn (natural) languages through emacs and Memrise
+  https://github.com/SavchenkoValeriy/memrise.el

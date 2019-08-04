@@ -40,11 +40,30 @@ Lisp on Erlang VM
   https://github.com/b0oh/lol
 
 
+Lisp-flavoured C
+  https://github.com/tomhrr/dale
+  |aur/dale-git|
+
+
+Critique of Lisp
+  VIZ
+    http://www.newlisp.org/index.cgi?page=Links
+  How Common Lisp sucks
+    https://groups.google.com/forum/#!msg/comp.lang.lisp/GMx6gjESVZw/Z8PGTPs1Y-gJ
+  BUT
+    http://paulgraham.com/vanlfsp.html
+
+
+Arc -- lisp for exploratory programming
+  ForEveryone: https://arclanguage.github.io/
+    https://github.com/arclanguage/anarki
+  C: https://github.com/kimtg/Arcadia
+  https://www.reddit.com/r/lisp/comments/6i5n0g/arc_lisp_opinions/
+  https://stackoverflow.com/questions/448613/whats-happening-with-arc
+  http://paulgraham.com/arc0.html
+
 ALT
   CMP:(evolution): https://www.iro.umontreal.ca/~monnier/hopl-4-emacs-lisp.pdf
-
-  aur/newlisp 10.7.1-1 (22, 0.09)
-    newLISP is a LISP like, general purpose scripting language.
 
   https://common-lisp.net/project/asdf/
   TRY: WM instead of XMonad
@@ -65,13 +84,7 @@ ALT
       https://github.com/roswell/roswell
       https://mmaul.github.io/clml.tutorials//2015/08/08/CLML-Time-Series-Part-1.html
       https://github.com/melisgl/mgl
-  OpenGL in Lisp
-    ! can be ia edited !
-    https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y
-  Game engine 2D in Lisp
-    https://www.youtube.com/watch?v=zw9JnspwEdM
-  REF books
-    http://landoflisp.com/
+
 
 ALT:
   Scheme / gauche (like quicklisp)
@@ -86,22 +99,27 @@ REF
   https://stackoverflow.com/questions/21935903/how-to-prepare-for-learning-lisp-off-line
   https://bbs.archlinux.org/viewtopic.php?id=31731
 
-TUT
+
+TUT Getting Started
+  VIZ http://lisp-lang.org/learn/getting-started/
   ++ QuickStart: https://cs.gmu.edu/~sean/lisp/LispTutorial.html
   http://www.jonathanfischer.net/modern-common-lisp-on-linux/
-  http://lisp-lang.org/learn/getting-started/
   http://www.gigamonkeys.com/book/
+  [_] https://cliki.net/Getting%20Started
+  [_] https://www.reddit.com/r/lisp/comments/6snw5d/questions_for_2017_common_lisp_experts/
+  [_] https://news.ycombinator.com/item?id=13979002
+  [_] http://www.n-a-n-o.com/lisp/cmucl-tutorials/LISP-tutorial-16.html
+  [_] https://joshtronic.com/2015/04/26/open-challenge-learn-lisp-with-me/
   Setup Common Lisp IDE (emacs) / Хабр
     https://habr.com/ru/post/259737/
-
-
-scripting
-  ++ HACK http://fare.livejournal.com/184127.html
+  Как начать писать код на Lisp?
+    https://habr.com/ru/post/413061/
 
 
 VIZ.
   utils
     https://awesome-cl.com/
+    |aur/rsbag-tools-cl-git|
 
   common lisp
     sbcl (jit compiler)
@@ -109,17 +127,18 @@ VIZ.
     quicklisp (pkg mgr)
       https://www.quicklisp.org/beta/
 
-  owl-lisp
+  |aur/owl-lisp-git|
     https://github.com/aoh/owl-lisp
     = pure functional lisp
 
   cmucl
     https://www.cons.org/cmucl/
 
-  picolisp
-    TRY: using as shell language for my system scripting
-    ++ Great examples of user ia with *.so to call funcs, etc
-      https://picolisp.com/wiki/?home
-    TUT
-      https://habrahabr.ru/post/247965/
-      https://software-lab.de/doc/tut.html
+  |aur/wart-git|
+    A small, readable lisp with thorough unit tests and extensible functions/macros.
+
+  |aur/owl-lisp-git|
+    Simple purely functional lisp
+
+  |aur/femtolisp-git|
+    lightweight, robust, scheme-like lisp implementation

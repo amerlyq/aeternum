@@ -1,0 +1,83 @@
+%%%% Scripting
+
+ALT
+  Different specialized Lisp implementations
+    |aur/picolisp|  (dating from 1985)
+      TRY: using as shell language for my system scripting
+      ++ Great examples of user ia with *.so to call funcs, etc
+        https://picolisp.com/wiki/?home
+      TUT
+        https://habrahabr.ru/post/247965/
+        https://software-lab.de/doc/tut.html
+
+    |aur/newlisp|
+      newLISP is a LISP like, general purpose scripting language.
+      CMP: http://www.newlisp.org/index.cgi?page=Differences_to_Other_LISPs
+        BAD:FAIL: design decisions similar to Perl -- which were proven wrong with time
+
+  Linking CL as UNIX library -- so each script will be small
+    https://github.com/wadehennessey/wcl
+
+
+WARN: there must not be an insecure writeable system-wide FASL cache
+  => i.e. we can use read-only system-wide FASL cache though
+  so called FASL files (for FASt Loading) which some jest should be renamed SLOw Loading
+
+
+VIZ
+  https://github.com/CodyReichert/awesome-cl#scripting
+
+
+%%% Shebang
+
+  Native
+    #!/usr/bin/sbcl --script
+  Portable
+    #!/usr/bin/cl -E main
+  Safe
+    #!/usr/bin/cl -X -E main --
+  Multiline (instead of /usr/bin/env trampoline)
+    #!/bin/sh
+    ":" ; exec cl-launch -X -sp my-package -E main -- "$0" ${1+"$@"} || exit
+  ALSO:SEE:
+    $ cl-launch --more-help | less +/'Makefile examples'
+
+
+%%% Fare Ecosystem
+
+Using CL for UNIX scripting
+  2019-08-03 [X] Common Lisp as a Scripting Language, 2015 edition
+    https://fare.livejournal.com/184127.html
+    Suitability for scripting:
+      - zero-configuration in looking for source libraries
+      - zero-management in storing compiled outputs
+      - portable invocation from other programs
+      - portable invocation of other program
+      - tradeoff between startup times and memory occupancy
+        == share a dumped image between all the scripts you need
+    Multi-call binary
+      PERF:(82MB on SBCL): dump an image using my cl-launch utility
+        --output /path/to/executable --dump '!'
+      https://github.com/fare/fare-scripts/blob/master/make-multi.sh
+  Why Lisp is Now an Acceptable Scripting Language
+    https://github.com/fare/asdf3-2013
+    http://fare.tunes.org/files/asdf3/asdf3-els2014.html
+    http://fare.tunes.org/files/asdf3/asdf3-2014.html
+  Scripting in Common Lisp
+    https://ebzzry.io/en/script-lisp/
+  SRC
+    USE: https://github.com/fare/cl-scripting
+    E.G. https://github.com/fare/fare-scripts
+    https://github.com/fare/inferior-shell
+    https://github.com/fare/lisp-invocation
+    https://github.com/fare/lisp-interface-library
+    https://github.com/fare/command-line-arguments
+
+
+CLiki: cl-launch>=4.1.2
+  REF: https://cliki.net/cl-launch
+  * support the very same interface on all its 12+ supported implementations
+      -DE | --dispatch-entry
+  BUG:FAIL:
+    $ cl-launch --output /tmp/myexe --dump '!' --lisp sbcl -DE example/main ./main.lisp
+    # Image dump required but neither dump file nor output file specified
