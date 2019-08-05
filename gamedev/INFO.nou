@@ -1,0 +1,112 @@
+DECI
+  ::: use CommonLisp + SDL2 bindings
+    https://github.com/lispgames/cl-sdl2
+      ERR: https://www.reddit.com/r/Common_Lisp/comments/9bzltg/the_clsdl2_library_is_removing_finalizers_soon/
+        => finalizers are BAD for resource management in CL
+    VIZ: useful CL libs for multimedia
+      https://github.com/lispgames/lispgames.github.io/wiki/Common-Lisp
+
+    +++ TUT: Common Lisp SDL2 туториал
+      https://habr.com/ru/post/275651/
+        https://github.com/TatriX/cl-sdl2-tutorial
+
+    https://news.ycombinator.com/item?id=16819425
+
+    ~~ https://common-lisp.net/project/cl-test-grid/library/cl-sdl2.html
+  TUT: Pushing Pixels with Lisp
+    https://www.youtube.com/watch?v=82o5NeyZtvw&list=PL2VAYZE_4wRITJBv6saaKouj4sWSG1FcS
+  TUT:
+    http://landoflisp.com/
+  ALT
+    https://github.com/borodust/trivial-gamekit
+
+  Compiling
+    www.naughtydog.com/docs/Naughty-Dog-GDC08-Adventures-In-Data-Compilation.pdf
+
+
+READ
+  +++ Game development on Haskell
+    http://keera.co.uk/blog/2014/10/15/from-60-fps-to-500/
+    http://keera.co.uk/blog/2014/08/13/most-inspiring-green-screen-you-will-ever-see/
+    haskell bindings
+      https://wiki.haskell.org/SDL
+
+
+TRY:
+  mle -- editor without... anything
+    https://github.com/adsr/mle
+    - Movement via less
+    - File browsing via tree
+    - File grep via grep
+    - String manip via perl
+
+
+VIZ:CMP:
+  https://www.khronos.org/opengl/wiki/Related_toolkits_and_APIs
+
+GL
+  SDL2
+    https://www.libsdl.org/languages.php
+    IDEA: https://itch.io/games/made-with-sdl
+    TUT: http://lazyfoo.net/tutorials/SDL/index.php
+  GLFW
+    https://www.glfw.org/
+    https://github.com/glfw/glfw
+    If graphics only (getting a GL context going) and basic input
+      support is what you need, then GLFW3 is the best alternative imo.
+    Super clean and easy to use.
+    Nice documentation as well.
+    For making demos and similar, nothing beats GLFW3.
+    GLFW: Light weight, callback system, decent support, good GLES support.
+  SDL game engine 2d
+    https://sourceforge.net/projects/sge2d/
+  ModernGL
+    https://moderngl.readthedocs.io/en/stable/
+  SFML
+    https://www.sfml-dev.org/
+      https://github.com/SFML/SFML
+    is pretty great if you're using C++
+    Very clean and well designed C++ api.
+    If you're the kind of person who would use SDL or GLFW
+      and wrap everything with RAII types before getting started -- just use SFML instead.
+    -- does not allow you to allocate a core context
+
+
+GUI
+  +++ Nuklear -- embedded GUI into _your_ program
+    !!! similar to what I wish to make from "mio"
+    REF: https://github.com/vurtun/nuklear
+    OFF: https://habr.com/ru/post/319106/
+    TUT: http://casualgum.com/public/nuklear_gui.html
+  Для рисования на совсем слабых контроллеров могу свою либу посоветовать:
+    https://github.com/errorcalc/ESLowGraphicsLibrary
+  libui
+    https://github.com/andlabs/libui
+  imgui C++
+    https://github.com/ocornut/imgui
+  FLTK
+    https://www.fltk.org/
+  Game-GUI
+    https://github.com/sp4cerat/Game-GUI
+
+
+VZ
+  https://github.com/MicBosi/VisualizationLibrary
+  http://visualizationlibrary.org/docs/2.0/html/index.html
+
+
+Game
+  Ogre 2.2
+    https://www.ogre3d.org/#
+  urho3d
+    https://github.com/urho3d/Urho3D/pull/1709
+  Allegro5
+    https://sourceforge.net/projects/alleg/
+  Panda3D
+    https://www.panda3d.org/
+  Pygame
+    https://www.pygame.org/news
+
+
+Voxel
+  https://github.com/nothings/obbg
