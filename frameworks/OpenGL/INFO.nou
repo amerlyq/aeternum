@@ -3,15 +3,18 @@ CMP opengl vs directx
 
 WebGL
   https://webglfundamentals.org/
+  [_] TODO:MAYBE: visualize some parts of site by OpenGL / WebGL
+
 
 Sites
   http://www.opengl-tutorial.org/miscellaneous/
   http://www.opengl-tutorial.org/miscellaneous/useful-tools-links/
 
-Demos
+DEMO
   ftp://ftp.freedesktop.org/pub/mesa/demos/
+  https://github.com/g-truc/ogl-samples
 
-Tutorials
+TUT
   http://www.opengl-tutorial.org/download/
   http://ogldev.atspace.co.uk/
   http://masandilov.ru/opengl/opengl-linux
