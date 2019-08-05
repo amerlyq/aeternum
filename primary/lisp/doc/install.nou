@@ -1,0 +1,64 @@
+Docker + Jupyter notebooks
+  https://medium.com/@prato_s/lisp-hmm-40954cf3485a
+    https://vimeo.com/97623064
+
+
+%% Dialects
+  Arc -- lisp for exploratory programming
+    ForEveryone: https://arclanguage.github.io/
+      https://github.com/arclanguage/anarki
+    C: https://github.com/kimtg/Arcadia
+    https://www.reddit.com/r/lisp/comments/6i5n0g/arc_lisp_opinions/
+    https://stackoverflow.com/questions/448613/whats-happening-with-arc
+    http://paulgraham.com/arc0.html
+
+  CL21
+    http://cl21.org/
+    READ: https://github.com/cl21/cl21
+    https://news.ycombinator.com/item?id=9074737
+
+  Dale -- Lisp-flavoured C
+    https://github.com/tomhrr/dale
+    |aur/dale-git|
+
+  Lisp on Erlang VM
+    irc:#erlang-lisp
+    http://lfe.io/
+    |aur/lfe-git| r963.2880c8a-1 (1, 0.08)
+      Lisp Flavoured Erlang
+    http://joxa.org/
+    http://the-concurrent-schemer.github.io/scm-doc/
+    https://github.com/b0oh/lol
+
+  ALT: Scheme / gauche (like quicklisp)
+    https://practical-scheme.net/
+      https://practical-scheme.net/gauche/
+        https://practical-scheme.net/gauche/memo-c-j.html
+
+
+
+VIZ.
+  utils
+    |aur/rsbag-tools-cl-git|
+
+  common lisp
+    sbcl (jit compiler)
+      http://www.sbcl.org/
+    quicklisp (pkg mgr)
+      https://www.quicklisp.org/beta/
+
+  |aur/owl-lisp-git|
+    https://github.com/aoh/owl-lisp
+    = pure functional lisp
+
+  cmucl
+    https://www.cons.org/cmucl/
+
+  |aur/wart-git|
+    A small, readable lisp with thorough unit tests and extensible functions/macros.
+
+  |aur/owl-lisp-git|
+    Simple purely functional lisp
+
+  |aur/femtolisp-git|
+    lightweight, robust, scheme-like lisp implementation

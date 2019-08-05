@@ -18,6 +18,9 @@ ALT
   Linking CL as UNIX library -- so each script will be small
     https://github.com/wadehennessey/wcl
 
+  Embedding Lisp into C
+    |extra/ecl|
+
 
 WARN: there must not be an insecure writeable system-wide FASL cache
   => i.e. we can use read-only system-wide FASL cache though

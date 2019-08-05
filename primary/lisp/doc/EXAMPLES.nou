@@ -8,3 +8,7 @@ BUG
       (format *query-io* "~a: " "var")
       (force-output *query-io*)
       (setq var (read-line *query-io*))
+
+
+Get name of current function (impossible)
+  https://www.quora.com/Is-it-possible-to-get-the-function-name-in-a-running-LISP-function

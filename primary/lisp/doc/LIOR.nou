@@ -1,0 +1,13 @@
+%% Cheatsheets
+
+Drop SBCL into debugger (e.g. to be able to "(load swank)")
+  $ kill -SIGINT $(pidof sbcl)
+  # TEST: $ { sleep 5; echo ABORT; echo '(print "swank")' } | sbcl --eval '(sleep 30)' | cat
+
+
+python CMP lisp
+  https://norvig.com/python-lisp.html
+
+
+Style Guide
+  https://lisp-lang.org/style-guide/

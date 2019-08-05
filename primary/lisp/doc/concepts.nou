@@ -1,5 +1,8 @@
 %%%% High-order concepts
 
+Symbols
+  https://lispmethods.com/symbols.html
+
 Conditions and Restarts (error-handling?)
   https://lisper.in/restarts
 
@@ -31,3 +34,6 @@ Comparison
 
 Looping
   +++ http://www.gigamonkeys.com/book/loop-for-black-belts.html
+
+Monads
+  E.G. https://gist.github.com/nyuichi/3886687

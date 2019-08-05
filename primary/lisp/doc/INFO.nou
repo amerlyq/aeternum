@@ -8,14 +8,17 @@ WHY lisp
   Why We Hate Lisp
     http://wiki.c2.com/?WhyWeHateLisp
     http://wiki.c2.com/?WhyWeLoveLisp
-
-
-READ: https://github.com/cl21/cl21
-  http://cl21.org/
-  BOOK: Full-stack lisp https://leanpub.com/fullstacklisp/read
+  Critique of Lisp
+    VIZ
+      http://www.newlisp.org/index.cgi?page=Links
+    How Common Lisp sucks
+      https://groups.google.com/forum/#!msg/comp.lang.lisp/GMx6gjESVZw/Z8PGTPs1Y-gJ
+    BUT
+      http://paulgraham.com/vanlfsp.html
 
 
 Lisp
+  REF:(cheatsheet): http://jtra.cz/stuff/lisp/sclr/index.html
   SEE http://stackoverflow.com/questions/2720843/can-a-language-have-lisps-powerful-macros-without-the-parentheses
     http://www.dwheeler.com/readable/sweet-expressions.html
     https://news.ycombinator.com/item?id=823524
@@ -28,39 +31,8 @@ Lisp
   How to make Lisp go faster than C
     http://www.iaeng.org/IJCS/issues_v32/issue_4/IJCS_32_4_19.pdf
     https://news.ycombinator.com/item?id=1390944
+  VIZ:E.G. https://rosettacode.org/wiki/Category:Common_Lisp
 
-
-Lisp on Erlang VM
-  irc:#erlang-lisp
-  http://lfe.io/
-  |aur/lfe-git| r963.2880c8a-1 (1, 0.08)
-    Lisp Flavoured Erlang
-  http://joxa.org/
-  http://the-concurrent-schemer.github.io/scm-doc/
-  https://github.com/b0oh/lol
-
-
-Lisp-flavoured C
-  https://github.com/tomhrr/dale
-  |aur/dale-git|
-
-
-Critique of Lisp
-  VIZ
-    http://www.newlisp.org/index.cgi?page=Links
-  How Common Lisp sucks
-    https://groups.google.com/forum/#!msg/comp.lang.lisp/GMx6gjESVZw/Z8PGTPs1Y-gJ
-  BUT
-    http://paulgraham.com/vanlfsp.html
-
-
-Arc -- lisp for exploratory programming
-  ForEveryone: https://arclanguage.github.io/
-    https://github.com/arclanguage/anarki
-  C: https://github.com/kimtg/Arcadia
-  https://www.reddit.com/r/lisp/comments/6i5n0g/arc_lisp_opinions/
-  https://stackoverflow.com/questions/448613/whats-happening-with-arc
-  http://paulgraham.com/arc0.html
 
 ALT
   CMP:(evolution): https://www.iro.umontreal.ca/~monnier/hopl-4-emacs-lisp.pdf
@@ -86,21 +58,9 @@ ALT
       https://github.com/melisgl/mgl
 
 
-ALT:
-  Scheme / gauche (like quicklisp)
-    https://practical-scheme.net/
-      https://practical-scheme.net/gauche/
-        https://practical-scheme.net/gauche/memo-c-j.html
-  IDEA: shell-like repl
-    https://www.reddit.com/r/lisp/comments/5b76a5/why_not_use_a_lisp_repl_as_a_permanent_shield/
-
-
-REF
-  https://stackoverflow.com/questions/21935903/how-to-prepare-for-learning-lisp-off-line
-  https://bbs.archlinux.org/viewtopic.php?id=31731
-
-
 TUT Getting Started
+  REF https://stackoverflow.com/questions/21935903/how-to-prepare-for-learning-lisp-off-line
+  https://bbs.archlinux.org/viewtopic.php?id=31731
   VIZ http://lisp-lang.org/learn/getting-started/
   ++ QuickStart: https://cs.gmu.edu/~sean/lisp/LispTutorial.html
   http://www.jonathanfischer.net/modern-common-lisp-on-linux/
@@ -114,31 +74,5 @@ TUT Getting Started
     https://habr.com/ru/post/259737/
   Как начать писать код на Lisp?
     https://habr.com/ru/post/413061/
-
-
-VIZ.
-  utils
-    https://awesome-cl.com/
-    |aur/rsbag-tools-cl-git|
-
-  common lisp
-    sbcl (jit compiler)
-      http://www.sbcl.org/
-    quicklisp (pkg mgr)
-      https://www.quicklisp.org/beta/
-
-  |aur/owl-lisp-git|
-    https://github.com/aoh/owl-lisp
-    = pure functional lisp
-
-  cmucl
-    https://www.cons.org/cmucl/
-
-  |aur/wart-git|
-    A small, readable lisp with thorough unit tests and extensible functions/macros.
-
-  |aur/owl-lisp-git|
-    Simple purely functional lisp
-
-  |aur/femtolisp-git|
-    lightweight, robust, scheme-like lisp implementation
+  irc:#lisp
+    https://irclog.tymoon.eu/freenode/lisp
