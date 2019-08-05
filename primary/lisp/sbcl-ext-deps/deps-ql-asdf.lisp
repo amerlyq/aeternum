@@ -5,7 +5,8 @@
 (require :asdf)
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (load "/etc/default/quicklisp")
-  (handler-bind ((asdf:bad-system-name #'muffle-warning)) (asdf:require-system 'cl-unicode)))
+  (handler-bind ((asdf:bad-system-name #'muffle-warning))
+    (asdf:require-system 'cl-unicode)))
 
 (defpackage #:example (:use :cl :cl-unicode))
 (in-package #:example)

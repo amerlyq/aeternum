@@ -4,9 +4,7 @@
 ;;  $ cl -h
 ;;  $ cl --more-help
 
-; (in-package #:example)
-
 ; ALSO: *standard-input*
 (defun main (argv)
-  (format t "First~%~S~%" argv)
+  (format t "Script~%~S~%" argv)
   t)

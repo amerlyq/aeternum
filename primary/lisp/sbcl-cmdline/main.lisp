@@ -6,8 +6,10 @@
   (:export :main))
 (in-package #:example)
 
-(defun main (&key (myvar 2000))
-  (format t "~A~%" myvar))
+(defun main (&optional argv)
+  (declare (ignore argv))
+  (write-line "main")
+  (values))
 
 (eval-when (:execute)
   (main))

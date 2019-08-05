@@ -1,18 +1,22 @@
-#!/usr/bin/sbcl --script
+#!/usr/bin/cl -Q -E main
 ;;SUMMARY: parse cmdline options
 ;;DEPS: $ sudo sbcl --noprint --load /etc/default/quicklisp --script /dev/stdin <<< '(ql:quickload :unix-opts)'
 ;;REF: https://github.com/libre-man/unix-opts/blob/master/example/example.lisp
 
-(require :asdf)
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (load "/etc/default/quicklisp")
-  (handler-bind ((asdf:bad-system-name #'muffle-warning))
-    (require :unix-opts)))
+; (require :asdf)
+; (eval-when (:compile-toplevel :load-toplevel :execute)
+  ; (load "/etc/default/quicklisp")
+  ; (handler-bind ((asdf:bad-system-name #'muffle-warning))
+  ;   (require :unix-opts))
+  ; (asdf:load-system :unix-opts)
+  ; )
 
-(defpackage #:example (:use :cl))
-(in-package #:example)
+(require :unix-opts)
 
-(opts:define-opts
+; (defpackage #:example (:use :cl))
+; (in-package #:example)
+
+(unix-opts:define-opts
   (:name :help
    :description "print this help text"
    :short #\h
@@ -45,7 +49,7 @@
      (when it
        ,@body)))
 
-(eval-when (:execute)
+(defun main (argv)
   (multiple-value-bind (options free-args)
       (handler-case
           (handler-bind ((opts:unknown-option #'unknown-option))
