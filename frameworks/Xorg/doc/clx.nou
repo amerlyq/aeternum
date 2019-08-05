@@ -1,0 +1,16 @@
+REF
+  https://common-lisp.net/project/cmucl/doc/clx/
+
+
+INFO
+  [_] listen root-only events -- for fast terminal / exec w/o modifier
+    SEIZE https://github.com/sharplispers/clx/blob/master/debug/event-test.lisp
+  [_] Compose key and keysym->char()
+    https://github.com/sharplispers/clx/issues/30
+
+
+BUG
+  [_] CHECK: key press/release events are delayed / missed
+    https://github.com/sharplispers/clx/issues/64
+  [_] BUG: latching keyboard press <M-LMouse> will stick <M> for one more click
+    <= latching modifiers aren't cleared on mouse clicks -- only on keyboard press

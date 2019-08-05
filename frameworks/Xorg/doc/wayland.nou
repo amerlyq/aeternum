@@ -1,0 +1,7 @@
+Wayland + Lisp
+  (compositor) https://github.com/malcolmstill/ulubis
+  (graphic server) http://www.cliki.net/Suggested%20Programming%20Projects
+  Bindings
+    https://github.com/malcolmstill/cl-wayland
+    https://github.com/plops/cl-c2ffi-wayland
+    http://www.jlekstrand.net/jason/projects/wayland/language-bindings-guide/
