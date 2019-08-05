@@ -1,3 +1,5 @@
+%%%%% INFO
+
 ArchLinux guidelines
   2019-07-31 [X] https://wiki.archlinux.org/index.php/Lisp_package_guidelines
   USE:
@@ -26,6 +28,10 @@ ASDF
     https://european-lisp-symposium.org/static/2017/rideau.pdf
 
 
+Projects
+  READ:TUT http://xach.livejournal.com/278047.html
+
+
 Frozen systems
   [_] TRY: use bundled frozen systems to distribute your programs
     https://www.quicklisp.org/beta/bundles.html
@@ -43,6 +49,10 @@ Compiled Binary Distribution
   CMP https://lispcookbook.github.io/cl-cookbook/scripting.html
   TUT https://borodust.org/delivering-common-lisp
   https://stackoverflow.com/questions/913671/are-there-lisp-native-code-compilers
+
+
+Deploy Common Lisp Apps with Confidence
+  https://www.darkchestnut.com/book-common-lisp-application-deployment/
 
 
 ALT: interact with Lisp image using shell commands

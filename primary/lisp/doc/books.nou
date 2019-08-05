@@ -7,6 +7,9 @@ BLOG
 
 
 BOOK
+  Common LISP: A Gentle Introduction to Symbolic Computation, 2013
+    https://books.google.com.ua/books?id=uHW5WS-va2UC
+
   Paradigms of Artificial Intelligence Programming
     https://github.com/norvig/paip-lisp
     https://github.com/norvig/pytudes
@@ -35,6 +38,20 @@ BOOK
 
   Full-stack Lisp
     https://leanpub.com/fullstacklisp/read
+
+  Practical Common Lisp, 2003-2009
+    http://www.gigamonkeys.com/book/
+    RU: http://lisper.ru/pcl/loop-for-black-belts
+
+  Deploy Common Lisp Apps with Confidence
+    https://www.darkchestnut.com/book-common-lisp-application-deployment/
+
+  LISP Lore: A Guide to Programming the LISP Machine, 1987
+    https://books.google.com.ua/books?id=NM_cBwAAQBAJ
+
+  Common Lisp the Language, 2nd Edition
+    https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node1.html
+    https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/index.html
 
 
 TUT

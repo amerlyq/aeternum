@@ -31,6 +31,11 @@ Lisp
   How to make Lisp go faster than C
     http://www.iaeng.org/IJCS/issues_v32/issue_4/IJCS_32_4_19.pdf
     https://news.ycombinator.com/item?id=1390944
+  lisp symbols/types lookup
+    http://www.lispworks.com/documentation/HyperSpec/Front/X_Symbol.htm
+    http://www.sbcl.org/manual/
+    https://en.wikibooks.org/wiki/Common_Lisp/Reference
+    http://clhs.lisp.se/Body/26_glo_p.htm#proper_sequence
   VIZ:E.G. https://rosettacode.org/wiki/Category:Common_Lisp
 
 
@@ -41,7 +46,8 @@ ALT
   TRY: WM instead of XMonad
     https://common-lisp.net/project/clfswm/#screenshot
   http://www.lisperati.com/
-  http://lisper.ru/wiki/lisp-source-code
+  http://lisper.ru/
+    http://lisper.ru/wiki/lisp-source-code
   http://habrahabr.ru/post/265589/
   http://rus-linux.net/MyLDP/algol/LISP/lisp01.html
   Multithreading
@@ -76,3 +82,14 @@ TUT Getting Started
     https://habr.com/ru/post/413061/
   irc:#lisp
     https://irclog.tymoon.eu/freenode/lisp
+
+
+Lisp learning recommendations
+  How to write Common Lisp in 2017 – an initiation manual
+    http://articulate-lisp.com/
+    https://news.ycombinator.com/item?id=13979002
+  [_] FIND Lisp primitives (minimal set) * to start learning
+    https://ccrma.stanford.edu/courses/124/resources/Basic%20Lisp%20Primitives.htm
+    https://quizlet.com/105861300/lisp-2-basic-primitives-flash-cards/
+  https://www.reddit.com/r/lisp/comments/1xmd8n/two_hard_months_into_cl_my_feedback_for_the/
+  https://www.reddit.com/r/lisp/comments/2hd0x1/the_legacy_of_lisp_observationsrants/

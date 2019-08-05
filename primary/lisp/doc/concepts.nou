@@ -1,7 +1,54 @@
 %%%% High-order concepts
 
+%%% LANG
+
+%% Elements
+
 Symbols
   https://lispmethods.com/symbols.html
+
+Blocks -- Join multiple statements ::: "(progn)"
+  REF http://www.gnu.org/software/emacs/manual/html_node/elisp/Sequencing.html
+  https://stackoverflow.com/questions/2852249/can-you-execute-multiple-statements-in-an-if-statement
+
+
+%% Foreigns
+
+  http://www.lichteblau.com/sbcl/doc/manual/sbcl/Step_002dBy_002dStep-Example-of-the-Foreign-Function-Interface.html
+  https://common-lisp.net/project/cffi/manual/html_node/Foreign-Structure-Types.html
+
+
+%% Exceptions
+  REF https://en.wikibooks.org/wiki/Common_Lisp/Advanced_topics/Condition_System
+  BOOK https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node319.html
+    https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node338.html
+    + http://www.gigamonkeys.com/book/beyond-exception-handling-conditions-and-restarts.html
+  TUT http://schemer.in/aeh.html
+    https://www.tutorialspoint.com/lisp/lisp_error_handling.htm
+  https://stackoverflow.com/questions/36178141/common-lisp-exception-handling-condition-and-restart
+
+
+%% Collections
+  http://www.gigamonkeys.com/book/collections.html
+
+  hashmap
+    http://cl-cookbook.sourceforge.net/hashes.html
+    https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node154.html
+    CMP http://www.shido.info/lisp/scheme_ah_e.html
+
+
+%% Structures
+  https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node173.html
+  https://www.csie.ntu.edu.tw/~course/10420/Resources/lp/node56.html
+  REF https://en.wikibooks.org/wiki/Common_Lisp/Reference/defstruct
+  TUT https://hanshuebner.github.io/lmman/defstr.xml
+  LIOR https://www.tutorialspoint.com/lisp/lisp_structures.htm
+
+
+%% Flow
+
+Returns
+  https://www.tutorialspoint.com/lisp/lisp_returning_values_functions.htm
 
 Conditions and Restarts (error-handling?)
   https://lisper.in/restarts
@@ -26,14 +73,84 @@ Continuations
     https://stackoverflow.com/questions/3811448/can-call-with-current-continuation-be-implemented-only-with-lambdas-and-closures
     https://groups.google.com/forum/#!msg/comp.lang.lisp/1Ggl_BUi3Yg/VFTIDaJqRK8J
 
+
+%% Abstracts
+
+Generics and Multimethods
+  https://en.wikipedia.org/wiki/Generic_function
+  https://en.wikipedia.org/wiki/Multiple_dispatch
+
 Currying
   http://www.chadbraunduin.com/2011/07/common-lisp-currying.html
+
+Monads
+  E.G. https://gist.github.com/nyuichi/3886687
+
+
+%% Constructions
+
+Conditionals
+  REF https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node84.html
 
 Comparison
   https://common-lisp.net/project/cdr/document/8/cleqcmp.html
 
+
+%% Statements
+
 Looping
   +++ http://www.gigamonkeys.com/book/loop-for-black-belts.html
 
-Monads
-  E.G. https://gist.github.com/nyuichi/3886687
+TODO while() loop
+  https://stackoverflow.com/questions/35739365/how-to-do-a-while-loop-in-lisp
+  https://www.gnu.org/software/emacs/manual/html_node/eintr/while.html
+  CMP loop / do
+    http://www.lispworks.com/documentation/lcl50/loop/loop-7.html
+    REF http://www.lispworks.com/documentation/lw60/CLHS/Body/m_do_do.htm
+    http://www.gigamonkeys.com/book/loop-for-black-belts.html
+    http://lisper.ru/pcl/loop-for-black-belts
+    https://www.tutorialspoint.com/lisp/lisp_loops.htm
+
+%% Variables
+
+CMP set / setq / setf
+  [60%] READ https://stackoverflow.com/questions/869529/difference-between-set-setq-and-setf-in-common-lisp
+  (setf (symbol-value '*foo*) 42) -- for dynamic scope, old version: (set (quote *foo*) 42)
+  (setq *foo* 42) -- set quoted, low-level primitive, same as above for new impl
+  (setf (car x) 42) -- set function (field) x.car=42 i.e.(C++): *x = 42
+
+CMP let / let*
+  https://stackoverflow.com/questions/554949/let-versus-let-in-common-lisp
+  REF http://www.lispworks.com/documentation/lw60/CLHS/Body/s_let_l.htm
+
+
+Variable reference -- modify var outside of function
+  https://stackoverflow.com/questions/1249991/variable-references-in-lisp
+  [_] CMP dynamic vs lexical scope binding (BET: lexical -- closures become possible)
+    https://stackoverflow.com/questions/29347648/can-dynamic-scoping-implement-lexical-scoping
+    http://www.gnu.org/software/emacs/manual/html_node/elisp/Variable-Scoping.html
+      http://www.gnu.org/software/emacs/manual/html_node/elisp/Lexical-Binding.html#Lexical-Binding
+
+Multivalues -- return multiple values from function
+  https://stackoverflow.com/questions/37639171/how-to-handle-multiple-returns-in-common-lisp
+  + https://stackoverflow.com/questions/22795608/values-function-in-common-lisp
+  https://stackoverflow.com/questions/869529/difference-between-set-setq-and-setf-in-common-lisp
+  REF https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node94.html
+  TUT http://asymmetrical-view.com/2008/09/18/destructuring-bind.html
+
+  optional return values (2nd onwards can be ignored)
+    (defun fun () (values '(1 2) '(3 4))
+    (setq a (fun))                # set-quoted symbol "a" to first value
+    (setf (values a b) (fun))     #
+    (destructuring-bind (a b) (multiple-value-list (fun)) ... )  # convert values to list
+    (multiple-value-bind (a b) (fun) ... )  # more efficient
+      where "..." is e.g. (format t "~&A: ~s~%B: ~s~%" a b)
+
+  indivisible return values
+    (defun fun () (list '(1 2) '(3 4))
+    (destructuring-bind (a b) (bar) (format t "~&A: ~s~%B: ~s~%" a b))
+
+  modify return type of last statement
+    (defun 2value (x y) (floor y x))
+    (defun 1value (x y) (values (floor y x)))  # discard rest of ret values
+    (defun 0value (x)   (print x) (values))    # discard all ret values

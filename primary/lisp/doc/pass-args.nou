@@ -10,3 +10,18 @@ pass data by ref NOT FP
 pass struct by value (copy)
   http://www.lispforum.com/viewtopic.php?f=2&t=4157
   https://stackoverflow.com/questions/19133763/how-do-i-write-a-comparable-cffitranslate-into-foreign-defmethod-for-this-cffi/39942257#39942257
+
+Ignore arg in function ::: "(declare (ignore <arg1>))"
+  WARN: "declare" can't be combined with "progn"
+  REF http://www.lispworks.com/documentation/HyperSpec/Body/d_ignore.htm
+  https://stackoverflow.com/questions/31225756/sbcl-warning-that-a-variable-is-defined-but-never-used
+  https://news.ycombinator.com/item?id=7777323
+  https://ideone.com/8e48lu
+
+Variable number of args
+  https://stackoverflow.com/questions/22805867/common-lisp-can-i-define-a-function-with-arbitrary-number-of-args-and-optional
+  https://stackoverflow.com/questions/18211198/how-do-i-handle-a-variable-number-of-arguments-passed-to-a-function-in-racket
+
+CMP funcall / apply
+  https://stackoverflow.com/questions/3862394/when-do-you-use-apply-and-when-funcall
+  REF http://clhs.lisp.se/Body/f_apply.htm

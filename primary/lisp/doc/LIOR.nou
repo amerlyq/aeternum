@@ -11,3 +11,7 @@ python CMP lisp
 
 Style Guide
   https://lisp-lang.org/style-guide/
+
+
+Enable case-sensitivity
+  https://stackoverflow.com/questions/7375537/why-is-common-lisp-case-insensitive

@@ -10,3 +10,15 @@ sysinit /etc/.../sbclrc
   => define all deps there
     e.g. symlink to your Quicklisp or Roswell installation
   => only load required scripts
+
+
+%%% DEPS
+
+Load/compile external deps OR project package composition
+  https://stackoverflow.com/questions/9832378/where-should-a-quicklisp-quickload-go-in-my-source-nowhere
+  + https://www.darkchestnut.com/2016/dont-put-quicklisp-in-your-binary-just-because-a-library-demands-it/
+  https://stackoverflow.com/questions/10674650/eval-when-uses#
+  http://xach.livejournal.com/278047.html
+  (eval-when (:compile-toplevel)
+    (ql:quickload "aserve")
+    (ql:quickload "bordeaux-threads"))
