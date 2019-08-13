@@ -1,0 +1,38 @@
+REF
+  https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+  https://www.kernel.org/doc/html/v4.10/process/coding-style.html
+
+CMP
+  * https://arne-mertz.de/2016/11/trailing-return-types-everywhere/
+  * http://slashslash.info/2018/02/a-foolish-consistency/
+  * https://levelofindirection.com/blog/east-end-functions.html
+  * https://bugs.llvm.org/show_bug.cgi?id=34220
+
+
+TRY:ALSO: spelling errors -- detect and suggest variants
+  https://github.com/codespell-project/codespell
+
+
+USAGE
+  $ clang-format -style=file -i some.cpp
+
+
+HACK: skip formatting
+  int formatted_code;
+  // clang-format off
+      void    unformatted_code  ;
+  // clang-format on
+  void formatted_code_again;
+
+
+DEBUG
+  get comparison table for options which differ
+    $ for t in LLVM Google Chromium Mozilla WebKit file; do clang-format -style=$t -dump-config > $t; done
+    $ fv(){ grep -viE '\b(regex|priority):|^objc' | cut -d: -f2- | sed 's/^\s*//'; }
+    $ nocorrect paste -d$'\t' <(<file grep -viE '\b(regex|priority):|^objc'|sed 's/:\s\+/:\t/') <(fv<WebKit) <(fv<Mozilla) <(fv<LLVM) <(fv<Google) <(fv<Chromium) | grep -vP '(?:^|\s)([^\t]+)\t\1\t\1\t\1\t\1\t\1' | sed 's/\btrue\b/+/g; s/\bfalse\b/-/g' | column -ts$'\t'
+
+  compare number of differences with each style
+    $ for t in LLVM Google Chromium Mozilla WebKit; do echo $t $(/usr/bin/diff -u file $t|grep '^[+-]'|grep -viE '\b(regex|priority):|^objc' | wc -l); done
+
+  statistics on project line length with quantile 40
+    $ find -name '_*' -prune -o \( -name '*.cpp' -o -name '*.hpp' \) -exec awk -vq=40 '$0!~/^\s*$/ && $1!~/^\/\// {print int(length($0)/q+1)*q}' {} + |sort -n|uniq -c
