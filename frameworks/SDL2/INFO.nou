@@ -1,5 +1,17 @@
+REF
+  VIZ: http://wiki.libsdl.org/APIByCategory
+
+
 TUT
   http://wiki.libsdl.org/Tutorials
-  https://ps-group.github.io/opengl/lesson_1
   https://www.willusher.io/pages/sdl2/
   http://lazyfoo.net/tutorials/SDL/
+  http://www.sdltutorials.com/sdl-tutorial-basics
+  https://github.com/Twinklebear/TwinklebearDev-Lessons
+  RU: http://habrahabr.ru/post/201392/
+
+
+INFO
+  Use 2D-acceleration with Renderer
+    REF: https://wiki.libsdl.org/CategoryRender
+    TUT: https://dev.to/noah11012/using-sdl2-2d-accelerated-renderering-1kcb

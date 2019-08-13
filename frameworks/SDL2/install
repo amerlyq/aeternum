@@ -1,0 +1,24 @@
+#!/bin/bash -eu
+source ~/.shell/func.d/packages
+# PERF:(2-6MB) SDL2, SDL libs
+
+
+if distro arch; then
+  # pkg_inst sdl2 sdl2_image sdl2_ttf sdl2_gfx sdl2_mixer sdl2_net lua-sdl2
+  # DEV: dummy package of bundled libs
+  # loc_inst ./pkg/airy-sdl2-bundle.pkgbuild
+  # OR:BET:(enough): install everything as deps
+  pkg_inst lua-sdl2
+  pkg_inst glu glew
+  pkg_inst nvidia-cg-toolkit  # = include <Cg/cg.h> SEE: /usr/share/Cg/examples
+
+elif distro ubuntu; then
+  # FIND: $ apt-cache search libsdl2
+  # BUILD: $ ./autogen.sh && ./configure && make && sudo checkinstall
+  pkg_inst libsdl2-dev libsdl2-{image,ttf,gfx,mixer,net}-dev
+fi
+
+
+# ALT:SRC:
+# hg_inst 'http://hg.libsdl.org/SDL'
+# hg_inst 'http://hg.libsdl.org/SDL_image'
