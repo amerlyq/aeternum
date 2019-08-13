@@ -55,9 +55,12 @@ Deploy Common Lisp Apps with Confidence
   https://www.darkchestnut.com/book-common-lisp-application-deployment/
 
 
-ALT: interact with Lisp image using shell commands
+REPL: shell
+  ALT: interact with Lisp image using shell commands
   CMP:VIZ: https://stackoverflow.com/questions/31377098/interact-with-a-locally-long-running-common-lisp-image-possibly-daemonized-fro
   ScriptL -- use auto-generated shell commands as proxies to running Lisp server
     https://github.com/rpav/ScriptL
   IDEA: shell-like repl
     https://www.reddit.com/r/lisp/comments/5b76a5/why_not_use_a_lisp_repl_as_a_permanent_shield/
+  runcl
+    https://github.com/orthecreedence/runcl

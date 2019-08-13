@@ -2,6 +2,7 @@ DEMO
   OpenGL in Lisp
     ! can be ia edited !
     https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y
+    https://rosettacode.org/wiki/OpenGL#Common_Lisp
   Game engine 2D in Lisp
     https://www.youtube.com/watch?v=zw9JnspwEdM
   Interactive music composition
@@ -40,3 +41,9 @@ Other semantic-aware modes
 
 IDEA: learn (natural) languages through emacs and Memrise
   https://github.com/SavchenkoValeriy/memrise.el
+
+
+Vim as Lisp IDE
+  https://github.com/l04m33/vlime
+  http://journal.okal.me/post/75919443198/setting-up-a-vim-based-common-lisp-development
+  SEE https://github.com/bhurlow/vim-parinfer/tree/master/plugin

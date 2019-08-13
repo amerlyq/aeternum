@@ -1,0 +1,6 @@
+
+[_] TODO: seize list of links from
+  $ r.b -r temporal-cl
+
+Lisp in Docker
+  http://jacek.zlydach.pl/blog/2015-01-14-common-lisp-and-docker.html

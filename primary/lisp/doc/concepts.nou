@@ -26,6 +26,8 @@ Blocks -- Join multiple statements ::: "(progn)"
   TUT http://schemer.in/aeh.html
     https://www.tutorialspoint.com/lisp/lisp_error_handling.htm
   https://stackoverflow.com/questions/36178141/common-lisp-exception-handling-condition-and-restart
+  READ Exception handling - the Common Lisp way
+    http://schemer.in/aeh.html
 
 
 %% Collections
