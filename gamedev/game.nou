@@ -11,3 +11,7 @@ Engines
 
 Noc + FPGA -- for physics in GPU
   http://fpga.org/hoplite/
+
+AI
+  Behavioral Trees
+    https://github.com/crust/beehive
