@@ -7,24 +7,16 @@
 //---
 #include <SDL2/SDL.h>
 
-#include <iostream>
-
 int
 main(int argc, char** argv)
 {
     SDL_Init(SDL_INIT_VIDEO);
-
-    // Args: (title x y w h flags)
     SDL_Window* window =
-            SDL_CreateWindow("SDL2 window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+            SDL_CreateWindow("SDL2", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
 
-    if (!window) {
-        std::cout << "Err: " << SDL_GetError() << std::endl;
-        SDL_Quit();
-        return EXIT_FAILURE;
-    }
+    for (SDL_Event e = {}; e.type != SDL_QUIT && (e.type != SDL_KEYDOWN || e.key.keysym.sym != SDLK_ESCAPE);)
+        SDL_WaitEvent(&e);
 
-    SDL_Delay(2000);
     SDL_DestroyWindow(window);
     SDL_Quit();
     return EXIT_SUCCESS;

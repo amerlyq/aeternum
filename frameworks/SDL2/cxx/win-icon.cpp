@@ -63,7 +63,7 @@ main(int argc, char** argv)
     SDL_FreeSurface(surface);
 
     // HACK: wait keypress OR window close
-    for (SDL_Event e; e.type != SDL_QUIT && e.type != SDL_KEYDOWN; SDL_PollEvent(&e))
+    for (SDL_Event e; e.type != SDL_QUIT && e.type != SDL_KEYDOWN; SDL_WaitEvent(&e))
         ;
 
     SDL_DestroyWindow(window);

@@ -35,13 +35,21 @@ main()
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
-    mainWindow = SDL_CreateWindow(
-            "Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+    mainWindow = SDL_CreateWindow("Test",
+            SDL_WINDOWPOS_CENTERED,
+            SDL_WINDOWPOS_CENTERED,
+            640,
+            480,
+            SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     mainContext = SDL_GL_CreateContext(mainWindow);
     SDL_GL_MakeCurrent(mainWindow, mainContext);
 
-    window2 = SDL_CreateWindow(
-            "Test2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+    window2 = SDL_CreateWindow("Test2",
+            SDL_WINDOWPOS_CENTERED,
+            SDL_WINDOWPOS_CENTERED,
+            640,
+            480,
+            SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     SDL_GL_SetAttribute(SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
     context2 = SDL_GL_CreateContext(window2);
 
@@ -140,13 +148,12 @@ main()
     delete[] vert;
 
     bool quit = false;
-    SDL_Event event;
+    SDL_Event e;
     while (!quit) {
-        SDL_WaitEvent(&event);
+        SDL_WaitEvent(&e);
 
-        switch (event.type) {
-        case SDL_QUIT: quit = true; break;
-        }
+        if (e.type == SDL_QUIT || (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE))
+            quit = true;
 
         // Draw to first window/context
         SDL_GL_MakeCurrent(mainWindow, mainContext);

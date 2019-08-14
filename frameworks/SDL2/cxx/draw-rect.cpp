@@ -21,9 +21,10 @@ main(int argc, char** argv)
     SDL_Rect r = { .x = 50, .y = 50, .w = 50, .h = 50 };
     SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
     SDL_RenderFillRect(renderer, &r);
-
     SDL_RenderPresent(renderer);
-    SDL_Delay(3000);
+
+    for (SDL_Event e = {}; e.type != SDL_QUIT && (e.type != SDL_KEYDOWN || e.key.keysym.sym != SDLK_ESCAPE);)
+        SDL_WaitEvent(&e);
 
     SDL_DestroyWindow(window);
     SDL_Quit();

@@ -18,8 +18,7 @@ main(int argc, char** argv)
             "SDL2 events", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_RESIZABLE);
 
     // NOTE: main event loop
-    SDL_Event e;
-    while (e.type != SDL_KEYDOWN && e.type != SDL_QUIT) {
+    for (SDL_Event e = {}; e.type != SDL_QUIT && (e.type != SDL_KEYDOWN || e.key.keysym.sym != SDLK_ESCAPE);) {
         while (SDL_PollEvent(&e)) {
             switch (e.type) {
             case SDL_WINDOWEVENT: {
@@ -31,8 +30,8 @@ main(int argc, char** argv)
                 }
             } break;
             }
-            SDL_Delay(10);
         }
+        SDL_Delay(10);
     }
 
     SDL_DestroyWindow(window);

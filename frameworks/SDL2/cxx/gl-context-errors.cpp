@@ -53,17 +53,9 @@ main(int argc, char* argv[])
 
     SDL_AddEventWatch(watch, NULL);
 
-    while (!quitting) {
-
-        SDL_Event e;
-        while (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT || e.type == SDL_KEYDOWN) {
-                quitting = true;
-            }
-        }
-
+    auto fquit = [](SDL_Event e){ return e.type == SDL_QUIT || (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE); };
+    for (SDL_Event e = {}; !quitting && !fquit(e); SDL_WaitEvent(&e)) {
         render();
-        SDL_Delay(10);
     }
 
     SDL_DelEventWatch(watch, NULL);
