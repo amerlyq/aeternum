@@ -1,5 +1,13 @@
-//bin/mkdir -p "${TMPDIR:-/tmp}/${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
-//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" CXXFLAGS=-std=c++11 LDFLAGS=-lSDL2 "$@"
+#if 0
+set -fCueEo pipefail
+s=${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}
+mkdir -p "${x:=${TMPDIR:-/tmp}/$s}"
+make -C "$x" -sf- VPATH="${s%/*}" "${n%.*}" <<EOT
+CXXFLAGS += -Wall -std=c++11 $(sdl2-config --cflags)
+LDFLAGS += $(sdl2-config --libs)
+EOT
+exec ${RUN-} "$x/${n%.*}" "$@"
+#endif
 // vim:ft=cpp
 //---
 // SUMMARY: create window and exit after timeout
@@ -11,7 +19,7 @@ int
 main(int argc, char** argv)
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        SDL_Log("Err: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "%s", SDL_GetError());
         exit(EXIT_FAILURE);
     }
 
@@ -20,7 +28,7 @@ main(int argc, char** argv)
             SDL_CreateWindow("SDL2", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
 
     if (!window) {
-        SDL_Log("Err: %s", SDL_GetError());
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "%s", SDL_GetError());
         SDL_Quit();
         exit(EXIT_FAILURE);
     }

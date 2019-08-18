@@ -7,7 +7,7 @@
 //---
 #include <SDL2/SDL.h>
 
-#include <iostream>
+// TODO: other window events :: focus, etc
 
 int
 main(int argc, char** argv)
@@ -18,20 +18,25 @@ main(int argc, char** argv)
             "SDL2 events", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_RESIZABLE);
 
     // NOTE: main event loop
-    for (SDL_Event e = {}; e.type != SDL_QUIT && (e.type != SDL_KEYDOWN || e.key.keysym.sym != SDLK_ESCAPE);) {
+    bool running = true;
+    for (SDL_Event e = {}; running; SDL_Delay(10)) {
         while (SDL_PollEvent(&e)) {
+            if (e.type == SDL_QUIT || (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE)) {
+                running = false;
+                break;
+            }
+
             switch (e.type) {
             case SDL_WINDOWEVENT: {
                 SDL_Window* tgtWnd = SDL_GetWindowFromID(e.window.windowID);
                 const char* title = SDL_GetWindowTitle(tgtWnd);
                 switch (e.window.event) {
-                case SDL_WINDOWEVENT_FOCUS_GAINED: std::cout << "focus gained: " << title << std::endl; break;
-                case SDL_WINDOWEVENT_FOCUS_LOST: std::cout << "focus lost: " << title << std::endl; break;
+                case SDL_WINDOWEVENT_FOCUS_GAINED: SDL_Log("focus gained: %s\n", title); break;
+                case SDL_WINDOWEVENT_FOCUS_LOST: SDL_Log("focus lost: %s\n", title); break;
                 }
             } break;
             }
         }
-        SDL_Delay(10);
     }
 
     SDL_DestroyWindow(window);

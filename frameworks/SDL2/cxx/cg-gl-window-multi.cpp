@@ -1,5 +1,12 @@
-//bin/mkdir -p "${TMPDIR:-/tmp}/${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
-//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" CXXFLAGS=-std=c++11 LDFLAGS="-lSDL2 -lGLEW -lGL -lCg -lCgGL" "$@"
+#if 0
+exe=${x:=${TMPDIR:-/tmp}/${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}}/${n%.*}
+make -srRf- src="$0" exe="$exe" <<'EOT' && exec ${RUN-} "$exe" "$@" || exit
+CXXFLAGS += -Wall -std=c++11 $(shell sdl2-config --cflags)
+LDLIBS += $(shell sdl2-config --libs) -lGLEW -lGL -lCg -lCgGL
+$(exe): $(src) ; mkdir -p '$(@D)' && $(or $(CXX),g++) \
+$(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH) '$^' $(LOADLIBES) $(LDLIBS) -o '$@'
+EOT
+#endif
 // vim:ft=cpp
 //---
 // SUMMARY: create multiple OpenGL windows

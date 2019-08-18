@@ -75,9 +75,11 @@ main(int argc, char** argv)
     SDL_GetWindowSize(window, &w, &h);
     init(w, h);
     SDL_Event e;
-    while (e.type != SDL_KEYDOWN && e.type != SDL_QUIT) {
+    bool running = true;
+    while (running) {
         while (SDL_PollEvent(&e))
-            ;
+            if (e.type == SDL_QUIT || (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE))
+                running = false;
 
         glColor3f(0.0f, 0.5f, 0.5f);
         gluSphere(qObj, 1.0f, 1, 1);

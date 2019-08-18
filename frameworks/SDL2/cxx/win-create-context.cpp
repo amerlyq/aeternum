@@ -10,6 +10,10 @@
 #include <functional>
 #include <memory>
 
+// TRY: encompass this ::
+//   https://github.com/xyproto/sdl2-examples/blob/master/include/sdl2.h
+//   https://github.com/xyproto/sdl2-examples/blob/master/c%2B%2B17-cxx/main.cpp
+
 template <typename T>
 auto
 make_resource(T object, std::function<void(T)> dtor)
