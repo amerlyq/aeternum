@@ -2,16 +2,69 @@ REF
   VIZ: http://wiki.libsdl.org/APIByCategory
 
 
+E.G.
+  https://github.com/xyproto/HelloGL
+  VIZ: https://wiki.libsdl.org/SDL_RenderPresent?highlight=%28%5CbCategoryRender%5Cb%29%7C%28CategoryEnum%29%7C%28CategoryStruct%29
+
+
 TUT
   http://wiki.libsdl.org/Tutorials
   https://www.willusher.io/pages/sdl2/
   http://lazyfoo.net/tutorials/SDL/
   http://www.sdltutorials.com/sdl-tutorial-basics
   https://github.com/Twinklebear/TwinklebearDev-Lessons
-  RU: http://habrahabr.ru/post/201392/
+  2019-08-17 [X] BET: examples in 12 languages https://github.com/xyproto/sdl2-examples
+  2019-08-18 [X] RU: http://habrahabr.ru/post/201392/
+  https://progbook.org/sdl.html
+  BLOG:(video): Let's Make An RPG (C++/SDL2) - Tutorials
+    https://www.youtube.com/playlist?list=PLHM_A02NtaaVey-4Ezh7p6bbOsv-DKA-0
 
 
 INFO
   Use 2D-acceleration with Renderer
     REF: https://wiki.libsdl.org/CategoryRender
     TUT: https://dev.to/noah11012/using-sdl2-2d-accelerated-renderering-1kcb
+
+  VBO and VAO
+    http://headerphile.com/sdl2/opengl-part-2-vertexes-vbos-and-vaos/
+    https://www.khronos.org/opengl/wiki/Tutorial2:_VAOs,_VBOs,_Vertex_and_Fragment_Shaders_(C_/_SDL)
+
+
+C++ Wrappers
+  |aur/sdl2pp|
+    SRC: https://github.com/libSDL2pp/libSDL2pp
+    TUT: https://github.com/libSDL2pp/TwinklebearDev-Lessons-libSDL2pp
+      https://github.com/libSDL2pp/libSDL2pp-tutorial
+  ?? https://github.com/cginternals/glbinding
+    https://www.geeks3d.com/20140811/glbinding-new-c-opengl-binding-with-opengl-4-5-support/
+  ~~ https://github.com/Edhebi/cpp-sdl2
+  OLD: http://sdlmm.sourceforge.net/
+  OLD: https://github.com/CYBORUS/cyborus-game-engine/tree/master/CGE
+
+
+D
+  http://derelictorg.github.io/packages/sdl2/
+  https://wiki.dlang.org/Bindings
+
+
+Lisp
+  framework: http://quickdocs.org/clinch/
+  gamepads: http://quickdocs.org/sdl2-game-controller-db/
+  events: http://quickdocs.org/skitter/
+  glut-like: http://quickdocs.org/sdl2kit/
+
+
+Haskell
+  ++ https://ocharles.org.uk/blog/posts/2015-09-07-announcing-sdl2.html
+    https://github.com/haskell-game
+  https://github.com/palf/haskell-sdl2-examples
+  https://github.com/jaiyalas/sdl2-examples
+  https://github.com/LambdaHack/LambdaHack/blob/12d67b6ee218ad0a923e327cf8a85152cc80bb60/Game/LambdaHack/Client/UI/Frontend/Sdl.hs#L191
+  https://github.com/keera-studios/haskell-game-programming/tree/master/examples/raindrops
+  http://pixelgebra.org/content/posts/2016-11-05-SDL2Middleware.html
+
+
+Scheme
+  http://wiki.call-cc.org/eggref/5/sdl2
+    https://gitlab.com/chicken-sdl2/chicken-sdl2
+    https://gitlab.com/chicken-sdl2/chicken-sdl2-examples

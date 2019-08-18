@@ -16,6 +16,8 @@ elif distro ubuntu; then
   # FIND: $ apt-cache search libsdl2
   # BUILD: $ ./autogen.sh && ./configure && make && sudo checkinstall
   pkg_inst libsdl2-dev libsdl2-{image,ttf,gfx,mixer,net}-dev
+  pkg_inst libglew-dev
+  # git_inst https://github.com/g-truc/glm
 fi
 
 

@@ -4,6 +4,10 @@ project(main CXX)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
+## ALT:USE: pkgconfig BAD: no .pc for other libs
+# include(FindPkgConfig)
+# pkg_search_module(SDL2 REQUIRED sdl2)
+
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
 
