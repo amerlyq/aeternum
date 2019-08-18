@@ -44,6 +44,14 @@ TRY:
 VIZ:CMP:
   https://www.khronos.org/opengl/wiki/Related_toolkits_and_APIs
 
+
+ALT: GL
+  Totally agnostic graphics library -- Direct3D / OpenGL / Metal / WebGL
+    https://github.com/bkaradzic/bgfx
+  Raylib
+    https://www.raylib.com/
+
+
 GL
   SDL2
     https://www.libsdl.org/languages.php
