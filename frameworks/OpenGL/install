@@ -2,6 +2,8 @@
 source ~/.shell/func.d/packages
 # PERF:(17.2MB) OpenGL Graphics
 
+pkg_inst glfw-x11
+
 exit 1
 
 LST="$LST freeglut3 freeglut3-dev"
