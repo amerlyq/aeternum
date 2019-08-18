@@ -27,10 +27,6 @@ The Function Pointer Tutorials
 http://www.cheat-sheets.org/#CPP
 
 
-Testing
-  http://cpputest.github.io/manual.html
-
-
 C/C++ Ternary Operator Precedence and Associativity
 Although many sources incorrectly place the ternary- and assignment operators on two seperate levels, they in fact share the same precedence level. Note, however, the right-to-left associativity of both, which allows an unparenthesized ternary operation to be assigned to a variable.
 If you would like to verify this yourself, take a look at the C++ standard. Alternatively run the following in a compiler of your choice:

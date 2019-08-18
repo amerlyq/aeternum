@@ -1,0 +1,36 @@
+%%%% Testing Frameworks
+
+REF
+
+ALSO:
+  API Sanity Checker
+    https://github.com/lvc/api-sanity-checker/
+
+Frameworks
+  Check
+    http://check.sourceforge.net/
+
+  Opmock
+    http://sourceforge.net/projects/opmock/
+
+  CMocka
+    http://cmocka.org/
+    Cool pure-C mock library, fork of google-cmocking
+
+  Unity
+    http://throwtheswitch.org/
+    Very gtest-like framework for C, ability coop with it's CMock module
+    But needs manual work for runner_cases list
+
+  CppUTest
+    http://cpputest.github.io/manual.html
+    very similar with Unity. But all is automated. Able to embedded.
+    Somewhat better then gtest.
+
+
+sudo apt-get install
+  libtut-dev
+  libcunit1-dev
+  libgtest-dev
+  google-mock
+  cpputest

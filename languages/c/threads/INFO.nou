@@ -1,0 +1,16 @@
++++ Raw Linux Threads via System Calls
+  https://nullprogram.com/blog/2015/05/15/
+
+pthread_cond_wait or pthread_cond_timedwait Subroutine
+  http://www.ibm.com/support/knowledgecenter/ssw_aix_71/com.ibm.aix.basetrf1/pthread_cond_wait.htm
+
+Why does pthread_cond_wait have spurious wakeups?
+  http://stackoverflow.com/questions/8594591/why-does-pthread-cond-wait-have-spurious-wakeups
+
+C:
+  http://www.geeksforgeeks.org/multithreading-c-2/
+  http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html
+
+C++11:
+  http://www.codeproject.com/Articles/598695/Cplusplus-threads-locks-and-condition-variables
+  http://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf
