@@ -29,3 +29,16 @@ help-recipes:
 .PHONY: all  #@ build all
 all:
 	echo hi
+
+
+## DEV: group outputted targets by vim-code markers
+# tar_rgx = s/^\([-a-z]\+\):.*/\1/p
+# gro_rgx = /^\#.*$(1) {{{/,/^\#.*\(}}}\|{{{\|\#\#\#\)/
+# targs = $(shell sed -n '$(1)$(tar_rgx)' Makefile|sort -u|xargs)
+# ## Construct targets relations. Unstable.
+# # awk 'match($$0,/^#.*(\s+(\S+)\s*{{{|}}})/,a){if(t){print t,":",e;print}
+# #      e=a[2];t=""} match($$0,/([-a-z]+):/,a){if(e)t=t" "a[1]}' Makefile
+# # Displays programm output instantly, doesn't consume it untill exit.
+# $(call targs,$(call gro_rgx,exec)): exec
+# $(call targs,$(call gro_rgx,test)): test
+# # .INTERMEDIATE: exec test

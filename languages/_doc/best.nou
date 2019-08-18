@@ -23,3 +23,14 @@ C
 
 C++
   Easiest to link with existing code -- if you keep sane complexity
+
+
+Perl
+  Parsing and generating text files
+
+  code-generation
+    ~ if/switch for drivers by spec tables
+    ~ FSM tables
+  build-scripts
+  networking prototyping and stub-servers
+  testload generation e.g. traffic for servers
