@@ -30,6 +30,8 @@ REF: CMake
 SEIZE
   Pieces of infra
     [_] https://github.com/StableCoder/cmake-scripts
+  Template for reliable, cross-platform C++ project setup using cmake.
+    https://github.com/cginternals/cmake-init
 
 
 ALT
