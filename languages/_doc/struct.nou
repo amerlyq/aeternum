@@ -1,0 +1,16 @@
+%%%% Structure
+
+Each language directory
+  :/doc/    | gathered docs
+  :/embed/  | boilerplate to embed its runtime into other languages
+  :/ex/     | evolutionary usage examples
+  :/tmpl/   | refined partial boilerplates to simply copy when needed
+
+
+DEV: language incremental templates
+  E.G. bash:
+    - micro (one-two lines)
+    - small         +vars
+    - normal        +functions
+    - large         +getopts
+    - full-pledged  +auto-help

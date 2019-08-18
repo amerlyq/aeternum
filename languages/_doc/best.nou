@@ -15,3 +15,11 @@ Lisp
 
 J
   Funniest way to f*ck your brain
+
+
+C
+  Small system utils with full error processing written strictly by specs
+
+
+C++
+  Easiest to link with existing code -- if you keep sane complexity
