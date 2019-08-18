@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+import zmq
+
+def listen(socket):
+    # FIXME: drain all messages from queue on reconnect before loop e.g. msgs with timestamp less then ./hub starttime
+    #   => otherwise on ./hub restart it will get and replay all messages, already obsolete at that moment
+    while True:
+        cmd = socket.recv_pyobj()
+        print(cmd)
+
+
+def main(ipc):
+    context = zmq.Context()
+    socket = context.socket(zmq.SUB)
+    socket.bind(ipc)
+    socket.setsockopt_string(zmq.SUBSCRIBE, '')
+    try:
+        listen(socket)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        socket.close()
+        context.term()
+
+
+if __name__ == "__main__":
+    main("ipc://zmq.ipc")

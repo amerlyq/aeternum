@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+#%USAGE:
+#%  $ ./server
+#%  $ ./client
+
+import asyncio
+import logging
+import sys
+import zmq
+
+
+def xpoll(fd, fhandle, fstop):
+    while True:
+        try:
+            e = fd.readline()
+        except EOFError:
+            fstop()
+            break
+        if not e:
+            break
+        fhandle(e)
+
+
+def main_loop(socket, fd):
+    loop = asyncio.get_event_loop()
+
+    def fstop():
+        loop.remove_reader(fd)
+        loop.stop()
+
+    def fhandle(e):
+        logging.info('event: %s', str(e))
+        socket.send_pyobj(e)
+
+    loop.add_reader(fd, lambda: xpoll(fd, fhandle, fstop))
+
+    # FIXME:USE: https://pyzmq.readthedocs.io/en/latest/api/zmq.asyncio.html
+    # https://pyzmq.readthedocs.io/en/latest/eventloop.html
+    #   WARN:READ:MAYBE: send() may block/overflow in internal asyncio queue
+    try:
+        loop.run_forever()
+    finally:
+        loop.close()
+
+
+def main(ipc):
+    context = zmq.Context()
+    socket = context.socket(zmq.PUB)
+    socket.connect(ipc)
+    try:
+        main_loop(socket, sys.stdin)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        socket.close()
+        context.term()
+
+
+if __name__ == "__main__":
+    logfmt = "%(asctime)s %(name)8s %(levelname)s [%(module)s:%(lineno)d]: %(message)s"
+    logging.basicConfig(level=logging.INFO, datefmt='%H:%M:%S', format=logfmt)
+    main("ipc://zmq.ipc")
