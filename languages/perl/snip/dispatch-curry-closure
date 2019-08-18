@@ -1,0 +1,74 @@
+#!/usr/bin/env perl
+
+# SEE about custom double curry idea and impl
+#   http://www.perlmonks.org/?node_id=408304
+#=  sub curry { my $f = shift; my $args = \@_; sub { $f->(@$args, @_) }; }
+
+use warnings;
+use strict;
+# no strict 'subs';  # because 'urxvt::*' can't be imported
+# use lib "$ENV{HOME}/.urxvt/ext";  # print "S:", @INC, "\n";
+# use urxcommon qw(:API);
+
+#>>> Multiple keys with same value
+sub pairto { my $val = pop @_; map { $_=> $val } @_ }
+my %ss = ( pairto(qw(O S-o Return) => "some"), );
+print "$_ : $ss{$_}\n" for sort keys %ss;
+
+
+#>>>
+sub makecurry {
+    my ($hmap, @nms) = @_;
+    my @funs = map { $hmap->{$_} if $_ } @nms;
+    return sub { $_->(@_) foreach @funs; }
+    # ALT return eval "sub {". map { "$_" . '->(@_);' } @funs ."}"; }
+}
+
+my %actions = map { my $v=$_; $v => sub { print "$v\n"; } } qw(openx yank next prev);
+$actions{close} = sub { deactivate(); };
+
+# Wrapper: curry (args bind) impl by closure
+sub staying { makecurry(\%actions, @_) };
+sub closing { staying(@_, 'close') };
+
+my %keymap = (
+    q => closing(), Escape => closing(), 'C-c' => closing(),
+    o => staying('openx'), Return => closing('openx'),
+    y => staying('yank'),   'S-y' => closing('yank'),
+    j => closing('next', 'yank'),
+
+    bad => closing('bad'),
+);
+
+sub deactivate { print "off\n\n"; }
+
+# Test
+($keymap{$_} || sub {})->(1, $_) foreach qw(q o Return S-y j);
+
+
+#>>> Fill hash -- multiple keys with one value
+our $vv=1;
+sub ff { ++$vv }
+my @lst = qw(a b c);
+
+my %kk = ( (map {$_=>ff()} @lst), );
+print "$_ : $kk{$_}\n" for sort keys %kk;
+print "vv=$vv\n";
+
+@kk{@lst} = (ff()) x @lst;
+print "$_ : $kk{$_}\n" for sort keys %kk;
+print "vv=$vv\n";
+
+$kk{$_} = ff() for @lst;
+print "$_ : $kk{$_}\n" for sort keys %kk;
+print "vv=$vv\n";
+
+
+#>>> Caching
+# my %cache;
+# sub expensive_operation {
+#    my ( $key ) = @_;
+#    $cache{$key} ||= get_from_database($key);
+#    return $cache{$key};
+# }
+# THINK DEV sub cached_curry { $actions{(this_func_name + str(@_))} ||= makecurry(\%actions, @_) };

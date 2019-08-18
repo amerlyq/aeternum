@@ -1,0 +1,42 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use feature 'switch';
+
+my @patterns = (
+  qr/foo/,
+  qr/bar/,
+  qr/baz/,
+);
+
+for (qw/ blurfl bar quux foo baz /) {
+  print "$_: ";
+  given ($_) {
+    when (@patterns) {
+      print "hit!\n";
+    }
+    default {
+      print "miss.\n";
+    }
+  }
+}
+
+$, = " ";
+
+sub coord_of { ($_[0] + 4, $_[0] + 2); }
+
+my @vv;
+while ("avatar" =~ /a/g) { push @vv, [ $-[0], $+[0], $& ]; }
+print @{$vv[0]},"\n";
+
+my $rr = [ map coord_of, @{$vv[0]}[0..1] ];
+print @$rr,"\n";
+
+# Call method by ref
+# sub call {
+#     my $fnm = 'fun_' . $nm;
+#     $self->$fnm();
+# }
+

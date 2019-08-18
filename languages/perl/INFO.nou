@@ -5,12 +5,29 @@ BAD: why not perl
 
 
 REF
+  http://perlmonks.org/
   Special vars (quick-ref)
     https://www.perlmonks.org/?node_id=353259
-  +++ [_] BOOK: http://modernperlbooks.com/books/modern_perl_2014/03-perl-language.html
-  TUT: list vs array
+  Hash
+    http://www.cs.mcgill.ca/~abatko/computers/programming/perl/howto/hash/
+  Dispatch
+    http://perldesignpatterns.com/?DispatchTable
+
+
+TUT
+  https://mojolicious.org/perldoc/perlref
+  http://www.arl.wustl.edu/projects/fpx/references/perl/cookbook/ch07_08.htm
+  HACK: http://www.xaprb.com/blog/2006/10/05/five-great-perl-programming-techniques-to-make-your-life-fun-again/
+  : list vs array
     https://habr.com/ru/post/150140/
-  BOOK: Mastering Perl: Creating Professional Programs with Perl
+    http://perl101.org/arrays.html
+
+
+BOOK
+  Mastering Perl: Creating Professional Programs with Perl
+  +++ http://modernperlbooks.com/books/modern_perl_2014/03-perl-language.html
+    SEE: http://modernperlbooks.com/books/modern_perl/chapter_03.html
+  RU: Программирование на Perl, 4-е издание -- Том Кристиансен, Брайан Де Фой, Ларри Уолл, Джон Орвант
 
 
 DEBUG
@@ -38,6 +55,9 @@ CLI interfaces
 
 CPAN
   SEE http://perltricks.com/article/196/2015/10/1/What-s-new-on-CPAN---September-2015/
+  http://perlhacks.com/2014/03/installing-modules/
+  http://perlmaven.com/how-to-install-a-perl-module-from-cpan
+
 
 IPC / Pipes
   http://docstore.mik.ua/orelly/perl3/prog/ch16_03.htm
@@ -53,8 +73,6 @@ IPC / Pipes
     | exit WEXITSTATUS($?) if WIFEXITED($?) and WEXITSTATUS($?);
     OR:(blocking close): | close $fh or die $?
 
-Refs
-  TUT https://mojolicious.org/perldoc/perlref
 
 Constants
   https://perldoc.perl.org/constant.html
@@ -63,6 +81,12 @@ Constants
   | print "${+SOME} @{[SOME]}"
     HACK: expr {+...} works, because "+" evaluates next content as expression
     i.e. $a{+shift} will be similar to :: my $v = shift; $a{$v}
+
+
+Subroutines
+  > http://perl101.org/subroutines.html
+  HACK: call function pointer
+    | &{\&{$action}}();
 
 
 Symbolic refs
@@ -86,14 +110,17 @@ Safe diamond
   ERR: $ perl -e 'print while(<>);' 'date |'
   USE: $ perl -e 'print while(<<>>);' 'date |'
 
+
 Regex
   Stages of Regex Users
     https://www.perlmonks.org/?node=7%20Stages%20of%20Regex%20Users
   $ man pcrepattern
   https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions
   http://perldoc.perl.org/perlre.html
+  http://perldoc.perl.org/perlop.html#Regexp-Quote-Like-Operators
     http://perldoc.perl.org/perlre.html#Repeated-Patterns-Matching-a-Zero-length-Substring
   !! http://www.rexegg.com/regex-quantifiers.html  # Traps and tricks
+  http://www.tutorialspoint.com/perl/perl_regular_expression.htm
 
   Matching
     https://perldoc.perl.org/perlretut.html
