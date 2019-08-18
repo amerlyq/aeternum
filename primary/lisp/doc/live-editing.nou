@@ -1,0 +1,101 @@
+%%%% Incremental editing in runtime
+
+
+DEV:IDEA: *swank* and lisp scripts integration
+  * connect to running program and launch *swank* to connect to it from EMacs/Slime and debug/fixup on the fly
+    e.g. like "gdb -p $(pidof myexe)" but in Lisp world
+    ?? when you start the lisp process you *must* already load swank and listen to a port
+
+  * embed boilerplate into scripts to automatically drop into *swank* on exception instead of SBCL debugger
+    ALT: drop SBCL into debugger manually $ kill -SIGINT $(pidof sbcl)
+    DEBUG:BAD: $ { sleep 5; echo ABORT; echo '(print "swank")'; } | sbcl --eval '(sleep 30)' | cat
+
+  * send SIGUSR1, etc. to running daemon -- it will launch *swank* by itself and stop its own main loop waiting for connections
+    NOTE: if swank not running -- no ports to connect to
+    WARN: don't load swank directly from signal handler -- it will be catastrophical due to underlying libpthread
+      => set-flag-and-act == only set flag inside handler and run Swank from app's main loop OR another thread listening that VAR
+    MAYBE: it could be done in a dedicated independent thread
+
+  ALT: send SIGUSR1/msg to running app -- and it will ~reload~ its own new version
+    == from same or new sources at the right time without involving Swank
+    BET:SECU: no access to interpreter REPL
+
+
+ALG: edition session
+  INFO: function (fff) each 10 minutes goes to server and fetches weather report, formats it and prints to stdout -- to be consumed by another app in pipe
+  IDEA: I expect to connect to it, issue some changes, observe them in that another app, and cleanly disconnect
+  1) main app entry is (main) which calls (fff) in loop;
+  2) second thread is running swank backend;
+  3) I connect to swank from slime and issue new (ggg);
+  4) I open slime REPL and test (ggg) interactively until I satisfied;
+  5) I replace (fff) with (ggg) and rename it to (fff) -- and eval in slime;
+  6) now (main) continues executing old (fff), but on next iteration it will call new (fff)
+
+
+
+INFO: "restarts"
+  <C-c> sends a SIGINT signal to the unix process.
+  By default, unix signals are processed by the current thread (random).
+    BUT: It is possible to set up things so that unix signals are processed on a specific thread.
+  In any case, unix signals handler cannot do much things safely. Basically, just set a variable.
+    So you should have a thread watching this variable, and sending commands to the other threads as required.
+  If you don't do that, <C-c> will get you into the debugger.
+    The debugger should be able to "manage" threads.
+    NOTE: issuing "abort" in the debugger won't terminate thread but must execute "restart" code e.g. drop it into REPL.
+      The actual consequences depend on the code written for this restart.
+      ?? Then I will have two threads -- app and swank -- each with its own REPL
+  SEE:
+    M-x slime-list-threads
+    M-x slime-thread-attach
+    M-x slime-thread-debug
+
+
+ARCH:WARN: keep consistency when editing an online living image
+  !!!. you should structure and write code in a way to take into account online editing problems !!!
+    NICE: on mistake you will be dropped into debugger to correct it
+    BAD: most likely FFI will crash anyway
+    NOTE: you may safely replace pure functions of any thread, but better not "play" with their entry points.
+
+  * declare functions as "notinline"
+    Functions compiled in the same compilation-unit can be inlined automatically at the compiler will.
+    To be able to replace them and the replacement to be taken into account, you need to declare them notinline.
+    Note that you can have both an inline and a notinline declaration -- notinline doesn't mean not inline.
+
+  * return from "live" functions before calling them again
+    You cannot replace a function that is being executed, ie. which has live frames on the stack.
+    You will have to return from it, and call it again, to call the new version.
+    So your code needs to have a main loop that keeps calling the functions that could be replaced.
+
+  * you cannot easily and directly replace your (main)
+    ALT: you must inform it -- you want to replace it, and it will call the new version explicitly by itself
+
+  * be careful what you modify -- keep consistency of global variables and other functions
+    e.g. Suppose you use an a-list to store a map in a global variable. And in version 2 you want to use a hash-table.
+    If you (defparameter *my-map* (make-hash-table)) while developping the version 2, this will break the running version 1!
+
+  !! be careful when loading code -- it's not done atomically (even for compiled files)
+    Loading files is done by evaluating one top-level form at a time (even for compiled files).
+    So inconsistencies can occur, even if loading is fast.
+      ~~ On the other hand, if your code works only 1 minute every 10 minutes, that leaves 9 minutes to load the new version without interference.
+    ::: you may want to provide commands to "suspend" the old version, while loading the new one.
+      e.g. by SIGUSR1 set some "flag-running=false" or switch "mode=app/swank"
+      then wake up main loop and run function again OR drop from it into repl (multithread app) OR into swank (single-thread app).
+
+  * MAYBE: use different packages -- it isolates a little
+    BUT: there are still other global resources you need to take care
+      ~~ still clean programs should be mostly isolated when using different packages.
+
+  * you may want to develop and debug new versions on a separate system/PC
+    USE swank/slime to load the new versions at once when it's ready.
+
+  HACK:IDEA:(like EMacs itself): sanity-check of evaluation results -- with fallback to more "stable" alternative functions
+    In emacs, there are a lot of hook that are run all the time (each key presses, or periodically).
+    If there are bugs in those functions, it would break emacs, you couldn't even type a single character.
+    Instead, the functions that break are just removed from the hook.
+    And emacs can continue with a more bare functionality but you can still edit and use emacs to debug and correct your functions.
+    ALT:(democracy): implement each function 5 times, and make a vote on the results.
+      If one function gives a different result than the 4 others (or breaks in the debugger), then stop using it.
+    e.g. on spaceship you must continue to provide clean air even if your "corridor light" had broken.
+      => it would be good to enable emergency light instead of broken primary light
+    e.g. critical systems like "air recycling" on spaceship must continue working *always*
+      => even if they contain a bug => they should continue to somehow provide clean air and ensure at least basic life-support
