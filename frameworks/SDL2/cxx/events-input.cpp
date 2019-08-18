@@ -63,6 +63,7 @@ main(int argc, char** argv)
 
     SDL_Window* window = SDL_CreateWindow(
             "SDL2 input", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_RESIZABLE);
+    SDL_StartTextInput();
 
     // NOTE: bind forever
     Uint8 const* keyboardState = SDL_GetKeyboardState(NULL);
@@ -90,10 +91,17 @@ main(int argc, char** argv)
                 }
                 break;
             }
+            case SDL_TEXTINPUT: {
+                int x = 0, y = 0;
+                auto key = e.text.text[0];
+                SDL_GetMouseState(&x, &y);
+                SDL_Log("text=%c at %d %d", key, x, y);
+            } break;
             }
         }
     }
 
+    SDL_StopTextInput();
     SDL_DestroyWindow(window);
     SDL_Quit();
     return EXIT_SUCCESS;
