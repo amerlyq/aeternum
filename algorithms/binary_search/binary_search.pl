@@ -1,5 +1,6 @@
 # SEE:REF: generic ALG with record read function and linear block processing
 #   https://metacpan.org/pod/release/RANT/Search-Binary-0.95/Binary.pm
+# ALT:(linear-oneline): $ perl -wslane 'if(hex($F[0])<=hex($va)&&hex($va)<hex($F[0])+hex($F[1])){print;exit}' -- -va="$1" "$vmmap"
 
 sub binsearch_generic {
     my ($low, $high, $cmpfn, $mid) = @_;

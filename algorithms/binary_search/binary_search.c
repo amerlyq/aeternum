@@ -1,4 +1,11 @@
-// USE: C-function "bsearch"
+//bin/mkdir -p "${TMPDIR:-/tmp}/${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
+//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" "$@"
+// vim:ft=c
+//---
+// SUMMARY: pseudo-fullscreen window
+// USAGE: $ ./$0
+// REF: C-function "bsearch"
+//---
 #include <stdio.h>
 #include <stdlib.h>
 
