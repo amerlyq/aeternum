@@ -8,8 +8,7 @@
   (handler-bind ((asdf:bad-system-name #'muffle-warning))
     (require :clx)))
 
-(defpackage #:example
-  (:use :cl :xlib))
+(defpackage #:example (:use :cl :xlib))
 (in-package #:example)
 
 
