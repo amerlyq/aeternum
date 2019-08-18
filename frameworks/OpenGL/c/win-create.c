@@ -3,12 +3,12 @@ set -fCueEo pipefail
 s=${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}
 mkdir -p "${x:=${TMPDIR:-/tmp}/$s}"
 make -C "$x" -sf- VPATH="${s%/*}" "${n%.*}" <<EOT
-CXXFLAGS += -std=c++17 -DSRCPATH='"$s"'
+CXXFLAGS += -std=c99 -DSRCPATH='"$s"'
 LDFLAGS += -lglfw -lGL
 EOT
 exec ${RUN-} "$x/${n%.*}" "$@"
 #endif
-// vim:ft=cpp
+// vim:ft=c
 //---
 // SUMMARY: create basic window
 // USAGE: $ ./$0

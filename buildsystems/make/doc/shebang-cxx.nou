@@ -82,6 +82,37 @@ embedding:
     #endif
   ```
 
+  |multi-build-cached|
+  ```
+    #if 0
+    b=${t:=${TMPDIR:-/tmp}/${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}}/${x:=${n%.*}}
+    mkdir -p "$t" && cd "$t" && make -srRf- s="$0" x="$x" <<'EOT' && exec ./"$x" "$@" || exit
+    CC := gcc
+    CFLAGS += -Wall -std=c11
+
+    $(x): $(s) lib$(x).so \
+    ; $(CC) $(CFLAGS) -pthread -DMAIN_C $(LDFLAGS) -Wl,-rpath=. -L. '$<' $(LDLIBS) -l$(x) -o '$@'
+
+    lib$(x).so: $(s) \
+    ; $(CC) $(CFLAGS) -shared -fPIC -DSHARED_C $(ldflags) '$<' $(ldlibs) -o '$@'
+    EOT
+    #endif
+    // vim:ft=c
+    //---
+    // SUMMARY: check if thread-local vars are updated on fork() and create()
+    // USAGE: $ ./$0
+    //---
+    // ===============================================
+    #ifdef SHARED_C
+    void* print(void* ctx) { ... }
+    #endif
+    // ===============================================
+    #ifdef MAIN_C
+    extern void* print(void*);
+    int main(int argc, char *argv[]) { ... }
+    #endif
+  ```
+
   |multi-build|
     https://stackoverflow.com/questions/2482348/run-c-or-c-file-as-a-script
   ```
