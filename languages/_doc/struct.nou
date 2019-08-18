@@ -1,10 +1,11 @@
 %%%% Structure
 
 Each language directory
-  :/doc/    | gathered docs
-  :/embed/  | boilerplate to embed its runtime into other languages
-  :/ex/     | evolutionary usage examples
-  :/tmpl/   | refined partial boilerplates to simply copy when needed
+  :/doc/     | gathered docs
+  :/embed/   | boilerplate to embed its runtime into other languages
+  :/ex/      | evolutionary usage examples
+  :/threads/ | concurrency and multithreading support in language
+  :/tmpl/    | refined partial boilerplates to simply copy when needed
 
 
 DEV: language incremental templates

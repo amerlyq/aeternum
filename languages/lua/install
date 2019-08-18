@@ -1,0 +1,10 @@
+#!/bin/bash -eu
+source ~/.shell/func.d/packages
+
+if distro arch; then
+  pkg_inst lua
+
+elif distro ubuntu; then
+  # NEED: -I/usr/include/lua5.2 -llua5.2
+  pkg_inst liblua5.3-dev
+fi
