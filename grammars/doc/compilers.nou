@@ -1,0 +1,10 @@
+
+FROM http://prog21.dadgum.com/30.html
+  Writing easy compiler in Forth
+    ! http://home.iae.nl/users/mhx/crenshaw/tiny.html
+  Novel multi-pass transformation compiler in Scheme
+   http://www.cs.indiana.edu/~dyb/pubs/nano-jfp.pdf
+  Dragon book
+    https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools
+  E.G. super-tiny compiler
+    https://github.com/jamiebuilds/the-super-tiny-compiler
