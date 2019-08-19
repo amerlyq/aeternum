@@ -1,3 +1,9 @@
+BAD: Defects of make. What's wrong?
+  http://www.conifersystems.com/whitepapers/gnu-make/
+  https://www.netbsd.org/docs/pkgsrc/makefile.html
+  ALT: http://makepp.sourceforge.net/2.0/
+
+
 ALT:(make)
   SEE https://stackoverflow.com/questions/5110114/is-there-a-build-tool-based-on-inotify-like-mechanism
   ninja
@@ -62,6 +68,7 @@ Tips
     https://www.gnu.org/software/make/manual/html_node/Options_002fRecursion.html#Options_002fRecursion
   Conditionals in recipes
     http://blog.yjl.im/2014/07/setting-variable-in-recipe-based-on.html
+    http://www.chemie.fu-berlin.de/chemnet/use/info/make/make_7.html
   VPATH mistakes
     !! http://make.mad-scientist.net/papers/how-not-to-use-vpath/
     !! https://www.cmcrossroads.com/article/basics-vpath-and-vpath

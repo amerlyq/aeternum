@@ -1,3 +1,29 @@
+VIZ
+  Many in C++
+    https://github.com/hczhu/algorithm-collection
+
+
+Astar-* -- path finding
+  http://gabrielgambetta.com/path1.html
+  http://habrahabr.ru/post/111361/
+
+  With Laplasian potentials => matrix reversing
+    https://habrahabr.ru/post/282239/
+    https://habrahabr.ru/post/282780/
+
+  ++ Lucid explanation with Interactive demo
+    https://habrahabr.ru/post/331192/
+
+
+Genetic
+  Search solutions and generation
+    RU: http://habrahabr.ru/post/111736/
+
+
+Text-reflow in python (Knuth, SMAWK, etc)
+  http://xxyxyz.org/line-breaking/
+
+
 Locking by coarse granulation
   http://mcg.cs.tau.ac.il/projects/projects/flat-combining
     = from https://github.com/khizmax/libcds
