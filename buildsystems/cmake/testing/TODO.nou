@@ -1,0 +1,8 @@
+INFO: global testapp
+  NOTE! never move subsuit of tests into "mainexe/test"
+    * each component must have only unit-tests related to sources placed in that component
+    * each integration test suit of multiple components must be separate component itself
+      NICE: in this way you can create tests on integration test suit itself :)
+
+  [_] MAYBE: move example* and BaseTest* into ./common/ or ./cfg/
+    => so only ./test-* scripts will be in ./testing/ dir
