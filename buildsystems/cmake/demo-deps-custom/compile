@@ -1,4 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-rm -rf _build && cmake . -B_build
-make -C _build VERBOSE=1

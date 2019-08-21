@@ -1,0 +1,84 @@
+%%%% Shebang
+
+Partial
+  Run only inline commands -- suppress "configure" and "generate" steps
+    #!/use/bin/cmake -P
+
+
+Oneline
+  Artifacts caching
+    #!/usr/bin/env -S sh -euc 'cmake -Wdev -Werror=dev -S"${0%/*}" -B"${t:=${TMPDIR:-/tmp}/$(realpath -s "$0")}/" && cmake --build "$t" -j4 --clean-first -t run -- "$@"'
+
+
+Multiline
+  ./CMakeLists.txt
+    ```
+      #!/bin/sh -reufC
+      #[[ -*- mode: cmake; -*-
+      t=${TMPDIR:-/tmp}/${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}/
+      cmake -S"$d" -B"$t" -Werror=dev ${WARN+--warn-uninitialized --warn-unused-vars} ${DEBUG+--debug-output}
+      cmake ${VERBOSE+--verbose} --build "$t" --parallel "$(nproc)" --clean-first --
+      cmake --build "$t" --target coverage -- "$@"
+      exit
+      #%SUMMARY: show coverage gathering
+      #%USAGE: $ ./$0
+      ]]
+    ```
+
+  ./self-contained-project.cmake
+    ```
+      #!/bin/sh -reufC
+      #[[ -*- mode: cmake; -*-
+      x=${t:=${TMPDIR:-/tmp}/${f:=$(realpath -s "$0")}}/CMakeLists.txt
+      cmake -E make_directory "$t"
+      cmake -E copy_if_different "$f" "$x"
+      cmake -S"$t" -B"$t" -Werror=dev ${WARN+--warn-uninitialized --warn-unused-vars} ${DEBUG+--debug-output}
+      cmake ${VERBOSE+--verbose} --build "$t" --parallel "$(nproc)" --clean-first --
+      cmake --build "$t" --target coverage
+      cmake --install "$t" --prefix "$t/_install" --strip
+      cmake -E chdir "$t" ./myexe "$@"
+      # ALT: env -C "$t" ./myexe "$@"
+      exit
+      #%SUMMARY: demo run custom targets
+      #%USAGE: $ ./$0
+      ]]
+    ```
+
+  ./rebuild-on-change.cmake
+    ```
+      #!/bin/sh -reufC
+      #[[ -*- mode: cmake; -*-
+      x=${t:=${TMPDIR:-/tmp}/${f:=$(realpath -s "$0")}}/CMakeLists.txt
+      if ! cmake -E compare_files "$f" "$x"; then
+        cmake -E make_directory "$t"
+        cmake -E copy_if_different "$f" "$x"
+        cmake -S"$t" -B"$t" -Werror=dev ${WARN+--warn-uninitialized --warn-unused-vars} ${DEBUG+--debug-output}
+        cmake ${VERBOSE+--verbose} --build "$t" --parallel "$(nproc)" --clean-first --
+      fi
+      cmake --build "$t" --target coverage
+      cmake -E chdir "$t" ./myexe "$@"
+      exit
+      #%SUMMARY: demo run custom targets
+      #%USAGE: $ ./$0
+      ]]
+    ```
+
+  ./dummy-project.cmake
+    ```
+      #!/bin/sh -euf
+      #[[ -*- mode: cmake; -*-
+      x=${t:=${TMPDIR:-/tmp}/${f:=$(realpath -s "$0")}}/${n:=${0##*/}}
+      cmake -E make_directory "$t"
+      cmake -E copy_if_different "$f" "$x"
+      cat> "$t/CMakeLists.txt" <<'EOT'
+      cmake_minimum_required(VERSION 3.7)
+      project(mypj)
+      EOT
+      cmake -S"$t" -B"$t" -DCMAKE_TOOLCHAIN_FILE="$f" -Werror=dev
+      cmake -B"$t" -LAH
+      exit
+      #%SUMMARY: setup default ARM toolchain for buildroot
+      #%USAGE: $ cmake .. -DCMAKE_TOOLCHAIN_FILE="$0" -DCMAKE_TARGET_TRIPLE='arm-buildroot-linux-gnueabihf'
+      #%HACK: pass "triple" to ext-deps $ ./configure -host=...
+      ]]
+    ```

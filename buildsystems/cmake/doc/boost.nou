@@ -1,7 +1,0 @@
-Default CMake 3.5 on Ubuntu 16.04
-  # FIXED:BUG:(Boost::boost target was not found):
-  #   occurs if first ever find_package(Boost REQUIRED)
-  #   met by CMake don't have any components specified
-  if(CMAKE_VERSION VERSION_LESS "3.6.0")
-    set(_Boost_IMPORTED_TARGETS TRUE)
-  endif()
