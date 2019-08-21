@@ -1,0 +1,59 @@
+SEE: https://beesbuzz.biz/code/4399-Embedding-binary-resources-with-CMake-and-C-11
+  https://stackoverflow.com/questions/11813271/embed-resources-eg-shader-code-images-into-executable-library-with-cmake/27206982#27206982
+  https://github.com/cyrilcode/embed-resource/blob/master/embedresource.cpp
+  ALSO: https://crascit.com/2017/04/18/generated-sources-in-cmake-builds/
+  ++ https://stackoverflow.com/questions/42235175/how-do-i-add-contents-of-text-file-as-a-section-in-an-elf-file
+
+
+ALT:USE: |community/elfkickers| /usr/bin/objres -- creates an object from ordinary or binary data
+
+
+Linker
+  BAD: unconfigurable symbol name
+  BAD: NEED null-terminator for strings
+  BUG: embdedded into .data instead of .rodata
+    TRY: https://vk5tu.livejournal.com/55813.html?nojs=1
+
+  CMake:
+    configure_file(data/some.sql ${CMAKE_CURRENT_BINARY_DIR}/data/some.sql COPYONLY)
+    target_link_libraries(${PROJECT_NAME}
+      PRIVATE
+        -Wl,--format=binary
+        -Wl,data/some.sql
+        -Wl,--format=default
+    )
+  CXX:
+    extern const char _binary_data_some_sql_start;
+    extern const char _binary_data_some_sql_end;
+    auto ssss = std::string(&_binary_data_some_sql_start, &_binary_data_some_sql_end - &_binary_data_some_sql_start);
+
+
+Custom command
+  WARN: can't use directly "--input-target=binary --binary-architecture=..." because objcopy don't have default bfdarch
+    => use linker beforehand to produce *.o in default arch
+  CMake:
+    COMMAND install -Dm644 ${src} ${rc}
+    COMMAND truncate -s +1 ${rc}  # HACK: append NULL byte to make file into correct C string
+    COMMAND ${CMAKE_LINKER} --relocatable --output=${rc}.o --format=binary ${rc_rel}
+    COMMAND ${CMAKE_OBJCOPY}
+      --rename-section .data=.rodata,ALLOC,LOAD,READONLY,DATA,CONTENTS
+      --redefine-sym _binary_${nm}_start=${sym}_start
+      --redefine-sym _binary_${nm}_end=${sym}_end
+      --redefine-sym _binary_${nm}_size=${sym}_size
+      ${rc}.o
+
+
+Raw strings C++11
+  CXX:
+    static
+    #include "data/some.sql.h"
+  CMake:
+    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/data/some.sql.h
+      COMMAND sed -n '1s/^/const char* some_sql = R"=====(/; $s/$/)=====";/; w ${CMAKE_CURRENT_BINARY_DIR}/some.sql.h' data/some.sql VERBATIM)
+      ALT: COMMAND sh -euc "mkdir -p \"\${2%/*}\"; { echo \"const char* const \${1//[^[:alnum:]]/_} = R\\\"$0(\"; cat \"\$1\"; echo \")$0\\\";\"; } > \"\$2\""
+        "=====" data/some.sql ${CMAKE_CURRENT_BINARY_DIR}/data/some.sql.i
+  ALT:BAD: can't generate on demand
+    function(make_includable input_file output_file)
+      file(READ ${input_file} content)
+      file(WRITE ${output_file} "R\"=====(\n${content})=====\";")
+    endfunction(make_includable)
