@@ -9,6 +9,7 @@ exit
 ]]
 #%SUMMARY: basic shared library project
 #%USAGE: $ ./$0
+#%HACK: run symbol $ python -c "import ctypes; x=ctypes.cdll.LoadLibrary('$t/libmain.so'); x.f()"
 #%
 cmake_minimum_required(VERSION 3.6.3)
 project(main CXX)
