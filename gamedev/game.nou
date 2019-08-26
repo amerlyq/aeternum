@@ -2,9 +2,12 @@ Game Loops
   http://www.koonsolo.com/news/dewitters-gameloop/
 
 Game engines
-  https://github.com/floooh/oryol
+  http://floooh.github.io/oryol/
+    SRC: https://github.com/floooh/oryol
   https://www.game-coder.de/page/pixellight
-    https://github.com/Uroc327Mirrors/pixellight
+    SRC: https://github.com/Uroc327Mirrors/pixellight
+  https://urho3d.github.io/
+    SRC: https://github.com/urho3d/Urho3D
 
 Engines
   http://google.github.io/liquidfun/
