@@ -28,3 +28,8 @@ Locking by coarse granulation
   http://mcg.cs.tau.ac.il/projects/projects/flat-combining
     = from https://github.com/khizmax/libcds
       = from https://habr.com/ru/post/328362/
+
+
+Error functions (Faddeeva)
+  http://ab-initio.mit.edu/wiki/index.php/Faddeeva_Package
+  https://github.com/cdown/faddeeva
