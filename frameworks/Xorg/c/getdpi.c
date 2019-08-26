@@ -1,5 +1,5 @@
 //bin/mkdir -p "${TMPDIR:-/tmp}/${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
-//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" CXXFLAGS=-g LDFLAGS=-lX11 "$@"
+//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" CFLAGS=-g LDFLAGS=-lX11 "$@"
 // vim:ft=c
 //---
 // SUMMARY: print DPI of all screens

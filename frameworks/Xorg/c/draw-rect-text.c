@@ -1,5 +1,5 @@
-//bin/mkdir -p "${TMPDIR:-/tmp}/${display:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
-//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$display" CXXFLAGS=-std=c99 LDFLAGS=-lX11 "$@"
+//bin/mkdir -p "${TMPDIR:-/tmp}/${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}" && exec \
+//usr/bin/make -C "$_" -sf/dev/null --eval="!:${n%.*};./$<" VPATH="$d" CFLAGS=-std=c99 LDFLAGS=-lX11 "$@"
 // vim:ft=c
 //---
 // SUMMARY: draw a box in a window.
