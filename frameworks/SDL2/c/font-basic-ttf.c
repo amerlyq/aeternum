@@ -3,14 +3,14 @@ set -fCueEo pipefail
 s=${d:=$(realpath -s "${0%/*}")}/${n:=${0##*/}}
 mkdir -p "${x:=${TMPDIR:-/tmp}/$s}"
 make -C "$x" -sf- VPATH="${s%/*}" "${n%.*}" <<EOT
-CXXFLAGS += -std=c++11 -DSRCPATH='"$s"'
+CXXFLAGS += -std=c99
 LDFLAGS += -lSDL2 -lSDL2_ttf
 EOT
 exec ${RUN-} "$x/${n%.*}" "$@"
 #endif
-// vim:ft=cpp
+// vim:ft=c
 //---
-// SUMMARY: draw text
+// SUMMARY: draw single line text
 // USAGE: $ ./$0
 //---
 
@@ -34,8 +34,7 @@ main()
         SDL_Log("Couldn't load font");
         return EXIT_FAILURE;
     }
-    SDL_Window* screen =
-            SDL_CreateWindow("SDL2_font", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
+    SDL_Window* screen = SDL_CreateWindow("SDL2_font", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
     if (!screen) {
         SDL_Log("Could not create window");
         return EXIT_FAILURE;
@@ -46,13 +45,14 @@ main()
         return EXIT_FAILURE;
     }
 
-    SDL_Color col_white = { .r = 255, .g = 255, .b = 255, .a = 255 };
-    SDL_Surface* text = TTF_RenderUTF8_Blended(font, "Hello world", col_white);
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, text);
-    SDL_FreeSurface(text);
-    text = NULL;
+    char const* text = "Hello world";
+    SDL_Color color = {.r = 255, .g = 255, .b = 255, .a = 255};
+    SDL_Surface* surf = TTF_RenderUTF8_Blended(font, text, color);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surf);
+    SDL_FreeSurface(surf);
+    surf = NULL;
 
-    SDL_Rect dest = { .x = 10, .y = 10 };
+    SDL_Rect dest = {.x = 10, .y = 10};
     SDL_QueryTexture(texture, NULL, NULL, &dest.w, &dest.h);
 
     SDL_Event e = {};
