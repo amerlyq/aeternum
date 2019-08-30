@@ -1,0 +1,30 @@
+#!/bin/bash -eu
+#%SUMMARY: install useful examples to keep
+cd ~/hub
+
+do_once(){ local f=${*:(-1)}; f=${f##*/}; [[ -e $f ]] || "$@"; }
+gc1(){ do_once git clone --depth 1 "$@"; }
+ghub(){ gc1 "${@:1:$#-1}" "https://github.com/${*:(-1)}"; }
+wget(){ do_once wget "$@"; }
+
+
+### Learning ###
+ghub 'shadowbq/Cheat-Sheets'
+ghub 'BinRoot/Haskell-Data-Analysis-Cookbook'
+ghub 'sjl/learnvimscriptthehardway'
+ghub 'Gabriel439/post-rfc'  # haskell resources
+ghub 'pleac/pleac'  # lisp resources
+
+
+## Real-world cooking
+ghub 'appplemac/cooking-patterns'
+
+
+## Modeling With Data
+# BOOK: http://modelingwithdata.org/about_the_book.html
+
+
+### System & Kernel ###
+# INFO: System Programming:  lessons and examples -- smashing stack, etc
+# https://github.com/angrave/SystemProgramming/wiki
+# https://github.com/shihyu/Linux_Programming

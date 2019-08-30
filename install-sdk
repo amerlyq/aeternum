@@ -1,0 +1,81 @@
+#!/bin/bash -eu
+#%SUMMARY: install repos with reference materials
+cd ~/sdk
+
+do_once(){ local f=${*:(-1)}; f=${f##*/}; [[ -e $f ]] || "$@"; }
+gc1(){ do_once git clone --depth 1 "$@"; }
+ghub(){ gc1 "${@:1:$#-1}" "https://github.com/${*:(-1)}"; }
+wget(){ do_once wget "$@"; }
+
+
+### Buildable examples
+ghub 'g-truc/ogl-samples'
+ghub 'leereilly/games'
+ghub 'vurtun/nuklear'  # NICE! embedded basic GUI
+
+
+### GNU Standard Sources
+
+# wget 'https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.10.tar.xz'
+# wget 'https://ftp.gnu.org/gnu/coreutils/coreutils-8.26.tar.xz'
+# wget 'https://ftp.gnu.org/gnu/gdb/gdb-7.12.1.tar.xz'
+# wget 'http://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz'
+# wget 'http://releases.llvm.org/6.0.1/cfe-6.0.1.src.tar.xz'
+# wget 'http://releases.llvm.org/6.0.1/clang-tools-extra-6.0.1.src.tar.xz'
+# gc1 'https://sourceware.org/git/glibc.git'
+
+## Downloadable Sources
+# hg clone 'http://hg.libsdl.org/SDL'
+wget 'https://www.libsdl.org/release/SDL2-2.0.10.tar.gz'
+wget 'https://git.linaro.org/toolchain/eglibc.git/snapshot/eglibc-linaro_eglibc-2_19-2014_08_release.tar.gz'
+# wget xbindkeys-1.8.6.tar.gz
+
+
+### Repo Sources
+
+# gc1 'https://gitlab.common-lisp.net/asdf/asdf.git'
+# gc1 'git://sourceware.org/git/elfutils.git'
+# gc1 'https://gitlab.com/graphviz/graphviz/'
+# gc1 'https://git.code.sf.net/p/isync/isync'
+# ghub 'mobile-shell/mosh'
+# gc1 'git://code.qt.io/qt/qt.git'
+# ghub 'Werkov/PyQt4'
+# ghub 'baoboa/pyqt5'
+ghub 'qtile/qtile'
+# ghub 'The-Compiler/qutebrowser'
+# ghub 'amerlyq/radare2-regressions'
+# ghub 'ranger/ranger'
+# ghub 'rakshasa/rtorrent'
+ghub 'sbcl/sbcl'
+ghub 'vispy/vispy'  # EXPL: python primes interactive scientific visualization
+ghub 'vifm/vifm'
+# ghub 'weechat/weechat'
+# ghub 'xboxdrv/xboxdrv'
+# ghub 'zerojay/xboxdrv'
+ghub 'alols/xcape'
+ghub 'tych0/xcffib'
+ghub 'jordansissel/xdotool'
+gc1 'git://git.code.sf.net/p/linuxwacom/xf86-input-wacom'
+
+
+### Integrate ###
+
+# ghub 'robbyrussell/oh-my-zsh.git'
+# https://github.com/fusioninventory/fusioninventory-agent
+# https://github.com/m0t/gdb-heap
+# https://github.com/qnikst/kbdd
+# git://git.openembedded.org/openembedded-core
+
+
+## Boot: modern MBR, etc
+# gc1 'http://review.coreboot.org/p/coreboot.git'
+
+
+### Frameworks ###
+# SDL2.0
+# ghub 'libRocket/libRocket'
+# hg_inst -d 'gabomdq/ignifuga'
+
+
+### Opengl ###
+# hg_inst -d 'https://code.google.com/p/flyinghigh-opengl-from-python/'
