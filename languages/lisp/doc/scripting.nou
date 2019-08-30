@@ -42,6 +42,13 @@ VIZ
   Multiline (instead of /usr/bin/env trampoline)
     #!/bin/sh
     ":" ; exec cl-launch -X -sp my-package -E main -- "$0" ${1+"$@"} || exit
+  Multiline -- with access to script path from inside
+    #!/bin/sh
+    #|
+    exec sbcl --script "$0" "$0" ${1+"$@"}
+    exit
+    |#
+    (print *posix-argv*)
   ALSO:SEE:
     $ cl-launch --more-help | less +/'Makefile examples'
 

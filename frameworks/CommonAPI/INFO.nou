@@ -1,0 +1,6 @@
+TRY: use my own main loop to directly move messages to my own queues
+  <= by default CAPI creates 1 main loop and 4 workers
+  e.g.
+    https://github.com/GENIVI/capicxx-core-tools/blob/master/org.genivi.commonapi.core.verification/src/THMainLoopTwoThreads.cpp
+    https://github.com/GENIVI/capicxx-core-tools/blob/master/org.genivi.commonapi.core.verification/src/THMainLoopIndependence.cpp
+    https://github.com/GENIVI/capicxx-core-tools/blob/master/org.genivi.commonapi.core.verification/src/THMainLoopIntegration.cpp

@@ -1,3 +1,6 @@
 separate file which grabs signals to include into each main
 
 [_] TODO: move whole taskmgr into separate repo under GPL/MIT ?
+
+[_] READ: boost asio -- ordering dependent tasks
+  https://www.boost.org/doc/libs/1_70_0/doc/html/thread/sds.html

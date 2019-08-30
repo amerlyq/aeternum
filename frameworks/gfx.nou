@@ -1,3 +1,13 @@
+
+Pipeline
+  https://graphics.pixar.com/usd/docs/index.html
+    SRC: https://github.com/PixarAnimationStudios/USD
+    NICE: similar to what I wish from @/mio toolset
+      * interchangable format for piping between scripts
+      * compose, merge and overlay 3D scenes
+  ~+ I remember some pdf which used LLVM to generate 3D graphics payload for testing
+
+
 Tracing
   https://github.com/ssloy/tinyraytracer
   https://github.com/ssloy/tinykaboom

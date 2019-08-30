@@ -4,6 +4,7 @@ Game Loops
 Game engines
   http://floooh.github.io/oryol/
     SRC: https://github.com/floooh/oryol
+    ALSO: https://github.com/floooh/sokol
   https://www.game-coder.de/page/pixellight
     SRC: https://github.com/Uroc327Mirrors/pixellight
   https://urho3d.github.io/
@@ -18,3 +19,7 @@ Noc + FPGA -- for physics in GPU
 AI
   Behavioral Trees
     https://github.com/crust/beehive
+
+
+Physics / engines
+  https://github.com/google/filament
