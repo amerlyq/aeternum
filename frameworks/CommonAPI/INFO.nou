@@ -4,3 +4,7 @@ TRY: use my own main loop to directly move messages to my own queues
     https://github.com/GENIVI/capicxx-core-tools/blob/master/org.genivi.commonapi.core.verification/src/THMainLoopTwoThreads.cpp
     https://github.com/GENIVI/capicxx-core-tools/blob/master/org.genivi.commonapi.core.verification/src/THMainLoopIndependence.cpp
     https://github.com/GENIVI/capicxx-core-tools/blob/master/org.genivi.commonapi.core.verification/src/THMainLoopIntegration.cpp
+
+
+ARCH: Common Sequence -- CommonAPI基本流程 · zeerd's blog
+  https://blog.zeerd.com/capicxx-example-helloworld/
