@@ -15,10 +15,16 @@ REF
 
 
 VIZ:
-  https://orgmode.org/
+  EMacs: https://orgmode.org/
     e.g. https://orgmode.org/worg/org-contrib/babel/uses.html#sec-6
-  http://www.sphinx-doc.org/en/stable/
-  https://asciidoctor.org/
+  Python: http://www.sphinx-doc.org/en/stable/
+    ADD: http://docutils.sourceforge.net/rst.html
+      |python-docutils|
+    Used in Linux Kernel
+      https://lwn.net/Articles/692704/
+      RU: https://habr.com/ru/post/316758/
+        = CMP: good read to understand why Sphinx beats them all -- asciidoctor, etc
+  Ruby: https://asciidoctor.org/
   https://github.com/rtfd/readthedocs.org
   https://github.com/mbakeranalecta/sam
 
