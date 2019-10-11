@@ -168,6 +168,7 @@ public:
     }
 
 private:  /// implementation policy
+    // TODO: rename to { start, init, listen } -- so first line of logs had more sense
     void run() {
         TRACE_FUNC();
         // BUG: blocks again after emit_shutdown() and cancelling last task
@@ -203,7 +204,12 @@ private:  /// implementation policy
 
         // ARCH: "try..catch" itself is part of execution *policy* -- override when necessary
         try {
-            TRACE_SCOPE("task");
+            TRACE_SCOPE(m_name);
+            // MAYBE: replace passing isCancelled() through last arg by inheriting all Tasks from common class with isCancelled() base method ?
+            //   BAD: won't help with passing control from task wrapper to outside agnostic classes
+            //   BAD: hides cancellation interface, without explicit belonging to API like it is with last arg
+            //   BAD? you must fully contain your business logic inside SmthTask classes -- so isCancelled() will be available anywhere
+            //     ?? BUT: is it good or bad -- merge "Task" containerism with business logic ??
             auto isCancelled = [this]() -> bool { return m_canceled; };
             task(std::move(isCancelled));
         } catch (std::exception const& exc) {

@@ -1,5 +1,7 @@
 BOOK: 21st Century C: C Tips from the New School
 
+errno / assert / setjmp / longjmp
+  https://habr.com/ru/post/324642/
 
 const : bad things
   http://www.parashift.com/c++-faq/constptrptr-conversion.html

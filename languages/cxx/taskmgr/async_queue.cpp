@@ -28,6 +28,8 @@ private:
     std::queue<T> m_queue;
     mutable std::mutex m_mutex;
     std::condition_variable m_nonempty;  // ALT:(rename): m_pending
+    // BAD: multiple queues will run and process events immediately even before full app init completes
+    //   NEED: when creating group -- create it by default in stopped state and run everything at once after ctor
     std::atomic_bool m_blocked{false};
 
 public:

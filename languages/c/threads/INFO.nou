@@ -14,3 +14,6 @@ C:
 C++11:
   http://www.codeproject.com/Articles/598695/Cplusplus-threads-locks-and-condition-variables
   http://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf
+
+Atomic
+  https://gcc.gnu.org/wiki/Atomic/GCCMM/AtomicSync

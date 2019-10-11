@@ -1,3 +1,10 @@
+UGLY -- your C++ is shit
+  CppCon 2019: Patrice Roy “Some Programming Myths Revisited” - YouTube
+    https://www.youtube.com/watch?v=KNqRjzSlUVo
+  CppCon 2019: Nicolai Josuttis “When C++ Style Guides Contradict” - YouTube
+    https://www.youtube.com/watch?v=WRQ1xqYBKgc
+
+
 %%%% C++11
   Regex
     http://en.cppreference.com/w/cpp/regex/ecmascript
@@ -85,6 +92,8 @@ Nightmares
       SEE: Explanation (1-4) in table
     https://en.cppreference.com/w/cpp/language/default_initialization
       SEE: Explanation (3) + effects directly below
+  structure fields initialization
+    +++ https://d3s.mff.cuni.cz/legacy/~holub/c_features.html
 
 
 TALK
@@ -177,6 +186,18 @@ TALK
   Refactoring to Immutability - Kevlin Henney
     https://www.youtube.com/watch?v=APUCMSPiNh4
     NICE: immutable datastructs && filters / pipelines
+  CppCon 2019: Bjarne Stroustrup “C++20: C++ at 40” - YouTube
+    https://www.youtube.com/watch?v=u_ij0YNkFUs&feature=youtu.be
+  CppCon 2019: Sean Parent “Better Code: Relationships” - YouTube
+    https://www.youtube.com/watch?v=ejF6qqohp3M&feature=youtu.be
+  +++ CppCon 2019: Andrei Alexandrescu “Speed Is Found In The Minds of People" - YouTube
+    https://www.youtube.com/watch?v=FJJTYQYB1JQ
+  CppCon 2019: Herb Sutter “De-fragmenting C++: Making Exceptions and RTTI More Affordable and Usable” - YouTube
+    https://www.youtube.com/watch?v=ARYP83yNAWk&feature=youtu.be
+  C++ virtual methods racing in base class ctor/dtor  -- debugging by santizers
+    https://channel9.msdn.com/Events/GoingNative/2013/The-Care-and-Feeding-of-C-s-Dragons
+  CppCon 2019: Andrew Sutton “Reflections: Compile-time Introspection of Source Code” - YouTube
+    https://www.youtube.com/watch?v=ARxj3dfF_h0
 
 
 DEBUG
