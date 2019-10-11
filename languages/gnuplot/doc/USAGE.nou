@@ -1,0 +1,19 @@
+Session
+  Save current interactive session
+    https://stackoverflow.com/questions/11211788/how-to-dump-commands-for-current-plot
+    | save "file.txt"
+  Fresh session
+    BAD: resets everything -- even ARG1 passed to script
+    | reset session
+
+
+USAGE
+  switch :: write to STDOUT instead of STDERR
+    | set print "-"
+  string -> number
+    | stringnumber = "1.0e0"
+    | num = s + 0
+  persist
+    $ ./$0 --persist
+    | pause -1
+    | pause mouse close

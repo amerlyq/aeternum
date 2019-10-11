@@ -1,0 +1,27 @@
+%%%% Shebang
+
+singleline
+  BAD: requires very new "env>~8.31"
+  | #!/usr/bin/env -S gnuplot --persist -d -c
+
+multiline
+  HACK: place all commands into single line and separate by ";"
+  | #!/bin/sh -eufC
+  | # vim:ft=gnuplot
+  | if(':');then exec gnuplot --persist -d -c "$0" "$@";fi
+
+heredoc
+  | #!/usr/bin/env bash
+  | set -euo pipefail
+  | [[ -t 1 ]] || export GNUTERM="png size 640, 480"
+  | exec gnuplot --persist -d -c /dev/fd/3 "$@" 3<<EOT
+  | eval "plot '/dev/stdin' using 1:".ARG1." with ".ARG2." lw 2 notitle"
+  | EOT
+
+passcode
+  | IFS=$'\n'
+  | code=${*:?}
+  | exec gnuplot --persist -d -c /dev/fd/3 -- 3<<EOT
+  | $code
+  | eval "plot '/dev/stdin' using 1:".ARG1." with ".ARG2." lw 2 notitle"
+  | EOT
