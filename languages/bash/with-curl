@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#%SUMMARY: curl example with heredocs and error-processing
+#%USAGE: $ ./$0 [curl_args]
+set -fCueEo pipefail
+
+(($#)) || set -- 'https://example.com'
+
+exec <<STDIN
+a=val1
+b=val2
+STDIN
+
+exec {fdh}<<HEADERS
+Content-Type: application/json
+X-Atlassian-Token: no-check
+Accept: application/json
+Accept-Encoding: gzip
+HEADERS
+
+
+exec {fdo}> >(gzip --decompress --stdout --force)
+
+args=(
+  --header "@/dev/fd/$fdh"
+  --output "/dev/fd/$fdo"
+  --write-out '%{http_code}\n'
+)
+
+code=$(curl "${args[@]}" "$@" --data-urlencode @-)
+
+[[ ${WRITE_CODE_FD+x} ]] && printf '%d\n' "$code" >&"${WRITE_CODE_FD:?}"
+
+case $code      #%VIZ: <error codes>
+in 200) exit 0  #% 0 = success
+;; 401) exit 3  #% 3 = authorization
+;; 403) exit 3  #% 3 = authorization
+;;   *) exit 1  #% 1 = other HTTP error
+esac            #% 2 = inner error

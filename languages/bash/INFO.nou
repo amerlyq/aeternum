@@ -24,6 +24,7 @@ ALT
 
 
 Cool man. Very cool
+  ++ https://github.com/dylanaraps/pure-bash-bible
   >>> http://www.tldp.org/LDP/abs/html/abs-guide.html
   >>> http://tldp.org/LDP/abs/html/complexfunct.html
   >> http://tldp.org/LDP/abs/html/arrays.html#ARRAYSTROPS
@@ -62,7 +63,11 @@ shell exits."
     http://cfajohnson.com/shell/cus-faq-2.html#Q11
     Manually pass errors from process substitution
       https://unix.stackexchange.com/questions/217605/bash-how-to-propagate-errors-in-process-substitution
+  sh:
+    $ set -fCure
+    $ set -r -o errexit -o noclobber -o noglob -o nounset
   bash: $ set -fCureEo pipefail
+  full: $ set -r -o errexit -o errtrace -o noclobber -o noglob -o nounset -o pipefail
     OR: with pathname expansion
     $ set +f -CueEo pipefail
     $ shopt -s nullglob
