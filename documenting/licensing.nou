@@ -1,5 +1,156 @@
+If you work, the best time to negotiate permission to release free software is *when negotiating your employment agreement*.
+
+
+USAGE
+  Code
+    | // SPDX-FileCopyrightText: 2012-2016, Joe Random Hacker and contributors
+    | // SPDX-License-Identifier: GPL-3.0-or-later
+  Docs with examples
+    | // SPDX-FileCopyrightText: 2012-2016, Joe Random Hacker and contributors
+    | // SPDX-License-Identifier: CC-BY-SA-4.0+
+
+
+ARCH
+  src / doxygen
+    "AGPL-3.0-or-later" -- for anything which can be *obviously* used in web front-end
+      OR *provingly* used in immediate back-end services
+    "GPL-3.0-or-later"  -- for everything else you care
+      !! otherwise you can easily *LOSE* your freedom to use *your own* code
+        (e.g. corporate misappropriation)
+    "LGPL-3.0-or-later" -- for things you wish to allow to use in corporate products
+      <= and provide your services to company on "enhancing" lib in the useful direction for it and humankind
+    "Apache-2.0+" -- small to medium sized programs anyone could write and which you don't care of
+      +++ save yourself from patent traps in public domain
+      !! beware of proprietary extensions that would present practical advantages over our free programs being based on them and their experience
+    "MIT" -- if you slightly care only about attribution
+      AND work is hard to apply patent rights to (e.g small enough)
+    Dual = "(GPL-3.0-or-later OR Proprietary)" == more restrictive than GPL
+      ??? better go to fully Proprietary license with open (but non-free) source ???
+    Disclosed, All rights reserved -- useless unless it's a very complex soft and you sell support service
+    Undisclosed, All rights reserved -- useful only until it provides you distinct strategical superiority
+      !! must never be passed into second hands -- otherwise it can be misappropriated without consequences
+      => must be converted to AGPL / Apache2 -- when superiority no longer possible or don't matter
+
+  doc / tutorials
+    "CC-BY-SA-4.0+" -- like code, but documents and pictures, without requirement to keep full license
+      => explicitly compatible with A/GPLv3 and can interchange code snippets with Wikipedia
+    "CC-BY-4.0+" -- again, if you slightly care for attribution related to this piece of text, but not anything else
+    "CC0-1.0+" -- for very generic and simple scenarios you can't prove attribution anyway
+    "GFDL-1.3-or-later" -- any textbook information +for practical use+
+      FAIL!(code examples): you can't reuse code snippets from it even in GPLv3 software -- you must dual-license them
+        https://lwn.net/Articles/305892/
+        <= MAYBE: it's still good, but only for full large BOOK
+      BUT:(debian problems): https://www.debian.org/vote/2006/vote_001
+      BUT:(wiki problems): https://en.wikipedia.org/wiki/Wikipedia:Comparison_of_GFDL_and_CC_BY-SA
+        https://opensource.stackexchange.com/questions/8262/proper-use-of-wikipedia-code-sample-in-open-source-projects
+    "GPLv3" -- docs same as code
+      FAIL! if printed into book or shown in video tutorial
+        -- you must also print whole GPL license and whole "sourcecode" for book
+        https://opensource.stackexchange.com/questions/741/with-gpl-what-does-source-code-mean-for-non-software
+
+  personal experiences / opinions
+    "CC-BY-ND-4.0" -- to preserve your viewpoint untouched (nobody is allowed to fix !even errors!)
+    "CC0-1.0+" -- if it's really bunch of whole-world ideas you share unselfishly
+
+  architecture
+    READ: The Impact of Licensing Models on Architecture
+      https://www.artima.com/intv/license.html
+
+
 NICE! public license has its own appeal
   https://github.com/nothings/stb/blob/master/docs/why_public_domain.md
+  https://en.wikipedia.org/wiki/Public_domain
+
+
+IDEA: if you use some Public Domain resources and your end-product had succeed
+  => pay some royalty to original author even though he has no copyright anymore
+
+
+Developer Certificate of Origin
+  https://developercertificate.org/
+
+
+Copyright
+  NEED: some files e.g. configuration files may not meet "threshold of originality"
+  Generic
+    +++ https://ben.balter.com/2015/06/03/copyright-notices-for-websites-and-open-source-projects/
+    | Copyright [year file created] - [last year file modified], [project founder] and the [project name] contributors
+  Notice
+    https://reuse.software/faq/#copyright-symbol
+    https://spdx.org/spdx-specification-21-web-version
+    | SPDX-FileCopyrightText: 2019 Jane Doe <jane@example.com>
+    | SPDX-FileCopyrightText: © 2019 John Doe <joe@example.com>
+    | © Example Corporation <https://corp.example.com>
+    | Copyright 2016, 2018-2019 Joe Anybody
+    | Copyright (c) Alice
+  Proprietary
+    https://lists.linuxfoundation.org/pipermail/spdx-legal/2013-December/001062.html
+    | // Copyright 2017, John Doe. All rights reserved.
+    | // SPDX-License-Identifer: NONE
+
+
+Relicensing
+  https://www.gnu.org/licenses/license-compatibility.html
+  https://blog.gerv.net/2013/02/relicensing-when-do-you-have-to-ask/
+  e.g. LLVM https://hub.packtpub.com/llvm-will-be-relicensing-under-apache-2-0-start-of-next-year/
+
+
+REUSE
+  SEE: https://reuse.software/
+  ALSO: https://www.gnu.org/licenses/gpl-howto.html
+  TUT: https://reuse.software/tutorial/
+    https://reuse.software/faq/#copyright-holder-author
+  E.G. https://github.com/fsfe/reuse-example
+  REQ -- which concerns me
+    Handle deprecated licences and the "+" operator · Issue #18 · fsfe/reuse-tool
+      https://github.com/fsfe/reuse-tool/issues/18
+      ::: it seems "+" only supported for licenses which explicitly allow this
+    REUSE compliance and GitHub license integration · Issue #84 · fsfe/reuse-tool
+      https://github.com/fsfe/reuse-tool/issues/84
+      ::: ongoing
+    How to properly license under LGPL · Issue #86 · fsfe/reuse-tool
+      https://github.com/fsfe/reuse-tool/issues/86
+      ::: include both licenses and dual-license at least one file
+        // SPDX-License-Identifier: (LGPL-3.0-or-later OR GPL-3.0-or-later)
+    Use original text version for downloaded licenses · Issue #88 · fsfe/reuse-tool
+      https://github.com/fsfe/reuse-tool/issues/88
+      ::: it seems using SPDX license with different formatting is not a problem
+
+
+
+INFO: Software Package Data Exchange (SPDX) IDs for licenses
+  VIZ
+    https://github.com/spdx/license-list-data/tree/master/text
+    https://spdx.org/licenses/exceptions-index.html
+  Tags
+    https://wiki.spdx.org/view/Technical_Team/SPDX_Meta_Tags
+  TUT https://spdx.org/ids-how
+    !! Like copyright notices, existing license texts and notices should be retained, not replaced
+      -- especially a third party's license notices.
+    !! "the open source license indicated in the file". If there is no license indicated in the file, the meaning of that phrase is not entirely clear.
+    * SPDX tag should appear as the first line in the file (or second -- for scripts)
+    !! SPDX is "supplement", and not replacement for for "recommended notice" i.e. "standard license header"
+      * consensus seems to be that the SPDX identifier is a sufficient declaration of the license on its own
+        <= https://lwn.net/Articles/739183/
+      Simply saying "this is under the MIT license" is inadequate.
+      Distributing a template MIT license is inadequate.
+      !! Distributing the exact text of the MIT license file provided by the copyright holders
+        (generally containing one or more copyright statements) is what's required.
+        In many instances they'll need to either annotate the source with the full text of each original license,
+        or provide the path to each of those original licenses in the source tree.
+    !! Any SPDX identifier used in the kernel must have a corresponding file under LICENSES/.
+      The file name is the same as the SPDX identifier and it contains the full license text along with some machine parsable meta data.
+        https://lwn.net/Articles/739183/
+  TUT https://www.linuxfoundation.org/blog/2018/08/solving-license-compliance-at-the-source-adding-spdx-license-ids/
+    https://events.static.linuxfound.org/sites/events/files/Introduction%20to%20SPDX-without%20graphics.pdf
+    +++ https://github.com/david-a-wheeler/spdx-tutorial
+  E.G. https://spdx.org/ids
+    // SPDX-License-Identifier: MIT
+    /* SPDX-License-Identifier: MIT OR Apache-2.0 */
+    # SPDX-License-Identifier: GPL-2.0-or-later
+  Tools
+    https://boyter.org/2018/03/licensechecker-command-line-application-identifies-software-license/
+    |aur/reuse|
 
 
 TODO
@@ -13,12 +164,18 @@ TODO
         https://creativecommons.org/2014/01/07/plaintext-versions-of-creative-commons-4-0-licenses/
     https://wiki.creativecommons.org/wiki/Documentation
     https://wiki.creativecommons.org/wiki/Marking_your_work_with_a_CC_license
-  License list with comments
+  CMP: License list with comments
     http://www.gnu.org/licenses/license-list.html
     http://www.gnu.org/licenses/license-recommendations.html
     http://opensource.stackexchange.com/questions/1876/move-from-mit-license-to-a-new-one
+    RU: https://habr.com/ru/post/243091/
   Patent rights
     http://www.internationallawoffice.com/Newsletters/IT-Internet/International/Osborne-Clarke/Open-source-software-and-patents-how-the-GPLv3-affects-patent-portfolios
+
+
+INFO
+  Groklaw - On Squishy Law and a Frivolous Appeal
+    http://www.groklaw.net/articlebasic.php?story=20060716182835630
 
 SEE
   ! https://en.wikipedia.org/wiki/Business_models_for_open-source_software
@@ -30,3 +187,33 @@ SEE
   Use my own GPL licensed code in a commercial product
     http://softwareengineering.stackexchange.com/questions/154287/use-my-own-gpl-licensed-code-in-a-commercial-product
     https://www.gnu.org/licenses/gpl-howto.html
+
+  Dual
+    SEE:TALK:ALT: https://github.com/beeware/paying-the-piper/issues/61
+    !! https://www.fsf.org/blogs/rms/selling-exceptions
+      => only sale exceptions to "use" as derived work (i.e. paid conversion GPL -> LGPL) -- to require share changes to code back anyway
+    https://wiki.p2pfoundation.net/Dual_Licensing
+      ? how to fork dual-licensed software -- is it possible at all ?
+        => seems like it's allowed, but the development community does not have development power to start competing products (forks).
+      = you must fully own official software -- only the copyright holder can change the licensing terms of a software
+        In single-vendor open source, almost all of the core product development work is carried out by the commercial firm, with occasional contributions from the community.
+      = outside developers must agree to "contributor license agreement" -- otherwise company can't legally accept their code
+        into official repo -- as company isn't copyright holder of the additional code
+        => external contributors are required to re-assign their copyrights (and sometimes all of their IP rights) to the open source company.
+          !!! you can't re-license your own code anymore, you can't even use it anymore !!!
+      + requires "royalty" by either code contributions or money
+      ~~~ very murky legal and moral grounds
+        e.g. open source company is not forced to contribute back to the community.
+    E.G. http://monty-says.blogspot.com/2009/08/thoughts-about-dual-licensing-open.html
+    https://resources.whitesourcesoftware.com/blog-whitesource/dual-licensing-for-open-source-components-yeah-or-meh
+      Meeker points out that the dual licensing model only works under two conditions:
+      the software is not an entire program, and the software is mainly used in distributed products.
+      If the software is an entire program, then anyone can use and distribute
+      the software under GPL. The pain point comes when the GPL code must be
+      integrated with proprietary code to make it work. In this sense, dual
+      licensing is like an intentional “license bug” that has to be solved with a proprietary license.”
+    https://www.synopsys.com/blogs/software-security/software-licensing-decisions-consider-dual-licensing/
+    http://oss-watch.ac.uk/resources/duallicence2
+
+  Tweak allowed clauses in GPL -- e.g. make "Lesser Affero GPLv3"
+    http://mo.morsi.org/blog/2009/08/13/lesser_affero_gplv3/
