@@ -1,0 +1,18 @@
+INFO
+  https://wiki.archlinux.org/index.php/D
+  https://wiki.dlang.org/Installing_DMD
+  https://wiki.dlang.org/Compilers
+
+
+TUT
+  http://blog.tenstral.net/2016/05/adventures-in-d-programming.html
+
+  Ownership and borrowing
+    We have very nice conceptual idea how to manage such resources from Rust fields
+    -- about ownership and sharing, which slowly permeates other languages:
+    https://dlang.org/blog/2019/07/15/ownership-and-borrowing-in-d/
+    TL;DR: you have nested lifetimes/scopes, you have readwrite pointer to UPH
+    and modify it through that pointer, but when you pass UPH as
+    constref/whatever **further** in scope -- you must never modify UPH by any
+    means until that constref exists, only then original (owing) pointer to UPH
+    may be again treated as readwrite.
