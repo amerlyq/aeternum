@@ -1,0 +1,49 @@
+
+INFO
+  Python: http://www.sphinx-doc.org/en/stable/
+
+  ADD: http://docutils.sourceforge.net/rst.html
+    |python-docutils|
+
+  Used in Linux Kernel
+    https://lwn.net/Articles/692704/
+    RU: https://habr.com/ru/post/316758/
+      = CMP: good read to understand why Sphinx beats them all -- asciidoctor, etc
+
+  TUT http://www.sphinx-doc.org/en/1.7/tutorial.html
+    https://www.kernel.org/doc/html/v4.10/doc-guide/sphinx.html
+
+  INFO: reStructuredText cheatsheet
+    LIOR: https://gist.github.com/ionelmc/e876b73e2001acd2140f
+    TUT: https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#inserting-code-and-literal-blocks
+
+
+ARCH :: C++ => Doxygen => XML => breath => exhale
+  https://exhale.readthedocs.io/en/latest/
+    https://github.com/svenevs/exhale
+  https://blog.magnum.graphics/meta/improved-doxygen-documentation-and-search/
+    https://news.ycombinator.com/item?id=18816897
+  CMake: https://eb2.co/blog/2012/03/sphinx-and-cmake-beautiful-documentation-for-c---projects/
+    https://github.com/neovim/bot-ci/issues/129
+    ++ https://github.com/neovim/neovim/issues/329
+    https://vis.readthedocs.io/en/master/
+    e.g. https://github.com/fmtlib/fmt/tree/master/doc
+  https://pypi.org/project/wurfapi/
+  ALT: https://github.com/vovkos/doxyrest
+    RU: https://habr.com/ru/post/318564/
+
+
+Vim
+  riv.vim - Vim Awesome
+    https://github.com/gu-fan/riv.vim
+    https://vimawesome.com/plugin/riv-vim
+  Vim Is Saving Me Hours of Work When Writing Books and Courses | Hacker News
+    https://news.ycombinator.com/item?id=19143853
+  Self-publishing a book with reStructuredText, Sphinx, Calibre, and vim
+    https://digitalsuperpowers.com/blog/2019-02-16-publishing-ebook.html
+  Realtime reStructuredText preview in browser with Vim and InstantRst
+    https://www.stolarscy.com/dryobates/2016-10/instantrst/
+  Is there a high-quality restructuredText plugin? : vim
+    https://www.reddit.com/r/vim/comments/2k9lnm/is_there_a_highquality_restructuredtext_plugin/
+    https://www.tompurl.com/2012-11-22-writing-a-book-with-vim.html
+      https://webcache.googleusercontent.com/search?q=cache:uwZAI_VpL18J:https://www.tompurl.com/2012-11-22-writing-a-book-with-vim.html+&cd=1&hl=en&ct=clnk&gl=ua&lr=lang_be%7Clang_zh-CN%7Clang_zh-TW%7Clang_ja%7Clang_pl%7Clang_ru%7Clang_uk

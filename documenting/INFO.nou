@@ -18,12 +18,8 @@ VIZ:
   EMacs: https://orgmode.org/
     e.g. https://orgmode.org/worg/org-contrib/babel/uses.html#sec-6
   Python: http://www.sphinx-doc.org/en/stable/
-    ADD: http://docutils.sourceforge.net/rst.html
-      |python-docutils|
-    Used in Linux Kernel
-      https://lwn.net/Articles/692704/
-      RU: https://habr.com/ru/post/316758/
-        = CMP: good read to understand why Sphinx beats them all -- asciidoctor, etc
+    https://lwn.net/Articles/692704/
+    RU: https://habr.com/ru/post/316758/
   Ruby: https://asciidoctor.org/
   https://github.com/rtfd/readthedocs.org
   https://github.com/mbakeranalecta/sam
@@ -38,3 +34,12 @@ VIZ:
 IDEA
   Constraints in documentation
     https://everypageispageone.com/2016/06/05/why-we-need-constrainable-lightweight-markup-languages/
+
+
+HOWTO:(generic): categorize
+  https://www.knowledgeowl.com/home/how-to-categorize-your-knowledge-base
+  https://mgrush.com/blog/how-to-categorize/
+  http://www.virtuouscode.com/2017/07/13/how-to-categorize-objects/
+  https://unclutterer.com/2016/03/31/the-many-ways-to-categorize-your-stuff/
+  https://medium.com/@urban_institute/how-to-categorize-large-amounts-of-text-data-71e1fd590e2a
+  https://courses.lumenlearning.com/boundless-psychology/chapter/classification-and-categorization/
