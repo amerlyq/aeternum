@@ -298,6 +298,9 @@ Ada as language in usage (notes)
 R
   Optimizing and benchmarking code
     http://adv-r.had.co.nz/Profiling.html
+  Using renv with Docker • renv
+    https://rstudio.github.io/renv/index.html
+    https://rstudio.github.io/renv/articles/docker.html
 
 
 > NO <
