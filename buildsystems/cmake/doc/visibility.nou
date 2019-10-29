@@ -1,0 +1,25 @@
+%%%% Symbols visibility
+
+REF
+  ++ https://gist.github.com/ax3l/ba17f4bb1edb5885a6bd01f58de4d542
+
+
+INFO: all you usually need is to compile with additional flags
+  $ g++ ... -fvisibility=hidden -Wl,--no-export-dynamic -Wl,--exclude-libs,ALL ...
+
+
+WARN!!! visibility technique is easily applicable to executables only!
+    => for dynamic libs *.so you must _completely_ understand what you do and pitfalls
+  https://gcc.gnu.org/wiki/Visibility
+  http://hacksoflife.blogspot.com/2012/12/static-libraries-and-plugins-global-pain.html
+
+
+CMake
+  http://www.cmake.org/cmake/help/v3.0/module/GenerateExportHeader.html
+  https://cristianadam.eu/20190501/bundling-together-static-libraries-with-cmake/
+  https://cmake.org/cmake/help/v3.16/prop_tgt/VISIBILITY_INLINES_HIDDEN.html
+  https://cmake.org/pipermail/cmake/2015-May/060696.html
+
+
+WARN: if you use global vars instead of set_target_properties() --
+  place targets of interest last to be the only affected targets by those vars
