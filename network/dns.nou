@@ -1,0 +1,14 @@
+%%%% DNS
+
+REF
+  +++ [_] READ https://web.archive.org/web/20080906191922/http://www.isoc.org/isoc/conferences/inet/99/proceedings/4s/4s_3.htm
+  http://superuser.com/questions/442096/change-default-dns-server-in-arch-linux
+  https://wiki.archlinux.org/index.php/Resolv.conf
+  How DNS works (slides OARC 30)
+    https://habr.com/en/company/qrator/blog/452848/
+    https://indico.dns-oarc.net/event/31/contributions/683/attachments/667/1096/multi-signer.pdf
+  [_] READ:VIZ https://wiki.archlinux.org/index.php/DNS_server
+    https://wiki.archlinux.org/index.php/Domain_name_resolution#DNS_servers
+  [_] SECU https://wiki.archlinux.org/index.php/DNSSEC
+  [_] DEBUG https://wiki.archlinux.org/index.php/Domain_name_resolution#Lookup_utilities
+  [_] INFO: TLS https://wiki.archlinux.org/index.php/Transport_Layer_Security
