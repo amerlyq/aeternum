@@ -1,0 +1,9 @@
+INFO
+  c++ - Is it safe to link C++17, C++14, and C++11 objects - Stack Overflow
+    https://stackoverflow.com/questions/46746878/is-it-safe-to-link-c17-c14-and-c11-objects
+
+
+TRY: pure functions and const enforcement
+  Implications of pure and constant functions [LWN.net]
+    https://lwn.net/Articles/285332/
+    http://www.possibility.com/Cpp/const.html

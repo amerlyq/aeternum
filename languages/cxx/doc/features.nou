@@ -1,0 +1,33 @@
+%%%% C++17
+
+  If statement with initializer – Steve Lorimer
+    | if (std::unique_lock<std::mutex> l(mtx, std::try_to_lock); l.owns_lock()) { "success" } else { "unavailable" }
+    http://wg21.link/p0305r1
+    https://skebanga.github.io/if-with-initializer/
+
+  Compiling-time conditions (removes code from templates)
+    | if <constexpr> (condition) { ... }
+    http://wg21.link/p0292r2
+      https://isocpp.org/files/papers/p0636r0.html
+
+
+  Inline / constexpr variables (e.g. for header-only libraries)
+    | .hpp: inline int n = 10 | not needed for :: class { static constexpr ... }
+    http://wg21.link/p0386r2
+    https://medium.com/@filemoon/enabling-header-only-libraries-with-inline-variables-cc130b090f5e
+    https://isocpp.org/blog/2018/05/quick-q-use-of-constexpr-in-header-file
+    https://pabloariasal.github.io/2019/02/28/cpp-inlining/
+    https://softwareengineering.stackexchange.com/questions/143764/why-do-we-need-to-put-private-members-in-headers
+    https://www.codingame.com/playgrounds/2205/7-features-of-c17-that-will-simplify-your-code/inline-variables
+    https://stackoverflow.com/questions/38043442/how-do-inline-variables-work
+    ++ INFO: https://www.bfilipek.com/2017/07/cpp17-details-simplifications.html
+
+  Structured bindings
+    | auto [it, ins] = m.try_emplace(key, a1, a2, a3); | NEED: get<N>() protocol in class
+
+
+  Check if include possible
+    | #if __has_include "..."
+    http://wg21.link/p0061r1
+
+  Type "any"

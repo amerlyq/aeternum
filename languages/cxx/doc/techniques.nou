@@ -1,0 +1,5 @@
+Pimpl
+  The Pimpl Pattern - what you should know
+    +++ 2019-10-27 [X] https://www.bfilipek.com/2018/01/pimpl.html
+    [_] https://herbsutter.com/gotw/_101/
+    ALT:(game): https://www.gamasutra.com/view/news/167098/Indepth_PIMPL_vs_pure_virtual_interfaces.php

@@ -1,0 +1,12 @@
+REF
+  +++ [_] READ http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+  https://isocpp.org/blog
+
+
+INFO details
+  finally()
+    https://www.modernescpp.com/index.php/c-core-guidelines-when-you-can-t-throw-an-exception
+
+
+Naming things
+  https://devcards.io/smurf-naming-convention

@@ -1,0 +1,36 @@
+Modern features
+  https://github.com/AnthonyCalandra/modern-cpp-features
+
+  https://github.com/mortennobel/cpp-cheatsheet
+
+  VIZ: https://www.rankred.com/useful-c-cheat-sheets/
+
+  https://isocpp.org/blog/2012/12/c11-a-cheat-sheet-alex-sinyakov
+
+
+Data structures
+  +++ https://github.com/gibsjose/cpp-cheat-sheet/blob/master/Data%20Structures%20and%20Algorithms.md
+
+
+Difference between standards
+  11 -> 14
+    OFF: http://open-std.org/JTC1/SC22/WG21/docs/papers/2018/p1319r0.html
+    https://www.quora.com/What-are-the-differences-between-C++11-and-C++14-C++17
+  14 -> 17
+    2019-10-27 [X] OFF: https://isocpp.org/files/papers/p0636r0.html
+    !! VIZ: https://www.bfilipek.com/2017/01/cpp17features.html
+    ++ INFO: https://www.bfilipek.com/2017/07/cpp17-details-simplifications.html
+    ++ LIST:(features outline): https://stackoverflow.com/questions/38060436/what-are-the-new-features-in-c17
+    https://timsong-cpp.github.io/cppwp/diff.cpp17
+    https://www.codingame.com/playgrounds/2205/7-features-of-c17-that-will-simplify-your-code/introduction
+    clang: feature support tables
+      http://libcxx.llvm.org/cxx1z_status.html
+      http://clang.llvm.org/cxx_status.html#cxx17
+  17 -> 20
+    OFF: ~ http://open-std.org/JTC1/SC22/WG21/docs/papers/2018/p0619r3.html
+    LIST. https://www.bfilipek.com/search/label/Cpp20
+    REF:NICE: links to articles
+      https://www.bfilipek.com/2019/07/cpplinks30.html
+      https://www.bfilipek.com/2019/08/cpplinks31.html#more
+      ++ https://hackaday.com/2019/07/30/c20-is-feature-complete-heres-what-changes-are-coming/
+    https://www.codeplay.com/portal/10-06-17-whats-in-cpp-20-and-cpp17-final-score-card

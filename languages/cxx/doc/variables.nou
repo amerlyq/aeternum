@@ -1,0 +1,6 @@
+
+
+Global variables in header only library - Stack Overflow
+  https://stackoverflow.com/questions/51612866/global-variables-in-header-only-library
+  | .hpp: inline bool& someOption() { static bool opt = false; return opt; }
+  | .cpp: someOption() = true;

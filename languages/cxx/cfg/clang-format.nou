@@ -1,6 +1,12 @@
 REF
   https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+  https://releases.llvm.org/9.0.0/tools/clang/docs/ClangFormatStyleOptions.html
   https://www.kernel.org/doc/html/v4.10/process/coding-style.html
+
+  HACK: read release notes to know new features
+    https://clang.llvm.org/docs/ReleaseNotes.html#clang-format
+    https://releases.llvm.org/9.0.0/tools/clang/docs/ReleaseNotes.html
+
 
 CMP
   * https://arne-mertz.de/2016/11/trailing-return-types-everywhere/
@@ -8,6 +14,9 @@ CMP
   * https://levelofindirection.com/blog/east-end-functions.html
   * https://bugs.llvm.org/show_bug.cgi?id=34220
 
+THINK
+  TALK Are we happy with clang-format? · Issue #6686 · dealii/dealii
+    +++ https://github.com/dealii/dealii/issues/6686
 
 TRY:ALSO: spelling errors -- detect and suggest variants
   https://github.com/codespell-project/codespell

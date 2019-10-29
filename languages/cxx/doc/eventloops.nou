@@ -1,0 +1,11 @@
+skypjack/uvw: Header-only, event based, tiny and easy to use libuv wrapper in modern C++
+  https://github.com/skypjack/uvw
+  CMP:(boost/asio): https://stackoverflow.com/questions/11423426/how-does-libuv-compare-to-boost-asio
+
+libuv + ZeroMQ
+  https://www.slideshare.net/lukejfluo/phase1-45781850
+
+
+CMP
+  https://www.codeofhonor.com/blog/choosing-a-game-network-lib
+  https://staysail.github.io/nng_presentation/nng_presentation.html

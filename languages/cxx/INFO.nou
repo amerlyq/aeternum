@@ -1,4 +1,6 @@
 UGLY -- your C++ is shit
+  syntax - Is C++ context-free or context-sensitive? - Stack Overflow
+    https://stackoverflow.com/questions/14589346/is-c-context-free-or-context-sensitive/14589567#14589567
   CppCon 2019: Patrice Roy “Some Programming Myths Revisited” - YouTube
     https://www.youtube.com/watch?v=KNqRjzSlUVo
   CppCon 2019: Nicolai Josuttis “When C++ Style Guides Contradict” - YouTube
@@ -198,6 +200,8 @@ TALK
     https://channel9.msdn.com/Events/GoingNative/2013/The-Care-and-Feeding-of-C-s-Dragons
   CppCon 2019: Andrew Sutton “Reflections: Compile-time Introspection of Source Code” - YouTube
     https://www.youtube.com/watch?v=ARxj3dfF_h0
+  CppCon 2019: Kate Gregory “Naming is Hard: Let's Do Better” - YouTube
+    https://www.youtube.com/watch?v=MBRoCdtZOYg
 
 
 DEBUG

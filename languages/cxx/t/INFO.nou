@@ -7,6 +7,9 @@ ALSO:
     https://github.com/lvc/api-sanity-checker/
 
 Frameworks
+  Doctest (single header-file)
+    https://github.com/onqtam/doctest
+
   Check
     http://check.sourceforge.net/
 

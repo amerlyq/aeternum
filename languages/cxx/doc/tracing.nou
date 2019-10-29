@@ -1,0 +1,33 @@
+LTTng
+  REF: https://lttng.org/docs/v2.11/
+  +++ https://lttng.org/man/3/tracelog/v2.8/
+  https://stackoverflow.com/questions/52365956/logging-lttng-framework-logs-not-available
+  USAGE: https://percepio.com/docs/Linux/manual/lttng-ust.html
+  https://help.eclipse.org/neon/topic/org.eclipse.tracecompass.doc.user/doc/LTTng-UST-Analyses.html
+
+  TODO: add function tracing
+    https://www.systutorials.com/docs/linux/man/3-lttng-ust-cyg-profile/
+    http://wengsht.github.io/2014/03/18/Using+LTTng+For+Function+Tracing+in+Userspace.html
+
+
+SEE: other options of GCC
+  https://gcc.gnu.org/onlinedocs/gcc/Code-Gen-Options.html
+
+
+IDEA: control full composition of application in runtime
+  * components object graphs
+  * data stream graphs
+  * heap distribution
+  * linker structures
+  ...
+  FIND full non-intrusive tracing/recording -- with kernel/etc
+    https://github.com/mozilla/rr/wiki/Related-work
+  FIND Trace runtime linker inner state and show it externally
+    i.e. visualize modifications of runtime structures (e.g. .GOT table)
+  FIND RAM heap graph visualizer
+  FIND full-program scan of memory to check if there is any dangling link pointing into .so you are prepared to unload()
+
+
+Header-only lightweight tracing
+  Zubax/legilimens: Single-header tracing library for hard real-time embedded systems
+    https://github.com/Zubax/legilimens

@@ -1,0 +1,19 @@
+
+STD
+  GSL
+    https://github.com/microsoft/GSL
+    |aur/microsoft-gsl|
+  fmt | std::format
+    https://fmt.dev/latest/
+    https://github.com/fmtlib/fmt
+
+BET
+  https://github.com/fffaraz/awesome-cpp
+  https://en.cppreference.com/w/cpp/links/libs
+
+
+INFO
+  SEIZE: https://caiorss.github.io/C-Cpp-Notes/
+
+Tools
+  SEIZE: https://caiorss.github.io/C-Cpp-Notes/Tooling.html

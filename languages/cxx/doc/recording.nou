@@ -1,0 +1,22 @@
+mozilla/rr: Record and Replay Framework
+  https://github.com/mozilla/rr
+  The best technical overview is currently the paper Engineering Record And Replay For Deployability: Extended Technical Report.
+    https://arxiv.org/pdf/1705.05937.pdf
+  https://rr-project.org/
+    https://news.ycombinator.com/item?id=18388879
+
+
+INSTALL
+  |aur/rr-bin|
+  |aur/rr|
+
+
+USAGE
+  https://github.com/mozilla/rr/wiki/Usage
+  https://github.com/mozilla/rr/wiki/Using-rr-in-an-IDE
+  https://github.com/mozilla/rr/wiki/Debugging-protips
+    WARN: OpenGL is not replayable MAYBE: simply draw it again ?
+
+
+ALT
+  https://github.com/mozilla/rr/wiki/Related-work

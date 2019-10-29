@@ -1,0 +1,37 @@
+INFO
+  Bartek's coding blog: Improving Print Logging with Line Pos Info & Modern C++
+    https://www.bfilipek.com/2019/04/file-pos-log.html
+  llcpp - A quest for faster C++ logging (Intro)
+    https://blapid.github.io/cpp/2017/10/31/llcpp-a-quest-for-faster-logging-intro.html
+      https://blapid.github.io/cpp/2017/10/31/llcpp-a-quest-for-faster-logging-part-2.html
+      = e.g. similar to LTTng
+  Best Logging libraries? : cpp
+    https://www.reddit.com/r/cpp/comments/a3gp0s/best_logging_libraries/
+
+
+UGLY
+  [25%] READ: The Dark Side of Error Logging - Simplify C++!
+    https://arne-mertz.de/2018/03/the-dark-side-of-error-logging/
+
+
+ALT
+  ++ https://github.com/gabime/spdlog
+    = uses "fmt" library
+  http://baical.net/p7.html
+  https://github.com/SergiusTheBest/plog
+  http://www.pantheios.org/
+
+
+ALT: structured logging
+  What Is Structured Logging and Why Developers Need It
+    https://stackify.com/what-is-structured-logging-and-why-developers-need-it/
+  How to use structured logging · NLog/NLog Wiki
+    https://github.com/NLog/NLog/wiki/How-to-use-structured-logging
+  Structured Logging: The Best Friend You’ll Want When Things Go Wrong
+    https://engineering.grab.com/structured-logging
+
+
+std::format
+  Format directly in to a std::string? · Issue #292 · fmtlib/fmt
+    https://github.com/fmtlib/fmt/issues/292
+      = avoid copying
