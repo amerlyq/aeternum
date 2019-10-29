@@ -1,3 +1,12 @@
+ALT
+  Meson
+    https://www.opennet.ru/opennews/art.shtml?num=47031
+
+
+CMake is UGLY
+    https://dev.to/slurpsmadrips/everything-you-never-wanted-to-know-about-cmake-4mgg
+
+
 REF: CMake
   Tips
     ++ https://habrahabr.ru/post/330902/
@@ -28,15 +37,13 @@ REF: CMake
 
 
 SEIZE
+  skeletons / templates
+    [_] https://github.com/Lectem/cpp-boilerplate
+    [_] https://github.com/StableCoder/cmake-scripts
   Pieces of infra
     [_] https://github.com/StableCoder/cmake-scripts
   Template for reliable, cross-platform C++ project setup using cmake.
     https://github.com/cginternals/cmake-init
-
-
-ALT
-  Meson
-    https://www.opennet.ru/opennews/art.shtml?num=47031
 
 
 USAGE

@@ -1,5 +1,24 @@
 ALT:CMP:
   https://waf.io/
+  Buck: A fast build tool by Facebook
+    https://buck.build/
+  The Meson Build system
+    https://mesonbuild.com/
+    BLOG: pacman now uses Meson
+      http://allanmcrae.com/2019/10/pacman-5-2-release/
+    cross-compiling
+      https://mesonbuild.com/Cross-compilation.html
+      https://github.com/mesonbuild/meson/issues/2283
+      https://stackoverflow.com/questions/57460911/how-to-build-cross-compile-an-existing-meson-or-cmake-project-under-android-aosp
+    BAD! https://www.rojtberg.net/1481/do-not-use-meson/
+  Ninja
+    gn
+      https://gn.googlesource.com/gn/+/master/README.md
+
+
+RENAME: :/aeternum/buildsystems -> :/aeternum/buildtools
+  * it's more logical and will allow to contain all tools in single flat hierarchy inside dir
+  * you can have "gcc", "clang", "ld" and "rtld" folders for complier-specific stuff outside of narrow C/C++ lang-only expertise
 
 
 build2
@@ -17,6 +36,7 @@ INFO
   !!! Reproducible builds
     https://reproducible-builds.org/docs/stable-inputs/
     https://wiki.debian.org/ReproducibleBuilds
+    http://bootstrappable.org/
 
   Build version, Firmware version, and build-id hash matching
     2019-07-28 [X] https://interrupt.memfault.com/blog/gnu-build-id-for-firmware
