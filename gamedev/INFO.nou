@@ -30,6 +30,9 @@ READ
     http://keera.co.uk/blog/2014/08/13/most-inspiring-green-screen-you-will-ever-see/
     haskell bindings
       https://wiki.haskell.org/SDL
+  BOOK
+    Game Engine Gems 3
+      http://www.gameenginegems.net/geg3.php
 
 
 TRY:
@@ -101,6 +104,8 @@ GUI
 VZ
   https://github.com/MicBosi/VisualizationLibrary
   http://visualizationlibrary.org/docs/2.0/html/index.html
+  Magnum Engine [Best] - Lightweight and modular C++11/C++14 graphics middleware for games and data visualization
+    https://magnum.graphics/
 
 
 Game
