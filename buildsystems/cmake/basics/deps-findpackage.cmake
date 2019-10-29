@@ -29,6 +29,12 @@ int main(){
 set(THREADS_PREFER_PTHREAD_FLAG TRUE)
 # NEED:(cmake<=3.7):
 # set(THREADS_PTHREAD_ARG "2" CACHE STRING "" FORCE)
+#   BUT:REF:(cross-compiling):
+#     https://cmake.org/pipermail/cmake/2017-August/065957.html
+#     https://github.com/ros2/ros2/issues/427
+#   set(THREADS_PTHREAD_ARG "PLEASE_FILL_OUT-FAILED_TO_RUN" CACHE STRING "Result from TRY_RUN" FORCE)
+## NOTE: assume "pthread" will be available on the target system -- emulate return code of TRY_RUN
+#   set(THREADS_PTHREAD_ARG "0" CACHE STRING "Result from TRY_RUN" FORCE)
 find_package(Threads REQUIRED)
 
 
