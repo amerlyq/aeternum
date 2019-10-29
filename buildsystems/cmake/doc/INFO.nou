@@ -1,8 +1,3 @@
-ALT
-  Meson
-    https://www.opennet.ru/opennews/art.shtml?num=47031
-
-
 CMake is UGLY
     https://dev.to/slurpsmadrips/everything-you-never-wanted-to-know-about-cmake-4mgg
 
@@ -34,16 +29,6 @@ REF: CMake
     CppCon 2018: Mateusz Pusz “Git, CMake, Conan - How to ship and reuse our C++ projects”
       https://youtu.be/S4QSKLXdTtA
       https://www.opennet.ru/opennews/art.shtml?num=49519
-
-
-SEIZE
-  skeletons / templates
-    [_] https://github.com/Lectem/cpp-boilerplate
-    [_] https://github.com/StableCoder/cmake-scripts
-  Pieces of infra
-    [_] https://github.com/StableCoder/cmake-scripts
-  Template for reliable, cross-platform C++ project setup using cmake.
-    https://github.com/cginternals/cmake-init
 
 
 USAGE

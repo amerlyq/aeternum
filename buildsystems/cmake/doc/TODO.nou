@@ -1,0 +1,21 @@
+
+TODO
+  USE: setup cmake_format config for my projects git hooks
+    REF: https://gitlab.kitware.com/cmake/cmake/issues/17441
+    https://github.com/cheshirekow/cmake_format
+    |aur/cmake-lint-git|
+      https://github.com/richq/cmake-lint
+    OLD: https://github.com/polysquare/polysquare-cmake-linter
+
+
+SEIZE
+  my own pieces
+    [_] @/aeternum-cmake-cross
+    [_] @/erian_old
+  skeletons / templates
+    [_] https://github.com/Lectem/cpp-boilerplate
+    [_] https://gitlab.com/CLIUtils/modern-cmake/tree/master/examples/extended-project
+  Pieces of infra
+    [_] https://github.com/StableCoder/cmake-scripts
+  Template for reliable, cross-platform C++ project setup using cmake.
+    [_] https://github.com/cginternals/cmake-init
