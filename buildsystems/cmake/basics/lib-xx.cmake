@@ -42,6 +42,13 @@ add_executable(${PROJECT_NAME} main.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES
   POSITION_INDEPENDENT_CODE TRUE ENABLE_EXPORTS TRUE)
 
+## ALT: modify resulting RPATH
+## BUG: substitution "$ORIGIN" done by "ld" -- therefore you must re-link exe on installation, not simply replace RPATH
+# set_target_properties(foo PROPERTIES
+#   BUILD_WITH_INSTALL_RPATH TRUE
+#   INSTALL_RPATH_USE_LINK_PATH TRUE
+#   INSTALL_RPATH "\$ORIGIN/../lib:${INSTALL_RPATH}")
+
 add_executable(usage usage.cpp)
 target_link_libraries(usage PRIVATE $<TARGET_FILE:${PROJECT_NAME}>)
 set_target_properties(usage PROPERTIES
