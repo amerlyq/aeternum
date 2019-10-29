@@ -3,10 +3,18 @@ DEMO
     ! can be ia edited !
     https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y
     https://rosettacode.org/wiki/OpenGL#Common_Lisp
+    https://www.reddit.com/r/lisp/comments/2s306t/is_there_any_resource_for_lisp_and_modern_opengl/
+  Modern OpenGL
+    http://ww12.arcsynthesis.org/
+    https://github.com/k-stz/arcsynthesis/
   Game engine 2D in Lisp
     https://www.youtube.com/watch?v=zw9JnspwEdM
-  Interactive music composition
+  +++ Interactive music composition
     https://www.youtube.com/watch?v=xzTH_ZqaFKI
+  CLiki: Lisp Videos
+    https://www.cliki.net/lisp+videos
+    +++ Marco Baringer's SLIME Tutorial Video - YouTube
+      https://www.youtube.com/watch?v=_B_4vhsmRRI
 
 
 %%% Configuration
