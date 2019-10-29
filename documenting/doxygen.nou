@@ -1,0 +1,21 @@
+REF
+  REF: http://www.doxygen.nl/manual/index.html
+    http://www.doxygen.nl/manual/docblocks.html
+  VIZ: https://www.star.bnl.gov/public/comp/sofi/doxygen/commands.html
+  TUT: https://exhale.readthedocs.io/en/latest/mastering_doxygen.html
+
+
+INFO
+  multithreading - Doxygen is Slow - Stack Overflow
+    https://stackoverflow.com/questions/8247189/doxygen-is-slow
+    = use GENERATE_TAGFILE
+
+
+CMake
+  https://cmake.org/cmake/help/v3.11/module/FindDoxygen.html
+  http://www.miscdebris.net/blog/2019/02/25/adding-doxygen-support-to-cmakelists-txt/
+  https://devblogs.microsoft.com/cppblog/clear-functional-c-documentation-with-sphinx-breathe-doxygen-cmake/
+  https://eb2.co/blog/2012/03/sphinx-and-cmake-beautiful-documentation-for-c---projects/
+  +++ E.G. CPP / C++ Notes - Doxygen - Documentation Generator
+    https://caiorss.github.io/C-Cpp-Notes/Doxygen-documentation.html
+    = good examples of projects with nice doxygen
