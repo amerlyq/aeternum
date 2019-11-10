@@ -98,6 +98,8 @@ Idris
   + compiled
   = general purpose pure functional programming language with _dependent types_
   https://www.idris-lang.org/
+  Idris: хай код пишеться сам (+vim plugin) #vim @Сіренко
+    https://dmytrish.net/blog/uk/idris-self-coding
 
 Rust
   https://habrahabr.ru/post/321564/
