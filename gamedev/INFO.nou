@@ -33,6 +33,8 @@ READ
   BOOK
     Game Engine Gems 3
       http://www.gameenginegems.net/geg3.php
+    Game Engine Black Book DOOM
+      http://fabiensanglard.net/gebbdoom/
 
 
 TRY:
@@ -53,6 +55,7 @@ ALT: GL
     https://github.com/bkaradzic/bgfx
   Raylib
     https://www.raylib.com/
+    https://github.com/raysan5/raylib
 
 
 GL

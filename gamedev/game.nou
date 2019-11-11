@@ -12,6 +12,10 @@ Game engines
 
 Engines
   http://google.github.io/liquidfun/
+  orx/orx: ORX: Portable Game Engine
+    https://github.com/orx/orx
+    https://wiki.orx-project.org/
+    https://github.com/hcarty/ocaml-orx
 
 Noc + FPGA -- for physics in GPU
   http://fpga.org/hoplite/
