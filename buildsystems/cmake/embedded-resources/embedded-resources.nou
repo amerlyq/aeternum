@@ -23,8 +23,9 @@ Linker
         -Wl,--format=default
     )
   CXX:
-    extern const char _binary_data_some_sql_start;
-    extern const char _binary_data_some_sql_end;
+    extern const char _binary_data_some_sql_start[];
+    extern const char _binary_data_some_sql_end[];
+    # BAD:(relocated): extern const size_t _binary_data_some_sql_size;
     auto ssss = std::string(&_binary_data_some_sql_start, &_binary_data_some_sql_end - &_binary_data_some_sql_start);
 
 
@@ -39,8 +40,12 @@ Custom command
       --rename-section .data=.rodata,ALLOC,LOAD,READONLY,DATA,CONTENTS
       --redefine-sym _binary_${nm}_start=${sym}_start
       --redefine-sym _binary_${nm}_end=${sym}_end
-      --redefine-sym _binary_${nm}_size=${sym}_size
+      --strip-symbol _binary_${nm}_size
       ${rc}.o
+
+  ERROR: this symbol "${sym}_size" is useless -- it becomes relocated in PIE/PIC by base addr despite being *ABS*
+    https://stackoverflow.com/questions/8368423/why-does-the-linker-modify-a-defsym-absolute-address
+    https://stackoverflow.com/questions/57018109/getting-the-value-of-abs-symbols-from-c
 
 
 Raw strings C++11
