@@ -3,3 +3,8 @@ Pimpl
     +++ 2019-10-27 [X] https://www.bfilipek.com/2018/01/pimpl.html
     [_] https://herbsutter.com/gotw/_101/
     ALT:(game): https://www.gamasutra.com/view/news/167098/Indepth_PIMPL_vs_pure_virtual_interfaces.php
+
+
+Polymorph return type
+  https://devblogs.microsoft.com/oldnewthing/20191106-00/?p=103066
+    = use "operator typeAAA() { ... }" to achieve implicit conversion of ".myfunc()" return type

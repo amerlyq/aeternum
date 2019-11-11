@@ -1,0 +1,9 @@
+boost-experimental/sml: [Boost].SML: C++14 State Machine Library
+  https://github.com/boost-experimental/sml
+
+
+ALSO:
+  boost-experimental/di: [Boost].DI: C++14 Dependency Injection Library
+    https://github.com/boost-experimental/di
+  boost-experimental/te: [Boost].TE: C++17 Run-time polymorphism (type erasure) library
+    https://github.com/boost-experimental/te
