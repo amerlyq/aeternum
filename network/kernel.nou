@@ -1,0 +1,15 @@
+%%%% How network stack works in kernel
+
++++ READ:TUT:BET! kernel side of network performance guide
+  https://access.redhat.com/sites/default/files/attachments/20150325_network_performance_tuning.pdf
+
+INFO: difference between buffers and consumed memory
+  https://stackoverflow.com/questions/53691760/what-are-the-differences-between-kernel-buffer-tcp-socket-buffer-and-sliding-wi
+  https://unix.stackexchange.com/questions/419518/how-to-tell-how-much-memory-tcp-buffers-are-actually-using
+
++++ BET:VIZ: refs to many resources and short cheatsheets with graphics
+  https://github.com/leandromoreira/linux-network-performance-parameters
+
+Tuning and tools
+  https://www.cyberciti.biz/faq/linux-tcp-tuning/
+  https://opensourceforu.com/2016/10/network-performance-monitoring/
