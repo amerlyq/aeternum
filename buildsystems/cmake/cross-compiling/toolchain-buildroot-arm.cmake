@@ -1,3 +1,21 @@
+#!/bin/sh -euf
+#[[ -*- mode: cmake; -*-
+x=${t:=${TMPDIR:-/tmp}/${f:=$(realpath -s "$0")}}/${n:=${0##*/}}
+cmake -E make_directory "$t"
+cmake -E copy_if_different "$f" "$x"
+cat> "$t/CMakeLists.txt" <<'EOT'
+  cmake_minimum_required(VERSION 3.7)
+  project(mypj)
+EOT
+cmake -S"$t" -B"$t" -DCMAKE_TOOLCHAIN_FILE="$f" -Werror=dev
+cmake -B"$t" -LAH
+exit
+]]
+#%SUMMARY: setup default ARM toolchain for buildroot
+#%USAGE: $ cmake .. -DCMAKE_TOOLCHAIN_FILE="$0" -DCMAKE_TARGET_TRIPLE='arm-buildroot-linux-gnueabihf'
+#%HACK: pass "triple" to ext-deps $ ./configure -host=...
+#%
+
 # REQ: params
 #   -DHOST_PREFIX=/path/to/buildroot/output/host -DCMAKE_SYSROOT=/path/to/sysroot
 #
@@ -37,8 +55,8 @@ set(CMAKE_SYSTEM_PROCESSOR arm)
 ### Compilers
 set(CMAKE_C_COMPILER "${HOST_PREFIX}/usr/bin/arm-linux-gnueabihf-gcc")
 set(CMAKE_CXX_COMPILER "${HOST_PREFIX}/usr/bin/arm-linux-gnueabihf-g++")
-set(CMAKE_C_FLAGS "-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -pipe -Os ${CMAKE_C_FLAGS}" CACHE STRING "Buildroot CFLAGS")
-set(CMAKE_CXX_FLAGS "-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -pipe -Os ${CMAKE_CXX_FLAGS}" CACHE STRING "Buildroot CXXFLAGS")
+set(CMAKE_C_FLAGS "-pipe -Os ${CMAKE_C_FLAGS}" CACHE STRING "Buildroot CFLAGS")
+set(CMAKE_CXX_FLAGS "-pipe -Os ${CMAKE_CXX_FLAGS}" CACHE STRING "Buildroot CXXFLAGS")
 # set(CMAKE_EXE_LINKER_FLAGS " ${CMAKE_EXE_LINKER_FLAGS}" CACHE STRING "Buildroot LDFLAGS")
 
 
