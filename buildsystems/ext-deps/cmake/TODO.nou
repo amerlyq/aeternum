@@ -9,6 +9,10 @@ TRY: different dirs for local libs and installed ones
   )
 
 
+Change cmake options in CONFIGURE_COMMAND
+  https://stackoverflow.com/questions/37924373/cmake-externalproject-add-with-cmakelists-on-subfolder?rq=1
+
+
 find_package()
   WARN: (<name>_FOUND, <name>_INCLUDE_DIRS, <name>_LIBRARIES) must not be cached
     => modifying underlying cached vars must change values of derived ones / be correctly refreshed in target_link_libraries()
