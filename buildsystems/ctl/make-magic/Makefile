@@ -18,13 +18,16 @@ boards := AA BB
 
 ### Parameters
 broot := $(or $(PJ_BUILD_ROOT),$(d_pj))
-bpref := $(or $(PJ_BUILD_PREFIX),$(broot)/_build-)
+binfx := $(if $(PJ_BUILD_COMPONENT),-$(shell printf '%s\n' '$(PJ_BUILD_COMPONENT)' | tr A-Z a-z)-,-)
+bpref := $(or $(PJ_BUILD_PREFIX),$(broot)/_build$(binfx))
 bdflt := $(or $(PJ_BUILD_DEFAULT),$(HWTYPE),host)
+bdir  := $(PJ_BUILD_DIR)
 bflgs :=
 
 ### Defaults
 all: $(bdflt)
 clean: clean-$(bdflt)
+distclean: distclean-$(bdflt)
 
 
 ##################################################
@@ -93,7 +96,13 @@ _bdir = $(or $(bdir),$(PJ_BUILD_DIR),$(bpref)$(_btgt))
 ##################################################
 ### Host specials
 clean-% ::
-	rm -rf --preserve-root $(_bdir)/
+	if test -d '$(_bdir)'; then find -H '$(_bdir)' -mindepth 1 -maxdepth 1 \
+	  -xtype d -name '_*' -prune -o -exec rm -rf {} +; fi
+
+# CHG: clean as above, but also remove _prefix and _ext-deps
+# 	=> create separate "pure" recept for $ rm -rf
+distclean-% ::
+	rm -rf --preserve-root '$(_bdir)/'
 
 run-% ::
 	$(abspath $(_bdir))/exe/exe
@@ -104,8 +113,14 @@ console-% ::
 test-% ::
 	$(abspath $(_bdir))/test/test
 
+# BAD: always rebuilds whole project and never runs tests at all
+#   $ ctest --build-and-test '$(d_pj)' '$(_bdir)' --build-generator "Unix Makefiles" --build-nocmake --build-noclean --output-on-failure --build-project test
+ctest-% ::
+	cmake --build '$(_bdir)' --target test -- ARGS="--output-on-failure"
+
+# $(MAKE) -C $(abspath $(_bdir))/test coverage-generate
 coverage-% ::
-	$(MAKE) -C $(abspath $(_bdir))/test coverage-generate
+	cmake --build '$(_bdir)' --target coverage-generate
 
 dlt-daemon-% ::
 	$(if $(BT_PREFIX_DIR),$(BT_PREFIX_DIR)/bin,$(abspath $(_bdir))/EP/dlt)/dlt-daemon
@@ -125,6 +140,10 @@ doxygen-% ::
 # strip-% ::
 # deploy-flash-% ::
 
+# TODO: use cmake "install(... COMPONENT service-tools EXCLUDE_FROM_ALL)" to install on demand
+#   TUT: https://stackoverflow.com/questions/21852817/cmake-how-to-create-alias-for-installing-different-targets/21853784#21853784
+install-% :: all
+	cmake --build '$(_bdir)' --target install
 
 ##################################################
 ### Target
@@ -234,6 +253,10 @@ $(foreach t,$(alltgts),$(eval $t-% : \
 # host-%: host\ -% ;
 #   DEBUG: $ make --debug=a host"-R -DBUILD_TESTING=OFF"
 
+test-% ::
+	+cmake --build '$(_bdir)' \
+	  --target 'check_$(or $(X),test)$(if $(filter-out 0,$(B)),,/fast)' \
+	  -- $(if $(E),EMUL='$(E)') $(if $(G),ARGS="--gtest_filter='$(G)'")
 
 # EXPL:(%): for simple targets use default build flags (e.g. "B" => "-b")
 #% * withcmake $ make host
