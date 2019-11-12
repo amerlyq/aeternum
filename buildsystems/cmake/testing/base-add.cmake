@@ -9,7 +9,7 @@ cmake --build "$t" --clean-first
 cmake -E chdir "$t" ./"test_$n" "$@"
 exit
 ]]
-#%SUMMARY: integrating GTest -- by find_package()
+#%SUMMARY: integrating GTest -- by add_subdirectory()
 #%USAGE: $ ./$0
 #%
 cmake_minimum_required(VERSION 3.6.3)

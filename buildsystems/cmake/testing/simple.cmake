@@ -3,7 +3,7 @@ if(BUILD_TESTING)
 get_target_property(_srcs ${PROJECT_NAME} SOURCES)
 add_library(${PROJECT_NAME}_test OBJECT ${_srcs}
     test/some_test.cpp
-    test/SomeTest.cpp
+    # OR: test/SomeTest.cpp
 )
 get_target_property(_incs ${PROJECT_NAME} INCLUDE_DIRECTORIES)
 target_include_directories(${PROJECT_NAME}_test PRIVATE ${_incs} test)

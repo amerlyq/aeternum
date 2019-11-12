@@ -26,6 +26,9 @@
 #%    set_property(GLOBAL APPEND PROPERTY test_targets ${PROJECT_NAME}_test)
 #%    endif()
 #%
+if(NOT TARGET ${PROJECT_NAME})
+  message(FATAL_ERROR "Variable 'PROJECT_NAME=${PROJECT_NAME}' must be an existing target")
+endif()
 if(NOT TARGET ${PROJECT_NAME}_test)
   message(FATAL_ERROR "Target '${PROJECT_NAME}_test' must exist")
 endif()
@@ -69,7 +72,4 @@ set_property(GLOBAL APPEND PROPERTY test_targets ${PROJECT_NAME}_test)
 # get_target_property(_libs ${PROJECT_NAME}_test LINK_LIBRARIES)
 # message(FATAL_ERROR "${_incs} | ${_libs}")
 
-# ALSO:DEV:(faster relinking and gdb reload): BUILD_TESTING_EXE_PER_TESTFILE
-if(BUILD_TESTING_EXE_PER_COMPONENT)
-  include(project-tests-add-exe)
-endif()
+include(project-tests-add-exe)
