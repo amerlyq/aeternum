@@ -5,7 +5,7 @@ cmake -E copy_if_different "$f" "$t/CMakeLists.txt"
 cmake -S"$t" -B"$t" -DCMAKE_CXX_FLAGS="-Werror" -Werror=dev
 cmake --build "$t" --clean-first "$@"
 cmake --build "$t" --target testdata
-cmake -E chdir "${t%/*}" tree -L 1 "${f##*/}"
+cmake -E chdir "${t%/*}" tree -aACL 1 "${f##*/}"
 exit
 ]]
 #%SUMMARY: run custom target to prepare testdata in build time
