@@ -1,0 +1,9 @@
+Build cross-toolchain fully inside docker
+  TUT: https://tttapa.github.io/Pages/Raspberry-Pi/C++-Development/Building-The-Toolchain.html
+  USE: https://github.com/LedgerHQ/dockcross
+    DEMO: https://nbviewer.jupyter.org/format/slides/github/dockcross/cxx-write-once-run-anywhere/blob/master/dockcross_CXX_Write_Once_Run_Anywhere.ipynb#/
+    https://web.archive.org/web/20170912153531/http://blogs.nopcode.org/brainstorm/2016/07/26/cross-compiling-with-docker
+  cmake: https://blog.kitware.com/easy-cross-compiler-toolchain-access-with-docker-and-cmake/
+  ev3: https://www.ev3dev.org/docs/tutorials/using-docker-to-cross-compile/
+  conan: https://docs.conan.io/en/1.11/howtos/run_conan_in_docker.html
+  distcc: https://developers.redhat.com/blog/2019/05/15/2-tips-to-make-your-c-projects-compile-3-times-faster/
