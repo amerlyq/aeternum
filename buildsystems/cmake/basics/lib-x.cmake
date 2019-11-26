@@ -12,8 +12,15 @@ exit
 #%USAGE: $ ./$0
 #%REF: https://unix.stackexchange.com/questions/479333/building-shared-library-which-is-executable-and-linkable-using-cmake/479334#479334
 #%REF: https://unix.stackexchange.com/questions/223385/why-and-how-are-some-shared-libraries-runnable-as-though-they-are-executables
-#%IDEA:(export symbol table): $ gcc -fPIC -pie -o libtest.so test.c -Wl,-E
-#%  ALSO:ALT:(main): -Wl,--entry=__NAME_main
+#%IDEA:(export symbol table):ALSO:ALT:(main): -Wl,--entry=__NAME_main
+#%  $ echo 'int fun(){return 42;}' | gcc -fPIC -pie -Wl,-E -Wl,--defsym=main=fun -o libxxx.so -xc -
+#%  $ echo 'int fun(); int main(){return fun();}' | gcc -L. -Wl,--rpath=. -o usexxx -xc - -lxxx
+#%SEE: analogs from other languages :: https://rosettacode.org/wiki/Executable_library
+#%  $ echo 'static const char interp[] __attribute__((section(".interp"))) = "/lib64/ld-linux-x86-64.so.2"; int fun(){return 42;}' | gcc -fPIC -shared -o libxxx.so -xc - -lc -Wl,-e,fun
+#%FAIL: don't work anymore due to problems in PIE loading by rtdl ::
+#%  * "Refuse to dlopen PIE objects [BZ #24323]" :: https://patchwork.ozlabs.org/patch/1055380/
+#%  * http://sourceware-org.1504.n7.nabble.com/Bug-dynamic-link-24323-New-dlopen-should-not-be-able-open-PIE-objects-td562159.html#a562160
+#%  * ALG:(ctors problem): https://sourceware.org/bugzilla/show_bug.cgi?id=11754#c15
 #%
 cmake_minimum_required(VERSION 3.6.3)
 project(main CXX)

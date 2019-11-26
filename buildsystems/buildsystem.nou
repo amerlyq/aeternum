@@ -1,4 +1,5 @@
 ALT:CMP:
+  VIZ: https://caiorss.github.io/C-Cpp-Notes/building-systems.html
   https://waf.io/
   Buck: A fast build tool by Facebook
     https://buck.build/
@@ -15,6 +16,9 @@ ALT:CMP:
   Ninja
     gn
       https://gn.googlesource.com/gn/+/master/README.md
+      https://gn.googlesource.com/gn/+/master/docs/reference.md
+  Wrappers over CMake
+    https://www.mail-archive.com/cmake-developers@cmake.org/msg15199.html
 
 
 RENAME: :/aeternum/buildsystems -> :/aeternum/buildtools
@@ -38,6 +42,7 @@ INFO
     https://reproducible-builds.org/docs/stable-inputs/
     https://wiki.debian.org/ReproducibleBuilds
     http://bootstrappable.org/
+    ++ https://linderud.dev/blog/reproducible-arch-linux-packages/
 
   Build version, Firmware version, and build-id hash matching
     2019-07-28 [X] https://interrupt.memfault.com/blog/gnu-build-id-for-firmware

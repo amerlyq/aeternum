@@ -49,7 +49,9 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 #   INSTALL_RPATH_USE_LINK_PATH TRUE
 #   INSTALL_RPATH "\$ORIGIN/../lib:${INSTALL_RPATH}")
 
+# NEED:(GNU_binutils>=2.18): exact name linking "-l:mylib.so"
 add_executable(usage usage.cpp)
-target_link_libraries(usage PRIVATE $<TARGET_FILE:${PROJECT_NAME}>)
-set_target_properties(usage PROPERTIES
-  LINK_FLAGS "-Wl,-rpath,'$ORIGIN'")
+target_link_directories(usage PRIVATE $<TARGET_FILE_DIR:usage>)
+target_link_libraries(usage PRIVATE :${PROJECT_NAME})
+# target_link_libraries(usage PRIVATE $<TARGET_FILE:${PROJECT_NAME}>)
+# set_target_properties(usage PROPERTIES LINK_FLAGS "-Wl,-rpath,'$ORIGIN'")

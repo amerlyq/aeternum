@@ -2,6 +2,11 @@ CMake is UGLY
     https://dev.to/slurpsmadrips/everything-you-never-wanted-to-know-about-cmake-4mgg
 
 
+IDEA: write everything in Python but call CMake bindings underneath to reuse infra
+  2015: Re: [cmake-developers] CMake alternative language (was: Using CMake as a library from Python)
+    https://www.mail-archive.com/cmake-developers@cmake.org/msg15199.html
+
+
 REF: CMake
   Tips
     ++ https://habrahabr.ru/post/330902/
@@ -23,7 +28,7 @@ REF: CMake
     Collection of useful links regarding cmake
       https://github.com/onqtam/awesome-cmake
     CGold: The Hitchhiker’s Guide to the CMake
-      https://cgold.readthedocs.io/en/latest/index.html
+      2019-11-18 [X] https://cgold.readthedocs.io/en/latest/index.html
     Composable Generators and Property-based testing
       https://www.slideshare.net/SumantTambe/c-generators-and-propertybased-testing?next_slideshow=1
     CppCon 2018: Mateusz Pusz “Git, CMake, Conan - How to ship and reuse our C++ projects”
