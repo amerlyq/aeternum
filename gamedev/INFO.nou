@@ -59,6 +59,9 @@ ALT: GL
 
 
 GL
+  GL/Vulkan bindings
+    https://github.com/cginternals/glbinding
+    https://github.com/google/shaderc
   SDL2
     https://www.libsdl.org/languages.php
     IDEA: https://itch.io/games/made-with-sdl
@@ -109,6 +112,7 @@ VZ
   http://visualizationlibrary.org/docs/2.0/html/index.html
   Magnum Engine [Best] - Lightweight and modular C++11/C++14 graphics middleware for games and data visualization
     https://magnum.graphics/
+    |community/magnum| - C++11/C++14 graphics middleware for games and data visualization
 
 
 Game
@@ -126,3 +130,15 @@ Game
 
 Voxel
   https://github.com/nothings/obbg
+
+
+DEBUG
+  bombomby/optick: C++ Profiler For Games
+    https://github.com/bombomby/optick
+      ++ nice interface
+      -- still must insert macro in each slow function
+
+
+Dataset interchange formats
+  live-clones/hdf5: Live clone of https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git.
+    https://github.com/live-clones/hdf5

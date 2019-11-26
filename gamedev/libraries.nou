@@ -1,0 +1,26 @@
+SEE
+  acdemiralp/fg: Rendering abstraction which describes a frame as a directed acyclic graph of render tasks and resources.
+    https://github.com/acdemiralp/fg
+  acdemiralp/gl: C++11 wrapper for OpenGL 4.6 Core Profile.
+    https://github.com/acdemiralp/gl
+  acdemiralp/acd: Single file utilities for C++.
+    https://github.com/acdemiralp/acd
+  acdemiralp/mcmc: Header-only library containing generic implementations of common Markov Chain Monte Carlo methods.
+    https://github.com/acdemiralp/mcmc
+  acdemiralp/usockets_cmake: CMakeLists.txt for uSockets. Requires conan (building this without conan is borderline impossible anyway due to libuv and gyp).
+    https://github.com/acdemiralp/usockets_cmake
+  acdemiralp/di: Display and input abstraction built on top of SDL2 and OpenVR.
+    https://github.com/acdemiralp/di
+  acdemiralp/cush: Cuda Spherical Harmonics library.
+    https://github.com/acdemiralp/cush
+  acdemiralp/nifti: Minimal NIfTI interface.
+    https://github.com/acdemiralp/nifti
+  acdemiralp/ec: Data-driven entity-component-system built on top of boost mp11.
+    https://github.com/acdemiralp/ec
+  acdemiralp/ra: Generic resource abstraction for game/rendering engines.
+    https://github.com/acdemiralp/ra
+
+  google/skia: Skia is a complete 2D graphic library for drawing Text, Geometries, and Images.
+    https://github.com/google/skia
+  elucideye/aglet: Tiny cross platform (headless) opengl context creation.
+    https://github.com/elucideye/aglet
