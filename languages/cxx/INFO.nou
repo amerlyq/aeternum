@@ -45,6 +45,9 @@ UGLY -- your C++ is shit
   virtual methods / vtable optimization (redundancy)
     http://lazarenko.me/devirtualization/
 
+  Understanding vtables
+    https://pabloariasal.github.io/2017/06/10/understanding-virtual-tables/
+
   Undefined behavior
     http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html
     http://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html
@@ -96,6 +99,10 @@ Nightmares
       SEE: Explanation (3) + effects directly below
   structure fields initialization
     +++ https://d3s.mff.cuni.cz/legacy/~holub/c_features.html
+  2017: std::visit is everything wrong with modern C++
+    https://bitbashing.io/std-visit.html
+  2018: std::variant Doesn’t Let Me Sleep | Pablo Arias
+    https://pabloariasal.github.io/2018/06/26/std-variant/
 
 
 TALK
@@ -202,6 +209,9 @@ TALK
     https://www.youtube.com/watch?v=ARxj3dfF_h0
   CppCon 2019: Kate Gregory “Naming is Hard: Let's Do Better” - YouTube
     https://www.youtube.com/watch?v=MBRoCdtZOYg
+  The most valuable values - Juanpe Bolívar - Meeting C++ 2017 - YouTube
+    https://www.youtube.com/watch?v=NMol_5-2owo
+    +++ https://pabloariasal.github.io/2018/06/26/std-variant/
 
 
 DEBUG

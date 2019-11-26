@@ -23,6 +23,7 @@ TRY:ALSO: spelling errors -- detect and suggest variants
 
 
 USAGE
+  $ clang-format -style=llvm -dump-config > .clang-format
   $ clang-format -style=file -i some.cpp
 
 

@@ -20,6 +20,12 @@ TUT
   https://habr.com/ru/post/323380/
   https://habr.com/ru/company/pvs-studio/blog/236293/
 
+
+VIDEO
+  2019 LLVM Developers’ Meeting: S. Haastregt & A. Stulova “An overview of Clang ” - YouTube
+    https://www.youtube.com/watch?v=5kkMpJpIGYU
+
+
 CMake
   REF
     https://stackoverflow.com/questions/44320465/whats-the-proper-way-to-enable-addresssanitizer-in-cmake-that-works-in-xcode
@@ -82,3 +88,9 @@ UB
   USE: -fsanitize=undefined -fno-omit-frame-pointer
     UBSAN_OPTIONS=print_stacktrace=1
     UBSAN_OPTIONS=silence_unsigned_overflow=1
+
+
+Optimization flags
+  Optimizations in C++ Compilers - ACM Queue
+    https://www.reddit.com/r/cpp/comments/dwcxje/optimizations_in_c_compilers_a_practical_journey/
+    https://queue.acm.org/detail.cfm?id=3372264

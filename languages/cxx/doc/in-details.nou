@@ -1,3 +1,14 @@
 What happens to your static variables at the start of the program?
   https://www.bfilipek.com/2018/02/staticvars.html
   https://meowni.ca/posts/static-initializers/
+
+
+c++ - Should I delete the move constructor and the move assignment of a smart pointer? - Stack Overflow
+  https://stackoverflow.com/questions/37092864/should-i-delete-the-move-constructor-and-the-move-assignment-of-a-smart-pointer/38820178#38820178
+    ::: never delete move-members -- deleting copy-members is enough
+      BUT: C++17 had guaranteed copy elision on return -- problem (1) is not appliable
+    OR: just delete the move assignment operator, because that is the minimal thing to do to get rid of copying and moving, while retaining defaulted default constructor
+
+
+The Lost Art of Structure Packing -- C / Go / Rust
+  http://www.catb.org/esr/structure-packing/

@@ -8,3 +8,8 @@ Pimpl
 Polymorph return type
   https://devblogs.microsoft.com/oldnewthing/20191106-00/?p=103066
     = use "operator typeAAA() { ... }" to achieve implicit conversion of ".myfunc()" return type
+
+
+Logic programming in C++
+  https://wordsandbuttons.online/logic_programming_in_cpp.html
+  https://www.reddit.com/r/cpp/comments/dwo653/logic_programming_in_c/

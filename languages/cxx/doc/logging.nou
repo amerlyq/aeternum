@@ -15,7 +15,8 @@ UGLY
 
 
 ALT
-  ++ https://github.com/gabime/spdlog
+  gabime/spdlog: Fast C++ logging library.
+    ++ https://github.com/gabime/spdlog
     = uses "fmt" library
   http://baical.net/p7.html
   https://github.com/SergiusTheBest/plog

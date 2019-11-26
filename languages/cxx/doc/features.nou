@@ -1,3 +1,63 @@
+%%%% C++23
+
+
+  Contracts are AWESOME
+    https://herbsutter.com/category/c/
+    http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0542r5.html
+    https://habr.com/ru/post/443766/
+    https://www.reddit.com/r/cpp/comments/cmk7ek/what_happened_to_c20_contracts/
+
+
+
+%%%% C++20
+
+  2019-11-17 [X] https://iscinumpy.gitlab.io/post/cpp-20/
+  [_] https://iscinumpy.gitlab.io/post/cpp-17/
+  [_] https://iscinumpy.gitlab.io/post/cpp-14/
+  [_] https://iscinumpy.gitlab.io/post/cpp-11/
+
+
+  !!! Modules $ clang-9 -std=c++2a ... *.mpp | *.cppm | *.ixx
+      https://www.phoronix.com/scan.php?page=news_item&px=Clang-Cpp20-Modules-Switch
+    USAGE
+      https://medium.com/@dmitrygz/brief-article-on-c-modules-f58287a6c64
+      https://www.modernescpp.com/index.php/c-20-modules
+    DEV
+      http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1502r1.html
+    IMPL
+      https://gcc.gnu.org/wiki/cxx-modules
+      https://clang.llvm.org/docs/Modules.html
+        e.g. automatic translation of "#include <stdio.h>" into "import std.io;"
+      https://docs.microsoft.com/en-us/cpp/cpp/modules-cpp?view=vs-2019
+    buildsystems
+      https://stackoverflow.com/questions/57300495/how-to-use-c20-modules-with-cmake
+      https://www.reddit.com/r/cpp/comments/axnwiz/cmake_gcc_module_proofofconcept/
+      https://github.com/mesonbuild/meson/issues/5024
+      https://tboox.org/2019/09/22/xmake-c++20-modules/
+
+  * constinit / consteval
+    CppCon 2017: Ben Deane & Jason Turner “constexpr ALL the Things!” - YouTube
+      https://www.youtube.com/watch?v=PJwd4JLYJJY
+  * concepts instead of std::enable_if<std::is_integral...>
+  * ranges / span
+  ? coroutines
+    BUG: C++2a Coroutines and dangling references – Arthur O'Dwyer – Stuff mostly about C++
+      https://quuxplusone.github.io/blog/2019/07/10/ways-to-get-dangling-references-with-coroutines/
+  * formatting
+  * "using enum"
+  * init in for-range
+  * math constants "std::numbers::pi<double>"
+    + std::midpoint between numbers
+    + std::lerp for linear interpolation
+  * auto-joining threads by std::stop_token / jthread
+  * std::vector.contains(element)  (like python "a in arr")
+  * designated initializers
+  * classes as template parameters instead of types (like int/char)
+    Enums break strong structural equality – Arthur O'Dwyer – Stuff mostly about C++
+      https://quuxplusone.github.io/blog/2019/07/04/strong-structural-equality-is-broken/
+
+
+
 %%%% C++17
 
   If statement with initializer – Steve Lorimer

@@ -10,3 +10,12 @@ libuv + ZeroMQ
 CMP
   https://www.codeofhonor.com/blog/choosing-a-game-network-lib
   https://staysail.github.io/nng_presentation/nng_presentation.html
+
+
+Просто и на C++. Основы Userver — фреймворка для написания асинхронных микросервисов / Хабр
+  = Мы решили сделать свой фреймворк, с C++17 и корутинами.
+  https://m.habr.com/ru/company/yandex/blog/474438/
+
+
+lcm-proj/lcm: Lightweight Communications and Marshalling
+  https://github.com/lcm-proj/lcm
