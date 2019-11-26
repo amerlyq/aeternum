@@ -48,3 +48,9 @@ Compiling
  files from a terminal, the py_compile module can be executed as a script in
  the following manner:
   python -m py_compile fileA.py fileB.py fileC.py
+
+
+%%% Properties
+  https://pabloariasal.github.io/2018/11/25/python-descriptors/
+    = low level explanation
+  https://pabloariasal.github.io/python-decorators-from-the-ground-up/
