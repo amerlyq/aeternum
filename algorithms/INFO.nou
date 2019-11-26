@@ -33,3 +33,11 @@ Locking by coarse granulation
 Error functions (Faddeeva)
   http://ab-initio.mit.edu/wiki/index.php/Faddeeva_Package
   https://github.com/cdown/faddeeva
+
+
+Modern SAT solvers
+  = Boolean NP-complete satisfiability problem
+  -- can be used for e.g. solve Sudoku by checking all variants
+  https://codingnest.com/modern-sat-solvers-fast-neat-underused-part-1-of-n/
+  https://codingnest.com/modern-sat-solvers-fast-neat-and-underused-part-2-of-n/
+  https://codingnest.com/modern-sat-solvers-fast-neat-and-underused-part-3-of-n/
