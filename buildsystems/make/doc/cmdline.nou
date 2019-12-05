@@ -5,3 +5,12 @@ USAGE: actions
   * [ignore]: $ make -o tgt    # = all beside tgt
   *  [reset]: $ make -t tgt    # = skip tgt (when error) (FAIL: aliased tgt do not propagate to actual ones)
   * [dryrun]: $ make -n tgt    # = only print commands (BAD: must disable "silent")
+
+
+USAGE: flags interaction
+  NOTE: not passed down: -[CfoW]
+  NOTE:(-w --print-directory)
+    * auto-enabled: starting make -C, all sub-makes
+    * suppress: if also used ‘-s’ or explicit ‘--no-print-directory’
+  THINK:BAD: can't remove '--no-print-directory' OR '--silent' from main.mk because its sub-make anyway
+    TRY:ALT:(reset flags): $ cd $dir && make MAKEFLAGS=
