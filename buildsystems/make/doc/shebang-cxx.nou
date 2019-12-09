@@ -4,6 +4,7 @@ TRY:
   [_] use hash of content as name
   [_] use hash instead of timestamp = one-time compile
     BUT: how to delete files with obsolete hashes?
+  [_] SEE: @/airy/airy/doc/compile-src.nou
 
 ALT:
   inverted self-compile by hooking link-time trampoline into main()
