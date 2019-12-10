@@ -1,5 +1,9 @@
 ALT:CMP:
   VIZ: https://caiorss.github.io/C-Cpp-Notes/building-systems.html
+  REF: https://en.wikipedia.org/wiki/List_of_build_automation_software
+  CMP: CMake vs others – Short investigation of potential Build systems for Embedded Devices | Atanas Rusev
+    https://atanasrusev.com/2019/04/10/cmake-vs-others-short-investigation-of-potential-build-systems-for-embedded-devices/
+    ::: CMake wins for complex projects, custom Makefile -- for simple ones
   https://waf.io/
   Buck: A fast build tool by Facebook
     https://buck.build/
@@ -19,6 +23,12 @@ ALT:CMP:
       https://gn.googlesource.com/gn/+/master/docs/reference.md
   Wrappers over CMake
     https://www.mail-archive.com/cmake-developers@cmake.org/msg15199.html
+  bake
+    REF: https://github.com/SanderMertens/bake
+    TALK https://www.reddit.com/r/C_Programming/comments/a85f6w/meet_bake_a_new_build_system_package_manager_for/
+
+  TALK:CMP: 2016
+    https://www.reddit.com/r/cpp/comments/524844/recommend_a_build_system/
 
 
 RENAME: :/aeternum/buildsystems -> :/aeternum/buildtools
@@ -43,6 +53,9 @@ INFO
     https://wiki.debian.org/ReproducibleBuilds
     http://bootstrappable.org/
     ++ https://linderud.dev/blog/reproducible-arch-linux-packages/
+
+  Accepting Constraints in Build Systems – BEC Systems
+    READ http://bec-systems.com/site/1462/accepting-constraints-in-build-systems
 
   Build version, Firmware version, and build-id hash matching
     2019-07-28 [X] https://interrupt.memfault.com/blog/gnu-build-id-for-firmware

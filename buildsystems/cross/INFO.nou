@@ -7,3 +7,81 @@ Build cross-toolchain fully inside docker
   ev3: https://www.ev3dev.org/docs/tutorials/using-docker-to-cross-compile/
   conan: https://docs.conan.io/en/1.11/howtos/run_conan_in_docker.html
   distcc: https://developers.redhat.com/blog/2019/05/15/2-tips-to-make-your-c-projects-compile-3-times-faster/
+
+
+READ
+  !!! For Beginners – Embedded Artistry
+    INFO: https://embeddedartistry.com/beginners/
+  MGMT: Embedded software development: рow to build a strong team
+    https://www.n-ix.com/how-build-strong-team-embedded-software-development/
+  TALK
+    Intel to cut IoT jobs | Hacker News
+      https://news.ycombinator.com/item?id=14694778
+      https://news.ycombinator.com/item?id=14695829
+  TALK: compiling - Looking for tools to build minimal linux desktop
+    https://unix.stackexchange.com/questions/11310/looking-for-tools-to-build-minimal-linux-desktop
+
+
+Embedded firmware
+  G: https://www.google.com/search?q=buildroot%20alternative
+  VIZ: Toolchains - eLinux.org
+    https://elinux.org/Toolchains
+
+  https://stackoverflow.com/questions/687989/best-build-system-for-embedded-development-cross-compiling
+    Buildroot http://www.buildroot.net/
+    Buildroot-ng http://wiki.openwrt.org/
+    crosstool-NG http://www.crosstool-ng.org/
+    PTXdist http://www.ptxdist.org/
+    OpenEmbedded http://www.openembedded.org/
+    OE-lite http://oe-lite.org/
+    muddle https://code.google.com/p/muddle/
+    Poky http://pokylinux.org/
+    OpenBricks http://www.openbricks.org/
+    Yocto Project http://www.yoctoproject.org/
+    Scratchbox http://www.scratchbox.org/
+    Cross Linux From Scratch http://www.cross-lfs.org/
+    Aboriginal Linux http://landley.net/aboriginal/
+
+  CMP: yocto vs buildroot
+    Buildroot vs Yocto: Differences for Your Daily Job - eLinux.org
+      https://elinux.org/images/9/9a/Buildroot-vs-Yocto-Differences-for-Your-Daily-Job-Luca-Ceresoli-AIM-Sportline.pdf
+    Deciding between Buildroot & Yocto [LWN.net]
+      https://lwn.net/Articles/682540/
+    The smallest Embedded Linux System - Yocto vs Buildroot
+      https://blog.3mdeb.com/2019/2019-06-26-smallest-embedded-system-yocto-vs-buildroot/
+    Choosing an embedded Linux build system
+      https://jumpnowtek.com/linux/Choosing-an-embedded-linux-build-system.html
+    SLIDES: Embedded linux build systems
+      https://www.slideshare.net/MenderOTA/embedded-linux-build-systems
+  CMP: … + openwrt + desktop
+    https://opensource.com/article/18/6/embedded-linux-build-tools
+
+
+Buildroot
+  https://buildroot.org/
+
+
+Yocto
+  https://www.yoctoproject.org/
+  NEWS: https://www.digitalengineering247.com/article/using-yocto-project-embedded-systems-design/
+
+
+Marginal
+  PTXdist
+    https://www.ptxdist.org/
+  LFS -- Linux From Scratch
+    ALFS Project Homepage
+      http://www.linuxfromscratch.org/alfs/
+    ALT: LFScript
+      https://www.lfscript.org/wiki/Main_Page
+  ALSO: alt kernels with security for embedded
+    https://linuxlink.timesys.com/cves/demo
+
+
+Integration
+  DEV: Conan -- Buildroot
+    !1 [_] READ https://blog.conan.io/2019/08/27/Creating-small-Linux-images-with-Buildroot.html
+  DEMO: Jenkins in the Embedded World
+    https://jenkins.io/solutions/embedded/
+  LLVM/Clang integration into Buildroot – Linux Embedded
+    https://www.linuxembedded.fr/2018/07/llvmclang-integration-into-buildroot/

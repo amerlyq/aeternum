@@ -3,6 +3,13 @@
   http://www.stroustrup.com/dne.html
     = The Design and Evolution of C++
 
+  Функциональное программирование — это не то, что нам рассказывают / Хабр
+    +++ https://habr.com/ru/post/479238/
+      = ссылочная прозрачность императивного кода
+  Хватит спорить про функциональное программирование и ООП / Хабр
+      https://habr.com/ru/post/450300/
+
+
 REPL -- everything in one interface
   online-IDE: https://repl.it
     https://repl.it/site/blog/elisp
