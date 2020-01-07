@@ -11,9 +11,24 @@ USAGE
 
 
 ARCH
+  What you can copyright separately
+    * authored content (novel, codebase, picture, song, article)
+      ~ OR: obtained/measured research results
+    * database schema to efficiently organize this data
+    * unique authored set of choices (e.g. top-100 songs) to represent some aspect of the data
+      API: https://arstechnica.com/tech-policy/2020/01/oracle-copied-amazons-api-was-that-copyright-infringement/
+      TALK: https://www.reddit.com/r/programming/comments/ejkwot/oracle_copied_amazons_apiwas_that_copyright/
+    * presentation of this data -- visual format of presentation, "art"
+    * publishing format -- layout, page-proof, typesetting, etc.
+
+
+ARCH
   src / doxygen
     "AGPL-3.0-or-later" -- for anything which can be *obviously* used in web front-end
       OR *provingly* used in immediate back-end services
+        = BUT:SEE: Redis меняют лицензии AGPL => Apache 2.0 => RSAL
+          https://habr.com/ru/company/1cloud/blog/423723/
+          https://habr.com/ru/company/1cloud/blog/442338/
     "GPL-3.0-or-later"  -- for everything else you care
       !! otherwise you can easily *LOSE* your freedom to use *your own* code
         (e.g. corporate misappropriation)
@@ -181,6 +196,10 @@ INFO
 
 SEE
   ! https://en.wikipedia.org/wiki/Business_models_for_open-source_software
+
+  В Open Invention Network больше трех тысяч лицензиатов — что это значит для открытого ПО
+    RU: https://habr.com/ru/company/1cloud/blog/459628/
+    = пул свободных патентов
 
   licensing - How can a "crayon" license be a problem? - Open Source Stack Exchange
     https://opensource.stackexchange.com/questions/1445/how-can-a-crayon-license-be-a-problem
