@@ -1,0 +1,21 @@
+%%%% Procedural generation
+
+ALG
+  http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/
+
+ARCH
+  https://www.gamasutra.com/view/feature/170049/how_to_make_insane_procedural_.php?print=1
+
+Unexplored
+  BLOG: https://www.ludomotion.com/devblogs.html
+  https://www.ludomotion.com/blogs/level-generation/index.html
+  https://ctrl500.com/tech/handcrafted-feel-dungeon-generation-unexplored-explores-cyclic-dungeon-generation/
+  https://www.rockpapershotgun.com/2017/03/10/how-unexplored-generates-great-roguelike-dungeons/
+  https://www.gamasutra.com/blogs/JorisDormans/20190619/345048/Unexplored_2_Dev_Blog_Tiles_to_Curves.php
+
+Spelunky
+  http://tinysubversions.com/spelunkyGen/
+
+
+ALG Adventure
+  https://www.rockpapershotgun.com/2019/12/23/star-trek-25th-anniversary-has-so-much-to-teach-modern-games/
