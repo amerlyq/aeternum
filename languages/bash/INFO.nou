@@ -2,7 +2,12 @@ ALT
   REF:(2018): POSIX 7
     http://pubs.opengroup.org/onlinepubs/9699919799/utilities/contents.html
   HISTORY: https://www.ibm.com/developerworks/library/l-linux-shells/index.html
+  CMP:IMPL: matrix of diff shell impl problems
+    https://www.oilshell.org/git-branch/feature/polish/91c5374b/andy-home/spec/arith.html
   zsh
+  oil
+    https://www.oilshell.org/
+    https://github.com/oilshell/oil
   rc
     http://plan9.bell-labs.com/sys/doc/rc.html
     + solid and robust
