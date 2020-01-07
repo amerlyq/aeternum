@@ -26,6 +26,8 @@ ALT:CMP:
   bake
     REF: https://github.com/SanderMertens/bake
     TALK https://www.reddit.com/r/C_Programming/comments/a85f6w/meet_bake_a_new_build_system_package_manager_for/
+  OLD: Rakefile
+    TUT https://habr.com/ru/post/111331/
 
   TALK:CMP: 2016
     https://www.reddit.com/r/cpp/comments/524844/recommend_a_build_system/
