@@ -1,2 +1,6 @@
 %%% READ! Often mistakes
   https://habrahabr.ru/post/320916/
+
+The love-hate relationship between SELECT and GROUP BY in SQL
+  https://medium.com/@riccardoodone/the-love-hate-relationship-between-select-and-group-by-in-sql-4957b2a70229
+    <= related to sqlite3 magic :: WHERE t.a GROUP BY t.b HAVING max(t.c) :: i.e. HAVING w/o condition
