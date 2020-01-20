@@ -8,3 +8,8 @@ FROM http://prog21.dadgum.com/30.html
     https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools
   E.G. super-tiny compiler
     https://github.com/jamiebuilds/the-super-tiny-compiler
+
+  ALSO: parsers / compilers
+    http://www.tom-ridge.com/2014-11-21_talk_on_parsing_at_the_university_of_sussex.html
+    PROMO: http://www.tom-ridge.com/resources/2014-11-21_sussex_slides.standalone.html
+    https://github.com/tomjridge/tree_structured_text
