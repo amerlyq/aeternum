@@ -7,3 +7,8 @@ ALSO:
     https://github.com/boost-experimental/di
   boost-experimental/te: [Boost].TE: C++17 Run-time polymorphism (type erasure) library
     https://github.com/boost-experimental/te
+
+
+FSM
+  C++ State Machines
+    https://beza1e1.tuxen.de/cpp_state_machines.html

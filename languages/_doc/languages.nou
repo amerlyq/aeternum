@@ -10,11 +10,22 @@
       https://habr.com/ru/post/450300/
 
 
+VIZ
+  One Letter Programming Languages
+    https://beza1e1.tuxen.de/one_letter_proglangs.html
+  Accidentally Turing-Complete
+    https://beza1e1.tuxen.de/articles/accidentally_turing_complete.html
+
+
 REPL -- everything in one interface
   online-IDE: https://repl.it
     https://repl.it/site/blog/elisp
   offline-aggregator:
     https://github.com/replit/prybar
+
+Pure
+  https://agraef.github.io/pure-lang/
+    = modern-style functional programming language based on term rewriting
 
 Syntax comparisons
   http://hyperpolyglot.org/

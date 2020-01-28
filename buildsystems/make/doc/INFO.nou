@@ -10,16 +10,28 @@ ALT:(make)
     https://ninja-build.org/
   tup
     http://gittup.org/tup/
-  SEE: |community/remake|
+    + FUSE
+  fabricate
+    https://github.com/brushtechnology/fabricate
+    + strace()
+      FROM: https://beza1e1.tuxen.de/hermetic_builds.html
+  stroll
+    https://blogs.ncl.ac.uk/andreymokhov/stroll/
+    + strace()
+      FROM: https://beza1e1.tuxen.de/hermetic_builds.html
   Meson :: CppCon 2018: "Compiling Multi-Million Line C++ Code Bases Effortlessly with the Meson Build System"
     https://www.youtube.com/watch?v=SCZLnopmYBM&t=1318s
 
 ENH
   remake
     + profiling recipes
+    |community/remake|
   makepp
     + graphviz analytics :: http://makepp.sourceforge.net/gallery/
     - developer ideas are not "mature enough"
+  redo
+    https://redo.readthedocs.io/en/latest/
+    https://github.com/apenwarr/redo
 
 
 REF
