@@ -22,6 +22,12 @@ Networking (10+ articles)
   Shaping (enhance response in channel)
     http://www.linux.org.ru/forum/talks/10310095
 
+  DPDK -- Data Plane Development Kit -- direct communication User-Network w/o kernel stack
+    Введение в DPDK: архитектура и принцип работы / Блог компании Selectel / Хабр
+      https://habr.com/ru/company/selectel/blog/313150/
+    The Design and Implementation of a New User-level DPDK TCP Stack in Rust - Lilith Stephenson - YouTube
+      https://www.youtube.com/watch?v=KtWjRevZcio
+
 Books
   + https://www.gitbook.com/book/erlerobotics/erle-robotics-introduction-to-linux-networking/details
   +++ https://github.com/spinlockirqsave/books
