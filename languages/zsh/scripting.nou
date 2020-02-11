@@ -1,0 +1,35 @@
+
+
+%% Autoload functions
+
+  +++ How to define and load your own shell function in zsh - Unix & Linux Stack Exchange ⌇⡞⡂⡆⢪
+    https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh
+    * $fpath is not recursive -- add all folders with function files yourself
+    * you must register func-file yourself $ autoload -Uz hello
+      NOTE: it creates stub function :: $ which hello $ ::: hello() { #undefined builtin autoload -XU }
+      [_] FIND: maybe some shebang like "#compdef hello" is supported
+    * simple -- whole script body becomes function body and is executed as whole each time on call
+    * multifunc -- main function must have the same name as func-file
+      ! all defined functions will be visible in global namespace (pollute it)
+      ! call main func at the end of file yourself -- otherwise first autoload call will do nothing beside define
+
+
+%% Completion
+
+  Z-Shell completion system introduction ⌇⡞⡂⡊⠑
+    http://bewatermyfriend.org/p/2012/003/
+
+  e.g. zsh / Code / [803746] /Completion/Unix/Command/_tmux ⌇⡞⡂⡊⠪
+    https://sourceforge.net/p/zsh/code/ci/master/tree/Completion/Unix/Command/_tmux
+
+
+%% Anonymous one-shot functions
+
+  shell script - Local variables in zsh: what is the equivalent of bash's "export -n" in zsh - Unix & Linux Stack Exchange ⌇⡞⡂⡎⡶
+    https://unix.stackexchange.com/questions/111225/local-variables-in-zsh-what-is-the-equivalent-of-bashs-export-n-in-zsh
+
+
+%% Scripting guide
+
+  TUT array ⌇⡞⡂⡓⠜
+    http://zdharma.org/Zsh-100-Commits-Club/Zsh-Native-Scripting-Handbook.html#searching-arrays
