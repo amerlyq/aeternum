@@ -42,6 +42,9 @@ REF
     "Neural Networks in J" by Alexei N. Skurihin.
   BLOG
     https://scottlocklin.wordpress.com/2012/09/18/a-look-at-the-j-language-the-fine-line-between-genius-and-insanity/
+  Execution in place -- append to array w/o copying wholly previous one
+    Vocabulary/SpecialCombinations - J Wiki ⌇⡞⡃⣻⡹
+      https://code.jsoftware.com/wiki/Vocabulary/SpecialCombinations#Execution_In_Place_.28EIP.29
 
 
 TUT
