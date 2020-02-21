@@ -33,3 +33,26 @@
 
   TUT array ⌇⡞⡂⡓⠜
     http://zdharma.org/Zsh-100-Commits-Club/Zsh-Native-Scripting-Handbook.html#searching-arrays
+
+
+%% Associative arrays
+
+  OFF:(5.4.2): A User's Guide to the Z-Shell ⌇⡞⡌⠰⢡
+    http://zsh.sourceforge.net/Guide/zshguide05.html#l122
+
+  Re: Associative Arrays ⌇⡞⡌⠮⡐
+    2020-02-18 [X] https://www.zsh.org/mla/users/2004/msg01096.html
+    Assign
+      zsh:$ : ${(AA)=a::=foo bar}
+      zsh:$ : ${(AA)=a:=foo bar}
+    Serializing by double-quoting
+      zsh:$ "${${(@qqkv)A}[*]}"
+      zsh:$ typeset -A local_hash=("${(Q@)${(z)1}}")
+
+  Pretty-print
+    zsh:$ print -lraC2 -- ${(kv)aa}
+
+  Re: How to iterate over an array of associative arrays ⌇⡞⡌⠰⡪
+    https://www.zsh.org/mla/users/2013/msg00350.html
+  Iterating over keys (or k/v pairs) in zsh associative array? - Super User ⌇⡞⡌⠰⢏
+    https://superuser.com/questions/737350/iterating-over-keys-or-k-v-pairs-in-zsh-associative-array
