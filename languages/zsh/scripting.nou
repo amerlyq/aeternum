@@ -13,6 +13,14 @@
       ! all defined functions will be visible in global namespace (pollute it)
       ! call main func at the end of file yourself -- otherwise first autoload call will do nothing beside define
 
+  HACK: lazy-load every file from your private folder
+    How to define and load your own shell function in zsh - Unix & Linux Stack Exchange ⌇⡞⡂⡋⡦
+      https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh/526429#526429
+      zsh:$ autoload -Uz $fpath[0]/*(.:t)
+      # print -lDaC2 ${(kv)functions_source}  # DEBUG=WARN: lazy fns have empty path
+
+  [_] TODO: study "autoload -w" effects -- loading of all of funcs from READ:(zcompile/zmodload) files
+
 
 %% Completion
 
@@ -28,11 +36,29 @@
   shell script - Local variables in zsh: what is the equivalent of bash's "export -n" in zsh - Unix & Linux Stack Exchange ⌇⡞⡂⡎⡶
     https://unix.stackexchange.com/questions/111225/local-variables-in-zsh-what-is-the-equivalent-of-bashs-export-n-in-zsh
 
+  Re: Local inner functions ⌇⡞⡒⣮⠡
+    https://www.zsh.org/mla/users/2011/msg00207.html
+
 
 %% Scripting guide
 
   TUT array ⌇⡞⡂⡓⠜
     http://zdharma.org/Zsh-100-Commits-Club/Zsh-Native-Scripting-Handbook.html#searching-arrays
+
+
+%% Positional array
+  Prepend: Re: array prepend ⌇⡞⡂⡉⡰
+    https://www.zsh.org/mla/users/2013/msg00046.html
+    BET: zsh:$ fpath[1,0]=($lib)
+    STD: zsh:$ fpath=( $lib $fpath )
+    ALSO: zsh:$ typeset -T LD_LIBRARY_PATH ld_library_path :
+    # print -l $fpath  # DEBUG=
+
+  Surround: bash - How can I prepend and append to each member of an array? - Unix & Linux Stack Exchange ⌇⡞⡒⢪⠡
+    https://unix.stackexchange.com/questions/205170/how-can-i-prepend-and-append-to-each-member-of-an-array
+    zsh:$ b=('foo '${^a}' bar')
+    zsh:$ printf '<%s>\n' ${a//(#m)*/foo $MATCH bar}
+    zsh:$ b=(); printf -v b 'foo %s bar' "$a[@]"
 
 
 %% Associative arrays
@@ -50,9 +76,33 @@
       zsh:$ typeset -A local_hash=("${(Q@)${(z)1}}")
 
   Pretty-print
-    zsh:$ print -lraC2 -- ${(kv)aa}
+    golfing
+      zsh:$ print -lraC2 -- ${(kv)aa} | sort
+    BAD:(unsorted):
+      zsh:$ typeset -A a=(zzz 1 yy 2 x 3); print -- ${(kv)a[(I)(${(okj:|:)a})]}
+    BAD:(multiline):
+      zsh:$ typeset -A a=(zzz 1 yy 2 x 3); b=( ${(ok)a} ); for c in $b; do echo $c $a[$c]; done
+      zsh:$ typeset -A a=(zzz 1 yy 2 x 3); printf '%s := %s\n' "${(@kv)a}"
+      zsh:$ typeset -A a=(zzz 1 yy 2 x 3); () { for 1; print -lraC2 -- $1 ${a[$1]} } ${(ko)a}
+    MAYBE we can expand key-value, quote each pair, sort as simple array, and unquote, but I got syntax errors on this agenda
 
   Re: How to iterate over an array of associative arrays ⌇⡞⡌⠰⡪
     https://www.zsh.org/mla/users/2013/msg00350.html
   Iterating over keys (or k/v pairs) in zsh associative array? - Super User ⌇⡞⡌⠰⢏
     https://superuser.com/questions/737350/iterating-over-keys-or-k-v-pairs-in-zsh-associative-array
+
+  Multiple subscriptions / items
+    WARN: keys pattern-matching is unordered -- i.a. no effect from sorting keys
+    zsh:$ typeset -A a=(x 1 y 2 z 3); echo ${(v)a[(I)(x|y)]}
+    OR:(indirect): zsh:$ typeset -A a=(x 1 y 2 z 3); b=a; echo ${(v)${(P)b}[(I)(x|y)]}
+
+
+Expansions
+    ${${:-=cat}:h}
+
+  Extract composed extension
+    BAD:(:r): "f..." => ".."
+    zsh:$ for a in ${(z):-f d/f d/. d/.. .. f. f.. d/.h .h d/.h.gz d/f.tar.gz f.c s.verylongextension}; do print "$a" ${${${ext::=${${${a:t}#.}:(-16)}}#$ext:r:r}#.}; done | column -tR1
+
+  Extract feature-type dirs
+    zsh:$ for a in ${(z):-n ./n f/ f/n ./f/n f/t/n f/t/ g/f/t/n g/f/ g/f/n s/g/f/t/n s/g/f/}; do print $a ${${${:-$a.}#${${:-$a.}:h:h:h}/}:h}; done | column -tR1

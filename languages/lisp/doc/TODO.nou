@@ -9,3 +9,28 @@ Lisp in Docker
   [_] READ: Paper on global environments
     SICL/Papers/Global-environments at master · robert-strandh/SICL ⌇⡞⡃⣥⡼
       https://github.com/robert-strandh/SICL/tree/master/Papers/Global-environments
+
+
+Toward Simpler Language
+  20:29 <amerlyq> pjb: Mmm, it's more about "ultimate simplicity" or "intuitive reasoning", and not "even more paradigms to add to this boiling hell". I can reason for hours about monads and then restructure whole codebase in the name of pursuing intangible but important benefits, but... it isn't worth it for anybody reading my code -- because all these subtleties made it even harder to understand.
+  20:29 <amerlyq> and then nobody can maintain/evolve codebase in the same way, I originally pursued.
+  21:39 <pjb> amerlyq: an important idea of lisp programming is that you write your code in terms of the solution. Basically, you just write a sexp that "express" the solution in terms of the domain.  Then, you implement the data types and operators needed to make this sexp run in lisp.
+  21:40 <pjb> amerlyq: If a solution is a one-liner expression of monad, then just do that!  If it's a one-liner APL, do it.  If it's a one-liner prolog, do it. (or just a few tens of lines).
+  21:40 <pjb>:
+    Steps Toward the Reinvention of Programming – Alarming Development ⌇⡞⡒⣝⣳
+      https://alarmingdevelopment.org/?p=229
+    How Complex is "Personal Computing"? - YouTube ⌇⡞⡒⣝⣧
+      https://www.youtube.com/watch?v=HAT4iewOHDs
+
+  22:29 <amerlyq> and with Lisp I constantly feel like I may broke something which I already forgot
+  22:30 <pjb> amerlyq: have a look at ACL2 (theorem prove written in CL and embedded in (a subset of) CL.
+  22:30 <pjb> amerlyq: you can write algorithms and ACL2, and see how it feels to use a more abstract programming system.
+    https://en.wikipedia.org/wiki/ACL2
+
+
+  22:34 <amerlyq> I would liked to see how it will debug concurrently smashed stack under Java/JNI coredump
+  22:38 <pjb> amerlyq: on InterLisp there was such a programmer assistant.
+  22:38 <pjb> It would comment on your code, and detect bugs.
+    Interlisp - Wikipedia ⌇⡞⡒⣣⠇
+      https://en.wikipedia.org/wiki/Interlisp
+    http://www.softwarepreservation.org/projects/LISP/interlisp/Teitelman-FCJJ1972.pdf

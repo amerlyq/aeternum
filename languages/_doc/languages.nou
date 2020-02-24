@@ -9,6 +9,17 @@
   Хватит спорить про функциональное программирование и ООП / Хабр
       https://habr.com/ru/post/450300/
 
+  TRY
+    20:21 <amerlyq> By the way, on the lane of complexity: Is there any powerful
+       language even more simple than Lisp, worth learning? I find myself dizzy
+       from complexities of C++/Rust/Haskell/Erlang/J/Perl/Zsh and even Python
+       and return to Lisp again and again despite innumerable years spent on
+       them. Lisp is simple and nice, but I constantly miss... something
+       intangible. Powerful static typesystem? Transparent debugging facilities?
+       System level integration? All languages are only disfigured compromises, even Lisp :(
+    20:21 <pjb> amerlyq: FORTH, Prolog, APL, Smalltalk.
+    20:22 <pjb> amerlyq: Eiffel and Modula-3 are nice too.
+
 
 VIZ
   One Letter Programming Languages
