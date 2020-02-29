@@ -32,6 +32,10 @@ ALT
   Elixir
     http://elixir-lang.org/
 
+DEBUG
+  Erlgrind (erlang / elixir)
+    https://github.com/isacssouza/erlgrind
+
 
 String concatenation (by ++ has O(n) and 8x memory)
   Of course there is one! You should use binary and IoList whenever

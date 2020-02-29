@@ -1,0 +1,33 @@
+%%%% Options
+
+REF
+  zparseopts with associative array in older version of zsh - Unix & Linux Stack Exchange ⌇⡞⡊⢲⠨
+    https://unix.stackexchange.com/questions/159702/zparseopts-with-associative-array-in-older-version-of-zsh
+  Replacing getopts with zparseopts ⌇⡞⡊⢲⠿
+    https://zsh-users.zsh.narkive.com/XM5g52i9/replacing-getopts-with-zparseopts
+  Re: Optimal use of zparseopts ⌇⡞⡊⢲⡆
+    https://www.zsh.org/mla/users/2005/msg00358.html
+  zparseopts and longopts ⌇⡞⡊⢲⡏
+    https://www.zsh.org/mla/users/2016/msg00420.html
+  Ubuntu Manpage: zsh-lovers - tips, tricks and examples for the Z shell ⌇⡞⡊⢲⡲
+    http://manpages.ubuntu.com/manpages/bionic/man1/zsh-lovers.1.html
+  ALSO:E.G. https://files.dyne.org/tomb/Tomb-2.7.tar.gz
+    ~/sdk/Tomb-2.7/tomb
+
+
+ARCH
+  zsh:$ function { local opts; zparseopts -A opts -D -F -K -M -- t=toggle l+:=-labels -labels+: && print -lraC2 -- "${(@kv)opts}" '*' "$*" } -l 1 --labels 3 -t -- -f ee
+    * BAD:(-M): aliasing works only for existing spec ("-labels") and can't create new unrelated common hashkey ("=toggle") like in Perl
+    * BAD:(-A): option "l+:" is useless -- it simply appends elements, joining strings together (because ZSH don't have nested arrays)
+
+  zsh:$ function { local opts; zparseopts -D -F -K -- t=o_toggle m::=o_optional l+:=o_labels -labels+:=o_labels && print -lr -- "$o_toggle" "$o_labels" '*' "$*" } -l 1 --labels 3 -t -- -f ee
+    * NICE:(o_labels): can accumulate values
+    * BUT:(o_labels): also accumulates keys itself (useful if different, but cumbersome if the same)
+    USAGE: https://www.zsh.org/mla/users/2005/msg00358.html
+      (( ${+opts[(r)-l]} ))
+      (( ${+o_optional[-m]} ))
+
+  zsh:$ function { local opts; zparseopts -a opts -D -F -K -- t+ l+: -labels+: && print -r -- "${(@)opts}" -- "$@" } -l 1 --labels 3 -t -- -f ee
+  zsh:$ function { local opts; zparseopts -a opts -D -F -K -- t+ l+: -labels+: && while (($#opts)); do case $opts[1] in (-l | --labels) print -- $opts[1,2] ;; esac; shift opts; done; } -l 1 --labels=3 -t -- -f ee
+    * BET! parse again by while-case loop
+    * BUT: here I place most options into arrays like above anyway...

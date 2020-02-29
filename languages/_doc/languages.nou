@@ -129,6 +129,9 @@ Idris
   https://www.idris-lang.org/
   Idris: хай код пишеться сам (+vim plugin) #vim @Сіренко
     https://dmytrish.net/blog/uk/idris-self-coding
+  idris-lang/Idris-dev: A Dependently Typed Functional Programming Language ⌇⡞⡕⡋⠸
+    https://github.com/idris-lang/Idris-dev
+
 
 Rust
   https://habrahabr.ru/post/321564/
@@ -226,6 +229,11 @@ PROLOG
     http://www.gprolog.org/
       http://www.gprolog.org/manual/html_node/gprolog005.html
       http://www.gprolog.org/manual/gprolog.html
+
+  The Mercury Project: About ⌇⡞⡕⡊⣼
+    * Mercury is purely declarative: predicates and functions in Mercury do not have non-logical side effects.
+    * Mercury is a strongly typed language.
+    http://www.mercurylang.org/about.html
 
 Markdown
   https://guides.github.com/features/mastering-markdown/
