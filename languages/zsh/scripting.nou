@@ -46,6 +46,11 @@
     http://zdharma.org/Zsh-100-Commits-Club/Zsh-Native-Scripting-Handbook.html#searching-arrays
 
 
+%%% Matching glob/regex
+  regular expression - Does bash support back references in parameter expansion? - Unix & Linux Stack Exchange ⌇⡞⡛⣳⠁
+    https://unix.stackexchange.com/questions/361134/does-bash-support-back-references-in-parameter-expansion
+
+
 %% Positional array
   Prepend: Re: array prepend ⌇⡞⡂⡉⡰
     https://www.zsh.org/mla/users/2013/msg00046.html
@@ -59,6 +64,9 @@
     zsh:$ b=('foo '${^a}' bar')
     zsh:$ printf '<%s>\n' ${a//(#m)*/foo $MATCH bar}
     zsh:$ b=(); printf -v b 'foo %s bar' "$a[@]"
+
+  Null-delimited
+    zsh:$ print -rNC1 -- "$list[@]"
 
 
 %% Associative arrays
@@ -98,12 +106,42 @@
     OR:(indirect): zsh:$ typeset -A a=(x 1 y 2 z 3); b=a; echo ${(v)${(P)b}[(I)(x|y)]}
 
 
-Expansions
-    ${${:-=cat}:h}
+%%% Expansions
+  Indirect assign
+    zsh:$ : ${(P)a::=(foo ${(P)a})}
+      BAD: scalar parameter 'a_var' set in enclosing scope in function
+      BAD? SECU?
+    zsh:$ typeset -g "$var"=value
+    zsh:$ typeset -g "${A}[key]"=value
+    zsh:$ eval "typeset -ga $nm"'=("$array[@]")'
+    zsh:$ ... | read -r -- "${A}[${(@)^keys}]"
+
+  Workaround var-inside-var double expansion
+    zsh:$ print ${${:-=cat}:h}
+    zsh:$ print ${(j., .)${:-${^words}yeah}}
+    zsh:$ print ${(j., .)${:-{foo,bar,baz}yeah}}
+
+  Crop name to max-sz (together with trail) :: abc…+4
+    zsh:$ (){ local sz=6 rest nm=$1 && (( (rest=$#nm - sz) > 0)) && nm=${nm:0:(sz-$#rest-2)}…+$((rest+2)) && print $nm } abcdefgh
 
   Extract composed extension
     BAD:(:r): "f..." => ".."
     zsh:$ for a in ${(z):-f d/f d/. d/.. .. f. f.. d/.h .h d/.h.gz d/f.tar.gz f.c s.verylongextension}; do print "$a" ${${${ext::=${${${a:t}#.}:(-16)}}#$ext:r:r}#.}; done | column -tR1
 
-  Extract feature-type dirs
-    zsh:$ for a in ${(z):-n ./n f/ f/n ./f/n f/t/n f/t/ g/f/t/n g/f/ g/f/n s/g/f/t/n s/g/f/}; do print $a ${${${:-$a.}#${${:-$a.}:h:h:h}/}:h}; done | column -tR1
+  Extract [group-]feature-type designators ※⡞⡚⣰⡋
+    ./group/…/group/feature/type/null = always two rightmost dirs
+      zsh:$ for a in ${(z):-n ./n f/ f/n ./f/n f/t/n f/t/ g/f/t/n g/f/ g/f/n s/g/f/t/n s/g/f/}; do print $a ${${${:-$a.}#${${:-$a.}:h:h:h}/}:h}; done | column -tR1
+      BAD: not supported nested folders inside feature
+      NEED: each feature is small enough to never need nested folders
+    ./group./…/group./feature/type/null = always two rightmost dirs BAD: same problems
+      zsh:$ for a in ${(z):-n ./n f/ f/n ./f/n f/t/n f/t/ g/f/t/n g/f/ g/f/n s/g/f/t/n s/g/f/ g./ g./n g./f/n g./f/t/n s./g./n s./g./f/n s./g./f/t/n}; do print $a ${${${${ft::=${${${:-$a.}#${${:-$a.}:h:h:h}/}:h}/}##*./}:-$ft}%/}; done | column -tR1
+        NOTE: can be simplified by using "${a:t3}" -- keep 3 tail component instead of manual cropping like I did
+          zsh:$ print ${a::=$a.} ${${${a:t3:h}##*./}:-${a:t3:h}}
+          OR:(even): zsh:$ print ${a::=$a.} ${${a:t3:h}##*./}
+    ./group./…/group./feature/type/ctx/…/ctx/null = extract two leftmost dirs "[feature] type" after group
+      zsh:$ for a in ${(z):-n ./n ././n ./../n f/ f/n ./f/n ../../f/n f/t/ f/t/n ../f/t/n f/t/c/n ./f/t/c/n f/t/c/s/n n. ./n. g./ ./g./ g./n g./f/n g./f/t/n s./g./n s./g./f/n s./g./f/t/n s./g./f/t/c/n g./f/t/c/G./F/T/n}; do print ${${a::=$a.}%.} ${${ft::=${${a:h}##*./}}:h2} ${${${${a:h}%$ft}%/}:-.}; done | column -tR1,3
+        OR:(reordered): zsh:$ print ${${a::=$a.}%.} ${${${${a:h}%${ft::=${${a:h}##*./}}}%/}:-.} ${ft:h2}; done | column -tR1,2
+        BAD: does not support "_foreign" folders -- they must always be treated as "type"
+    ./group./_foreign/ctx/null = BET
+      zsh:$ for a in ${(z):-n ./n ././n ./../n f/ f/n ./f/n ../../f/n f/t/ f/t/n ../f/t/n f/t/c/n ./f/t/c/n f/t/c/s/n n. ./n. g./ ./g./ g./n g./f/n g./f/t/n s./g./n s./g./f/n s./g./f/t/n s./g./f/t/c/n g./f/t/c/G./F/T/n _t _t/n ./_t ./_t/ f/_t/ ./f/_t/n g./_t/n s./g./_t/_t/}; do print $a /${a::=${${${:-/${${:-$a.}:h}}%%/_*}#/}} ${${${a%${a##*./}}%/}:-.} ${(s:/:)${${${a##*./}:h2}:-.}}; done | column -tR1,3
+        NICE: drops "_foreign" folders BAD: always empty "type" (must be "_foreign")
