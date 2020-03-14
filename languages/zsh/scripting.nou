@@ -86,6 +86,7 @@
   Pretty-print
     golfing
       zsh:$ print -lraC2 -- "${(@kv)aa}" | sort
+        NOTE:(sort): no easy way to sort by key :: BAD: ${(@aokv)opts}
       zsh:$ for k v ("${(@kv)opts}") print -r -- $k $v
     BAD:(unsorted):
       zsh:$ typeset -A a=(zzz 1 yy 2 x 3); print -- ${(kv)a[(I)(${(okj:|:)a})]}
