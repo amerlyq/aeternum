@@ -4,10 +4,10 @@ If you work, the best time to negotiate permission to release free software is *
 USAGE
   Code
     | // SPDX-FileCopyrightText: 2012-2016, Joe Random Hacker and contributors
-    | // SPDX-License-Identifier: GPL-3.0-or-later
+    | // SPDX-License-Identifier: GPL-3.0-only
   Docs with examples
     | // SPDX-FileCopyrightText: 2012-2016, Joe Random Hacker and contributors
-    | // SPDX-License-Identifier: CC-BY-SA-4.0+
+    | // SPDX-License-Identifier: CC-BY-SA-4.0
 
 
 ARCH
@@ -22,24 +22,30 @@ ARCH
     * publishing format -- layout, page-proof, typesetting, etc.
 
 
+WARN
+  Using fallback licenses is not the best idea ever.
+    e.g. GPL-3.0-or-later OR CC-BY-SA-4.0+ OR Apache-2.0+
+    !. because no one can guarantee new licenses won't have something detrimental, ever !
+
+
 ARCH
   src / doxygen
-    "AGPL-3.0-or-later" -- for anything which can be *obviously* used in web front-end
+    "AGPL-3.0-only" -- for anything which can be *obviously* used in web front-end
       OR *provingly* used in immediate back-end services
         = BUT:SEE: Redis меняют лицензии AGPL => Apache 2.0 => RSAL
           https://habr.com/ru/company/1cloud/blog/423723/
           https://habr.com/ru/company/1cloud/blog/442338/
-    "GPL-3.0-or-later"  -- for everything else you care
+    "GPL-3.0-only"  -- for everything else you care
       !! otherwise you can easily *LOSE* your freedom to use *your own* code
         (e.g. corporate misappropriation)
-    "LGPL-3.0-or-later" -- for things you wish to allow to use in corporate products
+    "LGPL-3.0-only" -- for things you wish to allow to use in corporate products
       <= and provide your services to company on "enhancing" lib in the useful direction for it and humankind
-    "Apache-2.0+" -- small to medium sized programs anyone could write and which you don't care of
+    "Apache-2.0" -- small to medium sized programs anyone could write and which you don't care of
       +++ save yourself from patent traps in public domain
       !! beware of proprietary extensions that would present practical advantages over our free programs being based on them and their experience
     "MIT" -- if you slightly care only about attribution
       AND work is hard to apply patent rights to (e.g small enough)
-    Dual = "(GPL-3.0-or-later OR Proprietary)" == more restrictive than GPL
+    Dual = "(GPL-3.0-only OR Proprietary)" == more restrictive than GPL
       ??? better go to fully Proprietary license with open (but non-free) source ???
     Disclosed, All rights reserved -- useless unless it's a very complex soft and you sell support service
     Undisclosed, All rights reserved -- useful only until it provides you distinct strategical superiority
@@ -47,11 +53,11 @@ ARCH
       => must be converted to AGPL / Apache2 -- when superiority no longer possible or don't matter
 
   doc / tutorials
-    "CC-BY-SA-4.0+" -- like code, but documents and pictures, without requirement to keep full license
+    "CC-BY-SA-4.0" -- like code, but documents and pictures, without requirement to keep full license
       => explicitly compatible with A/GPLv3 and can interchange code snippets with Wikipedia
-    "CC-BY-4.0+" -- again, if you slightly care for attribution related to this piece of text, but not anything else
-    "CC0-1.0+" -- for very generic and simple scenarios you can't prove attribution anyway
-    "GFDL-1.3-or-later" -- any textbook information +for practical use+
+    "CC-BY-4.0" -- again, if you slightly care for attribution related to this piece of text, but not anything else
+    "CC0-1.0" -- for very generic and simple scenarios you can't prove attribution anyway
+    "GFDL-1.3-only" -- any textbook information +for practical use+
       FAIL!(code examples): you can't reuse code snippets from it even in GPLv3 software -- you must dual-license them
         https://lwn.net/Articles/305892/
         <= MAYBE: it's still good, but only for full large BOOK
@@ -65,7 +71,7 @@ ARCH
 
   personal experiences / opinions
     "CC-BY-ND-4.0" -- to preserve your viewpoint untouched (nobody is allowed to fix !even errors!)
-    "CC0-1.0+" -- if it's really bunch of whole-world ideas you share unselfishly
+    "CC0-1.0" -- if it's really bunch of whole-world ideas you share unselfishly
 
   architecture
     READ: The Impact of Licensing Models on Architecture
@@ -126,7 +132,7 @@ REUSE
     How to properly license under LGPL · Issue #86 · fsfe/reuse-tool
       https://github.com/fsfe/reuse-tool/issues/86
       ::: include both licenses and dual-license at least one file
-        // SPDX-License-Identifier: (LGPL-3.0-or-later OR GPL-3.0-or-later)
+        // SPDX-License-Identifier: (LGPL-3.0-only OR GPL-3.0-only)
     Use original text version for downloaded licenses · Issue #88 · fsfe/reuse-tool
       https://github.com/fsfe/reuse-tool/issues/88
       ::: it seems using SPDX license with different formatting is not a problem
@@ -162,7 +168,7 @@ INFO: Software Package Data Exchange (SPDX) IDs for licenses
   E.G. https://spdx.org/ids
     // SPDX-License-Identifier: MIT
     /* SPDX-License-Identifier: MIT OR Apache-2.0 */
-    # SPDX-License-Identifier: GPL-2.0-or-later
+    # SPDX-License-Identifier: GPL-2.0-only
   Tools
     https://boyter.org/2018/03/licensechecker-command-line-application-identifies-software-license/
     |aur/reuse|
