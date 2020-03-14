@@ -50,12 +50,6 @@ INFO
   READ General build problems
     https://electric-cloud.com/plugins/build-automation
 
-  !!! Reproducible builds
-    https://reproducible-builds.org/docs/stable-inputs/
-    https://wiki.debian.org/ReproducibleBuilds
-    http://bootstrappable.org/
-    ++ https://linderud.dev/blog/reproducible-arch-linux-packages/
-
   Accepting Constraints in Build Systems – BEC Systems
     READ http://bec-systems.com/site/1462/accepting-constraints-in-build-systems
 

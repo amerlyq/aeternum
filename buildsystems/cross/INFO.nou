@@ -20,6 +20,8 @@ READ
       https://news.ycombinator.com/item?id=14695829
   TALK: compiling - Looking for tools to build minimal linux desktop
     https://unix.stackexchange.com/questions/11310/looking-for-tools-to-build-minimal-linux-desktop
+  +++ [_] NICE: Anatomy of Cross-Compilation Toolchains - YouTube ⌇⡞⡧⠛⣘
+    https://www.youtube.com/watch?v=Pbt330zuNPc&t=2671s
 
 
 Embedded firmware
@@ -59,6 +61,11 @@ Embedded firmware
 
 Buildroot
   https://buildroot.org/
+  e.g.
+    Entware/Entware: Ultimate repo for embedded devices ⌇⡞⡧⠜⣺
+      https://github.com/Entware/Entware
+    teslamotors/buildroot: Tesla's buildroot repository ⌇⡞⡧⠝⠡
+      https://github.com/teslamotors/buildroot
 
 
 Yocto

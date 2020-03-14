@@ -1,0 +1,29 @@
+
+%%% FAQ: Buildroot .vs. Yocto / OpenEmbedded, etc.
+
+Q: Do we have any new modern alternatives?
+A: No. Buildroot is the best as of 2020-03 for our needs.
+
+Q: What we want from buildsystem – i.e. which one would be the best:
+A: It must be: 1) simple; 2) robust; 3) minimal.
+
+What it actually means:
+1) easy to understand, easy to upgrade, and easy to maintain our private changes;
+2) hard to break and mess-up when collaborating under stress of time;
+3) can be fully read (and completely understand all complexities) in only one day (i.e. low overload for comprehension).
+
+Q: Why not Yocto, OpenEmbedded, etc.?
+A: It's a complexity we can't reasonably support for our projects.
+
+* We don't need package manager or any of these platforms bloat at all.
+* We don't need user customization of package list on system-administration level.
+* We don't expect any stable internet connection to download such packages (like partial auto-update in IoT).
+* We don't need tons of unnecessary packages, which are impossible to disable even in minimal image, and which break all the time (see maillist of Yocto).
+
+Buildroot is the only embedded buildsystem w/o package manager -- which makes it simple and minimal.
+If it would be written in Python – it would be the best system ever due to maximized robustness and the lowest entry threshold for new developers with great introspection/debugging/profiling facilities.
+But as it's mostly developed by bearded system engineers – it will be kept built on top of makefiles for all the eternity (according to our discussion in IRC #buildroot channel).
+
+Therefore the only competitive in the field of robustness/simplicity would be raw OpenEmbedded-core written in Python.
+But it's also expects package manager to be used and its community has very different focus of efforts (and somewhat less contributions).
+  https://github.com/openembedded/openembedded-core

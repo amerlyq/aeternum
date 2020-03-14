@@ -1,0 +1,44 @@
+%%%% Reproducible builds
+
+
+INFO
+  https://reproducible-builds.org/docs/stable-inputs/
+  https://wiki.debian.org/ReproducibleBuilds
+  http://bootstrappable.org/
+  ++ https://linderud.dev/blog/reproducible-arch-linux-packages/
+
+
+%% BR2_REPRODUCIBLE
+
+NEED at least 2017.02 for stable reproducible builds
+  BET: use 2019.09+ with latest improvements from GSoC
+
+buildroot
+  2016-04 Buildroot (busybox) - Reproducible builds ⌇⡞⡢⡗⢒
+    http://buildroot-busybox.2317881.n4.nabble.com/Reproducible-builds-td133106.html
+    [Buildroot] Reproducible builds ⌇⡞⡢⡘⣂
+      http://lists.busybox.net/pipermail/buildroot/2016-May/160623.html
+  Buildroot 2017.02 released [LWN.net] ⌇⡞⡢⡗⠷
+    https://lwn.net/Articles/716063/
+    ALSO: Buildroot 2017.02 released, Bootlin contributions - Bootlin's blog ⌇⡞⡢⡖⡱
+      https://bootlin.com/blog/buildroot-2017-02/
+  Buildroot:ReproducibleBuilds - eLinux.org ⌇⡞⡢⡗⠑
+    https://elinux.org/Buildroot:ReproducibleBuilds
+    https://elinux.org/Buildroot:ReproducibleBuilds#GSoC_Work_Product
+
+
+Linux
+  linux: override build timestamp for reproducible builds (af109fb4) · Commits · netdsa / buildroot · GitLab ⌇⡞⡢⡔⣿
+    https://gitlab.savoirfairelinux.com/netdsa/buildroot/commit/af109fb44469a89b2576d167b02f02a811d13c12
+  Speeding up Linux kernel builds with ccache - Nick Desaulniers ⌇⡞⡟⣙⡔
+    http://nickdesaulniers.github.io/blog/2018/06/02/speeding-up-linux-kernel-builds-with-ccache/
+    $ ccache -z
+    $ make clean
+    $ time KBUILD_BUILD_TIMESTAMP='' make CC="ccache gcc" -j4
+      # ... 151.85s user 132.98s system 288% cpu 1:38.90 total
+    $ ccache -s
+
+
+packages
+  buildroot/0002-Reproducible-build-do-not-leak-compiler-path.patch at master · buildroot/buildroot ⌇⡞⡢⡖⢯
+    https://github.com/buildroot/buildroot/blob/master/package/libopenssl/0002-Reproducible-build-do-not-leak-compiler-path.patch
