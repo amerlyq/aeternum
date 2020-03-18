@@ -1,0 +1,23 @@
+⌇⡞⡲⡇⢖
+SRC: http://landley.net/writing/rootfs-programming.html
+
+  NOTE. default "console=" for /init is always opened -- even if you haven't created the /dev/console node yourself
+
+Populate /dev with mdev.
+In addition to executables to run, even a minimal root filesystem needs device nodes. The /dev directory contains special files that allow programs to talk to the hardware.[2]
+
+The mdev program in busybox 1.1.2 uses the sysfs filesystem in the 2.6 kernel to autodetect the available hardware, and create the appropriate device nodes. Like a very small and simple version of "udev", it reads from /sys and writes to /dev, and you can use it from your init scripts like this:
+
+  mkdir /sys /dev
+  mount -t sysfs /sys /sys
+  mount -t tmpfs /dev /dev  # optional step
+  mdev -s
+If you'd like hotplug support, you can tell the kernel to run mdev to create or delete a device node very time it receives a hotplug event:
+
+  echo /sbin/mdev > /proc/sys/kernel/hotplug
+By default, mdev creates each device node owned by root, with permissions 660. If you'd like to specify different permissions, you can create an optional /etc/mdev.conf file containing lines like this:
+
+  console   0:0  777
+  tty.*     0:0  660
+  hda[0-3]  0:3  644
+Each line of mdev.conf starts with a regular expression specifying which device nodes to match, followed by the numeric uid:gid the device(s) should belong to, and then octal file permissions.
