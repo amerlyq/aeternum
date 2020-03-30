@@ -1,3 +1,6 @@
+DEBUG
+  HELP: zsh:$ autoload +X zargs; cat $functions_source[zargs]
+    SRC: http://www.zsh.org/mla/workers/2019/msg00135.html
 
 
 %% Autoload functions

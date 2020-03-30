@@ -8,6 +8,8 @@ ALT
   oil
     https://www.oilshell.org/
     https://github.com/oilshell/oil
+    Why Create a New Unix Shell? ⌇⡞⡿⢠⢱
+      https://www.oilshell.org/blog/2018/01/28.html
   rc
     http://plan9.bell-labs.com/sys/doc/rc.html
     + solid and robust
@@ -26,6 +28,9 @@ ALT
   TRY:
     haskell-turtle
     haskell-shelly
+  vlang
+    vlang/v: Simple, fast, safe, compiled language for developing maintainable software. Compiles itself in <1s with zero dependencies. https://vlang.io ⌇⡞⡿⢤⣟
+      https://github.com/vlang/v
 
 
 Cool man. Very cool
