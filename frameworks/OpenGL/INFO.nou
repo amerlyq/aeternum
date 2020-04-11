@@ -35,6 +35,34 @@ DEMO
   https://github.com/g-truc/ogl-samples
 
 
+BET
+  Learn OpenGL, extensive tutorial resource for learning Modern OpenGL ⌇⡞⢑⢯⡱
+    https://learnopengl.com/
+  OpenGL - Introduction ⌇⡞⢑⢰⠀
+    https://open.gl/
+  OpenGL Step by Step - OpenGL Development ⌇⡞⢑⢵⢳
+    http://ogldev.org/
+    http://ogldev.atspace.co.uk/
+  opengl-tutorials/ogl ⌇⡞⢑⢵⣐
+    https://github.com/opengl-tutorials/ogl
+    http://www.opengl-tutorial.org/
+  Anton's OpenGL 4 Tutorials ⌇⡞⢑⢵⡁
+    http://antongerdelan.net/opengl/
+    GLFW: https://github.com/capnramses/antons_opengl_tutorials_book
+    SDL2: https://github.com/AidanDelaney/antons_opengl_tutorials_book/tree/sdl2-port/
+  OLD: OpenGLBook.com | A Free OpenGL Programming Book ⌇⡞⢑⢰⢼
+    https://openglbook.com/
+    https://github.com/openglbook/openglbook.com
+
+
+TUT
+  GLFW: Getting started ⌇⡞⢑⢶⡜
+    https://www.glfw.org/docs/latest/quick.html#quick_key_input
+    https://github.com/glfw/glfw
+  BGFX: Examples — bgfx 1.0 documentation ⌇⡞⢑⢹⠎
+    https://bkaradzic.github.io/bgfx/examples.html
+
+
 TUT
   http://www.opengl-tutorial.org/download/
   http://ogldev.atspace.co.uk/
@@ -68,3 +96,43 @@ So
   : Здесь работает моё кровное правило разработки -- о рабочем коде.
 
 http://www.cairographics.org/OpenGL/
+
+
+BET:VIZ: awesome
+  sindresorhus/awesome: 😎 Awesome lists about all kinds of interesting topics ⌇⡞⢐⢹⣸
+    https://github.com/sindresorhus/awesome
+  terkelg/awesome-creative-coding: Creative Coding: Generative Art, Data visualization, Interaction Design, Resources. ⌇⡞⢑⢽⠈
+    https://github.com/terkelg/awesome-creative-coding
+
+Awesome
+  +++ eug/awesome-opengl: A curated list of awesome OpenGL libraries, debuggers and resources. ⌇⡞⢐⢺⠃
+    https://github.com/eug/awesome-opengl
+    TALK: https://www.reddit.com/r/opengl/comments/3b5c43/awesomeopengl/
+  radixzz/awesome-glsl: Compilation of the best resources to learn programming OpenGL Shaders ⌇⡞⢐⢺⠇
+    https://github.com/radixzz/awesome-glsl
+  par_shapes.h ⌇⡞⢐⢺⢝
+    https://prideout.net/shapes
+  mattdesl/graphics-resources: a list of graphic programming resources ⌇⡞⢐⢻⠳
+    https://github.com/mattdesl/graphics-resources
+  ellisonleao/magictools: A list of Game Development resources to make magic happen. ⌇⡞⢐⢻⠶
+    https://github.com/ellisonleao/magictools
+
+
+Vulkan
+  vinjn/awesome-vulkan: Awesome Vulkan ecosystem ⌇⡞⢐⢻⠰
+    https://github.com/vinjn/awesome-vulkan
+    Z80Fan/VulkanDemos: Vulkan demos and tutorials. ⌇⡞⢐⢻⣲
+      https://github.com/Z80Fan/VulkanDemos
+    Transitioning from OpenGL to Vulkan ⌇⡞⢐⣀⡘
+      https://developer.nvidia.com/transitioning-opengl-vulkan
+    Godot Engine - Moving to Vulkan (and ES 2.0) instead of OpenGL ES 3.0 ⌇⡞⢐⣆⠮
+      https://godotengine.org/article/abandoning-gles3-vulkan-and-gles2
+  Bringing Vulkan to Apple's Platforms: Khronos Group Announces Open Source MoltenVK 1.0 & SDKs ⌇⡞⢐⣇⢒
+    https://www.anandtech.com/show/12465/khronos-group-extends-vulkan-portability-with-opensource
+
+
+LevelDesign
+  Level Design Compendium: The Curated List (+40 links) : gamedev ⌇⡞⢐⣉⣵
+    https://www.reddit.com/r/gamedev/comments/fv2s65/level_design_compendium_the_curated_list_40_links/
+  How to hire an artist : gamedev ⌇⡞⢐⣋⣋
+    https://www.reddit.com/r/gamedev/comments/fx4oan/how_to_hire_an_artist/
