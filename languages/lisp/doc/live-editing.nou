@@ -99,3 +99,16 @@ ARCH:WARN: keep consistency when editing an online living image
       => it would be good to enable emergency light instead of broken primary light
     e.g. critical systems like "air recycling" on spaceship must continue working *always*
       => even if they contain a bug => they should continue to somehow provide clean air and ensure at least basic life-support
+
+
+Lisp image dump/load (freeze/thaw)
+  REQ: irc:#lisp/freenode 2020-04-19 18:41:43 @phoe
+  Qs:
+    considering you can dump/load lisp image with all the state preserved --
+    how much of it impossible for opengl? It seems on restore it must reinitialize GPU
+    and send everything again to be working. What has such problems beside opengl?
+  :::
+    All foreign libraries must be closed/reopened on image freezing/thawing. Of course, it's a non-issue if you don't use FFI.
+    But, basically, when you freeze your image, you need to close all stuff
+    that is invalidated by the freeze/thaw operation. And then the thawed image
+    must reopen/reallocate/redo/reeverything all of these. Same thing as with e.g. files.

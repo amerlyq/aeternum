@@ -5,16 +5,53 @@ WHY lisp
     https://habrahabr.ru/post/262225/
   These years in Common Lisp: 2018 - Vince Zd - Medium
     https://medium.com/@vindarel/these-years-in-common-lisp-2018-1d6b9084920d
+
+
+Critique of Lisp
+  NEED: "disillusionment" articles from someone who started big project in Lisp and then concluded Lisp is not fit for the job.
+    Such experiences can provide invaluable insights in the actual limitations to overcome (or abandon Lisp too).
+    Remember main aspiration from the above was "strive to write a story in the natural way... which can _accidentally_ become interactive
+  BAD:(why): Dynamic Languages are Static Languages | Existential Type ⌇⡞⢜⡺⡀
+    https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/
+    Alice ⌇⡞⢜⢁⣉
+      https://www.ps.uni-saarland.de/alice/
+    Tom Murphy 7's Invincible Web Page ⌇⡞⢜⢁⣓
+      http://tom7.org/
   Why We Hate Lisp
     http://wiki.c2.com/?WhyWeHateLisp
     http://wiki.c2.com/?WhyWeLoveLisp
-  Critique of Lisp
-    VIZ
-      http://www.newlisp.org/index.cgi?page=Links
-    How Common Lisp sucks
-      https://groups.google.com/forum/#!msg/comp.lang.lisp/GMx6gjESVZw/Z8PGTPs1Y-gJ
-    BUT
-      http://paulgraham.com/vanlfsp.html
+  VIZ
+    http://www.newlisp.org/index.cgi?page=Links
+  How Common Lisp sucks
+    https://groups.google.com/forum/#!msg/comp.lang.lisp/GMx6gjESVZw/Z8PGTPs1Y-gJ
+  BUT
+    http://paulgraham.com/vanlfsp.html
+  Lisp and Haskell ⌇⡞⢜⡣⡽
+    https://markkarpov.com/post/lisp-and-haskell.html
+  Gamasutra - Postmortem: Naughty Dog's Jak and Daxter: the Precursor Legacy ⌇⡞⢜⡥⠨
+    https://www.gamasutra.com/view/feature/131394/postmortem_naughty_dogs_jak_and_.php?page=2
+  freenode/#lisp - IRC Chatlog ⌇⡞⢜⡭⢏
+    https://irclog.tymoon.eu/freenode/%23lisp?around=1579010993#1579010993
+    = 18:22 <phoe> this is only partially on topic, but I can give you a rant
+    about how hardcore Lisp evangelists like Graham contribute to the bad vibe
+    that Lisp-as-a-language has around the world.
+  @pjb there's redit that has been rewritten from lisp,
+    but the postmorterm wasn't that negative on lisp IMO.
+
+
+SUCCESS
+  +++ August 2016 Lisp Game Jam Postmortem / Steve Losh ⌇⡞⢜⡥⠱
+    https://stevelosh.com/blog/2016/08/lisp-jam-postmortem/
+  Postmortem Blog Post - Autumn Lisp Game Jam 2018 community - itch.io ⌇⡞⢜⡥⠿
+    https://itch.io/jam/autumn-lisp-game-jam-2018/topic/327318/postmortem-blog-post
+  Lisp Jam Postmortem ⌇⡞⢜⡥⡂
+    https://rpav.mephle.net/2017/05/04/Lisp-Jam-Postmortem/
+  April's 2017 Lisp Game Jam Postmortem · Pavel Korolev ⌇⡞⢜⡥⡋
+    https://borodust.org/2017-04-lgj-postmortem
+  Cloud Fighter Postmortem - August 2016 Lisp Game Jam community - itch.io ⌇⡞⢜⡥⡠
+    https://itch.io/jam/august-2016-lisp-game-jam/topic/35425/cloud-fighter-postmortem
+  Lisp Gamejam Postmortem ⌇⡞⢜⡥⡦
+    https://ahungry.com/blog/2016-01-09-2016-01-09-Lisp-Gamejam-Postmortem.html
 
 
 Lisp
@@ -54,6 +91,8 @@ ALT
   Multithreading
     http://stackoverflow.com/questions/9400410/common-lisp-parallel-programming
    Maybe think about Arc as Lisp with syntax sugar, short keywords, small rules
+    threads.md ⌇⡞⢜⡶⠀
+      https://gist.github.com/Bike/a89cbfda64ace273b12eed8675dda632
   TRY:USE: lisp/scheme/guile under xdotool/xbindkey
   IDEA: lisp image -> the same as meridia
     -> dump memory from compiled syntax
@@ -95,3 +134,10 @@ Lisp learning recommendations
     https://quizlet.com/105861300/lisp-2-basic-primitives-flash-cards/
   https://www.reddit.com/r/lisp/comments/1xmd8n/two_hard_months_into_cl_my_feedback_for_the/
   https://www.reddit.com/r/lisp/comments/2hd0x1/the_legacy_of_lisp_observationsrants/
+
+
+REF
+  Common Lisp Style Guide | Common Lisp ⌇⡞⢜⢎⢱
+    https://lisp-lang.org/style-guide/#use-libraries
+  [_] READ: how I write modules ⌇⡞⢜⢎⣋
+    https://gist.github.com/substack/5075355

@@ -156,3 +156,8 @@ Multivalues -- return multiple values from function
     (defun 2value (x y) (floor y x))
     (defun 1value (x y) (values (floor y x)))  # discard rest of ret values
     (defun 0value (x)   (print x) (values))    # discard all ret values
+
+
+%% Regex
+
+  https://gist.github.com/Bike/44cb1285741356cbaae547f2d57b69d0
