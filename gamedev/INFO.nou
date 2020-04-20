@@ -120,6 +120,7 @@ Game
     https://www.ogre3d.org/#
   urho3d
     https://github.com/urho3d/Urho3D/pull/1709
+    E.G: https://github.com/urho3d/Urho3D/tree/master/Source/Samples
   Allegro5
     https://sourceforge.net/projects/alleg/
   Panda3D
@@ -157,3 +158,28 @@ DEBUG
 Dataset interchange formats
   live-clones/hdf5: Live clone of https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git.
     https://github.com/live-clones/hdf5
+
+
+Awesome
+  Awesome gamedev repositories : gamedev ⌇⡞⢋⢥⢣
+    https://www.reddit.com/r/gamedev/comments/5abuks/awesome_gamedev_repositories/
+  Calinou/awesome-gamedev: A collection of free software and free culture resources for making amazing games. (mirror) ⌇⡞⢋⢥⢩
+    https://github.com/Calinou/awesome-gamedev
+  ellisonleao/magictools: A list of Game Development resources to make magic happen. ⌇⡞⢋⢨⢸
+    https://github.com/ellisonleao/magictools
+  mbrukman/awesome-gamedev: A list of Game Development resources to make magic happen. ⌇⡞⢋⢨⣗
+    https://github.com/mbrukman/awesome-gamedev
+  pault84/awesome-gamedev: A list of Game Development resources to make magic happen. ⌇⡞⢋⢨⣛
+    https://github.com/pault84/awesome-gamedev
+  jamtasticgd/awesome-gamedev: A compilation of game dev related media (podcasts, Youtube, article, books, etc..) ⌇⡞⢋⢨⣝
+    https://github.com/jamtasticgd/awesome-gamedev
+  miloyip/game-programmer: A Study Path for Game Programmer ⌇⡞⢑⢽⠳
+    https://github.com/miloyip/game-programmer
+
+  READ: +++ oreolek/awesome-gamedev - wall-of-shame.md at 90b6a5f1ce445a150cd5101cb70b30182e3300ad - awesome-gamedev - Code hosting ⌇⡞⢋⢨⣤
+    https://code.oreolek.ru/oreolek/awesome-gamedev/src/commit/90b6a5f1ce445a150cd5101cb70b30182e3300ad/wall-of-shame.md?lang=it-IT
+
+
+Tools
+  Getting Started - OpenGL Wiki ⌇⡞⢋⢨⣹
+    https://www.khronos.org/opengl/wiki/Getting_Started
