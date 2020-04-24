@@ -29,6 +29,9 @@ Embedded firmware
   VIZ: Toolchains - eLinux.org
     https://elinux.org/Toolchains
 
+  GCC Cross-Compiler - OSDev Wiki ⌇⡞⡫⠞⣝
+    https://wiki.osdev.org/GCC_Cross-Compiler
+
   https://stackoverflow.com/questions/687989/best-build-system-for-embedded-development-cross-compiling
     Buildroot http://www.buildroot.net/
     Buildroot-ng http://wiki.openwrt.org/

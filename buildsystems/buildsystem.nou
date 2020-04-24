@@ -58,6 +58,8 @@ INFO
     2019-07-28 [X] https://embeddedartistry.com/blog/2016/10/27/giving-you-build-a-version
     https://gitlab.com/wolframroesler/version
       http://pubs.opengroup.org/onlinepubs/9699919799/utilities/what.html
+    https://fedoraproject.org/wiki/RolandMcGrath/BuildID#Include_build_IDs_in_core_dumps
+    https://github.com/MontaVista-OpenSourceTechnology/linux-live-app-coredump/blob/master/tools/perf/builtin-buildid-cache.c
 
   Faster builds
     [_] CMP:READ: http://www.bitsnbites.eu/faster-c-builds/
