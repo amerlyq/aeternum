@@ -1,0 +1,61 @@
+%%%% Type checking systems ⌇⡞⣓⣟⣲
+
+REF
+  [_] TRY: SBCL 2.0.5 User Manual ⌇⡞⣓⣟⢩
+    http://www.sbcl.org/manual/#Precise-Type-Checking
+    2020-05-31 [X] http://www.sbcl.org/manual/#Implementation-Limitations
+    2020-05-31 [X] http://www.sbcl.org/manual/#Type-Errors-at-Compile-Time
+
+
+USE
+  ++ TUT: Compile Time Type Checking in Common Lisp - Lisp journey ⌇⡞⣓⣥⡉
+    https://lisp-journey.gitlab.io/blog/compile-time-type-checking-in-common-lisp/
+  +++ [_] .ex. Typed Lisp, A Primer ⌇⡞⣓⣦⠋
+    https://alhassy.github.io/TypedLisp.html
+  +++ OFCL: Type System ⌇⡞⣓⣦⢺
+    https://lispcookbook.github.io/cl-cookbook/type.html
+  Static type checking in the programmable programming language (Lisp) ⌇⡞⣓⣭⣆
+    https://medium.com/@MartinCracauer/static-type-checking-in-the-programmable-programming-language-lisp-79bb79eb068a
+  PERF: Performance and Types in Lisp ⌇⡞⣓⣭⣨
+    https://blog.30dor.com/2014/03/21/performance-and-types-in-lisp/
+  SECU: Can Common Lisp type annotations result in unsound behavior? - Stack Overflow ⌇⡞⣓⣭⣸
+    https://stackoverflow.com/questions/31170665/can-common-lisp-type-annotations-result-in-unsound-behavior
+
+
+SEE
+  [_] READ: https://stackoverflow.com/questions/3323549/is-a-statically-typed-full-lisp-variant-possible
+  https://www.quora.com/What-do-Lisp-programmers-think-of-Haskell
+  E.G: https://en.programqa.com/question/36393326/
+  ALT: Liskell -- lisp syntax on top of haskell
+    https://clemens.endorphin.org/ilc-talk/ILC.pdf
+  The Berger Files: Fully Typed LISP ⌇⡞⣓⣦⡔
+    http://berger-files.blogspot.com/2011/05/fully-typed-lisp.html
+    TALK: https://www.reddit.com/r/lisp/comments/hne13/fully_typed_lisp/
+  Statically Typed Lisp ⌇⡞⣓⣦⡫
+    https://gist.github.com/chrisdone/516489f4f27846712225
+  carp-lang/Carp: A statically typed lisp, without a GC, for real-time applications. ⌇⡞⣓⣦⡱
+    https://github.com/carp-lang/Carp
+
+
+TALK
+  [_] But with Common Lisp, you don't get the safety of strong static types. If the co... | Hacker News ⌇⡞⣓⣤⠡
+    https://news.ycombinator.com/item?id=12287374
+  [_] CMP: Pros and cons of different ways to declare types in Common Lisp? : lisp ⌇⡞⣓⣣⡘
+    https://www.reddit.com/r/lisp/comments/87gyhq/pros_and_cons_of_different_ways_to_declare_types/
+    ;(declaim (ftype (function (order integer) order) update-id)) ; [1]
+    (defmethod update-id ((o order) id)
+      ;(declare (integer id))                                     ; [2]
+      ;(check-type id integer)                                    ; [3]
+  [_] .VS. Modern C++ and Lisp Programming Style | Chris Kohlhepp's Blog ⌇⡞⣓⣝⢝
+    https://chriskohlhepp.wordpress.com/advanced-c-lisp/convergence-of-modern-cplusplus-and-lisp/
+
+
+FUTURE
+  [_] ALU: Type Checking ⌇⡞⣓⣮⠲
+    http://www.ai.sri.com/~delacaze/alu-site/alu/table/types.htm
+  A New Way of Debugging Lisp Programs - Semantic Scholar ⌇⡞⣓⣜⠻
+    https://pdfs.semanticscholar.org/c1e6/5459f84fefaaf62fc7e5cf34502ec92e3e59.pdf
+  Putting type annotations to work | Proceedings of the 23rd ACM SIGPLAN-SIGACT symposium on Principles of programming languages ⌇⡞⣓⣣⠿
+    https://dl.acm.org/doi/10.1145/237721.237729
+  [_] Compile-Time Type Prediction and Type Checking for Common Lisp Programs | SpringerLink ⌇⡞⣓⣮⠻
+    https://link.springer.com/chapter/10.1007/978-1-4615-2836-4_8

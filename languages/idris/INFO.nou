@@ -1,0 +1,53 @@
+%%%% Idris
+
+REF
+  + compiled
+  = general purpose pure functional programming language with _dependent types_
+  https://www.idris-lang.org/
+  Idris: хай код пишеться сам (+vim plugin) #vim @Сіренко
+    https://dmytrish.net/blog/uk/idris-self-coding
+  idris-lang/Idris-dev: A Dependently Typed Functional Programming Language ⌇⡞⡕⡋⠸
+    https://github.com/idris-lang/Idris-dev
+
+HACK
+  2020-05-31 [X] NICE: A game in a pure language (part 1): introduction and problems with Idris | flowing → systems ⌇⡞⣓⣅⣴
+    https://flowing.systems/2020/01/13/a-game-in-a-pure-language-part-1-introduction-and-problems-with-idris.html
+    https://flowing.systems/2020/04/13/a-game-in-a-pure-language-part-2-state.html
+
+
+CMP: https://en.wikipedia.org/wiki/Comparison_of_programming_languages_by_type_system
+  CMP: https://en.wikipedia.org/wiki/Comparision_of_programming_languages_with_dependent_types
+    ALT:(dependent types directly in Haskell): https://wiki.haskell.org/Dependent_type ⌇⡞⣓⣐⠜
+      https://www.reddit.com/r/haskell/comments/cveegy/dependent_types_in_haskell/
+      [_] READ: https://serokell.io/blog/why-dependent-haskell
+      https://gitlab.haskell.org/ghc/ghc/-/wikis/dependent-haskell
+      https://arxiv.org/abs/1905.13706
+  INFO: https://books.google.com.ua/books?id=0MUkBgAAQBAJ&pg=PA31&lpg=PA31&dq=idris+system+function&source=bl&ots=jv9l3D-J3B&sig=ACfU3U3i_i5Vr60AwH1bwM1aQC5zg7JUZg&hl=en&sa=X&ved=2ahUKEwjK8-qepN7pAhUlpIsKHQuUBL04ChDoATAEegQICBAB
+  INFO: https://books.google.com.ua/books?id=ZA9QDwAAQBAJ&pg=PT358&lpg=PT358&dq=idris+system+function&source=bl&ots=yg_hSwjyNU&sig=ACfU3U1-Zn-6P1EFxSaG-VwsvegpIhLCng&hl=en&sa=X&ved=2ahUKEwjK8-qepN7pAhUlpIsKHQuUBL04ChDoATAFegQIChAB
+  READ! http://matt.might.net/articles/best-programming-languages/
+
+https://www.idris-lang.org/
+  https://www.quora.com/Which-programming-language-has-the-most-useful-type-system
+  OFF: https://www.quora.com/How-does-Idris-compare-to-other-dependently-typed-programming-languages
+  BOOK: https://livebook.manning.com/book/type-driven-development-with-idris/chapter-1/
+    https://www.manning.com/books/type-driven-development-with-idris
+  REF: https://github.com/joaomilho/awesome-idris
+  TUT: http://docs.idris-lang.org/en/latest/tutorial/index.html
+  BLOG: https://nabilhassein.github.io/blog/notes-on-idris/
+  http://eb.host.cs.st-andrews.ac.uk/writings/fi-cbc.pdf
+  VIZ: https://github.com/idris-lang/Idris-dev/wiki/Libraries
+    ALG: https://link.springer.com/chapter/10.1007/978-3-030-17138-4_3
+  E.G. https://github.com/idris-hackers/idris-demos
+    https://github.com/KokorinIlya/idris-examples
+    http://rosettacode.org/wiki/Idris
+    https://github.com/edwinb/TypeDD-Samples
+  INFO
+    https://books.google.com.ua/books?id=IZsQAwAAQBAJ&pg=PA305&lpg=PA305&dq=idris+system+function&source=bl&ots=DrtbdDHVCq&sig=ACfU3U30yVpmSRmn87Qy0VHbEj0t2VqAHQ&hl=en&sa=X&ved=2ahUKEwi18OeHpN7pAhWWHHcKHYyIC4MQ6AEwCXoECAgQAQ
+
+Idris2
+  https://idris2.readthedocs.io/en/latest/
+  https://idris2.readthedocs.io/en/latest/updates/updates.html#updates-index
+  https://developer.cisco.com/codeexchange/github/repo/cisco/ChezScheme/
+
+.VS. https://nim-lang.org/
+  https://www.slant.co/topics/6032/viewpoints/7/~systems-programming-languages~nim

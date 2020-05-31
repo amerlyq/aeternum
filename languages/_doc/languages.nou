@@ -125,16 +125,6 @@ ALL
       Ruby isn't nice for text processing -- beside DSL
     ! TRY: Ruby has nice template/metaprogramming features
 
-Idris
-  + compiled
-  = general purpose pure functional programming language with _dependent types_
-  https://www.idris-lang.org/
-  Idris: хай код пишеться сам (+vim plugin) #vim @Сіренко
-    https://dmytrish.net/blog/uk/idris-self-coding
-  idris-lang/Idris-dev: A Dependently Typed Functional Programming Language ⌇⡞⡕⡋⠸
-    https://github.com/idris-lang/Idris-dev
-
-
 Rust
   https://habrahabr.ru/post/321564/
   => compiled ?
@@ -274,6 +264,9 @@ Fort
 Nim ? -- imperative, elegant, parallel, compiles in C
   http://nim-lang.org/
   #nim
+  TUT: About this Book - Nim in Action ⌇⡞⣓⣓⣼
+    https://livebook.manning.com/book/nim-in-action?origin=product-look-inside
+  NICE https://forum.nim-lang.org/t/4964
 
 Julia 2017
   https://julialang.org/

@@ -3,14 +3,29 @@
 = Workflow advantages provided by each language
 = How exactly each language changes your mental processes
 
+CMP
+  https://myemail.constantcontact.com/Language-lessons-in-Nim--Kotlin--TypeScript-and-more---save-42-.html?soid=1101335703814&aid=h--z1xLaOkQ
+
 
 Haskell
   "Write code by itself" using types suggestion
     e.g. https://reasonablypolymorphic.com/blog/typeholes/
 
+  BET? => Idris2 ALT:BET! dependent types directly in Haskell ※⡞⣓⣐⠜
+  NEED: Lisp-like online editing
+    https://mail.haskell.org/pipermail/ghc-devs/2014-October/006771.html
+    FLOW: https://www.reddit.com/r/haskell/comments/3rfuoh/what_is_your_haskell_workflow_how_to_easily_try/
+  ALT:MAYBE: inter-operation ※⡞⣓⣓⡬
+
 
 Lisp
   Changing already running on-the-fly function by function
+
+  OR?CHECK: some dialect of Scheme
+    = strong type system like Idris2 + online editing like Lisp
+    https://stackoverflow.com/questions/110911/what-is-the-closest-thing-to-slime-for-scheme
+  NEED: strong type system ※⡞⣓⣟⣲
+  MAYBE: no garbage collection :: carp-lang: A statically typed lisp, without a GC, for real-time applications. ※⡞⣓⣦⡱
 
 
 J

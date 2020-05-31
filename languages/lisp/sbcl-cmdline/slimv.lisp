@@ -32,3 +32,12 @@
 
 (eval-when (:execute)
   (main))
+
+;; HACK: main entry point for services -- on error wait for SLIME connection
+;; SRC: https://github.com/LispCookbook/cl-cookbook/issues/115
+; (defun launch-daemon (&optional (port 4005))
+;   (ql:quickload :swank)
+;   (handler-case (swank:create-server :port port :dont-close t)
+;     (error ())
+;     ; (main)
+;     ))

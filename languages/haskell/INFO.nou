@@ -1,3 +1,18 @@
+Tools
+  Online
+    https://repl.it/languages/haskell
+
+
+Post-mortem ⌇⡞⣓⣓⡬
+  Lisp -> Haskell ⌇⡞⣓⣮⣂
+    https://markkarpov.com/post/lisp-and-haskell.html
+  Haskell -> Lisp
+    https://www.quora.com/What-do-Lisp-programmers-think-of-Haskell
+  Interoperation
+    https://wiki.haskell.org/Haskell_Lisp
+    https://softwareengineering.stackexchange.com/questions/18838/haskell-and-lisp-vs-haskell-or-lisp
+
+
 TUT
   [_] !!! SEE: The Functional Programmer's Toolkit - Scott Wlaschin
     https://www.youtube.com/watch?v=Nrp_LZ-XGsY&t=2234s

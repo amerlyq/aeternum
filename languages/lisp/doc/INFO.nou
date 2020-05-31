@@ -18,8 +18,8 @@ Critique of Lisp
     Tom Murphy 7's Invincible Web Page ⌇⡞⢜⢁⣓
       http://tom7.org/
   Why We Hate Lisp
-    http://wiki.c2.com/?WhyWeHateLisp
-    http://wiki.c2.com/?WhyWeLoveLisp
+    [_] BAD: http://wiki.c2.com/?WhyWeHateLisp
+    [_] NICE: http://wiki.c2.com/?WhyWeLoveLisp
   VIZ
     http://www.newlisp.org/index.cgi?page=Links
   How Common Lisp sucks
@@ -28,6 +28,7 @@ Critique of Lisp
     http://paulgraham.com/vanlfsp.html
   Lisp and Haskell ⌇⡞⢜⡣⡽
     https://markkarpov.com/post/lisp-and-haskell.html
+  Lisp -> Haskell ※⡞⣓⣮⣂
   Gamasutra - Postmortem: Naughty Dog's Jak and Daxter: the Precursor Legacy ⌇⡞⢜⡥⠨
     https://www.gamasutra.com/view/feature/131394/postmortem_naughty_dogs_jak_and_.php?page=2
   freenode/#lisp - IRC Chatlog ⌇⡞⢜⡭⢏
@@ -37,6 +38,8 @@ Critique of Lisp
     that Lisp-as-a-language has around the world.
   @pjb there's redit that has been rewritten from lisp,
     but the postmorterm wasn't that negative on lisp IMO.
+  [_] ARCH: The Bipolar Lisp Programmer ⌇⡞⣓⣝⠜
+    http://marktarver.com/next.html
 
 
 SUCCESS
@@ -52,6 +55,11 @@ SUCCESS
     https://itch.io/jam/august-2016-lisp-game-jam/topic/35425/cloud-fighter-postmortem
   Lisp Gamejam Postmortem ⌇⡞⢜⡥⡦
     https://ahungry.com/blog/2016-01-09-2016-01-09-Lisp-Gamejam-Postmortem.html
+
+
+Language extensions
+  CLiki: language extension ⌇⡞⣓⣝⡍
+    https://www.cliki.net/Language%20extension
 
 
 Lisp
