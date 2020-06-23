@@ -1,0 +1,19 @@
+⌇⡞⢌⡮⢺
+
+12:25 <amerlyq> Hello, what is best file structure for private packages by BR2_EXTERNAL?
+12:25 <amerlyq> 1) use separate repos for configs and sources: ./ext-buildroot/package/mypkg/{Config.in,*.mk}  and  ./mypkg/Makefile
+12:25 <amerlyq> 2) sources ARE configs (all packages are in pj root): ./mypkg/{Makefile,Config.in,package.mk}
+12:26 <amerlyq> (1) has advantage of tight coupling of all buildroot configs in one place (e.g. you can change SITE_METHOD atomically for all)
+12:26 <amerlyq> (2) has a nice advantage of sources locality with all its related configs (but SITE_METHOD is foreign for them)
+
+13:02 <y_morin> amerlyq: I would highly suggest you go with (1), and have the sources in different repositories, as that has the advantage of allowing those sources to be reused in another project for example.
+13:03 <y_morin> I.e. treat your packages as if they were FLOSS packages hosted externally, and just have recipes in your br2-external, like all other paclages in Buildroot.
+
+
+SUMMARY: (best of both worlds)
+  * include both paths -- they both will be sourced
+  * first include ./mypkg/{Makefile,Config.in,package.mk} to insert repo-defaults
+    + you have tight coupling and devs control in single repo
+  * then include ./ext-buildroot/package/mypkg/{Config.in,*.mk} to override defaults
+    <= by e.g. firmware-wide integ-secure options and hardening
+    + you still have high prio control for integrators
