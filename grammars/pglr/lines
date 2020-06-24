@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+#⌇⡞⣭⢫⡐
+# SEE: https://github.com/igordejanovic/parglare/blob/master/examples/csv/csv.py
+
+import sys
+
+# grammar = r'''
+# text: NL* | NL* block;
+# block: n_line+ NL+ | EMPTY;
+# n_line: line NL | line;
+# terminals
+# line: /.+/;
+# NL: "\n";
+# '''
+
+
+# lines
+grammar = r'''
+text: n_line*;
+
+@pass_single
+n_line: line NL | line | NL;
+
+terminals
+line: /.+/;
+NL: "\n";
+'''
+
+texts = [
+    '',
+    '\n',
+    '\n\n',
+    '\n\n\n',
+
+    'myline',
+    'myline\n',
+    'myline\n\n',
+    'myline\n\n\n',
+    '\nmyline',
+    '\n\nmyline',
+    '\n\n\nmyline',
+    '\nmyline\n',
+    '\nmyline\n\n',
+    '\n\nmyline\n',
+    '\n\nmyline\n\n',
+
+    'myword1 myword2',
+    'myword1 myword2\n',
+
+    'myline1\nmyline2',
+    'myline1\n\nmyline2',
+    'myline1\n\n\nmyline2',
+    'myline1\n\nmyline2\n',
+]
+
+
+def main(argv):
+    import re
+    from parglare import Parser, Grammar
+    g = Grammar.from_string(grammar, re_flags=re.MULTILINE)
+    kw = dict(debug=True, debug_colors=True) if '-d' in argv else {}
+    # parser = Parser(g, build_tree=True, ws='', debug_layout=True)
+    parser = Parser(g, ws=False, **kw)
+    try:
+        for i, t in enumerate(texts):
+            print(f'({i}) {repr(t)}')
+            print(parser.parse(t))
+            print('-----')
+    except Exception:
+        print(f'ERR: <- {repr(t)}')
+        sys.exit(1)
+
+if '__main__' == __name__:
+    main(sys.argv)
