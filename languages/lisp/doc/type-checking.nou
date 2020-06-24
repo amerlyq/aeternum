@@ -20,6 +20,7 @@ USE
     https://blog.30dor.com/2014/03/21/performance-and-types-in-lisp/
   SECU: Can Common Lisp type annotations result in unsound behavior? - Stack Overflow ⌇⡞⣓⣭⣸
     https://stackoverflow.com/questions/31170665/can-common-lisp-type-annotations-result-in-unsound-behavior
+  [_] The Anatomy of a Puzzle | Chris Kohlhepp's Blog ※⡞⣓⣽⢯
 
 
 SEE
@@ -46,8 +47,13 @@ TALK
     (defmethod update-id ((o order) id)
       ;(declare (integer id))                                     ; [2]
       ;(check-type id integer)                                    ; [3]
-  [_] .VS. Modern C++ and Lisp Programming Style | Chris Kohlhepp's Blog ⌇⡞⣓⣝⢝
+  [⡞⣓⣺⢜] .VS. Modern C++ and Lisp Programming Style | Chris Kohlhepp's Blog ⌇⡞⣓⣝⢝
     https://chriskohlhepp.wordpress.com/advanced-c-lisp/convergence-of-modern-cplusplus-and-lisp/
+    +++ prototypes vs classes was: Re: Sun's HotSpot ⌇⡞⣓⣼⣏
+      http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html
+      = “I’m sorry that I long ago coined the term “objects” for this topic because it gets many people to focus on the lesser idea. The big idea is “messaging” – Alan Kay
+    [_] The Anatomy of a Puzzle | Chris Kohlhepp's Blog ⌇⡞⣓⣽⢯
+      https://chriskohlhepp.wordpress.com/reasoning-systems/specification-driven-programming-in-common-lisp/#concepts
 
 
 FUTURE

@@ -145,6 +145,7 @@ INFO: Software Package Data Exchange (SPDX) IDs for licenses
     https://spdx.org/licenses/exceptions-index.html
   Tags
     https://wiki.spdx.org/view/Technical_Team/SPDX_Meta_Tags
+    LIOR: https://spdx.org/rdf/spdx-terms-v2.0/annotationproperties/comment___1501100887.html
   TUT https://spdx.org/ids-how
     !! Like copyright notices, existing license texts and notices should be retained, not replaced
       -- especially a third party's license notices.
