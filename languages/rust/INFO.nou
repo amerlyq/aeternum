@@ -4,5 +4,10 @@ SEE
   2019-12-08 [X] Taking ML to production with Rust: a 25x speedup
     https://www.lpalmieri.com/posts/2019-12-01-taking-ml-to-production-with-rust-a-25x-speedup/
 
+  https://habrahabr.ru/post/321564/
+  => compiled ?
+  + http://rustbyexample.com/std_misc/fs.html
+  BAD: https://hackernoon.com/why-im-dropping-rust-fd1c32986c88
+
 rust-analyzer
   https://rust-analyzer.github.io/

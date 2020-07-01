@@ -125,12 +125,6 @@ ALL
       Ruby isn't nice for text processing -- beside DSL
     ! TRY: Ruby has nice template/metaprogramming features
 
-Rust
-  https://habrahabr.ru/post/321564/
-  => compiled ?
-  + http://rustbyexample.com/std_misc/fs.html
-  BAD: https://hackernoon.com/why-im-dropping-rust-fd1c32986c88
-
 APL
   https://analyzethedatanotthedrivel.org/2010/11/12/the-return-of-apl-fingers-2/
 
