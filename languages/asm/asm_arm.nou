@@ -48,3 +48,63 @@ Reference
   http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.kui0100a/armasm_cihgjhed.htm
   Table for ARM commands
     http://www.gaw.ru/html.cgi/txt/doc/micros/arm/asm/asm_arm/survey.htm
+
+  arm - What's the meaning of W suffix for thumb-2 instruction? - Stack Overflow ⌇⡟⠄⠨⠹
+    https://stackoverflow.com/questions/22203745/whats-the-meaning-of-w-suffix-for-thumb-2-instruction
+    add.w:  imm32 = ThumbExpandImm(i:imm3:imm8);
+    addw:   imm32 = ZeroExtend(i:imm3:imm8, 32);
+    VIZ
+      adds rx, ry, #imm3
+      adds rx, #imm8  # setting cc
+      add.w rx, ry, #special  # conditons yes or no
+      addw rx, ry, #imm12
+    ::cpp
+      int f1(int i) {
+          asm volatile("add r0, #0");
+          asm volatile("add r0, #257");
+      }
+      00000000 <f1>:
+         0:   f100 0000   add.w   r0, r0, #0
+         4:   f200 1001   addw    r0, r0, #257    ; 0x101
+         8:   4770        bx  lr
+         a:   bf00        nop
+
+  Can someone help me understand stmdb, ldmia, and how I can go about implementing this C++ code in arm assembly language? - Stack Overflow ⌇⡟⠄⠫⠋
+    https://stackoverflow.com/questions/23045702/can-someone-help-me-understand-stmdb-ldmia-and-how-i-can-go-about-implementing/23050472
+    ::asm
+      stmdb    sp!, {v1-v5, lr}     @ Copy registers to stack
+      ldr      v1, [a1], #0         @ Load a1
+      str      v1, [a2], #0         @ Copy elements of a1 to a2
+      ldmia    sp!, {v1-v5, pc}     @ Copy stack back into registers
+
+  cpu registers - r12 in the ARM Procedure Call Standard - Stack Overflow ⌇⡟⠄⣓⢖
+    https://stackoverflow.com/questions/45359408/r12-in-the-arm-procedure-call-standard
+    R12 the Intra- Procedure-call scratch register (IP).
+      It is used by the linker to access the 32-bit address space that the Branch and Link (BL) instruction can not access.
+
+ARM why using post-epilog function data
+  linux - Code sequences for TLS on ARM - Stack Overflow ⌇⡟⠅⠱⠖
+    https://stackoverflow.com/questions/29818269/code-sequences-for-tls-on-arm
+
+    pthread_getspecific ⌇⡟⠅⡊⠟
+      https://pubs.opengroup.org/onlinepubs/009695399/functions/pthread_getspecific.html
+
+    GOT and PLT for pwning. · System Overlord ⌇⡟⠅⡌⣯
+      https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html
+
+  Using ARM Inline Assembly and Naked Functions to Fool Disassemblers ⌇⡟⠅⠱⢣
+    https://www.evilsocket.net/2015/05/02/using-inline-assembly-and-naked-functions-to-fool-disassemblers/
+
+  ARM Exception Handling | Microsoft Docs ⌇⡟⠅⠱⣭
+    https://docs.microsoft.com/en-us/cpp/build/arm-exception-handling?view=vs-2019
+
+  HACK:(low-level): ARM Stack Unwinding ⌇⡟⠅⠲⡾
+    http://mcternan.me.uk/ArmStackUnwinding/
+
+  HACK:(low-level): A Practical guide to ARM Cortex-M Exception Handling | Interrupt ⌇⡟⠅⠺⡆
+    https://interrupt.memfault.com/blog/arm-cortex-m-exceptions-and-nvic
+    http://osnet.cs.nchu.edu.tw/powpoint/Embedded94_1/Chapter%207%20ARM%20Exceptions.pdf
+
+ALSO
+  boost-bugs: Re: [Boost-bugs] [Boost C++ Libraries] #13562: Missing null pointer check in compensating_work_started ⌇⡟⠄⣀⢺
+    https://lists.boost.org/boost-bugs/2018/05/50525.php
