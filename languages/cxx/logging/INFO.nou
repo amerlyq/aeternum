@@ -1,0 +1,15 @@
+⌇⡟⠀⢣⣄
+@/aeternum/languages/cxx/aspects/logging
+
+
+TRY: use __FILE__ relative path for logging
+  https://cmake.org/pipermail/cmake/2013-January/053116.html
+
+  MAYBE: print(__BASE_FILE__) :: https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html
+    [_] CHECK:BAD: it will print .cpp file passed on cmdline instead of currently processed .hpp
+
+  https://bugs.launchpad.net/gcc-arm-embedded/+bug/1716347
+
+  [_] READ:BET? compile-time processing
+    Jacek's C++ Blog · A __FILE__ Macro Which Does Not Contain the Whole Source File Path ⌇⡞⣣⠕⢹
+      https://blog.galowicz.de/2016/02/20/short_file_macro/
