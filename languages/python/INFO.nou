@@ -1,3 +1,7 @@
+TODO
+  [_] READ: Changelog — Python 3.8.5 documentation ⌇⡟⠴⣐⠟
+    https://docs.python.org/3/whatsnew/changelog.html
+
 NICE: Network protocols without I/O (for both sync/async alike)
   https://sans-io.readthedocs.io/
 
@@ -25,8 +29,26 @@ Interactive interpreter
 Argument parsing
   https://docs.python.org/3/library/argparse.html#module-argparse
   https://www.udemy.com/blog/python-command-line-arguments/
+
 Flatten list
-  list(itertools.chain.from_iterable(lst))
+  Arbitrary:
+    https://gist.github.com/Wilfred/7889868
+    https://likegeeks.com/python-flattening-lists/
+  ::python
+    fl = list(itertools.chain.from_iterable(list_of_lists))
+    fl = list(itertools.chain(*list_of_lists))
+    fl = sum(listof_lists, [])
+
+Compose functions
+  Function composition - Rosetta Code ⌇⡟⠳⠏⢩
+    https://rosettacode.org/wiki/Function_composition#Python
+  Function Composition in Python - Mathieu Larose ⌇⡟⠳⠏⠻
+    https://mathieularose.com/function-composition-in-python/
+    ::python
+      def compose(*fns):
+          return reduce(lambda f, g: lambda x: f(g(x)), fns, lambda x: x)
+
+
 
 Sockets : client-server chat
   http://www.binarytides.com/code-chat-application-server-client-sockets-python/

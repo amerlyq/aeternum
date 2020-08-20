@@ -13,7 +13,14 @@ Post-mortem ⌇⡞⣓⣓⡬
     https://softwareengineering.stackexchange.com/questions/18838/haskell-and-lisp-vs-haskell-or-lisp
 
 
+NICE
+  [40%] READ Keeping Formal Verification in Bounds - Donnacha Oisín Kidney ⌇⡟⠴⢏⣃
+    https://doisinkidney.com/posts/2018-11-20-fast-verified-structures.html
+
+
 TUT
+  !7 [_] READ:TUT:(work-through): #SemanticWeb Haskell Tutorial and… by Mark Watson [Leanpub PDF/iPad/Kindle] ⌇⡟⠵⢫⠠
+    https://leanpub.com/haskell-cookbook
   [_] !!! SEE: The Functional Programmer's Toolkit - Scott Wlaschin
     https://www.youtube.com/watch?v=Nrp_LZ-XGsY&t=2234s
    = The functional programming community has a number of patterns with
@@ -99,3 +106,5 @@ Haskell
 Idioms
   http://www.haskellforall.com/2012/07/breaking-from-loop.html
     https://wiki.haskell.org/Monad_Transformers_Tutorial
+  [⡟⠴⢒⡢] typeclass - How should types be used in Haskell type classes? - Stack Overflow ⌇⡟⠴⢒⡗
+    https://stackoverflow.com/questions/16355282/how-should-types-be-used-in-haskell-type-classes

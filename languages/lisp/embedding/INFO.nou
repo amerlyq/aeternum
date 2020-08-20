@@ -1,3 +1,19 @@
 https://en.wikipedia.org/wiki/Embeddable_Common_Lisp
 
+Embedding ECL in Qt5.7
+  https://common-lisp.net/project/ecl/#orgheadline10
+  SRC: https://www.reddit.com/r/lisp/comments/627bmq/using_embeddable_common_lisp_in_python/
+
 ALSO: https://github.com/Islam0mar/cl-cxx
+
+
+Python + ECL
+  Library interface to Embeddable Common Lisp (ECL) — Sage 9.1 Reference Manual: C/C++ Library Interfaces ⌇⡟⠵⢢⣢
+    https://doc.sagemath.org/html/en/reference/libs/sage/libs/ecl.html
+
+
+ALT: C++/LLVM + Lisp
+  Announcing Clasp | drmeister ⌇⡟⠵⢟⣯
+    https://drmeister.wordpress.com/2014/09/18/announcing-clasp/
+  Embedding Lisp in C++ – A Recipe | Chris Kohlhepp's Blog ⌇⡟⠵⢡⡱
+    https://chriskohlhepp.wordpress.com/advanced-c-lisp/embedding-lisp-in-cplusplus-a-recipe/

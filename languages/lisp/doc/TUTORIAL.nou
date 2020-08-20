@@ -14,5 +14,9 @@ CFFI -- foreign interface to C libs
   ALT https://github.com/rpav/c2ffi
   SRC https://github.com/rpav/cl-autowrap
 
+  ALT:BET?(e.g.PhysX): :claw honing - First milestone · Pavel Korolev ⌇⡟⠷⡼⠐
+    https://borodust.org/2020/08/11/claw-honing/
+
+
 Awesome Video
   https://common-lisp.awesome-programming.com/en/awesome/common-lisp-05/youtube

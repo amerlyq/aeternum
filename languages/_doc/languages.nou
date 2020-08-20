@@ -26,6 +26,12 @@ VIZ
     https://beza1e1.tuxen.de/one_letter_proglangs.html
   Accidentally Turing-Complete
     https://beza1e1.tuxen.de/articles/accidentally_turing_complete.html
+  Programming Languages Timeline - Eirik Vullum ⌇⡟⠴⣘⠏
+    http://www.vullum.io/timeline/programming-languages/
+  Computer Languages History ⌇⡟⠴⣘⡑
+    https://www.levenez.com/lang/
+  [_] READ:CMP: Comparison of programming paradigms - Wikipedia ⌇⡟⠴⣙⢍
+    https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms
 
 
 REPL -- everything in one interface
@@ -201,6 +207,8 @@ PROLOG
     http://www.academia.edu/31138551/Towards_banishing_the_cut_from_Prolog
     https://pdfs.semanticscholar.org/cba3/8a997be8923ac8efae940f00ea2ec26becea.pdf
     http://edc-connection.ebscohost.com/c/articles/14370298/towards-banishing-cut-from-prolog
+  Fundamental Prolog Part 1 - wiki.visual-prolog.com ⌇⡟⠴⢫⠬
+    https://wiki.visual-prolog.com/index.php?title=Fundamental_Prolog_Part_1
 
   Books on logic programming
     Logic Program Synthesis and Transformation: Proceedings of LOPSTR
@@ -220,6 +228,15 @@ PROLOG
     * Mercury is purely declarative: predicates and functions in Mercury do not have non-logical side effects.
     * Mercury is a strongly typed language.
     http://www.mercurylang.org/about.html
+  The Mercury Project: Overview and Motivation ⌇⡟⠴⢫⡕
+    https://www.mercurylang.org/about/motivation.html
+  Mercury Crash Course ⌇⡟⠴⢬⡍
+    https://mercury-in.space/crash.html
+  ALSO:CMP: logic programming langs
+    Which one is the most useful language for artificial intelligence? ⌇⡟⠴⣚⣂
+      https://www.researchgate.net/post/Which_one_is_the_most_useful_language_for_artificial_intelligence
+    Top 6 Languages to Start Your AI Programming Journey With ⌇⡟⠴⣛⡃
+      https://www.goodcore.co.uk/blog/ai-programming/
 
 Markdown
   https://guides.github.com/features/mastering-markdown/
