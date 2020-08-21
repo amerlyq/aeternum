@@ -30,8 +30,10 @@ VIZ
     http://www.vullum.io/timeline/programming-languages/
   Computer Languages History ⌇⡟⠴⣘⡑
     https://www.levenez.com/lang/
-  [_] READ:CMP: Comparison of programming paradigms - Wikipedia ⌇⡟⠴⣙⢍
+  [85%] READ:CMP: Comparison of programming paradigms - Wikipedia ⌇⡟⠴⣙⢍
     https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms
+    [_] SEE: Incremental computing - Wikipedia ⌇⡟⠿⡭⡫
+      https://en.wikipedia.org/wiki/Incremental_computing
 
 
 REPL -- everything in one interface
@@ -362,3 +364,23 @@ R
   Ruby ->
     Crystal
       https://crystal-lang.org/
+
+
+Reactive
+  [⡟⠿⡩⠥] Reactive programming - Wikipedia ⌇⡟⠿⡩⠣
+    https://en.wikipedia.org/wiki/Reactive_programming
+  ionlang/ampersand-lang: Gitlab project clone used for research & reference. All credits go to Szymon Walter. ⌇⡟⠿⡩⠛
+    https://github.com/ionlang/ampersand-lang
+  [⡟⠿⡬⢔] Functional reactive programming - Wikipedia ⌇⡟⠿⡪⡚
+    https://en.wikipedia.org/wiki/Functional_reactive_programming
+  ivanperez-keera/dunai: Classic and Arrowized Functional Reactive Programming, Reactive Programming, and Stream programming, all via Monadic Stream Functions ⌇⡟⠿⡬⣒
+    https://github.com/ivanperez-keera/dunai/
+  Yampa: Elegant Functional Reactive Programming Language for Hybrid Systems ⌇⡟⠿⡬⣙
+    http://hackage.haskell.org/package/Yampa
+
+
+FSM
+  [⡟⠿⡩⠬] Abstract State Machine Language - Wikipedia ⌇⡟⠿⡩⠕
+    https://en.wikipedia.org/wiki/Abstract_State_Machine_Language
+  ?? xasm 0.5.3 - Docs.rs ⌇⡟⠿⡩⠹
+    https://docs.rs/crate/xasm/0.5.3
