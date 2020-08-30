@@ -56,6 +56,8 @@ VIZ
 %%% Fare Ecosystem
 
 Using CL for UNIX scripting
+  2019-08-03 [_] WAIT: How to write self-sufficient dispatch-entry scripts · Issue #1 · fare/cl-launch
+    https://github.com/fare/cl-launch/issues/1
   2019-08-03 [X] Common Lisp as a Scripting Language, 2015 edition
     https://fare.livejournal.com/184127.html
     Suitability for scripting:
