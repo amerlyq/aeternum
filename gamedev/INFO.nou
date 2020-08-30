@@ -94,9 +94,18 @@ GL
 
 
 GUI
-  +++ Nuklear -- embedded GUI into _your_ program
+  List all GUI toolkits for SDL - SDL Development - Simple Directmedia Layer ⌇⡟⡋⣶⡞
+    https://discourse.libsdl.org/t/list-all-gui-toolkits-for-sdl/21911
+    SDL-widgets - a GUI toolkit using SDL ⌇⡟⡋⣶⡤
+      http://members.chello.nl/w.boeke/SDL-widgets/
+    Kiss_sdl - Simple universal GUI widget toolkit for SDL - SDL Development - Simple Directmedia Layer ⌇⡟⡋⣶⢁
+      https://discourse.libsdl.org/t/kiss-sdl-simple-universal-gui-widget-toolkit-for-sdl/21675
+    GitHub - dalerank/nanogui-sdl: Minimalistic port of NanoGUI claim works with SDL API w/o external dependencies. ⌇⡟⡋⣶⢮
+      https://github.com/dalerank/nanogui-sdl
+  GitHub - Immediate-Mode-UI/Nuklear: A single-header ANSI C immediate mode cross-platform GUI library ⌇⡟⡋⣶⡬
+    https://github.com/Immediate-Mode-UI/Nuklear
+    = Nuklear -- embedded GUI into _your_ program
     !!! similar to what I wish to make from "mio"
-    REF: https://github.com/vurtun/nuklear
     OFF: https://habr.com/ru/post/319106/
     TUT: http://casualgum.com/public/nuklear_gui.html
   Для рисования на совсем слабых контроллеров могу свою либу посоветовать:
@@ -105,7 +114,7 @@ GUI
     https://github.com/andlabs/libui
   imgui C++
     https://github.com/ocornut/imgui
-  FLTK
+  Fast Light Toolkit - Fast Light Toolkit (FLTK) ⌇⡟⡋⣷⠹
     https://www.fltk.org/
   Game-GUI
     https://github.com/sp4cerat/Game-GUI
