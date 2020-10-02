@@ -13,17 +13,38 @@ import sys
 # NL: "\n";
 # '''
 
+## CASE: trailing
+# all: vspace? n_line*;
+# n_line: line vspace?;
+## CASE: leading
+# all: line? vspace? | line? n_line+ vspace?;
+#   ALT:BAD:(shift/reduce): all: line? n_line* vspace?;
+#   [_] THINK:WHY?
+# n_line: vspace line;
+## CASE: surround BAD:(collect_sep): lose all intermediate newlines
+# all: vspace? | vspace? lines vspace?;
+# @collect_sep
+#   ALT:BAD(shift/reduce): @pass_single || lines: line+[vspace];
+# lines: lines vspace line | line;
+# line: /.+/;
 
-# lines
 grammar = r'''
-text: n_line*;
+all: vspace? | tasks vspace?;
 
-@pass_single
-n_line: line NL | line | NL;
+@collect
+tasks: tasks task | task;
+task: vspace? text subtask?;
+
+// details: subtask+;
+
+subtask: lvl1 text;
+lvl1: vspace indent;
 
 terminals
-line: /.+/;
-NL: "\n";
+text: /\S.+/;
+vspace: /\n+/;
+// lvl1: /\n*[ \t]{2}/;
+indent: /[ \t]+/;
 '''
 
 texts = [
@@ -51,6 +72,9 @@ texts = [
     'myline1\n\nmyline2',
     'myline1\n\n\nmyline2',
     'myline1\n\nmyline2\n',
+    'A1\nA2\n\nB1\nB2\n',
+    'A1\n  A2\n\n  B1\nB2\n',
+    '  A1\nA2\n\nB1\n  ',
 ]
 
 
@@ -59,15 +83,23 @@ def main(argv):
     from parglare import Parser, Grammar
     g = Grammar.from_string(grammar, re_flags=re.MULTILINE)
     kw = dict(debug=True, debug_colors=True) if '-d' in argv else {}
-    # parser = Parser(g, build_tree=True, ws='', debug_layout=True)
+    parser = Parser(g, build_tree=True, ws='', debug_layout=True)
     parser = Parser(g, ws=False, **kw)
+
+    ## ALT: multiple variants
+    # from parglare import GLRParser
+    # parser = GLRParser(g, ws=False, **kw)
+
+    with open(__file__) as f:
+        texts.append(f.read())
     try:
         for i, t in enumerate(texts):
             print(f'({i}) {repr(t)}')
             print(parser.parse(t))
             print('-----')
-    except Exception:
-        print(f'ERR: <- {repr(t)}')
+    except Exception as ex:
+        print(ex)
+        # print(f'ERR: <- {repr(t)}')
         sys.exit(1)
 
 if '__main__' == __name__:
