@@ -1,0 +1,31 @@
+⌇⡜⡗⣋⡓
+
+!WARN! don't use markdown
+  https://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/
+  http://www.zverovich.net/2016/06/16/rst-vs-markdown.html
+
+
+VIZ: .md commonmarker .vs. redcarpet
+  GitLab.org / GitLab Markup · GitLab ⌇⡟⡽⠭⠟
+    https://gitlab.com/gitlab-org/gitlab-markup
+  github/markup: Determines which markup library to use to render a content file (e.g. README) on GitHub ⌇⡟⢀⣹⢷
+    https://github.com/github/markup
+
+
+REF .md syntax
+  OFF: GitLab Markdown | GitLab ⌇⡟⡽⠥⡷
+    https://docs.gitlab.com/ee/user/markdown.html#plantuml
+  NICE Documentation Style Guide | GitLab ⌇⡟⡽⠮⢰
+    https://docs.gitlab.com/ee/development/documentation/styleguide.html#why-a-single-source-of-truth
+  GitHub Flavored Markdown Spec ⌇⡟⡽⠥⡹
+    https://github.github.com/gfm/#autolinks
+  CMP:ONLINE: Babelmark 2 - Compare markdown implementations ⌇⡟⡽⠧⡚
+    https://johnmacfarlane.net/babelmark2/?text=[](){:name='anchorName'}
+  NOTE:(anchors): html - Cross-reference (named anchor) in markdown - Stack Overflow ⌇⡟⡽⠨⣠
+    https://stackoverflow.com/questions/5319754/cross-reference-named-anchor-in-markdown
+
+
+USAGE
+  Spoilers
+    gitlab - Code block in spoiler with markdown - Stack Overflow ⌇⡟⢀⣈⢜
+      https://stackoverflow.com/questions/32181339/code-block-in-spoiler-with-markdown

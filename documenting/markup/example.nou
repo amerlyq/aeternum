@@ -1,0 +1,17 @@
+⌇⡟⢁⠍⡕
+
+markups
+  ※⡟⢁⠎⢀ adoc ./adoc.nou
+  ※⡜⡗⣋⡓ md ./md.nou
+  ※⡟⡽⡂⢂ org ./org.nou
+  ※⡞⣃⣍⢾ rst ./rst.nou
+  ※⡟⢁⠏⠎ wiki ./wiki.nou
+
+SEE
+  [_] https://en.wikipedia.org/wiki/Comparison_of_document_markup_languages
+
+
+% Table
+| xtref | reflink   |
+| ----- | --------- |
+| ※⡟⡽⠩⠅ | ./CMP.nou |

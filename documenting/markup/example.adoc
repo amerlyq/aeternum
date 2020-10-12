@@ -1,0 +1,62 @@
+//⌇⡟⢁⠍⡕
+
+ToC
+===
+:toc:
+
+markups
+-------
+
+* ※⡟⢁⠎⢀ <<./adoc.nou,adoc>>
+
+.※⡜⡗⣋⡓ <<md.nou#⡟⢁⠍⡕,md>>
+[%collapsible]
+====
+- link1
+- link2
+====
+
+
+.Nested spoilers
+[%collapsible]
+====
+* ※⡟⡽⡂⢂ link:org.nou#⡟⡽⡂⢂[org]
+* ※⡞⣃⣍⢾ link:rst.nou[rst]
+
+.※⡟⢁⠏⠎ link:./wiki.nou#⡟⢁⠏⠎[wiki]
+[%collapsible]
+=====
+- link3
+- link4
+=====
+====
+
+
+=== SEE
+- [ ] https://en.wikipedia.org/wiki/Comparison_of_document_markup_languages
+
+.Table
+|====
+| xtref | reflink
+| ※⡟⡽⠩⠅ | ./CMP.nou
+|====
+
+== Uniqs
+
+++++
+*Passthrough* Block
+<p>
+Use: backend-specific markup like
+<table border="1">
+<tr><td>1<td>2
+</table>
+++++
+
+[mermaid]
+----
+graph LR
+    A[Square Rect] -- Link text --> B((Circle))
+    A --> C(Round Rect)
+    B --> D{Rhombus}
+    C --> D
+----

@@ -1,0 +1,27 @@
+#+xtref: ⌇⡟⢁⠍⡕
+
+* [[#⡟⢁⠍⡕][ToC]]
+  :PROPERTIES:
+  :CUSTOM_ID: ⡟⢁⠍⡕
+  :END:
+
+
+*** markups
+
+- [[#⡟⢁⠎⢀][※⡟⢁⠎⢀]] adoc [[./adoc.nou]]
+- [[#⡜⡗⣋⡓]] md [[./md.nou]]
+- ※⡟⡽⡂⢂ [[./org.nou][org]]
+- ※⡞⣃⣍⢾ [[./rst.nou][rst]]
+- ※⡟⢁⠏⠎ [[./wiki.nou][wiki]]
+
+
+** SEE
+
+- [_] https://en.wikipedia.org/wiki/Comparison_of_document_markup_languages
+
+
+*** Table
+#+NAME: Table
+| xtref | reflink   |
+|-------+-----------|
+| ※⡟⡽⠩⠅ | [[./CMP.nou]] |

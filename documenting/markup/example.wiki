@@ -1,0 +1,25 @@
+⌇⡟⢁⠍⡕
+
+=== markups ===
+
+  ※⡟⢁⠎⢀ [[:File:adoc.nou|adoc]]
+  ※⡜⡗⣋⡓ md [[./md.nou]]
+  ※⡟⡽⡂⢂ org [./org.nou]
+  ※⡞⣃⣍⢾ rst ./rst.nou
+  ※⡟⢁⠏⠎ [./wiki.nou wiki]
+
+
+== SEE ==
+
+* [_] https://en.wikipedia.org/wiki/Comparison_of_document_markup_languages
+
+----
+{| class="wikitable"
+|+Table
+|-
+!xtref
+!reflink
+|-
+|※⡟⡽⠩⠅
+|./CMP.nou
+|}
