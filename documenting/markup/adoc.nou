@@ -12,6 +12,11 @@
     https://asciidoctor.org/docs/user-manual/#inter-document-cross-references
 
 
+BAD
+  Add support for trailing line comments · Issue #991 · asciidoctor/asciidoctor ⌇⡟⢄⡿⠥
+    https://github.com/asciidoctor/asciidoctor/issues/991
+
+
 HACK
   asciidoctor - How to dynamically hide asciidoc element - Stack Overflow ⌇⡟⢁⢌⡑
     https://stackoverflow.com/questions/34326324/how-to-dynamically-hide-asciidoc-element
