@@ -16,11 +16,6 @@ General debug / profile
   https://eastvisionsystems.com/profiling-tools-in-python-non-deterministic-and-memory-analysis/
   https://www.huyng.com/posts/python-performance-analysis
 
-vim as IDE
-  http://www.sontek.net/blog/2011/05/07/turning_vim_into_a_modern_python_ide.html
-  http://shanit.blogspot.com/2010/06/debugging-python-with-pdb-and-ipython.html
-
-
 < Helpers
   https://github.com/mattboehm/vim-unstack
 > Online
