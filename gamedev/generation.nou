@@ -2,6 +2,8 @@
 
 ALG
   http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/
+  amitp/mapgen2: Map generator for games. Generates island maps with a focus on mountains, rivers, coastlines. ⌇⡟⢹⡉⡢
+    https://github.com/amitp/mapgen2
 
 ARCH
   https://www.gamasutra.com/view/feature/170049/how_to_make_insane_procedural_.php?print=1
