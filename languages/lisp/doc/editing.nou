@@ -55,3 +55,17 @@ Vim as Lisp IDE
   https://github.com/l04m33/vlime
   http://journal.okal.me/post/75919443198/setting-up-a-vim-based-common-lisp-development
   SEE https://github.com/bhurlow/vim-parinfer/tree/master/plugin
+
+
+FIND
+  cli editor
+    enhanced repl
+    history
+    colorized
+    readline
+    console
+      https://www.cliki.net/console
+  packages loading
+    https://stackoverflow.com/questions/16157045/package-glut-does-not-exist-even-though-cl-opengl-installed-in-arch-linux
+    https://stackoverflow.com/questions/48565832/how-do-i-use-clx-xlib-from-common-lisp-after-installing-it-from-my-package-manag
+    https://stackoverflow.com/questions/33003993/how-to-get-emacs-slime-sbcl-to-recognize-quicklisp-packages
