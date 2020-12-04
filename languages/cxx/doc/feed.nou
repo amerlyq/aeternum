@@ -1,0 +1,132 @@
+  Отличный обзор всех STL алгоритмов
+    CppCon 2018: Jonathan Boccara “105 STL Algorithms in Less Than an Hour”
+      https://youtu.be/2olsGf6JIkU
+      если этот тот, что с картой - действительно неплохо
+        я же говорил что не в этом году
+      Да - этот, что с картой. И да, не в этом году, но он хорош (smile)
+
+  Толковый ток с сппкона
+    https://www.youtube.com/watch?v=TFMKjL38xAI
+    Nicolai Josuttis - этот товарищь обычно дает качественные лекции.
+    А в целом я пока растроен. посмторел коло 4х лекций и как-то не заходит. То материал совсем базовый, то выступающие и подача не фонтан.
+      Я тоже растроен
+      В основном материал не фонтан
+
+    Boost Asio changes
+      Наткнулся на след инфу. io_service is deprecated in favor of io_context
+      https://stackoverflow.com/questions/59753391/boost-asio-io-service-vs-io-context
+      Boost asio io_service vs io_contextI am using boost asio library with
+      c++. I found that io_service and io_context have similarities. for
+      example both have method run and others. Could someone please detail
+      differences between these
+
+  RFC
+    Отличная лекция на мой вкус.
+      https://youtu.be/pH-q2m5sb04
+    В c++ наконец подвезли человеческое форматирование строк. Но если вы хотите прямо сейчас , то libfmt вам в руки
+      https://youtu.be/IdM0Z2a4fjU
+    TDD theory and live demo
+      https://youtu.be/N2gTxeIHMP0
+    Практическая сессия по выпиливанию синглетонов. Т.к. их обычно много в кодовых базах, то рекомендую к просмотру.
+      https://youtu.be/K5c7uvWe_hw
+
+
+NICE: Критика и альтернативы ООП
+  1. Object-Oriented Programming is Bad
+    https://youtu.be/QM1iUe6IofM
+  2. Object-Oriented Programming is Embarrassing: 4 Short Examples
+    https://youtu.be/IRTfhkiAqPw
+  Object-Oriented Programming is Good*
+    https://youtu.be/0iyB0_qPvWk
+  GOTO 2016 • Software that Fits in Your Head • Dan North
+    https://youtu.be/4Y0tOi7QWqM
+  Refactoring to Immutability - Kevlin Henney
+    https://youtu.be/APUCMSPiNh4
+  ITT 2016 - Kevlin Henney - Seven Ineffective Coding Habits of Many Programmers
+    https://youtu.be/ZsHMHukIlJY
+  Stop Writing Classes
+    https://youtu.be/o9pEzgHorH0
+  OO Considered Harmful - Phil Nash - CppCon 2020
+    https://youtu.be/pH-q2m5sb04
+  ¦ смотрел уже. Второе не зашло
+
+
+NICE: functional
+  Введение в функциональные паттерны на основе c++. Тут даже есть один +- практические пример. Для общего развития не повредит. Подобных лекций на c++ я еще не видел.
+  Monoids, Monads, and Applicative Functors: Repeated Software Patterns - David Sankel - CppCon 2020
+    https://youtu.be/giWCdQ7fnQU
+
+  Ближе к истокам фунциональщины. Тоже самое, только на Haskell и в картинках
+    https://habr.com/ru/post/183150/
+    Функторы, аппликативные функторы и монады в картинкахВот некое простое
+    значение:   И мы знаем, как к нему можно применить функцию:   Элементарно. Так
+    что теперь усложним задание — пусть наше значение имеет
+    контекст...
+
+  Building an Intuition for Composition - Sy Brand - CppCon 2020
+    Еще в тему паттернов функционального програмимрования.
+    В целом мне тут больше понравилось, как обьясняет товарищь.
+    Тут больше простеньких с++ примеров.
+    Краткое резюме
+    Monoid = accumulate  \ распределенные вычисления
+    Functor = range transform
+    Monad  = and_then \ continuation
+    https://youtu.be/AGRWRwi7rD0
+
+  Прошлое и настоящее подходов к обработке ошибок в c++. Также есть  бенчмарки , которые показывают сколько стоят исключения.
+  Mongrel Monads, Dirty, Dirty, Dirty - Niall Douglas [ACCU 2017]
+    https://youtu.be/XVofgKH-uu4
+
+
+INFO
+  Паттерны по обработке задачь в фоновом потоке от автора Concurrency in Action и мейнтейнера boost thread
+    Get Off My Thread: Techniques for Moving Work to Background Threads - Anthony Williams - CppCon 2020
+      https://youtu.be/iUKxvEg0zdk
+
+  Интервью Страуструпа на C++ Russia
+    https://m.habr.com/ru/company/jugru/blog/525288/
+    Бьярне Страуструп о контроле над языком, удалении старых функций,
+    заимствованиях у Rust и многом другомЭтим летом на онлайн-конференции C++
+    Russia побывал самый почетный гость, какой только может быть на мероприятии
+    по C++: создатель этого языка Бьярне Страуструп. Мы поговорили с ним о контроле
+
+  Видосик начального уровня (старые добрые темплейты) Но вдруг кому будет интересно
+    https://youtu.be/tiAVWcjIF6o
+    https://youtu.be/dLZcocFOb5Q
+
+  Making Games Start Fast: A Story About Concurrency - Mathieu Ropert - CppCon 2020
+  Реальный кейс ускорения старта игры. Общий посыл - мьютексы это bottleneck
+    https://youtu.be/TcuPIVKNSN0
+
+  Combining C++17 Features - Nicolai Josuttis  - рекомендую
+    https://youtu.be/cOtb8Sb88TY
+
+  How C++20 Changes the Way We Write Code - Timur Doumler - CppCon 2020
+    https://youtu.be/ImLFlLjSveM
+    Краткрий обзор 4х мажорных c++20 фич с примерами + маленький, но приятный бонус
+
+  Clean Code - Uncle Bob
+    https://www.youtube.com/playlist?list=PLmmYSbUCWJ4x1GO839azG_BBw8rkh-zOj
+    Плей лист из 6 лекций от Дяди Боба. Автора книги CleanCode и соавтора Agile Manifesto. Рекомендую к просмотру!
+
+
+CFG
+  VCPKG - пакетный менеджер для c++. Подвезли манифесты - можно указать все
+  зависимости для проекта в одном файле, которые установятся автоматически на
+  этапе конфигурации. Также подвезли бинарный кеш (в том числе удаленный). След
+  шагом сделают версионность библиотек в манифекте и будет вообще хорошо. На мой
+  вкус это на сейчас самый толковый пакетный менеджер.
+    https://devblogs.microsoft.com/cppblog/vcpkg-accelerate-your-team-development-environment-with-binary-caching-and-manifests/
+    vcpkg: Accelerate your team development environment with binary caching and manifests
+
+
+  Collaborative C++ Development with Visual Studio Code - Julia Reid - CppCon 2020
+  VS Code и его возможности по удаленной и совместной разработке
+    Разработка на удаленной машине (SSH, Docker)
+    Интеграция VS Code и докер контейнеров
+    LiveShare : pair remote programming and debug
+    https://youtu.be/qCn6zT76zTs
+
+  Cross-Platform Pitfalls and How to Avoid Them - Erika Sweet - CppCon 2020
+    https://youtu.be/oYCin0B037Y
+    продолжение темы cmake , vcpkg , testing

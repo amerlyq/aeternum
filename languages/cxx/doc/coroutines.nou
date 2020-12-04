@@ -1,0 +1,38 @@
+  Stackless coroutines Included to C++20 (Microsoft proposal)
+  Requires support of the compiler (co_await, co_return, co_yeld keywords)
+  Claimed as zero overhead abstraction.
+  Pollutes call stack with futures (all functions within call stack will have futures as return types)
+  C++20 provides coroutines framework. It requires extra boilerplate to use it.
+  There is one library which is looks more usable (see samples in the readme) but at the moment uses non-cmake build and supports VS and Clang compilers only (cmake + gcc PRs are present)
+    https://github.com/lewissbaker/cppcoro
+
+  Videos on CppCon from author of the proposal (there are even more on youtube)
+
+  TCP server / CppCon 2017: Gor Nishanov “Naked coroutines live (with networking)”
+  https://youtu.be/UL3TtTgt3oU
+
+  Binary search / CppCon 2018: G. Nishanov “Nano-coroutines to the Rescue! (Using Coroutines TS, of Course)”
+    https://youtu.be/j9tlJAqMV7U
+
+
+  Stackful coroutines (aka Fibers or Green threads)
+  Requires C++11. Can be implemented as the library.
+  Stores stack of the coroutine and context switching in user space.
+  Looks similar to Goroutines (briefly discussed in Nat’s talk below)
+  Nat Goodspeed's talk from C++Now
+  Coroutines, Fibers and Threads, Oh My
+    https://youtu.be/S6JpbmeuzNg
+
+Implementations
+  Boost::Fiber
+    https://www.boost.org/doc/libs/1_74_0/libs/fiber/doc/html/fiber/overview.html
+  Facebook Folly
+    https://github.com/facebook/folly/tree/master/folly/fibers
+  Coroutines and Fibers. Why and When
+    https://medium.com/software-development-2/coroutines-and-fibers-why-and-when-5798f08464fd
+  Async await in C++
+    Slides with short information regarding different types of async mechanisms
+    https://www.slideshare.net/cppfrug/async-await-in-c
+  Distinguishing coroutines and fibers
+    http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4024.pdf
+  lewissbaker/cppcoroA library of C++ coroutine abstractions for the coroutines TS - lewissbaker/cppcorogithub.com
