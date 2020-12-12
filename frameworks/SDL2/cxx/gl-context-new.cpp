@@ -82,7 +82,7 @@ main(int argc, char** argv)
                 running = false;
 
         glColor3f(0.0f, 0.5f, 0.5f);
-        gluSphere(qObj, 1.0f, 1, 1);
+        gluSphere(qObj, 1.0f, 16, 16);
 
         // draw(0, 0.5f, 0);
         SDL_GL_SwapWindow(window);
