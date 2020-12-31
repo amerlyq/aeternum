@@ -1,0 +1,57 @@
+⌇⡟⣧⢫⣊
+
+Python IA live editing
+  Emacs: The Best Python Editor? – Real Python ⌇⡟⣧⢪⡀
+    https://realpython.com/emacs-the-best-python-editor/
+  spacemacs - How to get python-x (eval-in-repl) to work? - Emacs Stack Exchange ⌇⡟⣧⢪⢄
+    https://emacs.stackexchange.com/questions/29763/how-to-get-python-x-eval-in-repl-to-work
+  XXX: Problem with the Python REPL in emacs : emacs ⌇⡟⣧⢫⢅
+    https://www.reddit.com/r/emacs/comments/2bdpyg/problem_with_the_python_repl_in_emacs/
+  PERF: Can I stop the REPL locking up when using Emacs and Python? - Stack Overflow ⌇⡟⣧⢬⠊
+    https://stackoverflow.com/questions/20128425/can-i-stop-the-repl-locking-up-when-using-emacs-and-python
+  Managing a Python development environment in Emacs | by Diego Fernández Giraldo | Analytics Vidhya | Medium ⌇⡟⣧⢬⡄
+    https://medium.com/analytics-vidhya/managing-a-python-development-environment-in-emacs-43897fd48c6a
+  OFF: IDE Features — Elpy 1.35.0 documentation ⌇⡟⣧⢬⡐
+    https://elpy.readthedocs.io/en/latest/ide.html
+  kaz-yos/eval-in-repl: Consistent ESS-like eval interface for various REPLs ⌇⡟⣧⢬⢣
+    https://github.com/kaz-yos/eval-in-repl
+  Emacs and Python 3 - aliquote ⌇⡟⣧⢬⣕
+    https://aliquote.org/post/emacs-python3/
+  DEMO: Spacemacs #15 Python REPL and Live Coding | 파이썬 REPL 과 라이브코딩 - YouTube ⌇⡟⣧⢭⠖
+    https://www.youtube.com/watch?v=o1w_-DKTDso
+  NICE:TUT: Compiling and running scripts in Emacs - Mastering Emacs ⌇⡟⣧⢯⣆
+    https://www.masteringemacs.org/article/compiling-running-scripts-emacs
+  Live Coding in Python - Live Coding in Python ⌇⡟⣭⡢⡎
+    http://donkirkby.github.io/live-py-plugin/
+    Live Coding in Python v2.16 - YouTube ⌇⡟⣭⡢⡓
+      https://www.youtube.com/watch?v=Vdr2l3yNFH4
+    donkirkby/live-py-plugin: Live coding in Python with PyCharm, Emacs, Sublime Text, or even a browser ⌇⡟⣭⡢⡪
+      https://github.com/donkirkby/live-py-plugin
+
+
+HACK: autoreload
+  USAGE: python - Can you specify a command to run after you embed into IPython? - Stack Overflow ⌇⡟⣭⡭⣒
+    https://stackoverflow.com/questions/27911570/can-you-specify-a-command-to-run-after-you-embed-into-ipython
+  Automatically Reload Modules with %autoreload ⌇⡟⣭⡚⢜
+    https://switowski.com/blog/ipython-autoreload
+  Jupyter / IPython: After editing a module, changes are not effective without kernel restart – Enthought Knowledge Base ⌇⡟⣭⡛⠒
+    https://support.enthought.com/hc/en-us/articles/204469240-Jupyter-IPython-After-editing-a-module-changes-are-not-effective-without-kernel-restart
+  autoreload — IPython 7.19.0 documentation ⌇⡟⣭⡝⠣
+    https://ipython.readthedocs.io/en/stable/config/extensions/autoreload.html
+  [⡟⣭⡟⢒] Sidestepping Python’s reload() Function without Restarting Maya | by Nick Rodgers | Medium ⌇⡟⣭⡟⢇
+    https://medium.com/@nicholasRodgers/sidestepping-pythons-reload-function-without-restarting-maya-2448bab9476e
+    :: HACK: simply delete instead of reload() :: del sys.modules[mymod]
+      NICE: no need to duplicate reload hierarchy -- use already present implicit deps
+
+
+
+NICE: Vim -> Emacs
+  Emacs configuration for working with Python ⌇⡟⣧⢯⡡
+    https://steelkiwi.com/blog/emacs-configuration-working-python/
+  +++ Emacs for the rest of us ⌇⡟⣧⢯⣽
+    https://iqss.github.io/IQSS.emacs/init.html
+
+
+Prompt
+  mypython | A Python REPL the way I like it ⌇⡟⣧⢯⠂
+    https://www.asmeurer.com/mypython/
