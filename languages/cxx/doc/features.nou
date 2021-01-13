@@ -95,3 +95,20 @@
     http://wg21.link/p0061r1
 
   Type "any"
+
+  Enum strings
+    в с++17 можно перечисления в строку и из строки и итерацию тоже можно.
+    https://github.com/Neargye/magic_enum
+      // For example color enum.
+      enum class Color { RED = 2, BLUE = 4, GREEN = 8 };
+      Color color = Color::RED;
+      auto color_name = magic_enum::enum_name(color);
+      // color_name -> "RED"
+      std::string color_name{"GREEN"};
+      auto color = magic_enum::enum_cast<Color>(color_name);
+      if (color.has_value()) {
+        // color.value() -> Color::GREEN
+      }
+      constexpr auto& color_names = magic_enum::enum_names<Color>();
+      // color_names -> {"RED", "BLUE", "GREEN"}
+      // color_names[0] -> "RED"

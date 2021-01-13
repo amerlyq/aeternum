@@ -109,6 +109,55 @@ INFO
     https://www.youtube.com/playlist?list=PLmmYSbUCWJ4x1GO839azG_BBw8rkh-zOj
     Плей лист из 6 лекций от Дяди Боба. Автора книги CleanCode и соавтора Agile Manifesto. Рекомендую к просмотру!
 
+    Clean Code - Uncle Bob / Lesson 4  - TDD with live session https://youtu.be/58jGpV2Cg50
+    Clean Code - Uncle Bob / Lesson 3 - https://youtu.be/Qjywrq2gM8o
+      Uncle Bob focuses on raising awareness, given the need to increase the level
+      of criteria in code production. Pointing to the lack of preparation in most
+      programmers, as one of the main reasons for the inefficiency in software
+      development today. Uncle Bob proposes a series of Expectations, through which
+      he hopes to instill in the programmers, the knowledge and desire to prosper
+      towards a way of programming based on ethics and responsibility.
+
+    Clean Code - Uncle Bob / Lesson 2 - https://youtu.be/2a_ytyt9sf8
+      Uncle Bob teaches us the purpose of comments in the code, breaking the
+      paradigm that commenting is something "I have to do" for the simple fact that
+      we mistakenly consider that commenting is a good practice. For Uncle Bob,
+      writing a comment is a sign of failure, since a good code must be able
+      explain by itself: Fewer Comments = Better Code
+
+    Clean Code - Uncle Bob / Lesson 1 - https://youtu.be/7EmboKQH8lM
+      Uncle Bob demonstrates the need to write a clean code and establishes the
+      bases to achieve it, being these bases of a social and scientific nature.
+      Making it clear that the future of programming is based on an ethical and
+      polite code.
+
+    Clean Code - Uncle Bob / Lesson 5 - https://youtu.be/sn0aFEMVTpA
+      Чистая Архитектура. 1ч о том почему архиектура важна + 1ч  разбор конретных
+      архитектурных решений. Где-то в середине есть рассуждение о том, зачем
+      синьерным разработчикам soft-skills.
+
+      In this fifth lesson, Uncle Bob criticizes the culture of "making a disaster
+      as quickly as possible" to generate economic gains, obtaining in the long
+      term, exactly the opposite effect, due to a generalized lack of awareness,
+      about the importance and purpose of a good Software Architecture. In this
+      chapter, you will learn the fundamentals of software architecture, its rules,
+      the value of discipline in the production of quality code, and the
+      responsibility of disseminating the need to implement these good practices in
+      the community of programmers.
+
+    Clean Code - Uncle Bob / Lesson 6 - https://youtu.be/l-gF0vDhJVI
+      Соавтор оджайл манифеста рассказывает про аджайл
+
+      Uncle Bob portrays us through different situations, the problem of adjusting
+      software production time to delivery times. A divergence between the needs of
+      the client and the commercial commitments, and the needs of the programmer to
+      produce quality software. To solve the problem of the temporary gap between
+      production and the deadline, Uncle Bob teaches us the basics of Agile
+      development techniques for the optimal management of software projects.
+
+    Статейка на хабре про в тему чистого кода https://m.habr.com/ru/company/yandex_praktikum/blog/528070/
+
+
 
 CFG
   VCPKG - пакетный менеджер для c++. Подвезли манифесты - можно указать все
