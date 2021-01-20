@@ -1,0 +1,85 @@
+⌇⡠⠇⣶⢯
+
+OFF:USAGE:TUT:
+  Books with Jupyter ⌇⡠⠇⣪⡀
+    https://jupyterbook.org/intro.html
+  Jupyter and the future of IPython — IPython ⌇⡠⠇⣧⣛
+    https://ipython.org/
+
+
+EXPLORE:
+  99 ways to extend the Jupyter ecosystem | by yuvipanda | Jupyter Blog ⌇⡠⠇⣶⡨
+    https://blog.jupyter.org/99-ways-to-extend-the-jupyter-ecosystem-11e5dab7c54
+    nteract/vdom: 🎄 Virtual DOM for Python ⌇⡠⠇⣷⣆
+      https://github.com/nteract/vdom
+    jupyter-xeus/xwidgets: C++ backend for Jupyter interactive widgets ⌇⡠⠇⣷⣓
+      https://github.com/jupyter-xeus/xwidgets
+  [_] #magic :: I Python, You R, We Julia. When we decided to rename part of the… | by Matthias Bussonnier | Jupyter Blog ⌇⡠⠇⣷⣵
+    https://blog.jupyter.org/i-python-you-r-we-julia-baf064ca1fb6
+
+
+[⡠⠇⣴⢔] READ #jupiter usage articles
+  [X] How to use Jupyter Notebooks in 2020 (Part 1: The data science landscape) ⌇⡠⠇⣩⠧
+    https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/
+  [X] How to use Jupyter Notebooks in 2020 (Part 2: Ecosystem growth) ⌇⡠⠇⣩⡊
+    https://ljvmiranda921.github.io/notebook/2020/03/16/jupyter-notebooks-in-2020-part-2/
+  [X] How to use Jupyter Notebooks in 2020 (Part 3: Final thoughts) ⌇⡠⠇⣩⡐
+    https://ljvmiranda921.github.io/notebook/2020/03/30/jupyter-notebooks-in-2020-part-3/
+  +++ [_] How to Use Jupyter Notebook in 2020: A Beginner’s Tutorial ⌇⡠⠇⣧⡍
+    https://www.dataquest.io/blog/jupyter-notebook-tutorial/
+    https://realpython.com/jupyter-notebook-introduction/
+  [_] VSCode: Exploring an Alternative to Jupyter Notebooks for Python Development - Practical Business Python ⌇⡠⠇⣩⠣
+     https://pbpython.com/notebook-alternative.html
+  2020-04-29 [X] Beyond Interactive: Notebook Innovation at Netflix - Netflix TechBlog ⌇⡞⢩⢆⡷
+    https://netflixtechblog.com/notebook-innovation-591ee3221233
+    RU: Jupyter Notebook в Netflix / Хабр ⌇⡞⢩⢆⡼
+      https://habr.com/ru/post/439272/
+
+
+LIOR:USAGE:
+  [_] +++ Особенности Jupyter Notebook, о которых вы (может быть) не слышали / Хабр ⌇⡞⢃⣸⠧
+    https://m.habr.com/ru/company/wunderfund/blog/316826/
+
+
+WF vim※⡠⠇⣹⣟
+  OFF: https://github.com/wmvanvliet/jupyter-vim
+    USAGE: https://discourse.julialang.org/t/vim-plugin-for-jupyter-notebooks/31500/5
+    CFG
+      $ jupyter console --generate-config
+      $ jupyter qtconsole --generate-config
+      ~/.jupyter
+        c.ConsoleWidget.include_other_output = True
+        c.ZMQTerminalInteractiveShell.include_other_output = True
+      $ jupyter qtconsole
+      $ vim myfile.py
+        :JupyterConnect
+        :JupyterRunFile
+  jupytext (cvt :: .ipynb <-> .py)
+    SRC: https://github.com/goerz/jupytext.vim
+    DEP: https://github.com/mwouts/jupytext
+    FMT: https://github.com/mwouts/jupytext/blob/master/docs/formats.md#myst-markdown
+    ALSO ⌇⡝⣭⣝⣕
+      https://ipython.org/ipython-doc/2/notebook/nbconvert.html
+      https://github.com/jupyter/nbconvert
+    TUT: Maxwell Rules - NeoVim Notebooks ⌇⡠⠈⠎⣹
+      https://www.maxwellrules.com/misc/nvim_jupyter.html
+  ipython
+    ALT: https://github.com/hanschen/vim-ipython-cell
+      OLD: https://github.com/szymonmaszke/vimpyter
+      TUT:2019: https://towardsdatascience.com/boosting-your-data-science-workflow-with-vim-tmux-14505c5e016e
+    bfredl/nvim-ipy: IPython/Jupyter plugin for Neovim ⌇⡠⠇⣼⢼
+      https://github.com/bfredl/nvim-ipy
+  iron (ipython in vim directly)
+    [⡠⠇⣽⠯] Coding Python in Neovim with IPython as a REPL - semipol ⌇⡠⠇⣺⣗
+      https://www.semipol.de/2017/03/15/neovim-ipython-repl.html
+    hkupty/iron.nvim: Interactive Repl Over Neovim ⌇⡠⠇⣽⡙
+      https://github.com/hkupty/iron.nvim
+    ALSO: https://github.com/williamjameshandley/vimteractive
+  slime
+    [⡠⠈⠫⡔] BET? slime time: Replacing RStudio/Jupyter with vim-slime/tmux? | Formerly www.nickthoughts.gov.www\nickthoughts ⌇⡠⠇⣹⢁
+      http://www.nicksun.fun/linux/2020/07/06/slime-time.html
+    [⡠⠇⣺⣉] This Week I Learned: Enthusiastic Jupyter Notebook | by Yoav Luft | Medium ⌇⡠⠇⣺⣅
+      https://medium.com/@yoav.luft/this-week-i-learned-enthusiastic-jupyter-notebook-56a406ef17d2
+  spacemacs
+    SpaceVim lang#ipynb layer | SpaceVim ⌇⡠⠈⠍⢫
+      https://spacevim.org/layers/lang/ipynb/
