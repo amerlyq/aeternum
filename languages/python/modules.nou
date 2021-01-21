@@ -1,0 +1,13 @@
+⌇⡠⠉⡖⡒
+
+CFG
+  OFF: https://docs.python.org/3/installing/index.html
+  TUT: https://stackabuse.com/python-modules-creating-importing-and-sharing/
+  SRC: https://stackoverflow.com/questions/122327/how-do-i-find-the-location-of-my-python-site-packages-directory
+
+
+DEBUG:INFO: locations for local system-wide packages
+  $ python -m site --user-site
+  $ echo /path/to/my/modules > /home/user/.local/lib/python3.9/site-packages/mymodules.pth
+  $ python -m site
+  WARN:(search-path): '.' -> std-lib -> user-pkg -> aura -> sys-pkg
