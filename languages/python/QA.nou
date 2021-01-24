@@ -3,8 +3,22 @@
 SEIZE:VIZ: tools list
   sir-hiss · PyPI ⌇⡟⢺⡊⣡
     https://pypi.org/project/sir-hiss/
+  [_] NICE:OV: vintasoftware/python-linters-and-code-analysis: Python Linters and Code Analysis tools curated list ⌇⡠⠍⣼⣠
+    https://github.com/vintasoftware/python-linters-and-code-analysis
+  [_] OV: Python Code Quality: Tools & Best Practices – Real Python ⌇⡠⠍⣽⠍
+    https://realpython.com/python-code-quality/
+
 
 Static type checking
   mypy - Examples ⌇⡟⢹⡕⣶
     http://mypy-lang.org/examples.html
     $ mypy -p mylib
+
+
+FEED
+  [_] NICE:READ:SEIZE: Hypermodern Python 4: Typing. A guide to modern Python tooling with a… | by Claudio Jolowicz | Medium ⌇⡠⠍⣲⣿
+    https://medium.com/@cjolowicz/hypermodern-python-4-typing-31bcf12314ff
+  Python linters for better code quality | Alexey Smirnov ⌇⡠⠍⣼⢼
+    https://smirnov-am.github.io/python-linters-for-better-code-quality/
+  coala/coala: coala provides a unified command-line interface for linting and fixing all your code, regardless of the programming languages you use. ⌇⡠⠍⣼⣎
+    https://github.com/coala/coala
