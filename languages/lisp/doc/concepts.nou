@@ -54,6 +54,8 @@ Returns
 
 Conditions and Restarts (error-handling?)
   https://lisper.in/restarts
+  [85%] Conditions and Restarts in Common Lisp – Talking with a Lisp ⌇⡠⠑⣘⢼
+    https://z0ltan.wordpress.com/2016/08/06/conditions-and-restarts-in-common-lisp/
 
 Promises
   https://blog.domenic.me/youre-missing-the-point-of-promises/
@@ -74,6 +76,10 @@ Continuations
     https://stackoverflow.com/questions/16651843/why-does-not-exist-a-primitive-call-with-current-continuations-in-common-lisp
     https://stackoverflow.com/questions/3811448/can-call-with-current-continuation-be-implemented-only-with-lambdas-and-closures
     https://groups.google.com/forum/#!msg/comp.lang.lisp/1Ggl_BUi3Yg/VFTIDaJqRK8J
+
+ALT:(generators)
+  [20%] Is there a straightforward lisp equivalent of Python's generators? - Stack Overflow ⌇⡠⠓⡌⡕
+    https://stackoverflow.com/questions/32956033/is-there-a-straightforward-lisp-equivalent-of-pythons-generators
 
 
 %% Abstracts

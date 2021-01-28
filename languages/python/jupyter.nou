@@ -17,6 +17,10 @@ EXPLORE:
   [_] #magic :: I Python, You R, We Julia. When we decided to rename part of the… | by Matthias Bussonnier | Jupyter Blog ⌇⡠⠇⣷⣵
     https://blog.jupyter.org/i-python-you-r-we-julia-baf064ca1fb6
 
+ONLINE:collab:
+  inkandswitch/livebook: IPython notebook-compatible live coding experiment ⌇⡠⠑⣙⡙
+    https://github.com/inkandswitch/livebook#readme
+
 
 [⡠⠇⣴⢔] READ #jupiter usage articles
   [X] How to use Jupyter Notebooks in 2020 (Part 1: The data science landscape) ⌇⡠⠇⣩⠧

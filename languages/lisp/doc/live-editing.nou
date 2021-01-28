@@ -1,5 +1,12 @@
 %%%% Incremental editing in runtime
 
+ALT:name:
+  * forms evaluation
+  * live editing
+  * incremental coding
+  * hot reload
+  * ...
+
 
 DEV:IDEA: *swank* and lisp scripts integration
   * connect to running program and launch *swank* to connect to it from EMacs/Slime and debug/fixup on the fly
@@ -112,3 +119,78 @@ Lisp image dump/load (freeze/thaw)
     But, basically, when you freeze your image, you need to close all stuff
     that is invalidated by the freeze/thaw operation. And then the thawed image
     must reopen/reallocate/redo/reeverything all of these. Same thing as with e.g. files.
+
+
+% ALG~~ how lisp works
+
+VIZ
+  toplap/awesome-livecoding: All things livecoding ⌇⡠⠑⣑⣍
+    https://github.com/toplap/awesome-livecoding
+  Common Lisp libraries overview ⌇⡠⠑⣔⡤
+    https://common-lisp.net/libraries
+
+  Music
+    Workshop: Probabilistic Live Coding with Megra and Common Lisp | Medialab-Prado Madrid ⌇⡠⠑⣒⡛
+      https://www.medialab-prado.es/en/activities/workshop-probabilistic-live-coding-megra-and-common-lisp
+
+
+ALG
+  * global table :: symbol -> fn_ptr -> fn_body
+  * symbols can be replaced atomically from any thread
+  * all new calls to function will call new function
+  * (function FOO) pointers saved to vars won't be replaced
+  * infinite loops can be replaced by tail recursion (if compiler optimizes it)
+  * multiple environment model -- per each stackframe of each thread
+  * returning from stack will still call old functions and use old data
+  * old bodies of old functions will contains refs to other old bodies
+  * CLOS classes are based on (defgeneric) which is a dispatcher to typed (defmethod)
+  * replacing defmethod will change dispatching for all new calls on object
+  * if function was used in compile time -- you must reload affected compiled code too to take effect
+
+
+REF
+  [⡠⠐⡑⢘] Re: How much use of CLOS? - Naggum cll archive ⌇⡠⠐⡊⢐
+    https://www.xach.com/naggum/articles/3243735416407529@naggum.no.html
+    OO is 1) Smalltalk-like msg (object) passing into black box; 2) defgeneric
+  [⡠⠑⣑⠅] How does Common Lisp implement hot code reloading? : Common_Lisp ⌇⡠⠐⡊⢒
+    https://www.reddit.com/r/Common_Lisp/comments/9q6bum/how_does_common_lisp_implement_hot_code_reloading/
+    BUT:(#lisp:@phoe): it seems only SICL has "multiple environment model"
+      robert-strandh/SICL: A fresh implementation of Common Lisp ⌇⡠⠓⠕⢃
+        https://github.com/robert-strandh/SICL
+  [⡠⠑⣑⠆] How to replace a running function in Common Lisp? - Stack Overflow ⌇⡠⠑⣑⠃
+    https://stackoverflow.com/questions/8874615/how-to-replace-a-running-function-in-common-lisp
+
+
+OFF
+  [70%] Fundamentals of CLOS ⌇⡠⠑⣚⡞
+    https://lispcookbook.github.io/cl-cookbook/clos.html
+    [27%/⡠⠓⠢⢤] Object Reorientation: Generic Functions ⌇⡠⠑⣟⡬
+      http://www.gigamonkeys.com/book/object-reorientation-generic-functions.html
+  + [_] start [Common Lisp UltraSpec] ⌇⡠⠑⣝⡁
+    https://phoe.tymoon.eu/clus/doku.php
+  Learn C • Build Your Own Lisp ⌇⡠⠑⣐⣵
+    http://buildyourownlisp.com/
+
+
+IDEA: use (defgeneric) in python -- to overcome methods-reloading problem
+  [⡠⠓⠘⣮] Python 3.4 single dispatch, a step into generic functions ⌇⡠⠑⣚⠸
+    https://julien.danjou.info/python-3-4-single-dispatch-generic-function/
+
+
+IDEA: use Python libs to write primarily in Lisp
+  pinterface/burgled-batteries: A bridge between Python and Lisp (FFI bindings, etc.) ⌇⡠⠑⣘⠆
+    https://github.com/pinterface/burgled-batteries
+
+
+Qs hot-reloading of deinitializer
+  ::lisp
+    (ql:quickload :bordeaux-threads)
+    (defun a () (print "foo"))
+    (defun b () (bt:make-thread (lambda () (defun a () (print "bar")))) (sleep 3))
+    (defun f () (a) (b) (a) nil)
+    (defun f () (unwind-protect (progn (a) (b)) (a)))
+    CL-USER> (f)
+    "foo"
+    WARNING: redefining COMMON-LISP-USER::A in DEFUN
+    "bar"
+    NIL
