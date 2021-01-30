@@ -11,3 +11,12 @@ DEBUG:INFO: locations for local system-wide packages
   $ echo /path/to/my/modules > /home/user/.local/lib/python3.9/site-packages/mymodules.pth
   $ python -m site
   WARN:(search-path): '.' -> std-lib -> user-pkg -> aura -> sys-pkg
+
+
+Importing / resources
+  Python import: Advanced Techniques and Tips – Real Python ⌇⡠⠕⡶⡙
+    https://realpython.com/python-import/
+  Python 3.7.2rc1 - importlib — The implementation of import | Docs4dev ⌇⡠⠕⡶⡱
+    https://www.docs4dev.com/docs/en/python/3.7.2rc1/all/library-importlib.html
+  python - How to use importlib.resources.path(package, resource)? - Stack Overflow ⌇⡠⠕⡶⢏
+    https://stackoverflow.com/questions/58520128/how-to-use-importlib-resources-pathpackage-resource
