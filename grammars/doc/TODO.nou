@@ -4,3 +4,8 @@ ALT:RENAME: parsers -> DSL
   UniGrammar / UniGrammar.py · GitLab ⌇⡞⣬⣚⣼
     https://gitlab.com/UniGrammar/UniGrammar.py
     SRC: https://github.com/igordejanovic/parglare/issues/78
+
+  [_] Parsing expression grammar - Wikipedia ⌇⡠⠜⡚⢌
+    https://en.wikipedia.org/wiki/Parsing_expression_grammar
+    << seems like better than LL(1), considering !python>=3.9 migrating to it
+      https://docs.python.org/3.9/whatsnew/3.9.html#summary-release-highlights
