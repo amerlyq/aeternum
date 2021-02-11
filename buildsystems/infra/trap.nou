@@ -1,0 +1,70 @@
+SDL moving to GitHub - SDL Development - Simple Directmedia Layer ⌇⡠⠥⡣⡓
+  https://discourse.libsdl.org/t/sdl-moving-to-github/28700/5
+
+icculus
+Regular
+
+What changed?
+
+Everything moved to git generally, and GitHub specifically.
+
+Lots of tools and workflows expect you to be using git (Visual Studio and Xcode
+have built-in git support, etc) and Mercurial is becoming an alien thing to
+lots of people. Instead of being a thing you use, it’s now One More Thing to
+learn. It’s far more likely that people familiar with revision control
+generally will also be familiar with git specifically.
+
+I am not a fan of git; I still believe Mercurial is a better piece of software,
+and that git has made some calamitous design choices…but for our personal needs
+we can more or less use a subset of git the same way we use Mercurial now,
+while letting everyone else use git however they personally like.
+
+And the way that most people personally like using git is via GitHub.
+
+One reason we hadn’t considered a move to GitHub before now is that this
+project has had a policy of owning all its infrastructure. This project
+survived the demise of Loki, it survived devolution being scooped up by a
+domain squatter, it survived Dreamhost’s flaky servers. Years ago, we had
+enough of it all and moved everything to Digital Ocean because it’s just a
+colocated Linux server; we maintain all the services and nothing is ever taken
+out from under us…in the worst case we would just move our nightly backup to a
+new host and update DNS and not be just generally screwed as providers drop
+services or break things and just generally don’t answer the phone.
+
+The tradeoff for this freedom, of course, is that everything is buggy and janky
+and no one has time to make it better. Bugzilla doesn’t really look much
+different than it did twenty years ago (and, as we discovered, the Bugzilla
+developers didn’t bother updating their code when newer MySQL releases broke
+it, and I’m a game developer and don’t want to fix perl code from two decades
+ago to get the bug tracker working after I upgrade Ubuntu, blah blah blah).
+
+It’s not just Bugzilla. It’s the wiki, the mailing lists, the quaint little
+Mercurial web interface. The little open source thing that we rely on but no
+one is working on and probably has security holes in it. It’s all janky, and it
+causes developer friction. It causes it for Sam and I, and we’re old Unix
+command line cowboys, so for those that expect computers to treat them like
+computers do in 2021–with slick UIs and without cronjobs that occasionally fail
+until Ryan rolls along to restart a service over ssh–it was becoming untenable.
+
+So in moving it to GitHub, we’re finding that a lot of things are just nicer
+because a large paid staff of engineers is working on it every day. And I grew
+up during the heyday of the Free Software Foundation, so I know this is a trap,
+but I’m tired and don’t have the energy to be a server admin for something
+that’s held together with scotch tape and prayers when I’m really supposed to
+be writing OpenGL code.
+
+So we’re moving to servers we don’t control, which does make me nervous, but
+the argument goes like this: Microsoft owns GitHub, and it’s highly unlikely
+Microsoft is going to go bankrupt anytime soon. If Microsoft pulls the plug on
+GitHub, it’s not just SDL that would be in trouble, it would be the entire open
+source ecosystem, so interested parties would move fast to help you migrate to
+somewhere else…right?
+
+And for us? That somewhere else would probably be our own server, hosting a
+copy of the git repository we cloned ourselves.
+
+We will be migrating on the 10th. Tomorrow. If everything catches fire, we’ll
+revert everything back on the same day, but I would expect services to be
+disabled for a few hours while we sort things out, and then most existing
+things to make reasonable attempts to redirect you to GitHub. Stay tuned and
+have patience and hope tomorrow goes smoothly.
