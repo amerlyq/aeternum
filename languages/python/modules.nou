@@ -13,6 +13,12 @@ DEBUG:INFO: locations for local system-wide packages
   WARN:(search-path): '.' -> std-lib -> user-pkg -> aura -> sys-pkg
 
 
+WARN: avoid any builtin modules names for your ./*.py files -- they always loaded first
+  $ python -c "import sys, os; print(*sorted(list(sys.modules.keys())),sep=os.linesep)"
+  python paths and import order - Stack Overflow ⌇⡠⠩⢬⢾
+    https://stackoverflow.com/questions/9586630/python-paths-and-import-order
+
+
 Importing / resources
   Python import: Advanced Techniques and Tips – Real Python ⌇⡠⠕⡶⡙
     https://realpython.com/python-import/
