@@ -1,0 +1,195 @@
+%%%%% DB
+
+%% Serialization
+
+
+[_] FIND: flatbuffers IDEA: zero-copy access to structured-serialized data in value
+  Improving Facebook's performance on Android with FlatBuffers - Facebook Engineering ⌇⡠⠺⢟⣣
+    https://engineering.fb.com/2015/07/31/android/improving-facebook-s-performance-on-android-with-flatbuffers/
+  OFF:
+    FlatBuffers: FlatBuffers ⌇⡠⠺⢣⡌
+      https://google.github.io/flatbuffers/
+      ¦ If you do need to store data that doesn't fit a schema,
+      ¦ FlatBuffers also offers a schema-less (self-describing) version!
+        https://google.github.io/flatbuffers/flexbuffers.html
+    FlatBuffers in Android - introduction – froger_mcs dev blog – Coding with love {❤️} ⌇⡠⠺⢤⠩
+      http://frogermcs.github.io/flatbuffers-in-android-introdution/
+
+SRC: based on libmdbx infra
+  erthink/libfptu: One of the fastest binary representation for JSON-like data. ⌇⡠⠺⢞⢝
+    https://github.com/erthink/libfptu
+    = RU docs... questionable
+  erthink/libfpta: Ultra fast, compact, Embedded Database for tabular and semistructured data. ⌇⡠⠺⢞⡼
+    https://github.com/erthink/libfpta#кратко
+    = RU docs, only C++, no Python
+
+
+Firefox extensions / Android
+  [⡠⠻⠛⠧] firefox extension access "lmdb" - Google Search ⌇⡠⠻⠛⠄
+    https://www.google.com/search?safe=off&ei=HBo7YI2WMsPMrgTvu6S4Ag&q=firefox+extension+access+"lmdb"&oq=firefox+extension+access+"lmdb"&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABMgUIIRCgAToECCEQCjoFCAAQkQI6BAgAEEM6AggAOggILhDHARCjAjoHCAAQRhD5AToICC4QxwEQrwE6AgguOgQILhBDOgYIABAWEB46CAgAEBYQChAeOggIIRAWEB0QHjoECCEQFVDengNYxuoDYMDtA2gCcAB4BIABgAGIAbsxkgEFNTUuMTKYAQCgAQGqAQdnd3Mtd2l6sAEAwAEB&sclient=gws-wiz&ved=0ahUKEwiNlMmZ3YvvAhVDposKHe8dCScQ4dUDCA0&uact=5
+  XULStore Using rkv – Proof of Concept ⌇⡠⠻⠛⠷
+    https://mozilla.github.io/firefox-browser-architecture/text/0016-xulstore-rkv-poc.html
+  MAYBE:BET: use companion app and interact with extension through e.g. socket
+
+
+%%%% Embedded database
+
+CMP
+  Benchmarking LevelDB vs. RocksDB vs. HyperLevelDB vs. LMDB ⌇⡠⠺⠀⢢
+    https://www.influxdata.com/blog/benchmarking-leveldb-vs-rocksdb-vs-hyperleveldb-vs-lmdb-performance-for-influxdb/#:~:text=Under the covers LevelDB is,the storage engines for testing.
+  Database of Databases - LMDB ⌇⡠⠺⢥⡜
+    https://dbdb.io/db/lmdb
+
+
+% LMDB
+
+  REF: Lightning Memory-Mapped Database - Wikipedia ⌇⡠⠹⣸⣈
+    https://en.wikipedia.org/wiki/Lightning_Memory-Mapped_Database
+    = read-optimized
+  OFF https://lmdb.readthedocs.io/en/release/ ⌇⡠⠺⢩⢲
+    [⡠⠹⣼⡐] Is LMDB a LevelDB Killer? | Symas Corp ⌇⡠⠹⣹⢎
+      https://symas.com/is-lmdb-a-leveldb-killer/
+  TALK
+    LMDB: The Leveldb Killer? - by Paul Banks ⌇⡠⠹⣹⣩
+      https://banksco.de/p/lmdb-the-leveldb-killer.html
+  ARCH
+    [⡠⠺⢔⡚] Блеск и нищета key-value базы данных LMDB в приложениях для iOS / Блог компании Mail.ru Group / Хабр ⌇⡠⠺⢏⣴
+      https://habr.com/ru/company/mailru/blog/480850/
+      >> ALSO:(serialization): ·flatbuffers· ALT: ·libfptu·
+  TUT
+    Kolab Now Blog: A short guide to LMDB ⌇⡠⠼⠳⣣
+      https://blogs.kolabnow.com/2018/06/07/a-short-guide-to-lmdb
+  IMPL #andr
+    lmdbjava/lmdbjava: Lightning Memory Database (LMDB) for Java: a low latency, transactional, sorted, embedded, key-value store ⌇⡠⠹⣹⠘
+      https://github.com/lmdbjava/lmdbjava
+      NDK: https://www.openldap.org/lists/openldap-technical/201501/msg00060.html
+    ENH: erthink/libmdbx: One of the fastest embeddable key-value ACID database without WAL. libmdbx surpasses the legendary LMDB in terms of reliability, features and performance. ⌇⡠⠹⣽⠰
+      https://github.com/erthink/libmdbx#improvements-over-lmdb
+      ? C++20 API
+
+
+ALG
+  Tkrzw: a set of implementations of DBM ⌇⡠⠹⣸⣄
+    https://dbmx.net/tkrzw/
+    = .like. C++ STD algo with complexities and benchmarks
+
+
+ALT:
+  Google: LevelDB - Wikipedia ⌇⡠⠹⣸⣆
+    https://en.wikipedia.org/wiki/LevelDB
+    = write-optimized
+    INFO: Log-structured merge-tree - Wikipedia ⌇⡠⠺⣜⣛
+      https://en.wikipedia.org/wiki/Log-structured_merge-tree
+  Facebook: RocksDB - Wikipedia ⌇⡠⠹⣸⣋
+    https://en.wikipedia.org/wiki/RocksDB
+    = LevelDB fork with many additions
+
+
+%%%% Time-series database
+
+CMP:
+  [⡠⠺⢽⢁] 7 Powerful Time-Series Database for Monitoring Solution ⌇⡠⠺⢽⡯
+    https://geekflare.com/time-series-database/
+    ::: all are server-oriented
+  Best 6 Free Time Series Databases Software Picks in 2021 | G2 ⌇⡠⠺⢾⠭
+    https://www.g2.com/categories/time-series-databases/free
+
+VIZ
+  Time series database - Wikipedia ⌇⡠⠺⠯⡺
+    https://en.wikipedia.org/wiki/Time_series_database
+  [⡠⠺⢾⣑] graphite-project/whisper: Whisper is a file-based time-series database format for Graphite. ⌇⡠⠺⠯⡶
+    https://github.com/graphite-project/whisper
+    = fixed circular .like. RRD, resolution~seconds, with historical downgrading
+  [⡠⠺⢿⢉] Prometheus (software) - Wikipedia ⌇⡠⠺⠯⡳
+    https://en.wikipedia.org/wiki/Prometheus_(software)
+    = centralizer from hosts
+  [⡠⠺⢿⢆] Apache Kudu - Wikipedia ⌇⡠⠺⠯⡱
+    https://en.wikipedia.org/wiki/Apache_Kudu
+  [⡠⠺⢿⣈] Apache Druid - Wikipedia ⌇⡠⠺⠯⡬
+    https://en.wikipedia.org/wiki/Apache_Druid
+    = distributed
+  [⡠⠺⢿⢍] influxdata/influxdb: Scalable datastore for metrics, events, and real-time analytics ⌇⡠⠺⢹⠣
+    https://github.com/influxdata/influxdb
+    ~~~
+
+
+Android
+  questdb/questdb: An open source SQL database designed to process time series data, faster ⌇⡠⠺⢧⢨
+    https://github.com/questdb/questdb
+    https://dbdb.io/db/questdb
+    ::: BAD: sql with extensions
+
+
+%%%% Log database
+
+G: embedded database for logging
+
+PERF
+  [⡠⠺⢲⡧] Why you shouldn’t log into db. From time to time, I see systems… | by Márton Waszlavik | Medium ⌇⡠⠺⢰⣅
+    https://medium.com/@marton.waszlavik/why-you-shouldnt-log-into-db-e700c2cb0c8c
+    = write-heavy trashing
+  [⡠⠺⢳⡲] sql - Why is filesystem preferred for logs instead of RDBMS? - Software Engineering Stack Exchange ⌇⡠⠺⢳⡮
+    https://softwareengineering.stackexchange.com/questions/92186/why-is-filesystem-preferred-for-logs-instead-of-rdbms
+  [⡠⠺⢶⠣] Live Free or Dichotomize - Using AWK and R to parse 25tb ⌇⡠⠺⢶⠜
+    https://livefreeordichotomize.com/2019/06/04/using_awk_and_r_to_parse_25tb/
+  In-memory write-ahead logging for mobile smart devices with NVRAM - IEEE Journals & Magazine ⌇⡠⠺⢷⣹
+    https://ieeexplore.ieee.org/document/7064109
+  LB-Logging: A Highly Efficient Recovery Technique for Flash-Based Database | SpringerLink ⌇⡠⠺⢸⠫
+    https://link.springer.com/chapter/10.1007/978-3-642-32281-5_37
+
+CMP
+  [$] 2012: .net - Which NoSQL database should I use for logging? - Stack Overflow ⌇⡠⠺⠯⢈
+    https://stackoverflow.com/questions/10525725/which-nosql-database-should-i-use-for-logging
+  [⡠⠺⢳⣆] Best DB system for logs and large amount of data : Database ⌇⡠⠺⢳⣃
+    https://www.reddit.com/r/Database/comments/c5pqzg/best_db_system_for_logs_and_large_amount_of_data/
+    Martin Kleppmann | Kafka Summit SF 2018 Keynote (Is Kafka a Database?) - YouTube ⌇⡠⠺⢳⣎
+      https://www.youtube.com/watch?v=v2RJQELoM6Y&feature=youtu.be
+
+SEE
+  Highly reliable data logging in embedded systems - CORE ⌇⡠⠺⢷⠧
+    https://core.ac.uk/download/pdf/154883632.pdf
+
+
+%%%% Append-only database
+
+  Part 3 - An In-Memory, Append-Only, Single-Table Database | Let’s Build a Simple Database ⌇⡠⠻⠃⠖
+    https://cstack.github.io/db_tutorial/parts/part3.html
+  Building an Append-only Log From Scratch | by Eileen Pangu | Jan, 2021 | Medium ⌇⡠⠻⠌⣖
+    https://eileen-code4fun.medium.com/building-an-append-only-log-from-scratch-e8712b49c924
+  [_] Power of the Log:LSM & Append Only Data Structures | QCon London 2020 ⌇⡠⠻⠍⡕
+    https://qconlondon.com/ln2017/presentation/power-loglsm-append-only-data-structures
+
+
+%%%% Graph
+
+INFO
+  CQL ⌇⡠⠻⠌⠪
+    https://www.categoricaldata.net/
+
+
+TerminusDB
+  ARCH: terminusdb/terminusdb.pdf at 1c586290d4d276de04b680f1e626ce3f4e4f9664 · terminusdb/terminusdb ⌇⡠⠺⣝⣰
+    https://github.com/terminusdb/terminusdb/blob/1c586290d4d276de04b680f1e626ce3f4e4f9664/docs/whitepaper/terminusdb.pdf
+  [⡠⠻⠌⠦] WHY: Show HN: TerminusDB – An open source in-memory graph database | Hacker News ⌇⡠⠺⣝⣥
+    https://news.ycombinator.com/item?id=22867767
+
+  INFO: HDT
+    What is HDT – RDF HDT ⌇⡠⠺⣣⡙
+      https://www.rdfhdt.org/what-is-hdt/#:~:text=HDT (Header, Dictionary, Triples,RDF datasets on the Web.
+    HDT Internals – RDF HDT ⌇⡠⠺⣣⡷
+      https://www.rdfhdt.org/hdt-internals/
+    Binary RDF Representation for Publication and Exchange (HDT) ⌇⡠⠺⣣⡜
+      https://www.w3.org/Submission/HDT/
+    Query processing for header dictionary triple using GPUs - IEEE Conference Publication ⌇⡠⠺⣣⢸
+      https://ieeexplore.ieee.org/document/7748854
+
+
+Android
+  Database of Databases - Sparksee ⌇⡠⠺⢫⢓
+    https://dbdb.io/db/sparksee
+    http://sparsity-technologies.com/UserManual/Index.html
+
+
+%%%% Object
+  Database of Databases - ObjectBox ⌇⡠⠺⢯⠷
+    https://dbdb.io/db/objectbox
