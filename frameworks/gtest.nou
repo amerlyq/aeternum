@@ -10,3 +10,8 @@ Tests inside libraries
 TALK
   no tests for start-up
     https://dou.ua/lenta/columns/product-that-works/
+
+
+2021-03-03
+  https://stackoverflow.com/questions/33125953/how-can-i-tell-googlemock-to-stop-checking-an-expectation-after-the-test-finishe
+  https://github.com/google/googletest/blob/master/docs/gmock_cook_book.md
