@@ -179,3 +179,75 @@ CFG
   Cross-Platform Pitfalls and How to Avoid Them - Erika Sweet - CppCon 2020
     https://youtu.be/oYCin0B037Y
     продолжение темы cmake , vcpkg , testing
+
+
+
+2021-03-09
+
+Contract-based software development with FrancaThis series is about software
+interfaces and contracts. In the first part, we will introduce Franca IDL as a foundation.
+  https://blogs.itemis.com/en/contract-based-software-development-with-franca
+  https://blogs.itemis.com/en/eb-solys-and-franca-contracts-an-overview
+    вы всё еще читаете логи? виллабаджо уже танцуют
+
+
+https://awesomecpp.com/
+
+https://lgtm.com/  кто-то пользовался? выглядит интересно
+
+
+multithreading
+  Текстовая версия доклада «Actors vs CSP vs Tasks...» с C++ CoreHard Autumn 2018
+  https://habr.com/ru/post/430672/
+  Многопоточность в C++ и SObjectizer с CSP-шными каналами, но совсем без акторов…
+  https://habr.com/ru/post/336854/
+  Обмен информацией между рабочими нитям без боли? CSP-шные каналы нам в помощь
+  https://habr.com/ru/post/358120/
+  Что нового в SObjectizer-5.7.0 и ждет этот проект дальше?
+  https://habr.com/ru/post/485450/
+  Stiffstream/sobjectizer
+  https://github.com/Stiffstream/sobjectizer
+
+
+
+
+
+FSM
+  https://github.com/boost-ext/sml
+    Editedboost-ext/smlSML: C++14 State Machine Library.
+
+FPGA
+    https://m.habr.com/ru/company/ruvds/blog/542640/
+    насчет всяких трюков  есть вот такая книженция https://www.amazon.com/Hackers-Delight-2nd-Henry-Warren/dp/0321842685
+      + разбор https://panchul.livejournal.com/583893.html
+      Пролистал 2-е издание Hacker's Delight в поисках занятных задач для лабника по
+      Verilog & FPGAHacker's Delight - чрезвычайно занятная книжка, назначение
+      которой народ совершенно не понимает. Хотя разумеется не весь народ. Например у
+      нас в офисе MIPS эту книжку любят - когда я забыл ее где-т...
+    http://graphics.stanford.edu/~seander/bithacks.html
+
+
+Занятная библиотека по внесению зависимостей
+  https://github.com/boost-ext/di
+    Editedboost-ext/diDI: C++14 Dependency Injection Library.
+
+Много обещающий юнит тест фреймворк
+  https://github.com/boost-ext/ut
+  https://github.com/boost-ext/ut#benchmarks
+  boost-ext/utUT: C++20 μ(micro)/Unit Testing Framework.
+  https://raw.githubusercontent.com/cpp-testing/ut-benchmark/master/results/Execution_test.png
+
+  А вот, похоже, gtest + gmock на стероидах. и тут, похоже, не нужно моки свои писать.
+  https://github.com/cpp-testing/GUnit
+    cpp-testing/GUnitGUnit - Google.Test/Google.Mock/Cucumber on steroids - cpp-testing/GUnitgithub.com
+
+
+ARM
+    https://armkeil.blob.core.windows.net/developer/Files/pdf/graphics-and-multimedia/ARMv8_Overview.pdf
+
+
+C++ SmartPtr usage
+  1) CppCon 2014: Herb Sutter "Back to the Basics! Essentials of Modern C++ Style"
+    https://youtu.be/xnqTKD8uD64  - smart ptr usage discussed 12:12 - 28:28
+  2) C++ Smart Pointers - Usage and Secrets - Nicolai Josuttis
+    https://youtu.be/XH4xIyS9B2I
