@@ -1,0 +1,4 @@
+Logs
+  $ adb logcat -s MainActivity:* stdio:* Python:*.
+  Anything your app writes to stdout (e.g., the output of print() statements)
+  will be visible in the logs.
