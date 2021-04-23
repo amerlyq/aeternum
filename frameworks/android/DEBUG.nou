@@ -2,3 +2,11 @@ Logs
   $ adb logcat -s MainActivity:* stdio:* Python:*.
   Anything your app writes to stdout (e.g., the output of print() statements)
   will be visible in the logs.
+
+
+
+Test your service  |  Android Developers ⌇⡠⢁⠰⠦
+  https://developer.android.com/training/testing/integration-testing/service-testing#java
+
+core/java/android/util/Slog.java - platform/frameworks/base - Git at Google ⌇⡠⢂⡺⡚
+  https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Slog.java#93
