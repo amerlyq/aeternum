@@ -10,3 +10,50 @@ Test your service  |  Android Developers ⌇⡠⢁⠰⠦
 
 core/java/android/util/Slog.java - platform/frameworks/base - Git at Google ⌇⡠⢂⡺⡚
   https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Slog.java#93
+
+
+
+USAGE cli
+  [⡠⢊⢽⡱] svc status
+    $ adb shell dumpsys activity services [com.myservice]
+      ¦ Look for app=ProcessRecord(...) or app=null to know if the service is currently started or stopped.
+    $ adb shell service list
+      ¦ only shows system services that are running, not services created by applications.
+    SRC: List running service of Android device ⌇⡠⢊⢼⡌
+      https://gist.github.com/georgioupanayiotis/8f4b7ea7007a8cb81a51
+    $ adb shell getprop | grep running
+      ¦ On rooted device: getprop | grep running shows running native services handled by init
+    $ ps --ppid $(pgrep zygote) $ returns all running app processes (system and user)
+    $ dumpsys activity services | grep app= | grep -v app=null $ returns Java app services
+    $ dumpsys -l $ and service list return Java system services.
+
+  [⡠⢊⣋⠜] run svc
+    NEW: $ adb shell am start-foreground-service -n com.example.hello/.HelloSvc
+    OLD: $ adb shell am startservice -n com.example.hello/.HelloSvc
+    DEBUG:
+      $ adb -s "$(adb devices -l | grep -o '^emulator-\S*')" shell ...
+      $ adb shell dumpsys activity services com.example.hello
+      $ adb logcat -s 'HelloSvc:*'
+    DEBUG: boot / system restart
+      $ adb root
+      $ adb shell stop
+      $ adb shell start
+      # wait for the service to be restarted!
+
+  [⡠⢊⣳⣣] call svc api (SYSTEM only) TBD: user
+    Where to find info on Android's "service call" shell command? - Stack Overflow ⌇⡠⢊⣱⠸
+      https://stackoverflow.com/questions/20227326/where-to-find-info-on-androids-service-call-shell-command
+      $ adb shell service call hellosvc 1 i32 12 s16 "my msg"
+      $ adb shell service call hellosvc 2
+    Public scratchpad: Calling Android services from ADB shell ⌇⡠⢊⣳⠛
+      http://ktnr74.blogspot.com/2014/09/calling-android-services-from-adb-shell.html
+    T-vK/android-svc: Easy to use Android service wrapper ⌇⡠⢊⣳⣋
+      https://github.com/T-vK/android-svc/
+    OFF:SRC: service.cpp - Android Code Search ⌇⡠⢊⣳⣏
+      https://cs.android.com/android/platform/superproject/+/android-11.0.0_r3:frameworks/native/cmds/service/service.cpp;l=356;drc=b9ec70ebb9bf4238db6f8731320a7961fffc6606
+    android - Send message to custom service via adb - Stack Overflow ⌇⡠⢋⠅⡩
+      https://stackoverflow.com/questions/43966876/send-message-to-custom-service-via-adb
+    Android Debug Bridge (adb)  |  Android Developers ⌇⡠⢋⠇⠨
+      https://developer.android.com/studio/command-line/adb#am
+    Using the "service" tool with ADB and why to avoid it ⌇⡠⢋⠇⢧
+      https://gist.github.com/tniessen/ea3d68e7d572ed7c607b81d715798800

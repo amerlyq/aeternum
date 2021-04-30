@@ -1,0 +1,59 @@
+WKLOG
+
+[⡠⢊⣕⡞] IMPL details
+  android - In Service why not to declare intent filter? - Stack Overflow ⌇⡠⢊⣍⣠
+    https://stackoverflow.com/questions/38582728/in-service-why-not-to-declare-intent-filter
+    ¦ if your Service should be started by other applications and provide a
+    ¦ function that is publicly available, by all means, you can register
+    ¦ an Intent filter and it will be perfectly OK.
+  <service ...  |  Android Developers ⌇⡠⢊⣕⠳
+    https://developer.android.com/guide/topics/manifest/service-element#desc
+  [⡠⢊⣘⠡] Android - Services - Tutorialspoint ⌇⡠⢊⣘⠖
+    https://www.tutorialspoint.com/android/android_services.htm
+
+
+[⡠⢊⣊⠜] run svc w/o MainActivity
+  [⡠⢊⣊⠘] Launch Android application without main Activity and start Service on launching application - Stack Overflow ⌇⡠⢊⣃⣸
+    https://stackoverflow.com/questions/10909683/launch-android-application-without-main-activity-and-start-service-on-launching
+  android - Error: app is in background uid null - Stack Overflow ⌇⡠⢊⣈⢂
+    https://stackoverflow.com/questions/47209662/error-app-is-in-background-uid-null
+    ? context.startForegroundService(intent);
+    ¦ WARN After the service starts, Service.startForeground() must be called within 5 seconds. The obvious place is within onCreate
+  [50%] Building an Android service that never stops running | Roberto Huertas ⌇⡠⢊⣀⣍
+    https://robertohuertas.com/2019/06/29/android_foreground_services/
+  [_] USAGE: Implementing an Android Started Service in Android Studio - Techotopia ⌇⡠⢊⣖⣯
+    https://www.techotopia.com/index.php/Implementing_an_Android_Started_Service_in_Android_Studio#Creating_the_New_Service
+
+
+[_] share AIDL by api lib ⌇⡠⢊⣯⡰
+  ++ Sharing Functionality between Android Apps with AIDL - SitePoint ⌇⡠⢊⣴⣿
+    https://www.sitepoint.com/aidl-for-sharing-functionality-between-android-apps/
+    sitepoint-editors/android-aidl: This projects uses the Android AIDL to create a remote service ⌇⡠⢊⣵⠎
+      https://github.com/sitepoint-editors/android-aidl
+  Android AIDL Deep Dive. AIDL (Android Interface Definition… | by Budhdi Sharma | Medium ⌇⡠⢊⣵⣍
+    https://budhdisharma.medium.com/aidl-and-its-uses-in-android-e7a2520093e
+  Use of AIDL in Android studio ⌇⡠⢋⠘⢌
+    https://programmer.help/blogs/use-of-aidl-in-android-studio.html
+  [_] READ: Работа с AIDL в Android / Хабр ⌇⡠⢊⣵⣢
+    https://habr.com/ru/post/537660/
+    [_] WTF ¦ Но через контент-провайдеры работать намного удобнее и проще.
+    [_] TRY: ¦ руками обеспечить thread safety -- для асинхронных или void-методов удобнее всего через Handler
+
+
+[_] background thread
+  Services overview  |  Android Developers ⌇⡠⢊⢚⣛
+    https://developer.android.com/guide/components/services
+    ¦ Remember that if you do use a service, it still runs in your
+    ¦ application's main thread by default, so you should still create a
+    ¦ new thread within the service if it performs intensive or blocking operations.
+  [60%] Starting Background Services | CodePath Android Cliffnotes ⌇⡠⢉⣞⣄
+    https://guides.codepath.com/android/Starting-Background-Services
+  Guide to background processing  |  Android Developers ⌇⡠⢊⢚⣪
+    https://developer.android.com/guide/background
+    Running Android tasks in background threads  |  Android Developers ⌇⡠⢊⣓⠚
+      https://developer.android.com/guide/background/threading
+    Schedule tasks with WorkManager  |  Android Developers ⌇⡠⢊⣓⠖
+      https://developer.android.com/topic/libraries/architecture/workmanager
+    +++ [_] TRY: Support for long-running workers  |  Android Developers ⌇⡠⢊⣓⠒
+      https://developer.android.com/topic/libraries/architecture/workmanager/advanced/long-running
+        [_] ALSO:SEE:DEV: notifications there
