@@ -15,3 +15,16 @@ Why working with Android AOSP can be frustrating – Will's Blog ⌇⡠⡝⣂⢾
 
 Android Automotive - YouTube ⌇⡠⡦⣍⠊
   https://www.youtube.com/watch?v=nNfX4sA2y4o
+
+
+ADB
+  Call activity manager (am) | Android Debug Bridge (ADB) Commands Manual ⌇⡠⢔⡚⢕
+    http://adbcommand.com/adbshell/am
+  NICE: mozdevice — Interact with Android devices — Firefox Source Docs documentation ⌇⡠⢔⡘⠵
+    https://firefox-source-docs.mozilla.org/mozbase/mozdevice.html
+  SRC: How you can Control your Android Device with Python | by Kush | Apr, 2021 | ITNEXT ⌇⡠⢔⡛⠸
+    https://itnext.io/how-you-can-control-your-android-device-with-python-45c3ab15e260
+  Most complete ADB command manual - DEV Community ⌇⡠⢔⡑⡡
+    https://dev.to/larsonzhong/most-complete-adb-commands-4pcg
+  awesome-adb | ADB Usage Complete / ADB 用法大全 ⌇⡠⢔⡘⡎
+    https://mazhuang.org/awesome-adb/README.en.html#view-running-services

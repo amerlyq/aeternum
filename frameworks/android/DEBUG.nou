@@ -1,15 +1,27 @@
 Logs
   $ adb logcat -s MainActivity:* stdio:* Python:*.
-  Anything your app writes to stdout (e.g., the output of print() statements)
-  will be visible in the logs.
+    Anything your app writes to stdout (e.g., the output of print() statements)
+    will be visible in the logs.
+  core/java/android/util/Slog.java - platform/frameworks/base - Git at Google ⌇⡠⢂⡺⡚
+    https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Slog.java#93
 
+Crash
+  How to make sense of Android crash logs | Bugsnag Blog ⌇⡠⢔⡜⣣
+    https://www.bugsnag.com/blog/how-to-make-sense-of-android-crash-logs
 
+Introspect / resources
+  Android DDMS Overview and Tutorial | Toptal ⌇⡠⢔⡝⡻
+    https://www.toptal.com/android/android-ddms-ultimate-power-console
 
-Test your service  |  Android Developers ⌇⡠⢁⠰⠦
-  https://developer.android.com/training/testing/integration-testing/service-testing#java
+HACK
+  Intercepting Android native library calls – Cedric's Cruft ⌇⡠⢔⡝⠛
+    https://cedricvb.be/post/intercepting-android-native-library-calls/
+    = how to set LD_PRELOAD to your lib
 
-core/java/android/util/Slog.java - platform/frameworks/base - Git at Google ⌇⡠⢂⡺⡚
-  https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Slog.java#93
+Testing
+  Test your service  |  Android Developers ⌇⡠⢁⠰⠦
+    https://developer.android.com/training/testing/integration-testing/service-testing#java
+
 
 
 
@@ -29,7 +41,9 @@ USAGE cli
 
   [⡠⢊⣋⠜] run svc
     NEW: $ adb shell am start-foreground-service -n com.example.hello/.HelloSvc
+      $ adb shell am stopservice com.example.hello/.HelloSvc
     OLD: $ adb shell am startservice -n com.example.hello/.HelloSvc
+      $ adb shell am force-stop com.example.hello
     DEBUG:
       $ adb -s "$(adb devices -l | grep -o '^emulator-\S*')" shell ...
       $ adb shell dumpsys activity services com.example.hello
@@ -40,7 +54,10 @@ USAGE cli
       $ adb shell start
       # wait for the service to be restarted!
 
-  [⡠⢊⣳⣣] call svc api (SYSTEM only) TBD: user
+  open the dev menu (82 being the Menu key code).
+    $ adb shell input keyevent 82
+
+  [⡠⢊⣳⣣] call svc api (SYSTEM only)
     Where to find info on Android's "service call" shell command? - Stack Overflow ⌇⡠⢊⣱⠸
       https://stackoverflow.com/questions/20227326/where-to-find-info-on-androids-service-call-shell-command
       $ adb shell service call hellosvc 1 i32 12 s16 "my msg"
@@ -57,3 +74,27 @@ USAGE cli
       https://developer.android.com/studio/command-line/adb#am
     Using the "service" tool with ADB and why to avoid it ⌇⡠⢋⠇⢧
       https://gist.github.com/tniessen/ea3d68e7d572ed7c607b81d715798800
+    VIZ: adb - Where to find description of all "/system/bin/service" calls? - Android Enthusiasts Stack Exchange ⌇⡠⢔⡐⢏
+      https://android.stackexchange.com/questions/34625/where-to-find-description-of-all-system-bin-service-calls
+
+  [⡠⢔⡏⡰] svc interact from cmdline (USER)
+    NICE intents on startup
+      android - Send message to custom service via adb - Stack Overflow ⌇⡠⢔⡕⠋
+        https://stackoverflow.com/questions/43966876/send-message-to-custom-service-via-adb
+      java - Android- how to communicate between a Service and Command Line - Stack Overflow ⌇⡠⢔⡏⣲
+        https://stackoverflow.com/questions/8613511/android-how-to-communicate-between-a-service-and-command-line
+    ALT dex MAYBE works
+      How to execute the dex file in android with command? - Stack Overflow ⌇⡠⢔⡓⢾
+        https://stackoverflow.com/questions/10199863/how-to-execute-the-dex-file-in-android-with-command/10200822#10200822
+    MAYBE code (wrapper)
+      java - Getting Context to call bindService from command-line Android application - Stack Overflow ⌇⡠⢔⡓⢦
+        https://stackoverflow.com/questions/66157921/getting-context-to-call-bindservice-from-command-line-android-application
+      Getting a result from an activity  |  Android Developers ⌇⡠⢔⡞⣹
+        https://developer.android.com/training/basics/intents/result
+      android - Call methods of a service in the same "shared" process without using AIDL - Stack Overflow ⌇⡠⢔⡞⠅
+        https://stackoverflow.com/questions/13199127/call-methods-of-a-service-in-the-same-shared-process-without-using-aidl
+    ALT native BAD: must edit AOSP files to add your svc as system svc
+      java native interface - How to call custom aosp service from android app - Stack Overflow ⌇⡠⢔⡖⡸
+        https://stackoverflow.com/questions/45374526/how-to-call-custom-aosp-service-from-android-app
+      android - How to add custom system service name to @ServiceName StringDef? - Stack Overflow ⌇⡠⢔⡜⠧
+        https://stackoverflow.com/questions/28321487/how-to-add-custom-system-service-name-to-servicename-stringdef
