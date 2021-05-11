@@ -1,0 +1,26 @@
+%%%% BeeWare / Briefcase ⌇⡠⢖⢢⢪
+
+WKLOG
+  $ cd /cache/work/aosp-sdk/emulator
+  $ ANDROID_HOME=$PWD:h ./emulator -verbose -avd 10.1_WXGA_Tablet_API_30
+
+  $ cd /cache/feed/app
+  $ python3 -m venv feed
+  $ source feed/bin/activate
+  $ python -m pip install briefcase
+  $ rehash
+  $ briefcase new
+
+  $ export ANDROID_HOME=/cache/work/aosp-sdk
+  $ source feed/bin/activate
+  $ cd helloworld
+    $ briefcase dev
+    $ briefcase create android
+    $ briefcase build android
+  $ briefcase run android -d @10.1_WXGA_Tablet_API_30
+  OR: $ ~/.briefcase/tools/android_sdk/emulator/emulator @Pixel_3a_API_30_x86 -dns-server 8.8.8.8
+
+
+BAD
+  Briefcase can't install Python packages with binary modules on mobile platforms. · Issue #471 · beeware/briefcase ⌇⡠⢖⢤⠨
+    https://github.com/beeware/briefcase/issues/471

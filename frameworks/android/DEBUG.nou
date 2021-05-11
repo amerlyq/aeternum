@@ -4,8 +4,14 @@ Logs
     will be visible in the logs.
   core/java/android/util/Slog.java - platform/frameworks/base - Git at Google ⌇⡠⢂⡺⡚
     https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/util/Slog.java#93
+  Log  |  Android Developers ⌇⡠⢚⢌⢢
+    https://developer.android.com/reference/android/util/Log
+  Understanding Logging  |  Android Open Source Project ⌇⡠⢚⢌⣱
+    https://source.android.com/devices/tech/debug/understanding-logging
 
 Crash
+  Debugging Native Android Platform Code  |  Android Open Source Project ⌇⡠⢚⢌⡣
+    https://source.android.com/devices/tech/debug
   How to make sense of Android crash logs | Bugsnag Blog ⌇⡠⢔⡜⣣
     https://www.bugsnag.com/blog/how-to-make-sense-of-android-crash-logs
 
@@ -17,10 +23,6 @@ HACK
   Intercepting Android native library calls – Cedric's Cruft ⌇⡠⢔⡝⠛
     https://cedricvb.be/post/intercepting-android-native-library-calls/
     = how to set LD_PRELOAD to your lib
-
-Testing
-  Test your service  |  Android Developers ⌇⡠⢁⠰⠦
-    https://developer.android.com/training/testing/integration-testing/service-testing#java
 
 
 
@@ -86,6 +88,7 @@ USAGE cli
     ALT dex MAYBE works
       How to execute the dex file in android with command? - Stack Overflow ⌇⡠⢔⡓⢾
         https://stackoverflow.com/questions/10199863/how-to-execute-the-dex-file-in-android-with-command/10200822#10200822
+        BAD: too cumbersome to build and link .aidl manually
     MAYBE code (wrapper)
       java - Getting Context to call bindService from command-line Android application - Stack Overflow ⌇⡠⢔⡓⢦
         https://stackoverflow.com/questions/66157921/getting-context-to-call-bindservice-from-command-line-android-application

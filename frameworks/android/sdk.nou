@@ -1,4 +1,29 @@
+⌇⡠⢙⠉⣾
+
+ALSO:CFG: @/airy/android/doc/dev.nou
 
 [_] FUTURE: cmdline setup SDK/AVD ⌇⡠⢊⣕⢱
   Installing and creating Emulators with AVDMANAGER (For Continuous Integration Server or Local Use) ⌇⡠⢊⣖⡥
     https://gist.github.com/mrk-han/66ac1a724456cadf1c93f4218c6060ae
+
+create(avd)
+  [_] ALSO:FIXME: !avdmanager from cmdline
+    $ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.xml.bind'
+    $ ANDROID_HOME=/cache/work/aosp-sdk ./avdmanager
+   INFO
+    Failed to install android-sdk: "java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema" - Stack Overflow ⌇⡠⢗⣥⠆
+      https://stackoverflow.com/questions/46402772/failed-to-install-android-sdk-java-lang-noclassdeffounderror-javax-xml-bind-a
+    JAXB on Java 9, 10, 11 and beyond – Jesper de Jong ⌇⡠⢗⣤⡛
+      https://www.jesperdj.com/2018/09/30/jaxb-on-java-9-10-11-and-beyond/
+    Java 9+ modularity: The difficulties and pitfalls of migrating from Java 8 to Java 9+ – IBM Developer ⌇⡠⢗⣤⢻
+      https://developer.ibm.com/languages/java/tutorials/java-modularity-5/
+
+
+pick(image)
+  GSI: Generic System Image  |  Android Developers ⌇⡠⢘⠀⢿
+    https://developer.android.com/topic/generic-system-image
+
+
+run(emulator)
+  Creating and launching Android emulator AVD properly ⌇⡠⢘⠀⣉
+    https://gist.github.com/hkhc/f4cd38ced97ea484b573cfae4ce1ebe3

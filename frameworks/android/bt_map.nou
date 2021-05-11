@@ -1,0 +1,36 @@
+⌇⡠⢕⢄⣐
+
+%% BT MAP %% (Message Access Profile)
+  [X] Bluetooth  |  Android Open Source Project ⌇⡠⡛⠓⠛
+    https://source.android.com/devices/automotive/ivi_connectivity#message-access-profile
+    $ adb shell su u$(adb shell am get-current-user)_system svc bluetooth enable
+    $ adb shell dumpsys car_service
+  [X] src/com/android/bluetooth/mapclient/MapClientService.java - platform/packages/apps/Bluetooth - Git at Google ⌇⡠⡛⠓⠓
+    https://android.googlesource.com/platform/packages/apps/Bluetooth/+/master/src/com/android/bluetooth/mapclient/MapClientService.java
+    * sendMessage(BluetoothDevice device, Uri[] contacts, String message, PendingIntent sentIntent, PendingIntent deliveredIntent)
+    * getUnreadMessages(BluetoothDevice device)
+    * onReceive(Context context, Intent intent)
+  [X] Bluetooth Message Access Profile (MAP) | B4X Programming Forum ⌇⡠⡛⠓⠅
+    https://www.b4x.com/android/forum/threads/bluetooth-message-access-profile-map.64322/
+    ¦ MAP (specification) have two parts MAS (Message Access service) and MNS (Message Notification service)
+    ¦ Such profiles are usually handled by the OS. There is no API in Android that allows you to implement it yourself.
+  [X] List of Bluetooth profiles - Wikipedia ⌇⡠⢕⢕⡾
+    https://en.wikipedia.org/wiki/List_of_Bluetooth_profiles#Message_Access_Profile_(MAP)
+  [_] OFF:READ: [0/80]p Message Access Profile_SPEC_V10
+    https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=215400
+  [X] How to implement bluetooth profile MAP(Message Access Profile) on Android phone - Stack Overflow ⌇⡠⡛⠓⠤
+    https://stackoverflow.com/questions/16749398/how-to-implement-bluetooth-profile-mapmessage-access-profile-on-android-phone
+  [X] src/com/android/bluetooth/sdp/SdpManager.java - platform/packages/apps/Bluetooth - Git at Google ⌇⡠⢕⢗⣋
+    https://android.googlesource.com/platform/packages/apps/Bluetooth/+/master/src/com/android/bluetooth/sdp/SdpManager.java
+    * createMapMasRecord(…)
+    * createMapMnsRecord(…)
+  [X] core/java/android/bluetooth/BluetoothMapClient.java - platform/frameworks/base - Git at Google ⌇⡠⢕⢘⡥
+    https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/bluetooth/BluetoothMapClient.java
+    * sendMessage()
+    * getUnreadMessages()
+  [X] OFF:VIZ:WTF: Message Access Profile | Bluetooth® Technology Website ⌇⡠⢕⢙⡅
+    https://www.bluetooth.com/specifications/assigned-numbers/message-access-profile/
+    MAYBE: use for msg status story
+  [X] BluetoothSecureModeConfig | Knox SDK API reference ⌇⡠⢕⢙⣥
+    https://docs.samsungknox.com/devref/knox-sdk/reference/com/samsung/android/knox/bluetooth/BluetoothSecureModeConfig.html#mapEnable
+    * com.samsung.android.knox.bluetooth.BluetoothSecureModeConfig :: mapEnable = true

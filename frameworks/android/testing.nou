@@ -1,0 +1,26 @@
+⌇⡠⢚⢹⡁
+
+DEBUG
+  Test your service  |  Android Developers ⌇⡠⢁⠰⠦
+    https://developer.android.com/training/testing/integration-testing/service-testing#java
+  Test from the command line  |  Android Developers ⌇⡠⢚⣄⣇
+    https://developer.android.com/studio/test/command-line
+    $ adb shell am instrument -w <test_package_name>/<runner_class>
+    $ adb shell am instrument -w com.android.demo.app.tests/android.support.test.runner.AndroidJUnitRunner
+
+INFO
+  [_] http://d.android.com/tools/testing
+  (1) Unit and Instrumentation tests for Android- - YouTube ⌇⡠⢚⢹⠸
+    https://www.youtube.com/watch?v=KxWDjG4S29U
+
+
+DEV
+  Sharing code between local and instrumentation tests | by Alex Zhukovich | ProAndroidDev ⌇⡠⢚⡄⠷
+    https://proandroiddev.com/sharing-code-between-local-and-instrumentation-tests-c0b57ebd3200
+
+
+USAGE
+  Where is the output from an android instrumented test? - Stack Overflow ⌇⡠⢚⡄⣛
+    https://stackoverflow.com/questions/34247377/where-is-the-output-from-an-android-instrumented-test
+  junit - How to run unit tests with Android Studio - Stack Overflow ⌇⡠⢌⡇⢦
+    https://stackoverflow.com/questions/19891564/how-to-run-unit-tests-with-android-studio
