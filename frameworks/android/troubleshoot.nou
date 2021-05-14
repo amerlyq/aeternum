@@ -1,0 +1,11 @@
+
+ERR: error: package R does not exist
+  ::: FIXME: AndroidManifest.xml and build.gradle
+  How to Rectify R Package Error in Android Studio - DZone Java ⌇⡠⢝⡚⡑
+    https://dzone.com/articles/how-to-rectify-r-package-error-in-android-studio#:~:text=How To Resolve the Package R Does Not Exist Error?&text=Click Build —> Clean Project or,java again.
+
+
+WTF: which library version to write in build.gradle
+  ::: pick latest from remote repository site
+  Maven Repository: com.google.android.material » material ⌇⡠⢝⡡⣧
+    https://mvnrepository.com/artifact/com.google.android.material/material

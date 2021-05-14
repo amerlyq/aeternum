@@ -14,3 +14,26 @@ gitignore
 resources
   Create app icons with Image Asset Studio  |  Android Developers ⌇⡠⢘⠽⢍
     https://developer.android.com/studio/write/image-asset-studio#create-adaptive
+
+
+style .xml
+  styleguide/intellij-java-google-style.xml at gh-pages · google/styleguide ⌇⡠⢝⡡⡤
+    https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml
+
+
+multiple apps in one project
+  [⡠⢝⡤⢓] Can we have multiple apps in one Android Studio project? - Stack Overflow ⌇⡠⢝⡤⢍
+    https://stackoverflow.com/questions/32419621/can-we-have-multiple-apps-in-one-android-studio-project
+  OFF: Creating multiple APKs with several dimensions  |  Android Developers ⌇⡠⢝⡤⢣
+    https://developer.android.com/training/multiple-apks/multiple
+  [⡠⢝⡦⢮] -- Android multiple apps and modules in one project demo | Codexpedia ⌇⡠⢝⡤⢊
+    https://www.codexpedia.com/android/android-multiple-apps-and-modules-in-one-project-demo/
+  Generate and deploy multiple flavor APKs in a single workflow | Bitrise DevCenter ⌇⡠⢝⡤⣫
+    https://devcenter.bitrise.io/deploy/android-deploy/generate-and-deploy-multiple-flavor-apks-in-a-single-workflow/
+
+
+common library -- share AIDL by api lib ※⡠⢊⣯⡰
+  [!] Create an Android library  |  Android Developers ⌇⡠⢘⠻⡈
+    https://developer.android.com/studio/projects/android-library
+  Why are there two build.gradle files in an Android Studio project? - Stack Overflow ⌇⡠⢘⠺⡓
+    https://stackoverflow.com/questions/23241681/why-are-there-two-build-gradle-files-in-an-android-studio-project

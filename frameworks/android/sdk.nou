@@ -6,6 +6,25 @@ ALSO:CFG: @/airy/android/doc/dev.nou
   Installing and creating Emulators with AVDMANAGER (For Continuous Integration Server or Local Use) ⌇⡠⢊⣖⡥
     https://gist.github.com/mrk-han/66ac1a724456cadf1c93f4218c6060ae
 
+build(gradlew)
+  RFC ./gradlew
+    $ java -Dorg.gradle.appname=gradlew -classpath "$PWD/gradle/wrapper/gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain
+    $ "${JAVA_HOME:+$JAVA_HOME/usr/bin/}java" $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS -Dorg.gradle.appname=gradlew -classpath "$PWD/gradle/wrapper/gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain "$@"
+  Android Studio - How to generate "gradlew" for a new project if not already generated ⌇⡠⢝⠽⣍
+    https://gist.github.com/MezzanineMK2/a9baf258d3f51b723836
+  Building Android applications with Gradle - Tutorial ⌇⡠⢝⠿⣒
+    https://www.vogella.com/tutorials/AndroidBuild/article.html
+  USAGE
+    VIZ:
+      $ ./gradlew wrapper
+    ALT: speedup second grandle build by holding it in memory
+      $ gradle build --daemon
+    Run the instrumentation tests
+      $ ./gradlew connectedAndroidTest
+      $ gradle connectedCheck
+
+
+
 create(avd)
   [_] ALSO:FIXME: !avdmanager from cmdline
     $ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.xml.bind'

@@ -9,7 +9,16 @@ DEBUG
     $ adb shell am instrument -w com.android.demo.app.tests/android.support.test.runner.AndroidJUnitRunner
 
 INFO
-  [_] http://d.android.com/tools/testing
+  [⡠⢝⢙⢤] OFF: Build instrumented unit tests  |  Android Developers ⌇⡠⢝⢑⣼
+    https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests
+  [!] READ:OFF: Fundamentals of Testing  |  Android Developers ⌇⡠⢝⢙⠷
+    https://developer.android.com/training/testing/fundamentals
+  [!] READ Developing Android unit and instrumentation tests - Tutorial ⌇⡠⢝⢘⣫
+    https://www.vogella.com/tutorials/AndroidTesting/article.html
+  Build local unit tests  |  Android Developers ⌇⡠⢝⢙⡾
+    https://developer.android.com/training/testing/unit-testing/local-unit-tests#build
+  [_] Test your app  |  Android Developers ⌇⡠⢝⢙⢏
+    https://developer.android.com/studio/test
   (1) Unit and Instrumentation tests for Android- - YouTube ⌇⡠⢚⢹⠸
     https://www.youtube.com/watch?v=KxWDjG4S29U
 
@@ -24,3 +33,17 @@ USAGE
     https://stackoverflow.com/questions/34247377/where-is-the-output-from-an-android-instrumented-test
   junit - How to run unit tests with Android Studio - Stack Overflow ⌇⡠⢌⡇⢦
     https://stackoverflow.com/questions/19891564/how-to-run-unit-tests-with-android-studio
+
+
+RunAll
+  Run all unit tests in Android Studio - Stack Overflow ⌇⡠⢝⢘⣞
+    https://stackoverflow.com/questions/41116767/run-all-unit-tests-in-android-studio/56192783#56192783
+  how to run all (unit and instrumented) tests with one click in Android Studio - Stack Overflow ⌇⡠⢝⢘⣡
+    https://stackoverflow.com/questions/40104623/how-to-run-all-unit-and-instrumented-tests-with-one-click-in-android-studio
+
+
+private members
+  How to Unit test private methods in Java and Kotlin | by GOVIND DIXIT | MindOrks | Medium ⌇⡠⢝⢚⣢
+    https://medium.com/mindorks/how-to-unit-test-private-methods-in-java-and-kotlin-d3cae49dccd
+  java - How do you unit test private methods? - Software Engineering Stack Exchange ⌇⡠⢝⢚⣵
+    https://softwareengineering.stackexchange.com/questions/100959/how-do-you-unit-test-private-methods

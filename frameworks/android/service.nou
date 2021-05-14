@@ -26,6 +26,8 @@ WKLOG
 
 
 [_] share AIDL by api lib ⌇⡠⢊⣯⡰
+  OFF: Android Interface Definition Language (AIDL)  |  Android Developers ⌇⡠⢔⡒⡰
+    https://developer.android.com/guide/components/aidl#Calling
   ++ Sharing Functionality between Android Apps with AIDL - SitePoint ⌇⡠⢊⣴⣿
     https://www.sitepoint.com/aidl-for-sharing-functionality-between-android-apps/
     sitepoint-editors/android-aidl: This projects uses the Android AIDL to create a remote service ⌇⡠⢊⣵⠎

@@ -74,3 +74,8 @@ INFO
 
 Rules for portable builds
   https://blog.gibson.sh/2017/11/26/creating-portable-linux-binaries/
+
+
+Re: Very slow clang kernel config .. - Linus Torvalds ⌇⡠⢝⠙⣨
+  https://lore.kernel.org/lkml/CAHk-=whs8QZf3YnifdLv57+FhBi5_WeNTG1B-suOES=RcUSmQg@mail.gmail.com/
+  ¦ Линус против динамической линковки библитек
