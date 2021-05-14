@@ -43,6 +43,7 @@ WKLOG
 
 
 [_] background thread
+  [50%] TUT: /@/research/android/aidl-svc/advanced-service-patterns.pdf
   Services overview  |  Android Developers ⌇⡠⢊⢚⣛
     https://developer.android.com/guide/components/services
     ¦ Remember that if you do use a service, it still runs in your

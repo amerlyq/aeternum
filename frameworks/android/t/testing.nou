@@ -3,10 +3,13 @@
 DEBUG
   Test your service  |  Android Developers ⌇⡠⢁⠰⠦
     https://developer.android.com/training/testing/integration-testing/service-testing#java
-  Test from the command line  |  Android Developers ⌇⡠⢚⣄⣇
+  Test from the command line  |  Android Developers ⌇⡠⢌⡆⢿
     https://developer.android.com/studio/test/command-line
-    $ adb shell am instrument -w <test_package_name>/<runner_class>
-    $ adb shell am instrument -w com.android.demo.app.tests/android.support.test.runner.AndroidJUnitRunner
+    $ ./gradlew connectedAndroidTest
+    $ xdg-open app/build/reports/androidTests/connected/index.html
+    $ adb shell am instrument -w com.example.service.test/androidx.test.runner.AndroidJUnitRunner
+    $ adb shell am instrument -w -m -e package com.example.service -e debug false com.example.service.test/androidx.test.runner.AndroidJUnitRunner
+    $ adb shell am instrument -w -e class 'com.example.service.MyTests#MyImpl_GetSet' -- com.example.service.test/androidx.test.runner.AndroidJUnitRunner
 
 INFO
   [⡠⢝⢙⢤] OFF: Build instrumented unit tests  |  Android Developers ⌇⡠⢝⢑⣼

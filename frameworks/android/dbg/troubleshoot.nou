@@ -9,3 +9,8 @@ WTF: which library version to write in build.gradle
   ::: pick latest from remote repository site
   Maven Repository: com.google.android.material » material ⌇⡠⢝⡡⣧
     https://mvnrepository.com/artifact/com.google.android.material/material
+
+
+ERR: W/View: couldn't find view with id 2131231107
+  Android, Troubleshooting "W/View: couldn't find view with id" - Homebrew & Technology ⌇⡠⢞⣶⢜
+    http://www.homebrewandtechnology.com/blog/androidtroubleshootingwviewcouldntfindviewwithid
