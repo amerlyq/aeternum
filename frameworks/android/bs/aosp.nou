@@ -1,0 +1,73 @@
+INFO
+  AOSP Folder Description. Today I am going to describe what all… | by Budhdi Sharma | Medium ⌇⡠⢥⡴⠞
+    https://budhdisharma.medium.com/aosp-folder-description-ac1d55aa8bb2
+
+CI/CD
+  Malinskiy/action-android: Collection of Android-related GitHub Actions ⌇⡠⢥⡜⡁
+    https://github.com/Malinskiy/action-android
+
+
+CFG:
+  Establishing a Build Environment  |  Android Open Source Project ⌇⡠⢥⡒⢥
+    https://source.android.com/setup/build/initializing
+  ArchLinux: https://wiki.archlinux.org/index.php/android#Building
+    $ sudo pacman -S \
+      base-devel multilib-devel gcc repo git gnupg gperf sdl wxgtk2 \
+      squashfs-tools curl ncurses zlib schedtool perl-switch zip unzip libxslt \
+      bc rsync ccache lib32-zlib lib32-ncurses lib32-readline
+    $ aur sync ncurses5-compat-libs lib32-ncurses5-compat-libs
+    $ sudo pacman -S ncurses5-compat-libs lib32-ncurses5-compat-libs
+    $ sudo pacman -S python2
+      << /cache/aosp/development/build/tools/mk_sources_zip.py
+
+
+
+
+%% Build
+  Downloading the Source  |  Android Open Source Project ⌇⡠⢥⡠⡶
+    https://source.android.com/setup/build/downloading
+    # USE: https://android.googlesource.com/platform/manifest/+/refs/heads/android-11.0.0_r33
+    $ repo init -u https://android.googlesource.com/platform/manifest -b android-11.0.0_r33
+      # NOTE: may freeze, must re-run
+    $ repo sync -c -j8
+    $ export OUT_DIR_COMMON_BASE=/cache/android
+    $ source build/envsetup.sh
+    $ lunch aosp_car_x86_64-userdebug
+    # NOTE: uses "soong" builder ALT:(slower) $ make ...
+    # PERF=(j4=6h20m j6=3h45m) on CPU=i5 RAM=16GB  -> out=[122/236]GB
+    $ m -j$(nproc)
+
+
+%% Emu
+  Local
+    Building Android  |  Android Open Source Project ⌇⡠⢥⡠⠗
+      https://source.android.com/setup/build/building
+      $ source build/envsetup.sh
+      $ lunch 11
+      $ emulator
+  Remote #1 VNC or X11-Forwarding -- build/run on remote SSH, see window locally
+    REMOTE: $ systemctl start vncserver@:1
+    LOCAL: $ vncviewer -PreferredEncoding=ZRLE -via user@host localhost::5901
+    REMOTE:
+      $ source build/envsetup.sh
+      $ lunch aosp_car_x86_64-eng
+      $ emulator -no-window -verbose -memory 2048 -gpu guest -no-audio -no-snapshot -wipe-data -no-boot-anim
+  Remote #2 SDK -- build remotely, fetch/configure/run SDK locally
+    Using Android Emulator Virtual Devices  |  Android Open Source Project ⌇⡠⢥⡞⠍
+      https://source.android.com/setup/create/avd#sharing_avd_system_images_for_others_to_use_with_android_studio
+      $ vis /cache/aosp/development/build/tools/mk_sources_zip.py
+        << replace "#/usr/bin/python" -> python2
+        ALT:FAIL
+          # $ ln -s /usr/bin/python2 bin/python
+          # $ ln -s /usr/bin/python2-config bin/python-config
+          # $ export PATH=/cache/aosp/bin:$PATH
+      $ m -j$(nproc) sdk sdk_repo
+        OFF:NOTE: -jN is not needed, defaults must be optimal
+      $ cd out/host/linux-x86/sdk/aosp_car_x86_64/
+      $ vi repo-sys-img.xml
+        CHG <sdk:url> -> http://remote.machine:8000/<AVD-System-Image-URL>
+        Android Building - Custom AVD system images for Android Studio ⌇⡠⢥⡢⢨
+          http://android.2317887.n4.nabble.com/Custom-AVD-system-images-for-Android-Studio-td471832.html
+      $ python -m http.server 8000
+      USE: Android Studio -> "SDK Manager Updated" sites -> [Download] -> Create new AVD in AVD Manager
+        http://remote.machine:8000/repo-sys-img.xml

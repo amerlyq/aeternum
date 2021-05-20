@@ -2,9 +2,73 @@
 
 ALSO:CFG: @/airy/android/doc/dev.nou
 
+export(SDK)
+  +++ Install Android SDK tools in linux. Can be used for custom CI (Continuous Integration) ⌇⡠⢥⡤⢭
+    https://gist.github.com/Ashok-Varma/6b5864c1e444a3f1b61158254a43c4bc
+  +++ OFF: docs/howto_build_SDK.txt - platform/sdk - Git at Google ⌇⡠⢥⡪⣲
+    https://android.googlesource.com/platform/sdk/+/master/docs/howto_build_SDK.txt
+  How to install Android SDK Build Tools on the command line? - Stack Overflow ⌇⡠⢥⡳⡶
+    https://stackoverflow.com/questions/17963508/how-to-install-android-sdk-build-tools-on-the-command-line
+  Installing Android SDK Tools | CodePath Android Cliffnotes ⌇⡠⢥⡥⡦
+    https://guides.codepath.com/android/installing-android-sdk-tools
+  sdkmanager is missing from Android SDK - It's needed to install different version of CMake · Issue #60 · actions/virtual-environments ⌇⡠⢥⡡⠐
+    https://github.com/actions/virtual-environments/issues/60
+    $ wget --quiet --output-document='android-sdk.zip' https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+    $ sudo unzip -d $ANDROID_HOME android-sdk.zip > /dev/null
+    # $ echo "y" | sudo $ANDROID_HOME/tools/bin/sdkmanager "cmake;3.10.2.4988404" > /dev/null
+    OLD: $ echo "y" | sudo $ANDROID_HOME/tools/bin/sdkmanager --licenses > /dev/null
+  [⡠⢥⡩⡔] NEW: cmdline-tools OBSOL: sdk-tools // accept licenses ⌇⡠⢥⡩⡺
+    Download Android Studio and SDK tools  |  Android Developers ⌇⡠⢥⡤⣿
+      https://developer.android.com/studio/index.html
+    Android SDK Command-Line Tools release notes  |  Android Developers ⌇⡠⢥⡥⢰
+      https://developer.android.com/studio/releases/cmdline-tools
+      ! ¦ The Android SDK Command-Line Tools package replaces the deprecated SDK Tools package
+    Command line tools  |  Android Developers ⌇⡠⢥⡥⣖
+      https://developer.android.com/studio/command-line#tools-sdk
+    $ wget https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
+    $ unzip -d /cache/aosp-sdk/cmdline-tools/latest/{bin,.} ...
+    $ ln -s cmdline-tools/latest tools
+    $ yes | tools/bin/sdkmanager --sdk_root=/cache/aosp-sdk --licenses
+      sdkmanager  |  Android Developers ⌇⡠⢥⡪⠿
+        https://developer.android.com/studio/command-line/sdkmanager
+      android - Automatically accept all SDK licences - Stack Overflow ⌇⡠⢥⡴⡭
+        https://stackoverflow.com/questions/38096225/automatically-accept-all-sdk-licences
+      android - You have not accepted the license agreements of the following SDK components - Stack Overflow ⌇⡠⢥⡴⢉
+        https://stackoverflow.com/questions/39760172/you-have-not-accepted-the-license-agreements-of-the-following-sdk-components
+  [_] ALT:(wget):TRY:(aosp):
+    * /cache/aosp/out/soong/.glob/prebuilts/cmdline-tools
+    * /cache/aosp/prebuilts/android-emulator/linux-x86_64/emulator
+    * /cache/aosp/prebuilts/cmdline-tools/tools/bin/sdkmanager
+
+
 [_] FUTURE: cmdline setup SDK/AVD ⌇⡠⢊⣕⢱
   Installing and creating Emulators with AVDMANAGER (For Continuous Integration Server or Local Use) ⌇⡠⢊⣖⡥
     https://gist.github.com/mrk-han/66ac1a724456cadf1c93f4218c6060ae
+  Managing AVDs from the Command Line | Android Developers ⌇⡠⢥⡪⠟
+    https://stuff.mit.edu/afs/sipb/project/android/docs/tools/devices/managing-avds-cmdline.html
+  android - How to install a specific emulator from command line with avdmanager? - Stack Overflow ⌇⡠⢥⡮⢮
+    https://stackoverflow.com/questions/42966496/how-to-install-a-specific-emulator-from-command-line-with-avdmanager
+    $ cd $ANDROID_HOME/tools/bin
+    $ yes | ./sdkmanager emulator
+    $ export PATH="${ANDROID_HOME}/emulator:${PATH}"
+    $ ./sdkmanager "system-images;android-28;default;x86"
+    $ yes | ./sdkmanager --licenses
+    $ ./avdmanager list device
+    $ ./avdmanager create avd -n test -k "system-images;android-25;google_apis;x86"
+    $ cd $ANDROID_HOME/tools
+    $ sudo apt-get install cpu-checker
+    $ kvm-ok
+    $ sudo apt-get install qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+    $ ./emulator -avd test
+  ++ Running emulator after building Android from source - Stack Overflow ⌇⡠⢦⣆⣺
+    https://stackoverflow.com/questions/9022750/running-emulator-after-building-android-from-source
+    $ ./out/host/linux-x86/bin/emulator -sysdir out/target/product/generic/ -system out/target/product/generic/system.img -ramdisk out/target/product/generic/ramdisk.img -data out/target/product/generic/userdata.img -kernel prebuilt/android-arm/kernel/kernel-qemu -sdcard sdcard.img -skindir sdk/emulator/skins -skin WVGA800 -scale 0.7 -memory 512 -partition-size 1024
+    $ emulator -help-disk-images
+    $ cd system-images/android-11/x86_64/ && ../../../emulator/emulator -sysdir "$PWD" -datadir "/tmp/t" -kernel kernel-ranchu -ramdisk ramdisk.img -system system.img -vendor vendor.img -data userdata.img -sdcard /t/sdcard.img -cache /t/cache.img -no-snapstorage
+      Start the emulator from the command line  |  Android Developers ⌇⡠⢦⣎⣷
+        https://developer.android.com/studio/run/emulator-commandline
+    $ ./emulator/emulator -sysdir "/cache/aosp-sdk/system-images/android-11/x86_64" -datadir "/tmp/t"
+
 
 build(gradlew)
   RFC ./gradlew
@@ -28,7 +92,8 @@ build(gradlew)
 create(avd)
   [_] ALSO:FIXME: !avdmanager from cmdline
     $ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.xml.bind'
-    $ ANDROID_HOME=/cache/work/aosp-sdk ./avdmanager
+    $ export ANDROID_HOME=/cache/aosp-sdk
+    $ ./avdmanager
    INFO
     Failed to install android-sdk: "java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema" - Stack Overflow ⌇⡠⢗⣥⠆
       https://stackoverflow.com/questions/46402772/failed-to-install-android-sdk-java-lang-noclassdeffounderror-javax-xml-bind-a
