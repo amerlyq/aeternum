@@ -38,6 +38,11 @@ CFG:
     $ m -j$(nproc)
 
 
+Rebuild
+  android source - How to correctly clean up a module and rebuild it in AOSP? - Stack Overflow ⌇⡠⢧⣊⣗
+    https://stackoverflow.com/questions/55661022/how-to-correctly-clean-up-a-module-and-rebuild-it-in-aosp
+
+
 %% Emu
   Local
     Building Android  |  Android Open Source Project ⌇⡠⢥⡠⠗

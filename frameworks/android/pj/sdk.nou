@@ -101,6 +101,17 @@ create(avd)
       https://www.jesperdj.com/2018/09/30/jaxb-on-java-9-10-11-and-beyond/
     Java 9+ modularity: The difficulties and pitfalls of migrating from Java 8 to Java 9+ – IBM Developer ⌇⡠⢗⣤⢻
       https://developer.ibm.com/languages/java/tutorials/java-modularity-5/
+    How to create Android Virtual Device with command line and avdmanager? - Stack Overflow ⌇⡠⢧⣕⢾
+      https://stackoverflow.com/questions/42792947/how-to-create-android-virtual-device-with-command-line-and-avdmanager
+  ALT ⌇⡠⢧⢮⡁
+    $ cd /cache/aosp-sdk-old
+    $ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+    $ export ANDROID_HOME=/cache/ao
+    $ ./tools/bin/avdmanager list device
+    $ ./tools/bin/avdmanager -v create avd --force --name car --path /t/avd/ --package 'system-images;android-30;default;x86_64' --device '10.1in WXGA (Tablet)'
+      FAIL: --package '/cache/work/aosp-sdk/system-images/android-11/x86_64;android-28;x86_64'
+    $ ./tools/bin/avdmanager list avd
+    $ ANDROID_HOME=/cache/ao ./emulator/emulator @car
 
 
 pick(image)
