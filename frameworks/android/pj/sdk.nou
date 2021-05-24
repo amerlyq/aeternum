@@ -106,6 +106,7 @@ create(avd)
   ALT ⌇⡠⢧⢮⡁
     $ cd /cache/aosp-sdk-old
     $ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+      # ALT: JAVA_HOME=/opt/android-studio/jre
     $ export ANDROID_HOME=/cache/ao
     $ ./tools/bin/avdmanager list device
     $ ./tools/bin/avdmanager -v create avd --force --name car --path /t/avd/ --package 'system-images;android-30;default;x86_64' --device '10.1in WXGA (Tablet)'

@@ -7,6 +7,7 @@
     $ adb shell dumpsys car_service
   [X] src/com/android/bluetooth/mapclient/MapClientService.java - platform/packages/apps/Bluetooth - Git at Google ⌇⡠⡛⠓⠓
     https://android.googlesource.com/platform/packages/apps/Bluetooth/+/master/src/com/android/bluetooth/mapclient/MapClientService.java
+    LOCAL: ./packages/apps/Bluetooth/src/com/android/bluetooth/mapclient/*
     * sendMessage(BluetoothDevice device, Uri[] contacts, String message, PendingIntent sentIntent, PendingIntent deliveredIntent)
     * getUnreadMessages(BluetoothDevice device)
     * onReceive(Context context, Intent intent)
@@ -16,7 +17,7 @@
     ¦ Such profiles are usually handled by the OS. There is no API in Android that allows you to implement it yourself.
   [X] List of Bluetooth profiles - Wikipedia ⌇⡠⢕⢕⡾
     https://en.wikipedia.org/wiki/List_of_Bluetooth_profiles#Message_Access_Profile_(MAP)
-  [_] OFF:READ: [0/80]p Message Access Profile_SPEC_V10
+  [⡠⢜⠶⢟] OFF:READ: [80/80]p Message Access Profile_SPEC_V10
     https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=215400
   [X] How to implement bluetooth profile MAP(Message Access Profile) on Android phone - Stack Overflow ⌇⡠⡛⠓⠤
     https://stackoverflow.com/questions/16749398/how-to-implement-bluetooth-profile-mapmessage-access-profile-on-android-phone
@@ -26,6 +27,7 @@
     * createMapMnsRecord(…)
   [X] core/java/android/bluetooth/BluetoothMapClient.java - platform/frameworks/base - Git at Google ⌇⡠⢕⢘⡥
     https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/bluetooth/BluetoothMapClient.java
+    LOCAL: ./frameworks/base/core/java/android/bluetooth/{BluetoothM*,SdpM*Record}.java
     * sendMessage()
     * getUnreadMessages()
   [X] OFF:VIZ:WTF: Message Access Profile | Bluetooth® Technology Website ⌇⡠⢕⢙⡅
@@ -34,3 +36,6 @@
   [X] BluetoothSecureModeConfig | Knox SDK API reference ⌇⡠⢕⢙⣥
     https://docs.samsungknox.com/devref/knox-sdk/reference/com/samsung/android/knox/bluetooth/BluetoothSecureModeConfig.html#mapEnable
     * com.samsung.android.knox.bluetooth.BluetoothSecureModeConfig :: mapEnable = true
+
+Messenger
+  ./packages/apps/Car/Messenger/src/com/android/car/messenger/

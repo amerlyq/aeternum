@@ -57,6 +57,7 @@ Rebuild
       $ source build/envsetup.sh
       $ lunch aosp_car_x86_64-eng
       $ emulator -no-window -verbose -memory 2048 -gpu guest -no-audio -no-snapshot -wipe-data -no-boot-anim
+      $ adb shell
   Remote #2 SDK -- build remotely, fetch/configure/run SDK locally
     Using Android Emulator Virtual Devices  |  Android Open Source Project ⌇⡠⢥⡞⠍
       https://source.android.com/setup/create/avd#sharing_avd_system_images_for_others_to_use_with_android_studio
