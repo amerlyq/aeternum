@@ -1,0 +1,85 @@
+
+Build kernel ⌇⡠⢷⣋⣿
+  https://junsun.net/wordpress/2021/01/android-aosp-repo-checkout-method-and-size-comparison/
+  $ mkdir -p /t/kernel && cd /t/kernel
+  $ repo init --depth=1 -u https://android.googlesource.com/kernel/manifest -b common-android11-5.4
+    MAYBE:ALSO: $ --partial-clone --clone-filter=blob:limit=10M
+  $ (cd .repo/manifests && gmy -m)
+  $ repo sync -c -n -j4 --no-clone-bundle --no-tags
+  $ repo sync -c -l -j8
+  $ BUILD_CONFIG=common/build.config.gki.x86_64 build/build.sh
+  $ BUILD_CONFIG=common-modules/virtual-device/build.config.goldfish.x86_64 build/build.sh
+  $ du -sh . # 16GB
+  $ cd out/android11-5.4/dist
+  $ tar -czvf /t/kernel.tar.gz -- bzImage *.ko
+    # OR: $ cp -t /t -- out/android11-5.4/dist/{bzImage,*.ko}
+  CFG:
+    $ v ./common-modules/virtual-device/goldfish_defconfig.fragment
+    $ cat ./out/android11-5.4/common/.config
+
+
+OLD:ALT: Building Kernels Manually  |  Android Open Source Project ⌇⡠⢷⣜⡔
+  https://source.android.com/setup/build/building-kernels-deprecated
+  ¦ More recent kernel sources can be acquired using Repo and be built without
+  ¦ further configuration by running build/build.sh from the root of your source checkout.
+  https://android.googlesource.com/kernel/common-modules/virtual-device/
+  VIZ: https://android.googlesource.com/kernel
+    $ git clone https://android.googlesource.com/kernel/goldfish
+    $ cd goldfish
+    $ make goldfish_defconfig ARCH=arm64 CROSS_COMPILE=aarch64-linux-android-
+    $ make
+      # arch/arm64/boot/* (image output)
+      # arch/arm64/boot/dts/hisilicon/hi6220-hikey.dtb
+  https://source.android.com/setup/build/building-kernels#running
+  ¦ The kernel binary, modules, and corresponding image are located in the
+  ¦ out/BRANCH/dist directory.
+    # export TARGET_PREBUILT_KERNEL=DIST_DIR/Image.lz4-dtb
+    $ m bootimage TARGET_PREBUILT_KERNEL=/work/kernel/bzImage
+
+
+
+Rebuild only kernel ⌇⡠⢷⣌⠑
+  2020: NICE: search for actual build commands in logs
+    https://stackoverflow.com/questions/63136813/how-do-you-build-a-linux-kernel-for-android-from-the-aosp
+    $ source build/envsetup.sh
+    $ lunch aosp_car_x86_64-eng
+    $ m bootimage
+    # ./out/target/product/generic_car_x86_64/kernel
+    # ./out/target/product/generic_car_x86_64/boot.img
+      FAIL: no boot.img in AOSP, the only file found:
+        ./bootable/recovery/tests/testdata/boot.img
+    # ./out/verbose.log.gz
+    $ zcat out/verbose.log.gz | grep defconfig
+  2019: ALT: update prebuilt boot.img in-place with newly generated kernel/dtb:
+    https://discuss.96boards.org/t/building-android-kernel-without-having-to-sync-aosp/8336
+    $ git clone https://github.com/96boards/dt-update.git
+      $ cd dt-update && make
+      $ sudo make install
+    $ dbootimg boot.img -u kernel db410c-kernel/arch/arm64/boot/Image.gz
+    $ dbootimg boot.img -u dtb db410c-kernel/arch/arm64/boot/dts/qcom/apq8016-sbc.dtb
+    $ fastboot flash boot boot.img
+  2018: Customize Kernel | Android-x86 ⌇⡠⢷⣭⢶
+    https://www.android-x86.org/documentation/customize_kernel.html
+    ¦ ... if you modify the kernel tree, Android build system won't notice the change.
+    ¦ That means, the kernel won't be rebuilt automatically if you rebuild the image.
+    ~ $ touch kernel/arch/x86/configs/android-x86_*
+    ~ $ rm $OUT/obj/kernel/.config
+    ~ $ rm $OUT/obj/kernel/arch/x86/boot/bzImage
+    [_] HACK: replace kernel inside running image
+  MAYBE: clean-up single module and rebuild
+    ~ $ m clean-libskia
+    https://groups.google.com/g/android-building/c/-MSL_oxIw9I
+    https://github.com/google/kati/issues/78
+      $ rm $OUT/obj/PACKAGING/systemimage_intermediates/system.img && make systemimage
+      $ m installclean
+      $ m snod
+  To boot the kernel without flashing:
+    https://source.android.com/setup/build/building-kernels#customize-build
+    $ adb reboot bootloader
+    $ fastboot boot Image.lz4-dtb
+  ALT:READ: #feed https://groups.google.com/g/android-building
+
+
+Cuttlefish
+  Cuttlefish Virtual Android Devices  |  Android Open Source Project ⌇⡠⢷⣠⠰
+    https://source.android.com/setup/create/cuttlefish

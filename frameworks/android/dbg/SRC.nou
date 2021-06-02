@@ -1,0 +1,22 @@
+help
+  $ hmm
+  $ m help
+    VIZ: targets ./**/Android.{mk,bp}
+    OR: all targets at once
+      $OUT/build-<product>*.ninja
+      $OUT/soong/build.ninja
+  $ vis /work/aosp/build/make/Usage.txt
+
+
+
+grep all AOSP sources
+  $ source build/envsetup.sh
+  $ hmm
+    - m:          Makes from the top of the tree.
+    - mm:         Builds and installs all of the modules in the current directory, and their dependencies.
+    - cgrep:      Greps on all local C/C++ files.
+    - jgrep:      Greps on all local Java files.
+    ...
+    - sgrep:      Greps on all local source files.
+    - treetrep:   ...
+    - allmod:     List all modules.
