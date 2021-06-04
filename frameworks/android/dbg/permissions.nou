@@ -1,0 +1,17 @@
+
+Change permissions
+  $ adb shell pm list packages | sort
+   │ ...
+   │ package:org.ebookdroid
+   │ ...
+  $ adb shell dumpsys package org.ebookdroid | grep permission
+   │ requested permissions:
+   │   android.permission.READ_EXTERNAL_STORAGE
+   │   android.permission.WRITE_EXTERNAL_STORAGE
+   │ runtime permissions:
+   │   android.permission.READ_EXTERNAL_STORAGE: granted=true
+   │   android.permission.WRITE_EXTERNAL_STORAGE: granted=true
+  $ adb shell appops get --uid org.ebookdroid
+  $ adb shell appops set --uid org.ebookdroid MANAGE_EXTERNAL_STORAGE allow
+  ---
+  $ adb shell pm uninstall com.example
