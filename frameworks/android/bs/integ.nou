@@ -1,0 +1,26 @@
+
+USAGE
+  ADD: /a/.repo/manifests/default.xml
+    ¦ --- default.xml
+    ¦ +++ combined.xml
+    ¦ @@ -2,2 +2,3 @@
+    ¦  <manifest>
+    ¦ +  <remote name="mymirror" fetch="ssh://git@example.com:8080/mymirror/" />
+    ¦    <remote  name="aosp" fetch=".." ...
+    ¦ @@ -672,3 +674,4 @@
+    ¦    <project path="packages/services/Telecomm" name="platform/packages/services/Telecomm" groups="pdk-cw-fs,pdk-fs" />
+    ¦ -  <project path="packages/services/Telephony" name="platform/packages/services/Telephony" groups="pdk-cw-fs,pdk-fs" />
+    ¦ +  <project path="packages/services/Telephony" name="platform-packages-services-Telephony" remote="mymirror" revision="main" groups="pdk-cw-fs,pdk-fs" />
+    ¦ +  <project path="packages/services/MyDomain" name="mydomain" remote="mymirror" revision="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" groups="pdk-cw-fs,pdk-fs" />
+    ¦    <project path="packages/wallpapers/ImageWallpaper" name="platform/packages/wallpapers/ImageWallpaper" groups="pdk-fs" />
+  Clone added repo
+    $ repo sync mydomain
+  Rebuild domain ⌇⡠⣇⢄⠽
+    $ source build/envsetup.sh
+    $ lunch aosp_car_x86_64-eng
+    $ cd ./packages/services/MyDomain
+    $ edit src/java/com/mydomain/example.java
+    $ mm  # rebuild only this module (instead of full image)
+  Test domain
+    $ cd <somewhere> (find path to .apk / .ab package)
+    $ adb install /path/to/apk   # only install this package

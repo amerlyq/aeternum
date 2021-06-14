@@ -27,9 +27,14 @@ CFG:
   Downloading the Source  |  Android Open Source Project ⌇⡠⢥⡠⡶
     https://source.android.com/setup/build/downloading
     # USE: https://android.googlesource.com/platform/manifest/+/refs/heads/android-11.0.0_r33
-    $ repo init -u https://android.googlesource.com/platform/manifest -b android-11.0.0_r33
+    $ mkdir -p /cache/aosp && cd /cache/aosp
+    $ repo init --depth=1 -u https://android.googlesource.com/platform/manifest -b android-11.0.0_r33
       # NOTE: may freeze, must re-run
-    $ repo sync -c -j8
+      MAYBE:ALSO: $ --partial-clone --clone-filter=blob:limit=10M
+    $ (cd .repo/manifests && gmy -m)
+    $ repo sync -c -n -j4 --no-clone-bundle --no-tags
+    # $ tar -czf ../src_android.tar.gz -- .
+    $ repo sync -c -l -j8
     $ export OUT_DIR_COMMON_BASE=/cache/android
     $ source build/envsetup.sh
     $ lunch aosp_car_x86_64-userdebug
