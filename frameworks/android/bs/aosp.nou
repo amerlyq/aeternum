@@ -46,6 +46,9 @@ CFG:
 Rebuild
   android source - How to correctly clean up a module and rebuild it in AOSP? - Stack Overflow ⌇⡠⢧⣊⣗
     https://stackoverflow.com/questions/55661022/how-to-correctly-clean-up-a-module-and-rebuild-it-in-aosp
+  REMOVE: ccache is no longer supported ⌇⡠⣈⡗⣚
+    2018: https://android.googlesource.com/platform/build/+/7556703f0dfab14c91c03dab1a3c25f6386268d4
+    2012: https://stackoverflow.com/questions/8251741/how-to-speed-up-mm-in-module-making-of-aosp
 
 
 %% Emu

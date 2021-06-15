@@ -19,8 +19,16 @@ USAGE
     $ source build/envsetup.sh
     $ lunch aosp_car_x86_64-eng
     $ cd ./packages/services/MyDomain
+    #  OR: (after proper Android.bp): $ gomod MyDomain
     $ edit src/java/com/mydomain/example.java
-    $ mm  # rebuild only this module (instead of full image)
+    $ mm  # rebuild only this module (instead of full image) + utils for build (whichever are absent)
+  ALT: rebuild single folder
+    $ (cd out/soong/.intermediates/path/to/mydomain && rm -rf *)
+    $ mm
+    $ m snod  # repack system image
   Test domain
     $ cd <somewhere> (find path to .apk / .ab package)
     $ adb install /path/to/apk   # only install this package
+  ALSO: integ as dependency for whole image
+    $ cat build/soong/root.bp
+    $ m
