@@ -86,6 +86,7 @@ build(gradlew)
     Run the instrumentation tests
       $ ./gradlew connectedAndroidTest
       $ gradle connectedCheck
+      ALT:(Android Studio): go to the Android tests folder, click right mouse button and choose: Run "Tests in 'com.example.mydomain'"
 
 
 

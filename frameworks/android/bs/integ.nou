@@ -25,10 +25,37 @@ USAGE
   ALT: rebuild single folder
     $ (cd out/soong/.intermediates/path/to/mydomain && rm -rf *)
     $ mm
-    $ m snod  # repack system image
-  Test domain
+  Test domain (install only single package)
     $ cd <somewhere> (find path to .apk / .ab package)
-    $ adb install /path/to/apk   # only install this package
+    $ adb -s emulator-5554 install /path/to/mydomain/app/build/outputs/apk/debug/app-debug.apk
   ALSO: integ as dependency for whole image
     $ cat build/soong/root.bp
     $ m
+    ¦ project packages/services/Car/
+    ¦ diff --git a/car_product/build/car.mk b/car_product/build/car.mk
+    ¦ index 67674ab47..952035450 100644
+    ¦ --- a/car_product/build/car.mk
+    ¦ +++ b/car_product/build/car.mk
+    ¦ @@ -21,6 +21,8 @@ PRODUCT_PRIVATE_SEPOLICY_DIRS += packages/services/Car/car_product/sepolicy/priv
+    ¦
+    ¦  PRODUCT_PACKAGES += \
+    ¦      Bluetooth \
+    ¦ +    com.MyDomain.api \
+    ¦ +    MyDomainService \
+    ¦      CarDeveloperOptions \
+    ¦      CompanionDeviceSupport \
+    ¦      OneTimeInitializer \
+  CHECK: system-image contains your .apk
+    $ m snod  # repack system image
+    $ cd /a/out/host/linux-x86/sdk/aosp_car_x86_64/android-sdk_eng.${USER}_linux-x86/system-images/android-11/x86_64/
+    $ fdisk -lL system.img
+    $ sudo mount -o ro,loop,offset=2097152 system.img /mnt
+    OR:
+    $ emulator -verbose -gpu guest -no-audio -no-snapshot -wipe-data -no-boot-anim
+    $ adb shell ls /system/priv-app/MyDomainService
+      # MyDomainService.apk
+
+
+
+How CleanSpec.mk works ⌇⡠⣉⢲⠶
+  https://groups.google.com/g/android-building/c/dtwPHnL539o
