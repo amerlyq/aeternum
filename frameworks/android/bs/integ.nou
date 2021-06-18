@@ -48,9 +48,30 @@ USAGE
   CHECK: system-image contains your .apk
     $ m snod  # repack system image
     $ cd /a/out/host/linux-x86/sdk/aosp_car_x86_64/android-sdk_eng.${USER}_linux-x86/system-images/android-11/x86_64/
+    $ /usr/bin/simg2img system.img system.raw
+      Invalid sparse file format at header magic
+      Failed to read sparse file
+    $ file -L system.img
+      system.img: DOS/MBR boot sector; partition 1 : ID=0xee, start-CHS (0x0,0,2), end-CHS (0x2c8,94,22), startsector 1, 11444223 sectors, extended partition table (last)
     $ fdisk -lL system.img
+      Device      Start      End  Sectors  Size Type
+      system.img1  2048     4095     2048    1M Linux filesystem
+      system.img2  4096 11442175 11438080  5.5G Linux filesystem
     $ sudo mount -o ro,loop,offset=2097152 system.img /mnt
-    OR:
+      mount: /mnt: wrong fs type, bad option, bad superblock on /dev/loop0, missing codepage or helper program, or other error.
+    $ tail -c +2097153 system.img > partial.img
+    $ /usr/bin/simg2img partial.img system.raw
+      Invalid sparse file format at header magic
+      Failed to read sparse file
+    $ sudo mount -o ro,loop partial.img /mnt
+      mount: /mnt: wrong fs type, bad option, bad superblock on /dev/loop0, missing codepage or helper program, or other error.
+    BET:FIXED
+      $ binwalk system.img | grep EXT
+        3145728       0x300000        Linux EXT filesystem, blocks count: 463985, image size: 475120640, rev 1.0, ext2 filesystem data, UUID=4d67e29c-2c55-41bb-a73d-a45ca738a738, volume name "/"
+      $ sudo mount -o ro,loop,offset=3145728 system.img /mnt
+    OR: indirectly verify system.img content by list files
+    $ grep 'MyDomain' ./out/target/product/generic_car_x86_64/*.json
+    OR: directly navigate files in running emulator
     $ emulator -verbose -gpu guest -no-audio -no-snapshot -wipe-data -no-boot-anim
     $ adb shell ls /system/priv-app/MyDomainService
       # MyDomainService.apk
