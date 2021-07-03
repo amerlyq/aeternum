@@ -1,0 +1,7 @@
+
+Fast rebuild / change sources
+  * run "bitbake" only once -- to generate scripts
+  * no need to run "source env/oe-template" in new terminals
+    ALSO: these vars only needed for scripts generation, not for building:
+      ~~ TEMPLATECONF BB_ENV_EXTRAWHITE BBPATH BUILDDIR
+  * scripts !run.do_compile contains full env
