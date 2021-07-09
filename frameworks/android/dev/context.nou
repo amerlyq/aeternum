@@ -1,0 +1,4 @@
+
+Different ways to get Context in Android | by Susheel karam | SuKoder | Susheel Karam | Medium ⌇⡠⣧⡡⡹
+  https://medium.com/susheel-karam/different-ways-to-get-context-in-android-8018d9663292
+    getApplicationContext().registerReceiver(mStatusReceiver, intentFilter);

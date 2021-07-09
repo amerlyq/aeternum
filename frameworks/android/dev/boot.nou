@@ -1,0 +1,5 @@
+
+Android BroadcastReceiver - Tutorial ⌇⡠⣧⢝⣽
+  https://www.vogella.com/tutorials/AndroidBroadcastReceiver/article.html
+    3. Automatically starting Services from a Receivers
+    A common requirement is to automatically start a service after a system reboot, i.e., for synchronizing data. For this you can register a receiver for the android.intent.action.BOOT_COMPLETED
