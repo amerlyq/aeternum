@@ -7,3 +7,72 @@
     https://github.com/JoaquimLey/sms-parsing
   JoaquimLey/transport-eta: Twitch streamed 🎥playground repo, README speaks to you. ⌇⡠⢔⡞⢓
     https://github.com/JoaquimLey/transport-eta
+
+
+Broadcasts ⌇⡠⣭⢭⠩
+  SEE: ※⡠⣭⢬⣐ @/todo/work/log/2021-07:08-Thu-W27
+  Receive (real one)
+    DEBUG check subscription is called
+    $ adb -s emulator-5554 shell dumpsys activity broadcasts history | grep -B1 -A6 MESSAGE_RECEIVED
+      Historical Broadcast background #47:
+        BroadcastRecord{8668bbe u10 android.bluetooth.mapmce.profile.action.MESSAGE_RECEIVED} to user 10
+        Intent { act=android.bluetooth.mapmce.profile.action.MESSAGE_RECEIVED flg=0x10 pkg=com.android.car.messenger (has extras) }
+          extras: Bundle[{STRIPPED=1}]
+        caller=com.android.bluetooth 2633:com.android.bluetooth/u10s1002 pid=2633 uid=1001002
+        requiredPermissions=[android.permission.RECEIVE_SMS]  appOp=-1
+        enqueueClockTime=2021-07-08 23:54:19.786 dispatchClockTime=2021-07-08 23:54:19.786
+        dispatchTime=-1h5m44s487ms (0 since enq) finishTime=-1h5m44s486ms (+1ms since disp)
+        Deliver 0 #0: BroadcastFilter{5176db8 1010085/u10 ReceiverList{a65d81b 1974 com.android.car.messenger/1010085/u10 remote:989b22a}}
+      #47: act=android.bluetooth.mapmce.profile.action.MESSAGE_RECEIVED flg=0x10 pkg=com.android.car.messenger (has extras)
+        0 dispatch +1ms finish
+        enq=2021-07-08 23:54:19.786 disp=2021-07-08 23:54:19.786 fin=2021-07-08 23:54:19.787
+
+
+
+Simulate ⌇⡠⣭⢫⡶
+  null $ adb -s emulator-5554 shell am broadcast -a android.bluetooth.mapmce.profile.action.MESSAGE_RECEIVED --receiver-permission android.permission.RECEIVE_SMS com.example.hello
+  DFL: $ adb -s emulator-5554 shell am broadcast -a android.bluetooth.mapmce.profile.action.MESSAGE_RECEIVED --receiver-permission android.permission.RECEIVE_SMS com.android.car.messenger
+  ALT: $ adb -s emulator-5554 shell am broadcast -a com.whereismywifeserver.intent.TEST --es sms_body "test from adb" -n com.whereismywifeserver/.IntentReceiver
+  FAIL $ adb -s emulator-5554 shell am broadcast \
+      -a android.bluetooth.mapmce.profile.action.MESSAGE_RECEIVED \
+      --receiver-permission android.permission.RECEIVE_SMS \
+      --es android.bluetooth.device.extra.DEVICE "00:11:22:AA:BB:CC" \
+      --es android.bluetooth.mapmce.profile.extra.MESSAGE_HANDLE "<uniq>" \
+      --es android.bluetooth.mapmce.profile.extra.SENDER_CONTACT_NAME "myself" \
+      --es android.intent.extra.TEXT "some text" \
+      com.android.car.messenger
+  NEED: filled extra fields
+    $AOSP/packages/apps/Car/libs/car-messenger-common/src/com/android/car/messenger/common/Utils.java:211
+      public static boolean isValidMapClientIntent(Intent intent) {
+        * EXTRA_DEVICE
+        * BMC_EXTRA_MESSAGE_HANDLE=EXTRA_MESSAGE_HANDLE
+        * BMC_EXTRA_SENDER_CONTACT_NAME=EXTRA_SENDER_CONTACT_URI
+        * EXTRA_TEXT
+    $AOSP/frameworks/base/core/java/android/content/Intent.java:5121
+      public static final String EXTRA_TEXT = "android.intent.extra.TEXT";
+    $AOSP/frameworks/base/core/java/android/bluetooth/BluetoothDevice.java:243
+      EXTRA_DEVICE = "android.bluetooth.device.extra.DEVICE";
+    $AOSP/frameworks/base/core/java/android/bluetooth/BluetoothMapClient.java:58
+      EXTRA_MESSAGE_HANDLE = "android.bluetooth.mapmce.profile.extra.MESSAGE_HANDLE";
+      EXTRA_MESSAGE_TIMESTAMP = "android.bluetooth.mapmce.profile.extra.MESSAGE_TIMESTAMP";
+      EXTRA_MESSAGE_READ_STATUS = "android.bluetooth.mapmce.profile.extra.MESSAGE_READ_STATUS";
+      EXTRA_SENDER_CONTACT_URI = "android.bluetooth.mapmce.profile.extra.SENDER_CONTACT_URI";
+      EXTRA_SENDER_CONTACT_NAME = "android.bluetooth.mapmce.profile.extra.SENDER_CONTACT_NAME";
+  BUG: intent is only sent to default SMS app :: "com.android.car.messenger" ⌇⡠⣭⢭⡌
+    /AOSP/$map/MceStateMachine.java:736
+      # Only send to the current default SMS app if one exists
+      String defaultMessagingPackage = Telephony.Sms.getDefaultSmsPackage(mService);
+      if (defaultMessagingPackage != null) {
+          intent.setPackage(defaultMessagingPackage);
+      }
+    $ adb shell pm disable-user com.android.car.messenger
+    $ adb shell pm disable-user com.android.messaging
+  [_] FIX StrictMode: android.os.strictmode.DiskWriteViolation
+    android - Finding what violated StrictMode policy - Stack Overflow ⌇⡠⣧⢬⠜
+      https://stackoverflow.com/questions/9780934/finding-what-violated-strictmode-policy
+    Help resolve StrictMode policy violation · Issue #3976 · realm/realm-java ⌇⡠⣧⢬⠸
+      https://github.com/realm/realm-java/issues/3976
+    Android - Strict Mode Policy : A tool to catch the bug in the Compile Time. | android Tutorial ⌇⡠⣧⢬⡃
+      https://sodocumentation.net/android/topic/8756/strict-mode-policy---a-tool-to-catch-the-bug-in-the-compile-time-
+    StrictMode  |  Android Developers ⌇⡠⣧⢬⡐
+      https://developer.android.com/reference/android/os/StrictMode

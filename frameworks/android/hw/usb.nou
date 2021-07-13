@@ -8,3 +8,7 @@ Pass USB/BT dongle to modified Qemu
     $ JAVA_HOME=/usr/lib/jvm/java-8-openjdk ANDROID_HOME=/w/sdk /w/sdk/tools/bin/avdmanager -v create avd --force --name car --path /t/avd --package 'system-images;android-30;default;x86_64' --device '10.1in WXGA (Tablet)'
     $ sed -ri '/^(image.sysdir.1=).*(system-images)/s//\1\2/' /t/avd/config.ini
     $ ANDROID_HOME=/w/sdk /w/sdk/emulator/emulator -verbose -avd car -no-snapstorage -no-mouse-reposition -prop qemu.preferred.bt.service=passthrough -qemu -usb -device usb-ehci,id=ehci -device usb-host,bus=ehci.0,vendorid=0x0b05,productid=0x17cb
+
+
+Remote USB
+  SEE: @/airy/usbip/USAGE.nou

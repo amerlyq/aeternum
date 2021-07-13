@@ -1,0 +1,6 @@
+
+Implementing State Machines with Java Enums · Mirko Sertic ⌇⡠⣭⡑⡼
+  https://www.mirkosertic.de/blog/2013/04/implementing-state-machines-with-java-enums/
+
+= packages/apps/Bluetooth/src/com/android/bluetooth/statemachine/
+https://android.googlesource.com/platform/frameworks/base/+/gingerbread-release/core/java/com/android/internal/util/HierarchicalStateMachine.java

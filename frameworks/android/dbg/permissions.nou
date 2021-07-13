@@ -15,3 +15,42 @@ Change permissions
   $ adb shell appops set --uid org.ebookdroid MANAGE_EXTERNAL_STORAGE allow
   ---
   $ adb shell pm uninstall com.example
+
+
+ALSO ⌇⡠⣭⢘⢌
+  $ adb shell appops get --uid com.example.hello_sms
+    Uid mode: READ_SMS: ignore
+    RECEIVE_SMS: ignore
+    SEND_SMS: ignore
+  $ adb shell appops set --uid com.example.hello_sms RECEIVE_SMS allow
+  $ adb shell appops query-op RECEIVE_SMS allow
+    com.android.car.messenger
+  $ adb shell dumpsys package com.example.hello_sms | grep permission
+  $ adb shell dumpsys package com.android.car.messenger | grep permission
+
+
+INFO
+  android - Why does RECEIVE_SMS and READ_SMS permission do not have different prompt boxes to ask for permission? - Stack Overflow ⌇⡠⣧⡾⣢
+    https://stackoverflow.com/questions/48634766/why-does-receive-sms-and-read-sms-permission-do-not-have-different-prompt-boxes
+  OLD:NICE:TUT: 2.2: Sending and Receiving SMS Messages - Part 2 · GitBook ⌇⡠⣧⢀⠓
+    https://google-developer-training.github.io/android-developer-phone-sms-course/Lesson 2/2_p_2_sending_sms_messages.html
+  Android 11 android.permission.RECEIVE_SMS not working · Issue #1280 · microg/GmsCore ⌇⡠⣧⢀⣤
+    https://github.com/microg/GmsCore/issues/1280
+  Automatic SMS Verification with the SMS Retriever API ⌇⡠⣧⢁⡛
+    https://developers.google.com/identity/sms-retriever/overview
+  OFF
+    https://developer.android.com/reference/android/Manifest.permission#RECEIVE_SMS
+    ¦ This is a hard restricted permission which cannot be held by an app until the installer on record whitelists the permission.
+    https://developer.android.com/reference/android/content/pm/PackageInstaller.SessionParams#setWhitelistedRestrictedPermissions(java.util.Set<java.lang.String>)
+  How to request background locations with API 29 and above? | B4X Programming Forum ⌇⡠⣧⢅⢕
+    https://www.b4x.com/android/forum/threads/how-to-request-background-locations-with-api-29-and-above.128231/
+  Critical Permissions - android.permission.RECEIVE_SMS | B4X Programming Forum ⌇⡠⣧⢜⣮
+    https://www.b4x.com/android/forum/threads/critical-permissions-android-permission-receive_sms.102216/
+  +++ NICE: Android permissions for system developers ⌇⡠⣧⢎⠾
+    https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/permission/Permissions.md
+  +++ ALSO: App-ops ⌇⡠⣧⢔⣪
+    https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/AppOps.md
+  Permissions on Android  |  Android Developers ⌇⡠⣧⢎⡖
+    https://developer.android.com/guide/topics/permissions/overview
+  HACK: Android Hacking and Security, Part 3: Exploiting Broadcast Receivers - Infosec Resources ⌇⡠⣧⢟⡓
+    https://resources.infosecinstitute.com/topic/android-hacking-security-part-3-exploiting-broadcast-receivers/
