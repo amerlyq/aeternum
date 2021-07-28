@@ -28,6 +28,7 @@ USAGE
   Test domain (install only single package)
     $ cd <somewhere> (find path to .apk / .ab package)
     $ adb -s emulator-5554 install /path/to/mydomain/app/build/outputs/apk/debug/app-debug.apk
+    $ adb -s emulator-5554 install -t $AOSP/out/target/product/generic_car_x86_64/system/priv-app/myservice/myservice.apk
   ALSO: integ as dependency for whole image
     $ cat build/soong/root.bp
     $ m

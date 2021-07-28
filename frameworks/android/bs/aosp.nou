@@ -49,6 +49,14 @@ Rebuild
   REMOVE: ccache is no longer supported ⌇⡠⣈⡗⣚
     2018: https://android.googlesource.com/platform/build/+/7556703f0dfab14c91c03dab1a3c25f6386268d4
     2012: https://stackoverflow.com/questions/8251741/how-to-speed-up-mm-in-module-making-of-aosp
+  Updating sources / manifest
+    $ repo sync --force-sync
+      ERR:
+        warning: repo is not tracking a remote branch, so it will not receive updates
+        repo reset: error: Entry 'docs/manifest-format.md' not uptodate. Cannot merge.
+        fatal: Could not reset index file to revision 'v2.16.2^0'.
+      FIXED: $ (cd .repo/repo && git pull)
+    $ (cd .repo/manifests/ && git log)
 
 
 %% Emu
