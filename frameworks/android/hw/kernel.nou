@@ -1,3 +1,12 @@
+TODO ^Qemu
+  [_] TRY: replace kernel w/o recompile
+    https://www.ayrx.me/notes-on-compiling-android-kernel
+    $ ./emulator -avd <avd name> -kernel <bzImage> -show-kernel -no-snapshot-load -ranchu
+    https://source.android.com/setup/build/building-kernels#customize-build
+  [_] G: android emulator bluetooth dongle $ r.b -r andr-*
+  [_] READ: HAL https://source.android.com/devices/tech/config/usb-hal
+  [_] FIND #android gdb debug library
+
 
 Build kernel ⌇⡠⢷⣋⣿
   https://junsun.net/wordpress/2021/01/android-aosp-repo-checkout-method-and-size-comparison/
