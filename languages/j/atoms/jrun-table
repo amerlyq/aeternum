@@ -1,7 +1,7 @@
 #!/bin/sh
 #0 :0
 trap '' PIPE
-exec /usr/lib/j8/bin/jconsole "$0" "$@"
+exec /usr/lib/j9/bin/jconsole "$0" "$@"
 # vim:ft=j
 )
 NB.SUMMARY: awk-like table data processing
