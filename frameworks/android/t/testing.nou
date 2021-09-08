@@ -16,8 +16,10 @@ INFO
     https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests
   [!] READ:OFF: Fundamentals of Testing  |  Android Developers ⌇⡠⢝⢙⠷
     https://developer.android.com/training/testing/fundamentals
-  [!] READ Developing Android unit and instrumentation tests - Tutorial ⌇⡠⢝⢘⣫
+  [30%] READ Developing Android unit and instrumentation tests - Tutorial ⌇⡠⢝⢘⣫
     https://www.vogella.com/tutorials/AndroidTesting/article.html
+    //app/build/reports/tests/debug/index.html
+    //app/build/reports/androidTests/connected/index.html
   Build local unit tests  |  Android Developers ⌇⡠⢝⢙⡾
     https://developer.android.com/training/testing/unit-testing/local-unit-tests#build
   [_] Test your app  |  Android Developers ⌇⡠⢝⢙⢏
