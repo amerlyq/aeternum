@@ -91,6 +91,9 @@ GL
     If you're the kind of person who would use SDL or GLFW
       and wrap everything with RAII types before getting started -- just use SFML instead.
     -- does not allow you to allocate a core context
+    CMP: vs SDL2
+      Porting my engine from SFML to SDL · Elias Daler's blog ⌇⡡⡄⢒⣡
+        https://eliasdaler.github.io/porting-to-sdl/
 
 
 GUI
@@ -147,6 +150,8 @@ Game
     ALSO: https://github.com/bitwes/Gut
     Godot Engine - Here comes Godot 3.2, with quality as priority : gamedev
       https://www.reddit.com/r/gamedev/comments/evlyxs/godot_engine_here_comes_godot_32_with_quality_as/
+    godotengine/awesome-godot: A curated list of free/libre plugins, scripts and add-ons for Godot ⌇⡡⡄⠇⢾
+      https://github.com/godotengine/awesome-godot
 
   Custom
     Was a custom engine really necessary for making The Witness? : gamedev
@@ -174,12 +179,33 @@ Dataset interchange formats
 
 
 Awesome
-  Awesome gamedev repositories : gamedev ⌇⡞⢋⢥⢣
+  ++ ellisonleao/magictools: A list of Game Development resources to make magic happen. ⌇⡞⢋⢨⢸
+    https://github.com/ellisonleao/magictools
+    VIZ:libs
+      Allegro - A game programming library ⌇⡡⡄⠕⣾
+        https://liballeg.org/
+        Entity component system - Wikipedia ⌇⡡⡄⠙⣘
+          https://en.wikipedia.org/wiki/Entity_component_system
+      Cinder ⌇⡡⡄⠚⢿
+        https://libcinder.org/
+      ++ skypjack/entt: Gaming meets modern C++ - a fast and reliable entity component system (ECS) and much more ⌇⡡⡄⠛⠃
+        https://github.com/skypjack/entt
+      Heaps - Haxe Game Engine - Heaps.io Game Engine ⌇⡡⡄⠜⠅
+        https://heaps.io/
+      NodeBox | NodeBox ⌇⡡⡄⠜⡜
+        https://www.nodebox.net/
+      SFML ⌇⡡⡄⠜⢞
+        https://www.sfml-dev.org/
+      bkaradzic/bgfx: Cross-platform, graphics API agnostic, "Bring Your Own Engine/Framework" style rendering library. ⌇⡡⡄⠜⢵
+        https://github.com/bkaradzic/bgfx
+      Are we game yet? ⌇⡡⡄⠝⢢
+        https://arewegameyet.rs/
+      Game Development by Tom Looman | ZEEF ⌇⡡⡄⠝⣎
+        https://game-development.zeef.com/tom.looman
+  Awesome gamedev repositories : gamedev ⌇⡞⢋⢥⢣ <⡉⣇>
     https://www.reddit.com/r/gamedev/comments/5abuks/awesome_gamedev_repositories/
   Calinou/awesome-gamedev: A collection of free software and free culture resources for making amazing games. (mirror) ⌇⡞⢋⢥⢩
     https://github.com/Calinou/awesome-gamedev
-  ellisonleao/magictools: A list of Game Development resources to make magic happen. ⌇⡞⢋⢨⢸
-    https://github.com/ellisonleao/magictools
   mbrukman/awesome-gamedev: A list of Game Development resources to make magic happen. ⌇⡞⢋⢨⣗
     https://github.com/mbrukman/awesome-gamedev
   pault84/awesome-gamedev: A list of Game Development resources to make magic happen. ⌇⡞⢋⢨⣛
@@ -191,6 +217,29 @@ Awesome
 
   READ: +++ oreolek/awesome-gamedev - wall-of-shame.md at 90b6a5f1ce445a150cd5101cb70b30182e3300ad - awesome-gamedev - Code hosting ⌇⡞⢋⢨⣤
     https://code.oreolek.ru/oreolek/awesome-gamedev/src/commit/90b6a5f1ce445a150cd5101cb70b30182e3300ad/wall-of-shame.md?lang=it-IT
+
+  Awesome Gamedev - Nephasto ⌇⡡⡄⠇⠃
+    https://www.nephasto.com/blog/awesomegamedev.html
+  Caerind/AwesomeCppGameDev: A curated list of awesome C++ (mainly) things for Game Development. Inspired by awesome-... stuff. ⌇⡡⡄⠓⡛
+    https://github.com/Caerind/AwesomeCppGameDev
+  The Top 2,315 Gamedev Open Source Projects on Github ⌇⡡⡄⠞⡵
+    https://awesomeopensource.com/projects/gamedev
+  Gamedev - Everything I know ⌇⡡⡄⠞⢹
+    https://wiki.nikitavoloboev.xyz/games/gamedev
+
+  VIZ:Libs
+    raizam/gamedev_libraries: A collection of open source c/c++ libraries for gamedev ⌇⡡⡄⠟⠸
+      https://github.com/raizam/gamedev_libraries
+    Game Development Libraries ⌇⡡⡄⠟⡗
+      http://jwu.github.io/wiki/gamedev-libs/
+    The Best 27 C++ (or C) gamedev Libraries | BestOfCpp ⌇⡡⡄⠟⡻
+      https://bestofcpp.com/tag/gamedev
+    Favourite programming libraries for game dev? : gamedev ⌇⡡⡄⠟⢅
+      https://www.reddit.com/r/gamedev/comments/im78hf/favourite_programming_libraries_for_game_dev/
+    12 best open source gamedev library projects. ⌇⡡⡄⠠⠹
+      https://www.findbestopensource.com/tagged/gamedev-library
+    mika314/sdlpp: C++ wrapper for SDL2 ⌇⡡⡄⠠⡼
+      https://github.com/mika314/sdlpp
 
 
 Tools
