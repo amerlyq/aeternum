@@ -2,3 +2,9 @@
   Linux | Vulkan API - Companion Guide ⌇⡠⠸⢽⣊
     https://harrylovescode.gitbooks.io/vulkan-api/content/chap04/chap04-linux.html
     = Creating a Window on Linux
+
+
+  Swap chain recreation - Vulkan Tutorial ⌇⡡⡅⢋⢜
+    https://vulkan-tutorial.com/Drawing_a_triangle/Swap_chain_recreation#page_Handling-minimization
+  Vulkan hello triangle ⌇⡡⡅⢋⢠
+    https://gist.github.com/Overv/7ac07356037592a121225172d7d78f2d
