@@ -92,8 +92,11 @@ GL
       and wrap everything with RAII types before getting started -- just use SFML instead.
     -- does not allow you to allocate a core context
     CMP: vs SDL2
-      Porting my engine from SFML to SDL · Elias Daler's blog ⌇⡡⡄⢒⣡
+      [⡡⡄⣀⣊] Porting my engine from SFML to SDL · Elias Daler's blog ⌇⡡⡄⢒⣡
         https://eliasdaler.github.io/porting-to-sdl/
+      [⡡⡄⣀⣋] Friday Facts #230 - Engine modernisation | Factorio ⌇⡡⡄⢸⠢
+        https://www.factorio.com/blog/post/fff-230
+        = Getting rid of Allegro
 
 
 GUI
