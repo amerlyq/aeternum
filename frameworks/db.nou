@@ -36,7 +36,8 @@ Firefox extensions / Android
 
 CMP
   Benchmarking LevelDB vs. RocksDB vs. HyperLevelDB vs. LMDB ⌇⡠⠺⠀⢢
-    https://www.influxdata.com/blog/benchmarking-leveldb-vs-rocksdb-vs-hyperleveldb-vs-lmdb-performance-for-influxdb/#:~:text=Under the covers LevelDB is,the storage engines for testing.
+    https://www.influxdata.com/blog/benchmarking-leveldb-vs-rocksdb-vs-hyperleveldb-vs-lmdb-performance-for-influxdb/
+    https://web.archive.org/web/20140809204443/http://symas.com/mdb/microbench/
   Database of Databases - LMDB ⌇⡠⠺⢥⡜
     https://dbdb.io/db/lmdb
 
@@ -80,6 +81,12 @@ ALT:
     = write-optimized
     INFO: Log-structured merge-tree - Wikipedia ⌇⡠⠺⣜⣛
       https://en.wikipedia.org/wiki/Log-structured_merge-tree
+    [_] WARN:(14‥20): crash-corruption https://en.wikipedia.org/wiki/LevelDB#cite_note-14
+    [_] NICE: parsing leveldb/indexdb
+      rvt2/RVT_skype.py at a520ed69146c3c479b9404330df1b44b39b2cb4f · IncideDigital/rvt2 ⌇⡡⡆⠐⠧
+        https://github.com/IncideDigital/rvt2/blob/a520ed69146c3c479b9404330df1b44b39b2cb4f/plugins/common/RVT_skype.py
+    [_] NICE:OV:SEE: Hang on! That’s not SQLite! Chrome, Electron and LevelDB ⌇⡡⡆⠐⢶
+      https://www.cclsolutionsgroup.com/post/hang-on-thats-not-sqlite-chrome-electron-and-leveldb
   Facebook: RocksDB - Wikipedia ⌇⡠⠹⣸⣋
     https://en.wikipedia.org/wiki/RocksDB
     = LevelDB fork with many additions
@@ -183,6 +190,28 @@ TerminusDB
     Query processing for header dictionary triple using GPUs - IEEE Conference Publication ⌇⡠⠺⣣⢸
       https://ieeexplore.ieee.org/document/7748854
 
+  IDEA: use Rust terminusdb from Python
+    Speed up your Python using Rust | Red Hat Developer ⌇⡡⡅⣿⡧
+      https://developers.redhat.com/blog/2017/11/16/speed-python-using-rust#example
+    How to use Rust to extend Python. Rust is safe. Python is dynamic. Even… | by Mikhail Medvedev | codeburst ⌇⡡⡅⣿⡯
+      https://codeburst.io/how-to-use-rust-to-extend-python-360174ee5819
+    How we built our Python Client that's mostly Rust ⌇⡡⡅⣿⡷
+      https://www.infinyon.com/blog/2021/03/python-client/
+    +++ [_] NICE:READ:TRY: Writing and publishing a Python module in Rust ⌇⡡⡅⣿⢑
+      https://blog.yossarian.net/2020/08/02/Writing-and-publishing-a-python-module-in-rust
+    -- krotik/eliasdb: EliasDB a graph-based database. ⌇⡡⡆⠂⢚
+      https://github.com/krotik/eliasdb
+
+  ALT: #python embedded graphdb
+    A Python Embedded Graph Database ⌇⡡⡆⠂⠴
+      https://pythonawesome.com/a-python-embedded-graph-database/
+      CogDB | Graph Database for Python ⌇⡡⡆⠂⡈
+        https://cogdb.io/
+    NationalSecurityAgency/lemongraph: Log-based transactional graph engine ⌇⡡⡆⠃⢟
+      https://github.com/NationalSecurityAgency/lemongraph
+    VIZ Datafloq: Graph Databases ⌇⡡⡆⠃⣗
+      https://datafloq.com/big-data-open-source-tools/os-graph-databases/
+
 
 Android
   Database of Databases - Sparksee ⌇⡠⠺⢫⢓
@@ -193,3 +222,43 @@ Android
 %%%% Object
   Database of Databases - ObjectBox ⌇⡠⠺⢯⠷
     https://dbdb.io/db/objectbox
+
+
+Tokyo Cabinet
+  Database of Databases - Tokyo Cabinet ⌇⡡⡆⠅⡗
+    https://dbdb.io/db/tokyo-cabinet
+
+
+LTTng
+  [⡡⡆⠍⠦] IDEA: use lttng DB as a base ⌇⡡⡆⠍⡀
+    Common Trace Format v1.8.3 ⌇⡡⡆⠉⢮
+      https://diamon.org/ctf/
+    Babeltrace · A trace manipulation toolkit ⌇⡡⡆⠉⣷
+      https://babeltrace.org/
+      = lib with python bindings
+      Examples — Babeltrace 2 Python bindings 2.0.4 documentation ⌇⡡⡆⠌⣺
+        https://babeltrace.org/docs/v2.0/python/bt2/examples.html#examples
+    Welcome! — Babeltrace 2 Python bindings 2.0.4 documentation ⌇⡡⡆⠊⠓
+      https://babeltrace.org/docs/v2.0/python/bt2/
+    TUT Debugging Python applications on Linux with LTTng-UST — LTTng ⌇⡡⡆⠊⢬
+      https://lttng.org/blog/2019/07/16/debugging-python-applications/
+    LTTng and the love of development without printf() ⌇⡡⡆⠌⢽
+      https://www.efficios.com/pub/fosdem2014/lttng-fosdem2014.pdf
+      ● The test runs for 50 minutes
+      ● Each snapshot is around 7MB, 100 snapshots recorded (one every 30 sec.)
+      ● The whole strace trace (text) is 5.4GB with 61 million events recorded
+      ● The whole LTTng trace (binary CTF) is 6.8GB with 257 million events recorded with 1% of
+
+
+[⡡⡅⣼⡰] FIND #python immutable append-only database
+  [⡡⡆⠍⠟] TRY: discodb – An efficient, immutable, persistent mapping object — DiscoDB documentation ⌇⡡⡅⣾⠒
+    https://discodb.readthedocs.io/en/latest/
+    * BAD? not immediately persistent
+    * BAD:OLD: 7yr w/o maintenance
+    [$] MAYBE: recommend for !qute , after I tried it and gathered whole history in one place
+  [_] TRY: Store data tamperproof using the Python SDK for immudb — the blazing fast, OSS immutable db - DEV Community ⌇⡡⡅⣾⡯
+    https://dev.to/vchaindz/store-data-tamperproof-using-the-python-sdk-for-immudb-the-blazing-fast-oss-immutable-db-3eg7
+    BAD: need server
+    https://docs.immudb.io/master/
+    First impressions about immudb, the immutable database - Vettabase ⌇⡡⡅⣾⢻
+      https://vettabase.com/blog/first-impressions-about-immudb-the-immutable-database/
