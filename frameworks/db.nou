@@ -40,6 +40,12 @@ CMP
     https://web.archive.org/web/20140809204443/http://symas.com/mdb/microbench/
   Database of Databases - LMDB ⌇⡠⠺⢥⡜
     https://dbdb.io/db/lmdb
+  Embedded database - Wikipedia ⌇⡡⡉⡜⡳
+    https://en.wikipedia.org/wiki/Embedded_database
+  ++ Mobile database - Wikipedia ⌇⡡⡉⡰⣳
+    https://en.wikipedia.org/wiki/Mobile_database
+    ? Couchbase Server - Wikipedia ⌇⡡⡉⡱⢨
+      https://en.wikipedia.org/wiki/Couchbase_Server
 
 
 % LMDB
@@ -57,6 +63,12 @@ CMP
     [⡠⠺⢔⡚] Блеск и нищета key-value базы данных LMDB в приложениях для iOS / Блог компании Mail.ru Group / Хабр ⌇⡠⠺⢏⣴
       https://habr.com/ru/company/mailru/blog/480850/
       >> ALSO:(serialization): ·flatbuffers· ALT: ·libfptu·
+    [⡡⡉⡮⠈] Why are they using RocksDB rather than LMDB? If it's based on Raft, then it sacr... | Hacker News ⌇⡡⡉⡮⠀
+      https://news.ycombinator.com/item?id=8070701
+      1. LMDB is limited to logical address space,
+      2. it has one big global lock,
+      3. It's a B-Tree, and both of those contribute to the fact that
+      4. LMDB is a read-oriented database [performance wise].
   TUT
     Kolab Now Blog: A short guide to LMDB ⌇⡠⠼⠳⣣
       https://blogs.kolabnow.com/2018/06/07/a-short-guide-to-lmdb
@@ -64,9 +76,35 @@ CMP
     lmdbjava/lmdbjava: Lightning Memory Database (LMDB) for Java: a low latency, transactional, sorted, embedded, key-value store ⌇⡠⠹⣹⠘
       https://github.com/lmdbjava/lmdbjava
       NDK: https://www.openldap.org/lists/openldap-technical/201501/msg00060.html
-    ENH: erthink/libmdbx: One of the fastest embeddable key-value ACID database without WAL. libmdbx surpasses the legendary LMDB in terms of reliability, features and performance. ⌇⡠⠹⣽⠰
+    [⡡⡉⡰⠲] ENH: erthink/libmdbx: One of the fastest embeddable key-value ACID database without WAL.
+      libmdbx surpasses the legendary LMDB in terms of reliability, features and performance. ⌇⡠⠹⣽⠰
       https://github.com/erthink/libmdbx#improvements-over-lmdb
       ? C++20 API
+      [⡡⡉⡮⠋] Опубликован второй кандидат в релизы встраиваемой СУБД libmdbx 1.0 ⌇⡡⡉⡭⢕
+        https://www.opennet.ru/opennews/art.shtml?num=52147
+         MDBX совсем не подойдет, если:
+          - много изменений, которые нельзя потерять = нужна БД с WAL.
+          - много коротко живущих изменений (значения часто обновляются) и/или много коротко живущих данных (данные удаляются вскоре после добавления) = нужна БД на основе LSM.
+          - требуются долгие читающие транзакции на фоне постоянных изменений.
+          - требуется несколько пишущих транзакций одновременно.
+         MDBX очень хорошо подойдет, если:
+          - много чтения и мало изменений (характерный пример LDAP).
+          - много изменений, но данные можно потерять при системной аварии.
+    hoytech/lmdbxx: C++17 wrapper for the LMDB embedded B+ tree database library ⌇⡡⡉⡩⢬
+      https://github.com/hoytech/lmdbxx
+  PERF
+    Symas LMDB Tech Info | Symas ⌇⡡⡉⡮⣤
+      https://www.symas.com/symas-lmdb-tech-info
+      In-Memory Microbenchmark ⌇⡡⡉⡰⠎
+        http://www.lmdb.tech/bench/inmem/
+  SECU crash/failure consistency
+    LMDB app-level crash consistency ⌇⡡⡉⡖⠥
+      https://www.openldap.org/lists/openldap-devel/201410/msg00004.html
+    MAJOR: segfault or memory corruption by LMDB on close/shutdown · Issue #48 · erthink/ReOpenLDAP ⌇⡡⡉⡗⢄
+      https://github.com/erthink/ReOpenLDAP/issues/48
+    Re: LMDB crash after power failure ⌇⡡⡉⡘⠱
+      https://www.openldap.com/lists/openldap-technical/201903/msg00045.html
+      !. MDB_NOSYNC is only safe for power failure if the filesystem guarantees that it preserves the order of writes.  Otherwise all bets are off.
 
 
 ALG
@@ -90,6 +128,21 @@ ALT:
   Facebook: RocksDB - Wikipedia ⌇⡠⠹⣸⣋
     https://en.wikipedia.org/wiki/RocksDB
     = LevelDB fork with many additions
+
+
+XLR Multi-version copy-on-write
+  hoytech/quadrable: Authenticated multi-version database: sparse binary merkle tree with compact partial-tree proofs ⌇⡡⡉⡚⡁
+    https://github.com/hoytech/quadrable#lmdb
+
+
+BETA Android
+  Kodein-Framework/Kodein-DB: Multiplatform NoSQL database ⌇⡡⡉⡚⢵
+    https://github.com/Kodein-Framework/Kodein-DB
+
+
+NICE:PERF vectorized columnar / SQL OLAP
+  duckdb/duckdb: DuckDB is an in-process SQL OLAP Database Management System ⌇⡡⡉⡚⣸
+    https://github.com/duckdb/duckdb
 
 
 %%%% Time-series database
