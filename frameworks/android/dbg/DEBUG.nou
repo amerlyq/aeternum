@@ -80,6 +80,13 @@ USAGE cli
       https://gist.github.com/tniessen/ea3d68e7d572ed7c607b81d715798800
     VIZ: adb - Where to find description of all "/system/bin/service" calls? - Android Enthusiasts Stack Exchange ⌇⡠⢔⡐⢏
       https://android.stackexchange.com/questions/34625/where-to-find-description-of-all-system-bin-service-calls
+    ===
+    java - AOSP add new custom System Service - Stack Overflow ⌇⡡⡉⢔⢾
+      https://stackoverflow.com/questions/22750854/aosp-add-new-custom-system-service
+    How to add custom system service to AOSP - NXP Community ⌇⡡⡉⢔⣐
+      https://community.nxp.com/t5/i-MX-Processors/How-to-add-custom-system-service-to-AOSP/m-p/927478
+    AOSP – Creating a System Service – Developers Area ⌇⡡⡉⢕⠫
+      https://devarea.com/aosp-creating-a-system-service/#.YUmTaPpRWWg
 
   [⡠⢔⡏⡰] svc interact from cmdline (USER)
     NICE intents on startup
