@@ -97,6 +97,39 @@ CMP
       https://www.symas.com/symas-lmdb-tech-info
       In-Memory Microbenchmark ⌇⡡⡉⡰⠎
         http://www.lmdb.tech/bench/inmem/
+    [X] DoctorEvidence/lmdb-store: Simple, efficient, ultra-fast, scalable data store wrapper for LMDB ⌇⡡⡊⣁⢲
+      https://github.com/DoctorEvidence/lmdb-store
+      << CMP:PERF
+    CMP: LevelDB vs. LMDB vs. Memcached Comparison ⌇⡡⡊⣁⣍
+      https://db-engines.com/en/system/LMDB;LevelDB;Memcached
+  PERF compression
+    [⡡⡊⣁⢩] database - How to add compression support to LMDB? - Stack Overflow ⌇⡡⡊⣁⢨
+      https://stackoverflow.com/questions/40039230/how-to-add-compression-support-to-lmdb#:~:text=By default LMDB doesn't,Disk Space compared to leveldb.
+      USE:
+        BET(RICH)? Decompression APIs — python-zstandard 0.15.0-pre documentation ⌇⡡⡊⣈⠑
+          https://python-zstandard.readthedocs.io/en/latest/decompressor.html
+          + including streaming and dictionary compression
+        BET(SIMPLE)? sergey-dryabzhinsky/python-zstd: Simple python bindings to Yann Collet ZSTD compression library ⌇⡡⡊⣈⠈
+          https://github.com/sergey-dryabzhinsky/python-zstd
+        animalize/pyzstd: Python bindings to Zstandard (zstd) compression library, the API is similar to Python's bz2/lzma/zlib module. ⌇⡡⡊⣈⢠
+          https://github.com/animalize/pyzstd
+    LMDB: The Leveldb Killer? - by Paul Banks ⌇⡡⡊⣁⢫
+      https://banksco.de/p/lmdb-the-leveldb-killer.html
+    [⡡⡊⣁⢰] Compressor Microbenchmark: LMDB ⌇⡡⡊⣁⢮
+      http://www.lmdb.tech/bench/inmem/compress/LMDB/
+    [⡡⡊⣅⠑] More Thoughts About Compression and Storage - DZone Java ⌇⡡⡊⣁⣃
+      https://dzone.com/articles/more-thoughts-about
+      ¦ LMDB is meant to be used by directly getting a memory pointer, and it
+      ¦ actively encourages you to do such things as have a pointer reference
+      ¦ from one record to another record.
+      2014: Introduction — acid 0.0.16 documentation ⌇⡡⡊⣅⡠
+        https://acid.readthedocs.io/en/latest/intro.html#batch-compression
+  PERF:ALT: G: lmdb zRAM
+    https://rc.library.uta.edu/uta-ir/bitstream/handle/10106/27669/WU-DISSERTATION-2018.pdf
+    [$] The final step for huge-page swapping | Hacker News ⌇⡡⡊⣃⠔
+      https://news.ycombinator.com/item?id=17449475
+    [$] Almost Always Add Swap Space | Hacker News ⌇⡡⡊⣃⡭
+      https://news.ycombinator.com/item?id=20479162
   SECU crash/failure consistency
     LMDB app-level crash consistency ⌇⡡⡉⡖⠥
       https://www.openldap.org/lists/openldap-devel/201410/msg00004.html
