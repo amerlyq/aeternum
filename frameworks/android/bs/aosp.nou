@@ -28,10 +28,11 @@ CFG:
     https://source.android.com/setup/build/downloading
     # USE: https://android.googlesource.com/platform/manifest/+/refs/heads/android-11.0.0_r33
     $ mkdir -p /cache/aosp && cd /cache/aosp
+    $ export GIT_COMMITTER_NAME=user GIT_COMMITTER_EMAIL=mail
+      # OR: $ (cd .repo/manifests && gmy -m)
     $ repo init --depth=1 -u https://android.googlesource.com/platform/manifest -b android-11.0.0_r33
       # NOTE: may freeze, must re-run
       MAYBE:ALSO: $ --partial-clone --clone-filter=blob:limit=10M
-    $ (cd .repo/manifests && gmy -m)
     $ repo sync -c -n -j4 --no-clone-bundle --no-tags
     # $ tar -czf ../src_android.tar.gz -- .
     $ repo sync -c -l -j8
