@@ -9,7 +9,11 @@ DEBUG
     $ xdg-open app/build/reports/androidTests/connected/index.html
     $ adb shell am instrument -w com.example.service.test/androidx.test.runner.AndroidJUnitRunner
     $ adb shell am instrument -w -m -e package com.example.service -e debug false com.example.service.test/androidx.test.runner.AndroidJUnitRunner
+    $ adb shell am instrument -w -e class com.example.service.MyTests -- com.example.service.test/androidx.test.runner.AndroidJUnitRunner
     $ adb shell am instrument -w -e class 'com.example.service.MyTests#MyImpl_GetSet' -- com.example.service.test/androidx.test.runner.AndroidJUnitRunner
+    $ atest -c MyTests
+    $ atest -c MyTests:com.example.service
+
 
 INFO
   [⡠⢝⢙⢤] OFF: Build instrumented unit tests  |  Android Developers ⌇⡠⢝⢑⣼
