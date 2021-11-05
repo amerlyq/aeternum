@@ -10,5 +10,12 @@ Pass USB/BT dongle to modified Qemu
     $ ANDROID_HOME=/w/sdk /w/sdk/emulator/emulator -verbose -avd car -no-snapstorage -no-mouse-reposition -prop qemu.preferred.bt.service=passthrough -qemu -usb -device usb-ehci,id=ehci -device usb-host,bus=ehci.0,vendorid=0x0b05,productid=0x17cb
 
 
+[X] FIXED:ERR:※⡡⠦⡃⣡ qemu-system-x86_64: Warning: speed mismatch trying to attach usb device "BCM20702A0" (full speed) to bus "ehci.0", port "1" (high speed)
+  OLD: $ emulator -prop qemu.preferred.bt.service=passthrough -qemu -usb -device usb-ehci,id=ehci -device usb-host,bus=ehci.0,vendorid=0x0b05,productid=0x17cb
+  FIXED: $ emulator -wipe-data -prop qemu.preferred.bt.service=passthrough -qemu -usb -device nec-usb-xhci,id=xhci -device usb-host,bus=xhci.0,vendorid=0x0b05,productid=0x17cb
+  ALSO: $ emulator -no-snapshot-load -shell -qemu -usb ...
+  ::: USE: $ emulator -verbose -no-window -memory 2048 -no-audio -writable-system -wipe-data -no-snapshot -prop qemu.preferred.bt.service=passthrough -qemu -usb -device nec-usb-xhci,id=xhci -device usb-host,bus=xhci.0,vendorid=0x0b05,productid=0x17cb
+
+
 Remote USB
   SEE: @/airy/usbip/USAGE.nou
