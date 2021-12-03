@@ -36,12 +36,14 @@ CFG:
     $ repo sync -c -n -j4 --no-clone-bundle --no-tags
     # $ tar -czf ../src_android.tar.gz -- .
     $ repo sync -c -l -j8
+    # $ repo sync --fetch-retries 5 && repo forall -c git lfs pull
     $ export OUT_DIR_COMMON_BASE=/cache/android
     $ source build/envsetup.sh
     $ lunch aosp_car_x86_64-userdebug
     # NOTE: uses "soong" builder ALT:(slower) $ make ...
     # PERF=(j4=6h20m j6=3h45m) on CPU=i5 RAM=16GB  -> out=[122/236]GB
-    $ m -j$(nproc)
+    $ m
+    # OR: $ m -j$(nproc)
 
 
 Rebuild
@@ -58,6 +60,11 @@ Rebuild
         fatal: Could not reset index file to revision 'v2.16.2^0'.
       FIXED: $ (cd .repo/repo && git pull)
     $ (cd .repo/manifests/ && git log)
+    # OR: $ repo sync --prune --force-sync --force-remove-dirty --current-branch --no-manifest-update --fail-fast
+    $ export OUT_DIR_COMMON_BASE=/cache/android
+    $ source build/envsetup.sh
+    $ lunch aosp_car_x86_64-userdebug
+    $ m
 
 
 %% Emu
