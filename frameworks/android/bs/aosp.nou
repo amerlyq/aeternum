@@ -32,8 +32,9 @@ CFG:
       # OR: $ (cd .repo/manifests && gmy -m)
     $ repo init --depth=1 -u https://android.googlesource.com/platform/manifest -b android-11.0.0_r33
       # NOTE: may freeze, must re-run
-      MAYBE:ALSO: $ --partial-clone --clone-filter=blob:limit=10M
+      MAYBE:ALSO: $ --no-clone-bundle --partial-clone --clone-filter=blob:limit=10M
     $ repo sync -c -n -j4 --no-clone-bundle --no-tags
+      OR:BET? $ repo sync -v --fail-fast --force-remove-dirty --force-sync --no-clone-bundle --nmu -c --optimized-fetch --no-tags -j4 --retry-fetches=4
     # $ tar -czf ../src_android.tar.gz -- .
     $ repo sync -c -l -j8
     # $ repo sync --fetch-retries 5 && repo forall -c git lfs pull
