@@ -6,6 +6,10 @@ STD
   fmt | std::format
     https://fmt.dev/latest/
     https://github.com/fmtlib/fmt
+  abseil/abseil-cpp: Abseil Common Libraries (C++) ⌇⡡⣱⢐⣨
+    https://github.com/abseil/abseil-cpp
+  google/googletest: GoogleTest - Google Testing and Mocking Framework ⌇⡡⣱⢑⠄
+    https://github.com/google/googletest
 
 BET
   https://github.com/fffaraz/awesome-cpp
