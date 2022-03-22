@@ -65,3 +65,20 @@ FUTURE
     https://dl.acm.org/doi/10.1145/237721.237729
   [_] Compile-Time Type Prediction and Type Checking for Common Lisp Programs | SpringerLink ⌇⡞⣓⣮⠻
     https://link.springer.com/chapter/10.1007/978-1-4615-2836-4_8
+
+
+2022-03-21-Mon-W12
+  [_] 10m/ type hints for Common Lisp ⌇⡢⠸⡋⠥
+    [_] READ: Type System ⌇⡢⠸⡋⠽
+      https://lispcookbook.github.io/cl-cookbook/type.html
+    Performance Tuning and Tips ⌇⡢⠸⡋⡓
+      https://lispcookbook.github.io/cl-cookbook/performance.html
+    [⡢⠸⡋⡄] types - Typing variables in Common Lisp - Stack Overflow ⌇⡢⠸⡋⠊
+      https://stackoverflow.com/questions/44280323/typing-variables-in-common-lisp
+    Google Common Lisp Style Guide ⌇⡢⠸⡋⠫
+      https://google.github.io/styleguide/lispguide.xml
+    Pros and cons of different ways to declare types in Common Lisp? : lisp ⌇⡢⠸⡋⡺
+      https://www.reddit.com/r/lisp/comments/87gyhq/pros_and_cons_of_different_ways_to_declare_types/
+    https://common-lisp.net/project/cmucl/downloads/doc/cmu-user-2010-05-03/compiler-hint.html
+    But with Common Lisp, you don't get the safety of strong static types. If the co... | Hacker News ⌇⡢⠸⡋⣳
+      https://news.ycombinator.com/item?id=12287374
