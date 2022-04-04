@@ -1,0 +1,8 @@
+
+2022-04-03-Sun-W13
+  [≫] TRY: python-furl
+    https://github.com/gruns/furl/
+    OR: https://github.com/samuelcolvin/pydantic
+  [≫] python - error: Skipping analyzing 'flask_mysqldb': found module but no type hints or library stubs - Stack Overflow ⌇⡢⡉⡻⠄
+    https://stackoverflow.com/questions/60716482/error-skipping-analyzing-flask-mysqldb-found-module-but-no-type-hints-or-lib
+    https://mypy.readthedocs.io/en/stable/running_mypy.html#cannot-find-implementation-or-library-stub
