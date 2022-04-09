@@ -215,6 +215,21 @@ TALK
   The most valuable values - Juanpe Bolívar - Meeting C++ 2017 - YouTube
     https://www.youtube.com/watch?v=NMol_5-2owo
     +++ https://pabloariasal.github.io/2018/06/26/std-variant/
+ 2022-01-17-Mon-W03
+  [⪡⡊⡭] READ: Как мы избавились от 80% своего кода, повысив скорость разработки и уменьшив количество ошибок / Хабр ⌇⡡⣥⢀⠢
+    https://habr.com/ru/company/mvideo/blog/599401/
+    = Насчет SOLID=bullshit :: тут тоже на single responcibility накатили.
+    да и на TDD тоже. Ну это так, на подумать. Я бы тут с авторами
+    подискутировал, на тему делам SOLID, но и про KISS не забываем. ну и про
+    то, что API тестирование - это не серебряная пуля. Но в целом статья мне понравилась.
+  [_] VREC: Law of Demeter: A Practical Guide to Loose Coupling - Kris Jusiak - CppCon 2021
+    https://youtu.be/QZkVpZlbM4U
+    Довольно практичная и легкая лекция про S&D из SOLID. Должна быть понятна не только плюсовикам. тут мало плюсовщины.
+  [_] VREC: Type-and-resource Safety in Modern C++ - Bjarne Stroustrup - CppCon 2021 - YouTube ⌇⡡⣥⢊⣥
+    https://www.youtube.com/watch?v=l3rvjWfBzZI
+    теперь и в с++ будет куча анотаций и не анотаций
+    из раста(или чего еще) предлагает [[trusted]]
+    ток в расте  помечаешь его как unsafe
 
 
 DEBUG
