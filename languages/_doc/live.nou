@@ -1,0 +1,121 @@
+
+2022-07-02-Sat-W26
+  [⡢⣀⣹⣗] 4h+30m FIND alt IA language :: live coding ++ great ecosystem ++ ffi ⌇⡢⣀⣹⣛
+    ::: WF:SUM(conclusion): ‼ I don't want a "niche" language ※⡢⣀⢇⢋
+      * I'm *not ready* to fight with "Smalltalk" custom image versioning and mouse-IDE
+      * if python works for my task -- let it be Python, otherwise use Lisp
+      * if jetlive works -- it can be jetlive -- if I can understand OS/kernel precisely
+      * if "clasp" will work for Lisp+C++ -- nothing else is needed.
+      * ... (SEE: ※⡢⣀⢇⢋)
+    [•] clasp-developers/clasp: clasp Common Lisp environment ⌇⡢⣀⢲⡗
+      https://github.com/clasp-developers/clasp
+      ++ interop with C++ == NICE:BET? alternative to jetlive
+        [_] drmeister | Ideas to software to molecules that change the world ⌇⡢⣀⢳⡟
+          https://drmeister.wordpress.com/
+      (1) 2018 LLVM Developers’ Meeting: C. Schafmeister “Lessons Learned Implementing Common Lisp with LLVM” - YouTube ⌇⡢⣀⢴⣮
+        https://www.youtube.com/watch?v=mbdXeRBbgDM
+      [⡢⣀⣓⡖] TALK: Starting a lisp game framework. The start of a story, and requests for advice : lisp ⌇⡢⣀⢴⡓
+        https://www.reddit.com/r/lisp/comments/cxe4xr/starting_a_lisp_game_framework_the_start_of_a/
+        Game Oriented Assembly Lisp - Wikipedia ⌇⡢⣀⣓⡬
+          https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp
+          GDC Vault - Highly Detailed Continuous Worlds: Streaming Game Resources From Slow Media ⌇⡢⣀⣔⠬
+            https://www.gdcvault.com/play/1022677/Highly-Detailed-Continuous-Worlds-Streaming
+    [_] ALT:TRY: smalltalk inof lisp
+      [‣] Do the built-in tutorial.
+        wiki.c2.com/?SmalltalkSyntaxInaPostcard ⌇⡢⣀⣪⠤
+          http://wiki.c2.com/?SmalltalkSyntaxInaPostcard
+        Some Pharo 4 Getting-Started Tips - avdi.codes ⌇⡢⣀⣦⣥
+          https://avdi.codes/some-pharo-4-getting-started-tips/
+        Human-Computer Interaction. Theories, Methods, and Human Issues: 20th ... - Google Books ⌇⡢⣀⣧⠭
+          https://books.google.com.ua/books?id=-IZjDwAAQBAJ&pg=PA246&lpg=PA246&dq=filemanager+in+pharo&source=bl&ots=AE3T_nxnd0&sig=ACfU3U3qXIakrfmxfOsm163ZDZG-cKZ-dw&hl=en&sa=X&ved=2ahUKEwiv-qylvtv4AhWSk4sKHe-_AqMQ6AF6BAgWEAM#v=onepage&q=filemanager in pharo&f=false
+        Pharo MOOC: Live Object Programming in Pharo ⌇⡢⣀⣲⡕
+          https://mooc.pharo.org/
+        (1) Immediate feedback on OpenGL development using Pharo - YouTube ⌇⡢⣀⣳⣑
+          https://www.youtube.com/watch?v=fAjoxT-uIwM
+        What would it take to code a sophisticated OpenGL-based game in Smalltalk? Is it possible? - Quora ⌇⡢⣀⣳⣢
+          https://www.quora.com/What-would-it-take-to-code-a-sophisticated-OpenGL-based-game-in-Smalltalk-Is-it-possible
+      [_] TRY:TUT: Amber Alert: We can do mobile apps! | by Richard Kenneth Eng | Smalltalk Talk | Medium ⌇⡢⣀⣸⣝
+        https://medium.com/smalltalk-talk/amber-alert-we-can-do-mobile-apps-34b2d4d32731
+      OFF: What would it take to code a sophisticated OpenGL-based game in Smalltalk? Is it possible? - Quora ⌇⡢⣀⣵⠞
+        https://www.quora.com/What-would-it-take-to-code-a-sophisticated-OpenGL-based-game-in-Smalltalk-Is-it-possible
+      Why Aren’t People Using Smalltalk? | by Richard Kenneth Eng | Smalltalk Talk | Medium ⌇⡢⣀⣤⣻
+        https://medium.com/smalltalk-talk/why-aren-t-people-using-smalltalk-80de31b6e3f4
+        [_] MAYBE: Pharo can modify numbers by mouse dragging like in ※⡢⣀⢮⢖
+        [?] WTF: is it not file-based
+      Peter Uhnak on Twitter: "NeoVIM client in #Pharo, because why not. #soon™ https://t.co/1fffbRoTPN" / Twitter ⌇⡢⣀⣤⣕
+        https://twitter.com/peteruhnak/status/1023580297449889792
+      pharo-contributions/file-dialog-transfered-to-newtools: Replacement for Pharo's native dialog ⌇⡢⣀⣦⢯
+        https://github.com/pharo-contributions/file-dialog-transfered-to-newtools
+      Where Smalltalk Went Wrong (2004) | Hacker News ⌇⡢⣀⣪⠵
+        https://news.ycombinator.com/item?id=8797522
+    Live coding - Wikipedia ⌇⡢⣀⢩⠺
+      https://en.wikipedia.org/wiki/Live_coding
+      The live coding language that lets you be an actual rock star - Stack Overflow Blog ⌇⡢⣀⣢⣣
+        https://stackoverflow.blog/2020/01/29/the-live-coding-language-that-lets-you-be-an-actual-rock-star/
+      [>⡢⣁⡭⡈] 30m VIZ toplap/awesome-livecoding: All things livecoding ⌇⡢⣀⣬⣭
+        https://github.com/toplap/awesome-livecoding
+        [✗⡊⣨] ~~ only music
+          [!] NICE:(lisp-like) Extempore docs ⌇⡢⣁⡩⠘
+            https://extemporelang.github.io/
+          ChucK => A Strongly-Timed Music Programming Language ⌇⡢⣁⡧⠣
+            https://chuck.cs.princeton.edu/
+          clive ⌇⡢⣁⡧⠩
+            https://mathr.co.uk/clive/
+          Fluxus 3D ⌇⡢⣁⡧⡄
+            http://www.pawfal.org/fluxus/
+          tmhglnd/mercury: A minimal and human-readable language and environment for the live coding of algorithmic electronic music. ⌇⡢⣁⡧⡜
+            https://github.com/tmhglnd/mercury
+          hundredrabbits/Orca: Esoteric Programming Language ⌇⡢⣁⡧⢎
+            https://github.com/hundredrabbits/Orca
+          index | SuperCollider ⌇⡢⣁⡧⢙
+            https://supercollider.github.io/
+          vvvv - a multipurpose toolkit | vvvv ⌇⡢⣁⡧⢠
+            https://vvvv.org/
+    Exploratory programming - Wikipedia ⌇⡢⣀⢪⠯
+      https://en.wikipedia.org/wiki/Exploratory_programming
+    Interactive programming - Wikipedia ⌇⡢⣀⢪⡋
+      https://en.wikipedia.org/wiki/Interactive_programming
+    Read–eval–print loop - Wikipedia ⌇⡢⣀⢪⡩
+      https://en.wikipedia.org/wiki/Read–eval–print_loop
+      [_] NICE:TUT: kanaka/mal: mal - Make a Lisp ⌇⡢⣀⣔⠾
+        https://github.com/kanaka/mal/
+      Types - The CHICKEN Scheme wiki ⌇⡢⣀⣔⡦
+        http://wiki.call-cc.org/man/5/Types
+    Online-REPs-and-REPLs ⌇⡢⣀⢪⡰
+      https://joel.franusic.com/online-reps-and-repls
+    Hot swapping - Wikipedia ⌇⡢⣀⣕⣦
+      https://en.wikipedia.org/wiki/Hot_swapping
+      :: Pike, Lisp, Erlang, Smalltalk, Visual Basic 6 (Not VB.net), Java and most recently Elm[6] and Elixir.
+    Interactive Programming ⌇⡢⣀⢭⡙
+      https://elm-lang.org/news/interactive-programming
+      Light Table ⌇⡢⣀⢱⢄
+        http://lighttable.com/
+        LightTable/LightTable: The Light Table IDE ⛺ ⌇⡢⣀⢱⣉
+          https://github.com/LightTable/LightTable
+    [%⡢⣀⣕⠿] NICE: Learnable Programming ⌇⡢⣀⢮⢖
+      http://worrydream.com/LearnableProgramming/
+        COOL: drag mouse over function arg number -- and see graphics modified
+          == no need for gamestudio IDE with many textboxes
+      http://worrydream.com/ ⌇⡢⣀⢱⡪
+        http://worrydream.com/#!2/LadderOfAbstraction
+    USE: game engine
+      Shirakumo/trial: A fully-fledged Common Lisp game engine ⌇⡢⣀⣏⢺
+        https://github.com/Shirakumo/trial
+      ba-st/Winter: Winter is a 2D game engine for Pharo Smalltalk ⌇⡢⣀⣱⠥
+        https://github.com/ba-st/Winter
+      [⡢⣀⣭⡺] Which is better—Pharo or LISP? - Quora ⌇⡢⣀⣭⡬
+        https://www.quora.com/Which-is-better-Pharo-or-LISP
+        ::: FAIL: too much of broken libs in Pharo
+        * BUT: Fourth, Smalltalk (Pharo) is provably much more productive than Lisp (Common Lisp),
+          by a factor of 2.1X, on average.
+          Smalltalk’s Proven Productivity. [Updated: November 4, 2017.] | by Richard Kenneth Eng | Smalltalk Talk | Medium ⌇⡢⣀⣰⠴
+            https://medium.com/smalltalk-talk/smalltalk-s-proven-productivity-fe7cbd99c061
+        * Fifth, Smalltalk (Pharo) is much, much more scalable. You can write truly massive systems with it.
+          Richard Kenneth Eng's answer to Why is OOP (Object-Oriented Programming) the standard paradigm for most software? - Quora ⌇⡢⣀⣰⡂
+            https://www.quora.com/Why-is-OOP-Object-Oriented-Programming-the-standard-paradigm-for-most-software/answer/Richard-Kenneth-Eng
+        [_] SEE: Glamorous Toolkit ⌇⡢⣀⣰⢲
+          https://gtoolkit.com/
+    [⡢⣀⣗⢦] Lisp didn’t add any value to my life : lisp ⌇⡢⣀⣗⢟
+      https://www.reddit.com/r/lisp/comments/vogjl2/lisp_didnt_add_any_value_to_my_life/
+      [⡢⣀⣞⠺] Beating the Averages ⌇⡢⣀⣗⢨
+        http://www.paulgraham.com/avg.html
