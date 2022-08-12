@@ -194,3 +194,48 @@ Qs hot-reloading of deinitializer
     WARNING: redefining COMMON-LISP-USER::A in DEFUN
     "bar"
     NIL
+
+
+2022-08-11-Thu-W32
+  [⡢⣵⠻⡶] 18:45 ◔ 1h50m .lisp WF lexical scope TALK in forum ⌇⡢⣶⠣⡖
+    * I would liked to say: hey, SWANK, use temporarily *this* commented
+      development-only lexical scope for all my next evals.
+    * does anybody knows any useful tricks how to eval part of the function
+      without replacing each lexical var by dynamic var each time?
+    pjb: let over defun
+      ¦ Start with (let ((var …)) (inner-expression var)) and grow the
+      ¦ expression, until you have a function body, and then just remove the
+      ¦ let, and put the variables in the lambda-list.
+      ¦
+      ¦ Of course, when you start from an existing function, an emacs command
+      ¦ could more easily find the parameters and variables to propose you a
+      ¦ default let to wrap a subexpression.
+    pjb: Currently, to evaluate subexpressions, I edit/add the LET manually.
+    pjb: But it's conceivable to design commands to help doing it automatically.
+      ¦ slime uses strings to pass to swank, so any kind of editing can be
+      ¦ performed, even if I'd rather build a sexp before sending it to swank.
+      emacs-redshank.el · master · Pascal J. Bourguignon / rc · GitLab ⌇⡢⣵⠹⡒
+       https://gitlab.com/informatimago/rc/-/blob/master/emacs-redshank.el#L505
+        ¦ For example, if you start from an existin function, some static
+        ¦ analysis can give you the type of each variable.  Then the free
+        ¦ variables in a subexpression that must be bound in the LET, can be
+        ¦ bound to default values dependening on their type.
+       https://gitlab.com/informatimago/rc/-/blob/master/emacs-redshank.el#L518
+        ¦ this redshank:free-vars-for-emacs function is implemented in common
+        ¦ lisp. It's called from the emacs lisp command
+        ¦ pjb-redshank-extract-to-defun.  This emacs lisp command only does the
+        ¦ emacs stuff: building the text in the defun variable with the
+        ¦ temporary buffer.
+    NotThatRPG: use DFL args for global funcs
+      ¦ if your functions are global, rather than local, you could give
+      ¦ them argument defaults that get their values from dynamic/special
+      ¦ variables. Then you bind the special variable and test whatever you like
+      ¦ I guess that would work even for labels and flet, but those are just difficult to invoke, anyway.
+    [_] ALT:TRY: see more video lection -- and spot usual tricks for interactive editing
+      [_] BET:FIND smb with long history of lisp programming for OpenGL / GUI
+      Kaveh's Common Lisp Lesson 11 - YouTube ⌇⡢⣵⠴⠅
+        https://www.youtube.com/watch?v=jVayAXWDpOw
+    [_] FIND: tricks for CL exploration programming
+      REPL Exploration Guide - Common Lisp ⌇⡢⣵⠻⢓
+        https://bnmcgn.github.io/lisp-guide/lisp-exploration.html
+      https://zenodo.org/record/3742759/files/paper.pdf
