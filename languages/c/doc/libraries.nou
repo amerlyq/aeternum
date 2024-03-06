@@ -7,3 +7,17 @@ Embedded / Firmware
     https://01.org/ell
   erthink/erthink: Useful C++ code collection imported/adapted from another personal projects ⌇⡠⠻⠖⠄
     https://github.com/erthink/erthink
+
+
+2024-03-05-Tue-W10
+  [/] 00:15 20m <W> INFO other ready-to-use STD libs for C ⌇⡥⣧⢝⢴
+    GitHub - oz123/awesome-c: A curated list of awesome C frameworks, libraries, resources and other shiny things. Inspired by all the other awesome-... projects out there. ⌇⡥⣧⢛⡪
+      https://github.com/oz123/awesome-c
+    something like an "extended" C string library? - Stack Overflow ⌇⡥⣧⢜⡸
+      https://stackoverflow.com/questions/6271903/something-like-an-extended-c-string-library
+      GitHub - websnarf/bstrlib: The Better String Library ⌇⡥⣧⢜⣫
+        https://github.com/websnarf/bstrlib
+    Extended C Library download | SourceForge.net ⌇⡥⣧⢝⢪
+      https://sourceforge.net/projects/libxc/
+    A list of open-source C++ libraries - cppreference.com ⌇⡥⣧⢝⣗
+      https://en.cppreference.com/w/cpp/links/libs
