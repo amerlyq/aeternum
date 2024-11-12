@@ -21,6 +21,9 @@ exit
 #%  * "Refuse to dlopen PIE objects [BZ #24323]" :: https://patchwork.ozlabs.org/patch/1055380/
 #%  * http://sourceware-org.1504.n7.nabble.com/Bug-dynamic-link-24323-New-dlopen-should-not-be-able-open-PIE-objects-td562159.html#a562160
 #%  * ALG:(ctors problem): https://sourceware.org/bugzilla/show_bug.cgi?id=11754#c15
+#%  ALSO:※⡧⠳⡛⢇ [Question] Shouldn't TSan add the flag "-pie"? · Issue #13 · arsenm/sanitizers-cmake ⌇⡧⠳⡔⡋
+#%    https://github.com/arsenm/sanitizers-cmake/issues/13#issuecomment-315532253
+#%    ¦ for Qt executables requiring fPIC, not fPIE
 #%
 cmake_minimum_required(VERSION 3.6.3)
 project(main CXX)
