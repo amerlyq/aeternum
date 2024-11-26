@@ -8,50 +8,63 @@ Notches == mostly verbs and adverbs; tags -- nouns and adjectives
 %%% Syntax
 
 RED -- Problems / attention
-  RQ | REQUIRE | REQUIREMENT
-  ERR | ERROR
-  REGR | REGRESSION
-  BUG
+  Qs
+  RQ    RQs     REQUIRE     # REQUIREMENT
+  ERR   ERRs    ERROR
+  BUG   BUGs
+  REGR                      # REGRESSION
   XXX
   WTF
   BAD
-  FAIL | FAILED | FAILURE
-  CRIT | CRITICAL
+  FAIL          FAILED      FAILURE
+  CRIT          CRITICAL
+  RUSH                      # Random Urgent Shit (=Really Urgent Stuff)
+
 
 GREN -- Future
-  ADD
+  ADD   ALSO
+  E.G | e.g     # EXAMPLE  (exampli gratia)
   NEED
   FIND
-  ALSO
-  BET | BETTER
-  E.G | e.g | EXAMPLE = (exampli gratia)
+  BET   BETTER
+  ADVICE
 
-Category -- Unconditionally necessary actions
+
+BRIGHT.GREN - Category -- learning/cheatsheet/recon
   SEE
   READ
-  SEIZE
-  REF | REFERENCE
-  TUT | TUTORIAL
+  REF   REFERENCE
+  TUT   TUTORIAL
   BLOG
   BOOK
   LIOR
+  OV    OVERVIEW
+
+ DARK.GREN
+  RUL RULE RULEs
   LORE
+  TRAIN
+  VREC  # video-recording
+
 
 YELW -- Doubts
-  ALT
-  OR
-  CASE
+  ALT OR
+  CASE  CASEs
   THINK
-  IDEA
-  CHG | CHANGE
+  IDEA  IDEAs
+  CHG  # CHANGE
   RENAME
-  CMP | COMPARE | COMPARISON
-  I.E | i.e | MEANS = (id est)
+  CALL
+  CMP  # COMPARE | COMPARISON
+  I.E  | i.e  # = MEANS = (id est)
   EXAM | EXAMINE
+  OPT  OPTs | OPTL   | OPTIONAL
+  # CONTPL | CONTEMPLATE  # = doing mindful learning/examination work of connecting pieces together
+
 
 BLUE -- Development
   DEV | DEVELOP
-  CFG
+  CFG  CFGs
   ENH | ENHANCE
   HACK
   NICE
@@ -59,6 +72,7 @@ BLUE -- Development
   SEP | SEPARATE
   SPL | SPLIT
   DECI| DECIDE
+
 
 PINK -- Questionable
   TODO
@@ -68,52 +82,99 @@ PINK -- Questionable
   NOT
   REQ | REQUEST
   MAYBE
-  QST | QUEST | QUESTIONABLE  # DUB | DUBIOUS | arguable
+  WAIT | WAITING
+  # QST | QUEST | QUESTIONABLE  # DUB | DUBIOUS | arguable
+
 
 CYAN -- InfoType/Description Connotations (annotation flavor)
-  INF | INFO
-  SRC | SOURCE
-  VAR | VARs | VARIABLE
-  VIZ | PRECISELY (videlicet = full list enumeration)
-  ALG | ALGORITHM
-  SEQ | SEQUENCE
-  HYP | HYPO | HYPOTHESIS
-  CONT | CONTR | CONTRACT
-  IMPL | IMPLEMENT | IMPLEMENTATION
-  ARCH | ARCHITECTURE
-  PERF | PERFORMANCE
+  INF   INFO
+  SRC           # SOURCE
+  VAR   VARs    # VARIABLE
+  VIZ           # PRECISELY (videlicet = full list enumeration)
+  ALG   ALGO    # ALGORITHM
+  SEQ           # SEQUENCE
+  HYP   HYPO    # HYPOTHESIS
+  CONT          # CONTINUE
+  CONTR         # CONTRACT
+  IMPL          # IMPLEMENT | IMPLEMENTATION
+  ARCH          # ARCHITECTURE
+  PERF          # PERFORMANCE
   TALK
-  SECU | SECURE | SECURITY
-  MMAP | MINDMAP
+  SECU  SECURE  # SECURITY
+  RELI          # RELIABILITY
+  RELY
+  MMAP          # MINDMAP
+
 
 ORNG -- Beware
-  BUT
-  DONT
-  FIX | FIXME
-  WARN | WARNING
-  ATT | ATTN | ATTENTION
-  REM | REMOVE
+  BUT   DONT
+  TBD
+  WiP   WIP
+  FIX   FIXME   FIXUP
+  WARN  WARNING
+  ATT   ATTN    ATTENTION
+  REM   REMOVE
+  # OPTS  OPTIONS
+  BLK   BLOCK   BLOCKED   BlockedBy
+
 
 GREY -- Connotation
   DONE
   FIXED
-  EXPL | EXPLAIN | EXPLANATION
-  TEMP | TEMPORARY
+  WKRND
+  TEMP      # TEMPORARY
+  OLD
   UNUSED
-  OBSOL | OBSOLETE
-  DEPR | DEPRECATED
+  OBSOL     # OBSOLETE
+  DEPR      # DEPRECATED
+  DSBLD  DISABLED
   TL;DR
+  FMT    FORMAT
+  RND       # R&D | 'RaNDom (=arbitrary)' = 'Random predisposition/pick/choice, Needs Decision'
+
+
+DARK.PINK - Semantics
+  API
+  ex~   EXAMPLE
+  SEIZE
+  BUMP
+  EVO   EVOL    EVOLVE     # EVOLUTION
+
+
+DARK.BLUE - Headers
+  OFF   OFFL    OFCL  OFFICIAL
+  DRAW
+  DIY   MAKE    # = by hands in #wkshop
+  WF    WFs     WORKFLOW
+  PRIA  PRIOR_ART
+  FUT   FUTURE
+  RE    REV-ENG
+  REVL  REVEAL  # REVELATION | DISCOVERY | OBSERVATION
+  XLR   EXPLORE
+  XP XPs  XPMT  # EXPERIMENT
+
 
 PURP -- Markers
-  NOTE | N.B. = (nota bene)
-  USE
-  USAGE
-  DFL
-  STD
-  SUM | SUMMARY
-  DEBUG
-  I.A | i.a | AMONGST = (inter alia)
-  DEP | DEPENDS | DEPENDENCY
+  NB    NOTE  N.B.  # (nota bene) -- abbr is disabled (overlapped with "ти")
+  USE   USAGE
+  DEMO
+  DFL   DEFAULT
+  STD               # STANDARD
+  SUM   SUMMARY
+  DBG   DEBUG
+  I.A   i.a         # = AMONGST = (inter alia)
+  DEP   DEPs  DEPENDS  # DEPENDENCY
+
+
+WHITE - Unique
+  THEO  # THEORY
+
+
+BRASS - Flow
+  EXPL  EXPLAIN     # EXPLANATION
+  COS   BECAUSE
+  AGAIN
+  EQ
 
 
 **************************************************
